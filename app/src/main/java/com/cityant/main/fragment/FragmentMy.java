@@ -9,7 +9,7 @@ import com.cityant.main.R;
 import com.iloomo.base.FragmentSupport;
 
 
-public class FragmentMy extends FragmentSupport implements View.OnClickListener {
+public class FragmentMy extends FragmentSupport  {
 
 
     @Override
@@ -26,18 +26,5 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener 
         return super.setTitleBar(view);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-//            case R.id.onDialog:
-//                startActivity(new Intent(context, AlertViewActivity.class));
-//                break;
-//            case R.id.onloading:
-//                startActivity(new Intent(context, SVProgressActivity.class));
-//                break;
-//            case R.id.camera:
-//                startActivity(new Intent(context, Photo.class));
-//                break;
-        }
-    }
+
 }

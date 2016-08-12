@@ -13,5 +13,23 @@
     <string name="reinsrtpw">再次输入密码</string>
     <string name="sendcode">发送验证码</string>
     <string name="bindingphone">绑定手机号</string>
-
+    <string name="me">我</string>
+    <string name="todayincome">今日收益</string>
+    <string name="wallet">钱包</string>
+    <string name="warehouse">蚂蚁仓库</string>
+    <string name="bean">蚂蚁豆</string>
+    <string name="parttimejob">兼职/需求包</string>
+    <string name="created">已创建</string>
+    <string name="signup">报名等待</string>
+    <string name="finished">确认完结</string>
+    <string name="judge">待评价</string>
+    <string name="guess">蚂蚁猜</string>
+    <string name="shopping">有情购</string>
+    <string name="activity">竞技.活动</string>
+    <string name="certify">待认证</string>
+    <string name="rank">累计评价</string>
+    <string name="center">认证中心</string>
+    <string name="idea">意见反馈</string>
+    <string name="service">联系客服</string>
+    <string name="setting">设置</string>
 </resources>
