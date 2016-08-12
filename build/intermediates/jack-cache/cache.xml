@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/glide-3.6.1.jar"
+        revision="24.0.0"
+        sha1="0b6ee603a511494348ab4c131fa5caf96a4b9967">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/glide-3.6.1-6e245d8dad7d20986fa0079f6852b10af972d0e6.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/json-simple-1.1.1.jar"
+        revision="24.0.0"
+        sha1="4fe561b203cc6cb1448561e056b83404935f2761">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/json-simple-1.1.1-e6297e1b247ec4c8520b20984919695672d9b83e.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/universal-image-loader-1.9.4.jar"
+        revision="24.0.0"
+        sha1="62e71e522c35bd2e224e60b5b53b50f363aa99d5">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/universal-image-loader-1.9.4-6aaf12bf13eb3285b98dd955bcadf987a8310886.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/fastjson-1.1.40.jar"
+        revision="24.0.0"
+        sha1="73a4b25b751dd6987e7b22ccad3e92f6893615f2">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/fastjson-1.1.40-8a326638aa19d781ecf6485929abe42c61be8fff.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/classes.jar"
+        revision="24.0.0"
+        sha1="147840d3f686156e50e1311740558debbdb3cbd7">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/classes-edd7989a6dd4228fdaba924b3e05d0c702218a9a.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        revision="24.0.0"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/internal_impl-23.3.0-e1b9863dc59eb6269f5c6bda25aaf47ae15475ca.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/jars/classes.jar"
+        revision="24.0.0"
+        sha1="3341b66c54367e777a0647e2db96c045329bfeab">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/classes-3f37d7d7b7dec6a37a5a2040bcfbffbd1790db25.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        revision="24.0.0"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/bolts-tasks-1.4.0-ade22795ff3e1760f9644d8fc616af2dd59057d0.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/user_profile_mtj_1.4.jar"
+        revision="24.0.0"
+        sha1="ac046b302a400b29e5ba3677f3af2948dc81d546">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/user_profile_mtj_1.4-2118cc10fac1239e9a54984edd23a98c56f7f878.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        revision="24.0.0"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/classes-cd7c04717f18d07df94acf1ba9c3751921b2e3ae.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/otto-1.3.5.jar"
+        revision="24.0.0"
+        sha1="30690a0cfa4ad9d249020e77c1e513b7493d220b">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/otto-1.3.5-cab2844568db6527fc371d1d7144adb6ad99f2b6.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        revision="24.0.0"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/library-2.4.0-d662202ad06ef8b93093b9781c5fec838e8515b3.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.11.0/jars/classes.jar"
+        revision="24.0.0"
+        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/classes-877ce28c61089d1e88cd5b162b5afaa004b8a4a9.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/SocialSDK_WeiXin_2.jar"
+        revision="24.0.0"
+        sha1="af4d3a4b87ec7a2581493ac5d3624cc30db27ba5">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/SocialSDK_WeiXin_2-11d829a1de288c4fd782fe7fd82b688bb9968519.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/alipaySdk-20151112.jar"
+        revision="24.0.0"
+        sha1="35883e46343a0bb695cae1993156a12be987565f">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/alipaySdk-20151112-90114ceec869ec08d3dee0499b5ed3cc8cfb7486.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.11.0/jars/classes.jar"
+        revision="24.0.0"
+        sha1="ca63c521b5745ae9a09629d7ca67ff6bc2a967fe">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/classes-d8a5d220ca8769cd302c39000c879e27f9e48776.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.11.0/jars/classes.jar"
+        revision="24.0.0"
+        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/classes-6e6a69434571395d105f99d2af5bc4cdefdb375a.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.11.0/jars/classes.jar"
+        revision="24.0.0"
+        sha1="98786c1770b531b9194fb6448b2a2692c64074b6">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/classes-4dc892da540f27543376e8b07096590ee3612b4d.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/umeng-analytics-v5.6.4.jar"
+        revision="24.0.0"
+        sha1="a1733981a8e08acdc1dc0ede13f423ed3d657762">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/umeng-analytics-v5.6.4-6993e43b475be18509920ce85a7cb5cb433327ee.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Downloads/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
+        revision="24.0.0"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/support-annotations-23.3.0-1a2b39f8d5223ade73367152f28caae6bf610963.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Downloads/adt-bundle-mac-x86_64-20131030/sdk/platforms/android-24/android.jar"
+        revision="24.0.0"
+        sha1="3028a81d396ad26d94b6e0cefce2ecd85d0c3dbd">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/runtime/android-8cb93a40a50a06842f127dc20bfb68a10cd5203b.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/libammsdk.jar"
+        revision="24.0.0"
+        sha1="6b42bc1fab411195108b5f8db27aab6646475ebe">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/libammsdk-d9ae6293aa8d1a7dc464e68b22dcbb9c1532afc4.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/exploded-aar/CityAnt/iloomo/unspecified/jars/libs/org.apache.http.legacy.jar"
+        revision="24.0.0"
+        sha1="5a7a8cb9df8a0db5f136e831c3f3f8855c04dc7c">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/CityAnt/app/build/intermediates/jill/debug/packaged/org.apache.http.legacy-ac790bbe4fe06ad9c7f876574376482deba29d4a.jar" />
+    </item>
+
+</items>

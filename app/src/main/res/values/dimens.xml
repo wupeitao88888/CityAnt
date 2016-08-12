@@ -1,0 +1,6 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="login_edittext_height">40dp</dimen>
+    <dimen name="textsize13">13dp</dimen>
+</resources>

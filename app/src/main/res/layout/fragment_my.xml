@@ -1,0 +1,402 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <!--<com.handmark.pulltorefresh.library.PullToRefreshScrollView-->
+        <!--xmlns:ptr="http://schemas.android.com/apk/res-auto"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:background="#FFFFFF"-->
+        <!--&gt;-->
+        <!--&lt;!&ndash;ptr:ptrAnimationStyle="flip"&ndash;&gt;-->
+        <!--&lt;!&ndash;ptr:ptrMode="both"&ndash;&gt;-->
+        <!--<RelativeLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<LinearLayout-->
+                <!--android:id="@+id/imagesLayout"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="100dp"-->
+                    <!--android:background="#FFFFCC"-->
+                    <!--&gt;-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/today_income"-->
+                        <!--style="@style/forget_new"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:text="@string/todayincome" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:layout_toRightOf="@+id/today_income"-->
+                        <!--android:text="103.00"-->
+                        <!--android:textColor="@android:color/holo_red_dark"-->
+                        <!--android:textSize="30dp"-->
+                        <!--android:textStyle="bold" />-->
+
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="60dp"-->
+                        <!--android:layout_height="60dp"-->
+                        <!--android:layout_alignParentEnd="true"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginEnd="30dp"-->
+                        <!--android:layout_marginRight="30dp"-->
+                        <!--android:background="@color/gray" />-->
+
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="80dp"-->
+                    <!--android:background="@color/white"-->
+                    <!--&gt;-->
+
+                    <!--<RelativeLayout-->
+                        <!--android:id="@+id/wallet"-->
+                        <!--style="@style/me_wallet"-->
+                        <!--android:layout_marginLeft="20dp">-->
+
+                        <!--<ImageView-->
+                            <!--android:id="@+id/income_icon"-->
+                            <!--style="@style/me_wallet_icon"-->
+                            <!--android:background="@color/gray" />-->
+
+                        <!--<TextView-->
+                            <!--style="@style/forget_new"-->
+                            <!--android:layout_below="@+id/income_icon"-->
+                            <!--android:layout_centerHorizontal="true"-->
+                            <!--android:text="@string/wallet" />-->
+
+                    <!--</RelativeLayout>-->
+
+                    <!--<RelativeLayout-->
+                        <!--android:id="@+id/Warehouse"-->
+                        <!--style="@style/me_wallet"-->
+                        <!--android:layout_centerHorizontal="true">-->
+
+                        <!--<ImageView-->
+                            <!--android:id="@+id/warehouse_icon"-->
+                            <!--style="@style/me_wallet_icon"-->
+                            <!--android:background="@color/gray" />-->
+
+                        <!--<TextView-->
+                            <!--style="@style/forget_new"-->
+                            <!--android:layout_below="@+id/warehouse_icon"-->
+                            <!--android:layout_centerHorizontal="true"-->
+                            <!--android:text="@string/warehouse" />-->
+
+                    <!--</RelativeLayout>-->
+
+                    <!--<RelativeLayout-->
+                        <!--android:id="@+id/bean"-->
+                        <!--style="@style/me_wallet"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_marginRight="20dp">-->
+
+                        <!--<ImageView-->
+                            <!--android:id="@+id/bean_icon"-->
+                            <!--style="@style/me_wallet_icon"-->
+                            <!--android:background="@color/gray" />-->
+
+                        <!--<TextView-->
+                            <!--style="@style/forget_new"-->
+                            <!--android:layout_below="@+id/bean_icon"-->
+                            <!--android:layout_centerHorizontal="true"-->
+                            <!--android:text="@string/bean" />-->
+
+                    <!--</RelativeLayout>-->
+                <!--</RelativeLayout>-->
+
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="115dp"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:background="@color/white">-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/title"-->
+                        <!--style="@style/forget_new"-->
+                        <!--android:layout_marginBottom="3dp"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:layout_marginTop="3dp"-->
+                        <!--android:text="@string/parttimejob" />-->
+
+                    <!--<View-->
+                        <!--android:id="@+id/line"-->
+                        <!--style="@style/line"-->
+                        <!--android:layout_below="@+id/title"></View>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="fill_parent"-->
+                        <!--android:layout_height="fill_parent"-->
+                        <!--android:layout_below="@+id/line"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/created"-->
+                            <!--style="@style/me_need">-->
+
+                            <!--<ImageView-->
+                                <!--android:id="@+id/created_icon"-->
+                                <!--style="@style/me_need_icon"-->
+                                <!--android:background="@color/gray" />-->
+
+                            <!--<TextView-->
+                                <!--style="@style/forget_new"-->
+                                <!--android:layout_below="@+id/created_icon"-->
+                                <!--android:layout_centerHorizontal="true"-->
+                                <!--android:text="@string/created" />-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/signup"-->
+                            <!--style="@style/me_need">-->
+
+                            <!--<ImageView-->
+                                <!--android:id="@+id/signup_icon"-->
+                                <!--style="@style/me_need_icon"-->
+                                <!--android:background="@color/gray" />-->
+
+                            <!--<TextView-->
+                                <!--style="@style/forget_new"-->
+                                <!--android:layout_below="@+id/signup_icon"-->
+                                <!--android:layout_centerHorizontal="true"-->
+                                <!--android:text="@string/signup" />-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/finished"-->
+                            <!--style="@style/me_need">-->
+
+                            <!--<ImageView-->
+                                <!--android:id="@+id/finished_icon"-->
+                                <!--style="@style/me_need_icon"-->
+                                <!--android:background="@color/gray" />-->
+
+                            <!--<TextView-->
+                                <!--style="@style/forget_new"-->
+                                <!--android:layout_below="@+id/finished_icon"-->
+                                <!--android:layout_centerHorizontal="true"-->
+                                <!--android:text="@string/finished" />-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/judge"-->
+                            <!--style="@style/me_need">-->
+
+                            <!--<ImageView-->
+                                <!--android:id="@+id/judge_icon"-->
+                                <!--style="@style/me_need_icon"-->
+                                <!--android:background="@color/gray" />-->
+
+                            <!--<TextView-->
+                                <!--style="@style/forget_new"-->
+                                <!--android:layout_below="@+id/judge_icon"-->
+                                <!--android:layout_centerHorizontal="true"-->
+                                <!--android:text="@string/judge" />-->
+
+                        <!--</RelativeLayout>-->
+
+
+                    <!--</LinearLayout>-->
+
+
+                <!--</RelativeLayout>-->
+
+
+                <!--<RelativeLayout-->
+                    <!--style="@style/me_guess_re"-->
+                    <!--android:layout_marginTop="10dp">-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/guess_icon"-->
+                        <!--style="@style/me_guess_icon" />-->
+
+                    <!--<TextView-->
+                        <!--style="@style/me_guess_text"-->
+                        <!--android:layout_toRightOf="@+id/guess_icon"-->
+                        <!--android:text="@string/guess" />-->
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--style="@style/me_guess_re"-->
+                    <!--android:layout_marginTop="1dp">-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/shopping_icon"-->
+                        <!--style="@style/me_guess_icon" />-->
+
+                    <!--<TextView-->
+                        <!--style="@style/me_guess_text"-->
+                        <!--android:layout_toRightOf="@+id/shopping_icon"-->
+                        <!--android:text="@string/shopping" />-->
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--style="@style/me_guess_re"-->
+                    <!--android:layout_marginTop="1dp">-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/activity_icon"-->
+                        <!--style="@style/me_guess_icon" />-->
+
+                    <!--<TextView-->
+                        <!--style="@style/me_guess_text"-->
+                        <!--android:layout_toRightOf="@+id/activity_icon"-->
+                        <!--android:text="@string/activity" />-->
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--style="@style/me_guess_re"-->
+                    <!--android:layout_marginTop="10dp">-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/center_icon"-->
+                        <!--style="@style/me_guess_icon" />-->
+
+                    <!--<TextView-->
+                        <!--style="@style/me_guess_text"-->
+                        <!--android:layout_toRightOf="@+id/center_icon"-->
+                        <!--android:text="@string/center" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/certify"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:text="@string/certify"-->
+                        <!--android:textColor="@color/gray"-->
+                        <!--android:textSize="@dimen/textsize13" />-->
+
+
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--style="@style/me_guess_re"-->
+                    <!--android:layout_marginTop="1dp">-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/rank_icon"-->
+                        <!--style="@style/me_guess_icon" />-->
+
+                    <!--<TextView-->
+                        <!--style="@style/me_guess_text"-->
+                        <!--android:layout_toRightOf="@+id/rank_icon"-->
+                        <!--android:text="@string/rank" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/rankstar"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:text="@string/certify"-->
+                        <!--android:textColor="@color/gray"-->
+                        <!--android:textSize="@dimen/textsize13" />-->
+
+
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="130dp"-->
+                    <!--android:layout_marginTop="15dp"-->
+                    <!--android:background="@color/white">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="fill_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:background="@color/white"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/idea"-->
+                            <!--style="@style/me_need">-->
+
+                            <!--<ImageView-->
+                                <!--android:id="@+id/idea_icon"-->
+                                <!--style="@style/me_need_icon"-->
+                                <!--android:background="@color/gray" />-->
+
+                            <!--<TextView-->
+                                <!--style="@style/forget_new"-->
+                                <!--android:layout_below="@+id/idea_icon"-->
+                                <!--android:layout_centerHorizontal="true"-->
+                                <!--android:text="@string/created" />-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/service"-->
+                            <!--style="@style/me_need">-->
+
+                            <!--<ImageView-->
+                                <!--android:id="@+id/service_icon"-->
+                                <!--style="@style/me_need_icon"-->
+                                <!--android:background="@color/gray" />-->
+
+                            <!--<TextView-->
+                                <!--style="@style/forget_new"-->
+                                <!--android:layout_below="@+id/service_icon"-->
+                                <!--android:layout_centerHorizontal="true"-->
+                                <!--android:text="@string/service" />-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/setting"-->
+                            <!--style="@style/me_need">-->
+
+                            <!--<ImageView-->
+                                <!--android:id="@+id/setting_icon"-->
+                                <!--style="@style/me_need_icon"-->
+                                <!--android:background="@color/gray" />-->
+
+                            <!--<TextView-->
+                                <!--style="@style/forget_new"-->
+                                <!--android:layout_below="@+id/setting_icon"-->
+                                <!--android:layout_centerHorizontal="true"-->
+                                <!--android:text="@string/setting" />-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/undetermined"-->
+                            <!--style="@style/me_need">-->
+
+
+                        <!--</RelativeLayout>-->
+
+
+                    <!--</LinearLayout>-->
+                <!--</RelativeLayout>-->
+            <!--</LinearLayout>-->
+        <!--</RelativeLayout>-->
+    <!--</com.handmark.pulltorefresh.library.PullToRefreshScrollView>-->
+
+</LinearLayout>

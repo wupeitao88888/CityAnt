@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:gravity="center_horizontal"
+        android:text="@string/app_name"
+        android:textColor="@android:color/black"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/login_edittext_height"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/phone_icon"
+            style="@style/icon_re">
+
+            <ImageView
+                style="@style/img_icon"
+                android:background="@color/white" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/phone_number"
+            style="@style/login_edittext"
+            android:layout_weight="1"
+            android:hint="@string/phonenumber"
+            android:maxLength="11"
+            android:phoneNumber="true" />
+
+        <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:background="@drawable/button_send_code"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--android:text="发送验证码"-->
+        <!--android:textSize="13dp"-->
+        <!--android:textColor="@color/black" />-->
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/login_edittext_height"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/password_icon"
+            style="@style/icon_re">
+
+            <ImageView
+                style="@style/img_icon"
+                android:background="@color/white" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/password_number"
+            style="@style/login_edittext"
+            android:layout_weight="1"
+            android:hint="@string/insrtpw"
+            android:maxLength="11"
+            android:password="true" />
+
+        <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:background="@drawable/button_send_code"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--android:text="发送验证码"-->
+        <!--android:textSize="13dp"-->
+        <!--android:textColor="@color/black" />-->
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_login"
+        android:onClick="onLoginClick"
+        android:text="@string/login"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/fast_line_left"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="18dp">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fast_login" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@color/bg"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fast_login"
+                android:textColor="@color/fast_login"
+                android:textSize="@dimen/textsize13" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="70dp"
+            >
+
+            <RelativeLayout
+                style="@style/fast_login_re"
+                android:onClick="onQQLoginClick">
+
+                <ImageView
+                    android:id="@+id/qq_icon"
+                    style="@style/fast_login_img_icon"
+                    android:background="@color/black" />
+
+                <TextView
+                    style="@style/fast_login_text"
+                    android:layout_below="@+id/qq_icon"
+                    android:text="@string/qq" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/fast_login_re"
+                android:onClick="onWeiXinLoginClick">
+
+                <ImageView
+                    android:id="@+id/wexin_icon"
+                    style="@style/fast_login_img_icon"
+                    android:background="@color/black" />
+
+                <TextView
+                    style="@style/fast_login_text"
+                    android:layout_below="@+id/wexin_icon"
+                    android:text="@string/weixin" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/fast_login_re"
+                android:onClick="onWeboLoginClick">
+
+                <ImageView
+                    android:id="@+id/weibo_icon"
+                    style="@style/fast_login_img_icon"
+                    android:background="@color/black" />
+
+                <TextView
+                    style="@style/fast_login_text"
+                    android:layout_below="@+id/weibo_icon"
+                    android:text="@string/webo" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:onClick="onForgetPasswordClick"
+            android:padding="15dp">
+
+            <TextView
+                style="@style/forget_new"
+                android:text="@string/forgetpw"
+
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:onClick="onNewUserClick"
+            android:padding="15dp">
+
+            <TextView
+                style="@style/forget_new"
+                android:text="@string/newuser" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

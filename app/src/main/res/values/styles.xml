@@ -1,0 +1,59 @@
+<resources>
+
+    <style name="icon_re">
+
+        <item name="android:layout_height">@dimen/login_edittext_height</item>
+        <item name="android:layout_width">@dimen/login_edittext_height</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="img_icon">
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">fill_parent</item>
+    </style>
+
+    <style name="login_edittext">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/dimgrey</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/login_edittext_height</item>
+
+    </style>
+
+    <style name="fast_login_re">
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="fast_login_img_icon">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="fast_login_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/fast_login</item>
+        <item name="android:textSize">@dimen/textsize13</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+
+    <style name="forget_new">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/fast_login</item>
+        <item name="android:textSize">@dimen/textsize13</item>
+
+    </style>
+</resources>

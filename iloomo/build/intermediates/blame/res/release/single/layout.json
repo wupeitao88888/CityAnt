@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/plist_dir.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/plist_dir.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/pull_to_refresh_header_horizontal.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/pull_to_refresh_header_horizontal.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/startpic_layout.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/startpic_layout.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/progress_dialog.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/progress_dialog.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/maintabs.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/maintabs.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/pactivity_camera.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/pactivity_camera.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/pactivity_view_pager.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/pactivity_view_pager.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/pull_to_refresh_header_vertical.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/pull_to_refresh_header_vertical.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/lc_layout_userregister.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/lc_layout_userregister.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/lc_layout_title.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/lc_layout_title.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/plist_dir_item.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/plist_dir_item.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/pgrid_item.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/pgrid_item.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/pay_external.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/pay_external.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/layout_slideshow.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/layout_slideshow.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/pactivity_main.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/pactivity_main.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/layout_activitytitle.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/layout_activitytitle.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/playout_activitytitle.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/playout_activitytitle.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/layout/plc_layout_title.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/layout/plc_layout_title.xml"
+    }
+]

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/login_edittext_height"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/phone_icon"
+            style="@style/icon_re">
+
+            <ImageView
+                style="@style/img_icon"
+                android:background="@color/white" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/phone_number"
+            style="@style/login_edittext"
+            android:layout_weight="1"
+            android:hint="@string/phonenumber"
+            android:maxLength="11"
+            android:phoneNumber="true" />
+
+        <Button
+            android:id="@+id/sendcode"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_send_code"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="发送验证码"
+            android:textColor="@color/black"
+            android:textSize="13dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/login_edittext_height"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/code_icon"
+            style="@style/icon_re">
+
+            <ImageView
+                style="@style/img_icon"
+                android:background="@color/white" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/code_number"
+            style="@style/login_edittext"
+            android:layout_weight="1"
+            android:hint="@string/code"
+            android:maxLength="11"
+            android:phoneNumber="true" />
+
+        <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:background="@drawable/button_send_code"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--android:text="发送验证码"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="13dp" />-->
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_login"
+        android:onClick="onLoginClick"
+        android:text="@string/login"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+</LinearLayout>

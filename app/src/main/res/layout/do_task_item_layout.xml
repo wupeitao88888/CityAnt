@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    
+    <ImageView
+        android:id="@+id/application_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/application_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="表情广场"
+        android:layout_toRightOf="@+id/application_icon"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="14dp"/>
+
+    <TextView
+        android:id="@+id/application_brief"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="微信聊天表情神器"
+        android:layout_below="@+id/application_name"
+        android:layout_alignLeft="@+id/application_name"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/ant_dou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/application_name"
+        android:text="+7"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp" />
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:background="@drawable/ic_launcher"
+        android:layout_alignTop="@+id/application_name"
+        android:layout_toLeftOf="@+id/ant_dou"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:id="@+id/download_text"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:text="下载"
+        android:background="@color/red"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/ant_dou"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/application_icon"/>
+
+</RelativeLayout>
