@@ -25,6 +25,7 @@ public class FragmentSupport extends Fragment implements IFragmentSupport {
     public View rootView;// 缓存Fragment view
     public TitleBar titleBar;
     private LinearLayout linearLayout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         context = this.getActivity();
@@ -46,7 +47,7 @@ public class FragmentSupport extends Fragment implements IFragmentSupport {
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT);
             linearLayout.addView(customContentView, lpcontent);
-            rootView=linearLayout;
+            rootView = linearLayout;
             setCtenterTitle(title);
         }
         ViewGroup parent = (ViewGroup) rootView.getParent();
@@ -57,7 +58,9 @@ public class FragmentSupport extends Fragment implements IFragmentSupport {
     }
 
 
-
+    public View findViewById(View view,int id) {
+        return view.findViewById(id);
+    }
 
 
     public void setTitle(String title) {
@@ -132,6 +135,7 @@ public class FragmentSupport extends Fragment implements IFragmentSupport {
         // TODO Auto-generated method stub
         return getResources().getString(string);
     }
+
     /**
      * 设置titleb中间
      *
