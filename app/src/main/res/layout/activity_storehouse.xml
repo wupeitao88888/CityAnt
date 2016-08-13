@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/goods"
+            android:layout_above="@+id/goodsmenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+
+
+        <LinearLayout
+            android:id="@+id/goodsmenu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onLogisticsClick"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:id="@+id/guess_icon"
+                        style="@style/me_logistics_icon" />
+
+                    <TextView
+                        style="@style/me_logistics_text"
+                        android:layout_toRightOf="@+id/guess_icon"
+                        android:text="@string/logistics"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onGoodsClick"
+                android:background="@color/yellow">
+
+                <TextView
+                    style="@style/me_logistics_text"
+                    android:layout_centerInParent="true"
+                    android:text="@string/goodsput"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onGoodssellClick"
+                android:background="@color/black">
+
+
+                <TextView
+                    style="@style/me_logistics_text"
+                    android:layout_centerInParent="true"
+                    android:text="@string/goodssell"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -16,7 +16,6 @@ import com.cityant.main.R;
 import com.cityant.main.activity.DoTaskActivity;
 import com.cityant.main.activity.LocationChoiceActivity;
 import com.cityant.main.activity.SearchActivity;
-import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.iloomo.base.FragmentSupport;
 
 
@@ -28,7 +27,7 @@ public class FragmentHome extends FragmentSupport {
 
 
 //    private NOViewPagerPullableListView mlist;
-    private FragmentHomeAdapter fragmentHomeAdapter = null;
+//    private FragmentHomeAdapter fragmentHomeAdapter = null;
 //    private PullToRefreshLayout pullview;
     private TextView position_text;
     private EditText search_edit;

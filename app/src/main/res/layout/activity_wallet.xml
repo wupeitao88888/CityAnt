@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="131dp"
+        android:background="@color/yellow"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onBundleClick"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/bank_icon"
+                    style="@style/bank_icon"
+                    android:background="@color/gray" />
+
+                <TextView
+                    android:id="@+id/bank_card"
+                    style="@style/fast_login_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/bank_icon"
+                    android:text="@string/bundlebankcard"
+
+                    />
+
+                <TextView
+                    android:id="@+id/bank_cardcount"
+                    style="@style/me_text"
+                    android:layout_alignBottom="@+id/bank_icon"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/bank_icon"
+                    android:text="0" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/gray"></View>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onBalanceClick"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/balance_icon"
+                    style="@style/bank_icon"
+                    android:background="@color/gray" />
+
+                <TextView
+                    android:id="@+id/balance_t"
+                    style="@style/fast_login_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/balance_icon"
+                    android:text="@string/balance"
+
+                    />
+
+                <TextView
+                    android:id="@+id/balance"
+                    style="@style/me_text"
+                    android:layout_alignBottom="@+id/balance_icon"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/balance_icon"
+                    android:text="0" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/gray"></View>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/created"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:paddingBottom="30dp">
+
+            <ImageView
+                android:id="@+id/created_icon"
+                style="@style/wallet_icon"
+                android:background="@color/gray" />
+
+            <TextView
+                style="@style/wallet_t"
+                android:layout_below="@+id/created_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/mebalance" />
+
+            <TextView
+                android:id="@+id/me_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="￥0.00"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/topup"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:onClick="onTopUpClick"
+        android:background="@drawable/button_normal_l"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/withdrawcash"
+        android:textSize="15dp"
+        android:onClick="onWithdrawcashClick"
+        android:textColor="@color/black"
+        android:background="@drawable/button_normal_l"
+        />
+</LinearLayout>

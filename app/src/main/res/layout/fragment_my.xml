@@ -1,25 +1,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:orientation="vertical">
 
 
-    <!--<com.handmark.pulltorefresh.library.PullToRefreshScrollView-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="fill_parent"-->
-        <!--ptr:ptrAnimationStyle="flip"-->
-        <!--ptr:ptrHeaderTextColor="@color/black"-->
-        <!--&gt;-->
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrHeaderTextColor="@color/black">
         <!--ptr:ptrAnimationStyle="flip"-->
         <!--ptr:ptrMode="both"-->
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
-            >
+            android:background="@color/bg">
 
             <LinearLayout
                 android:id="@+id/imagesLayout"
@@ -29,10 +27,10 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:id="@+id/reseive_re"
                     android:layout_width="fill_parent"
                     android:layout_height="100dp"
-                    android:background="#FFFFCC"
-                    >
+                    android:background="#FFFFCC">
 
                     <TextView
                         android:id="@+id/today_income"
@@ -63,16 +61,16 @@
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="30dp"
                         android:layout_marginRight="30dp"
-                        android:onClick="onUserheadClick"
-                        android:background="@color/gray" />
+                        android:background="@color/gray"
+                         />
 
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/wallet_re"
                     android:layout_width="fill_parent"
                     android:layout_height="80dp"
-                    android:background="@color/white"
-                    >
+                    android:background="@color/white">
 
                     <RelativeLayout
                         android:id="@+id/wallet"
@@ -233,6 +231,7 @@
 
 
                 <RelativeLayout
+                    android:id="@+id/me_guess_re"
                     style="@style/me_guess_re"
                     android:layout_marginTop="10dp">
 
@@ -247,6 +246,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/shopping"
                     style="@style/me_guess_re"
                     android:layout_marginTop="1dp">
 
@@ -261,6 +261,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/shports"
                     style="@style/me_guess_re"
                     android:layout_marginTop="1dp">
 
@@ -275,6 +276,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/center"
                     style="@style/me_guess_re"
                     android:layout_marginTop="10dp">
 
@@ -302,6 +304,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rank"
                     style="@style/me_guess_re"
                     android:layout_marginTop="1dp">
 
@@ -404,6 +407,6 @@
                 </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>
-    <!--</com.handmark.pulltorefresh.library.PullToRefreshScrollView>-->
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
 
 </LinearLayout>
