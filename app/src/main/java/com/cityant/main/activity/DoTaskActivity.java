@@ -78,7 +78,7 @@ public class DoTaskActivity extends ActivitySupport {
             TextView ant_dou = ViewHolder.get(view,R.id.ant_dou);
             TextView download_text = ViewHolder.get(view,R.id.download_text);
 
-            return null;
+            return view;
         }
     }
 }

@@ -24,4 +24,15 @@
         <item name="android:windowEnterAnimation">@anim/slide_in</item>
         <item name="android:windowExitAnimation">@anim/slide_out</item>
     </style>
+    <style name="StyleRatingBar" parent="ratingbar_style">
+        <item name="android:layout_width">19dp</item>
+        <item name="android:layout_height">18dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+    </style>
+    <style name="ratingbar_style" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/myratingbar</item>
+        <item name="android:minHeight">22dip</item>
+        <item name="android:maxHeight">22dip</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
 </resources>

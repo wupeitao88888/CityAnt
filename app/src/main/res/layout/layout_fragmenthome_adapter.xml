@@ -2,13 +2,185 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/content"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/logo_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_launcher"
+            android:layout_margin="20dp"/>
+
+        <TextView
+            android:id="@+id/tag_text"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:text="交友"
+            android:maxLength="2"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:background="@color/red"/>
+    </LinearLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:gravity="center" />
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="马晓丽"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/auth_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="认"
+            android:layout_toRightOf="@+id/user_name"
+            android:layout_alignTop="@+id/user_name"
+            android:layout_marginLeft="5dp"
+            android:padding="2dp"
+            android:textColor="@color/white"
+            android:background="@color/green"/>
+
+        <ImageView
+            android:id="@+id/sex_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@color/red"
+            android:layout_below="@+id/user_name"
+            android:layout_marginTop="5dp"/>
+
+        <com.iloomo.widget.CostomRatingBar
+            android:id="@+id/rating_bar_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/user_name"
+            android:layout_toRightOf="@+id/sex_image"
+            android:layout_marginLeft="5dp" />
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="求陪跑"
+            android:layout_below="@+id/sex_image"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/introduction_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="晚上一个人跑好无聊"
+            android:layout_below="@+id/title_text"
+            android:layout_marginTop="5dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/black"/>
+
+        <RelativeLayout
+            android:id="@+id/price_places_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/introduction_text">
+
+            <TextView
+                android:id="@+id/price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="￥10      /次"/>
+
+            <TextView
+                android:id="@+id/places_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:background="@color/red"
+                android:textColor="@color/white"
+                android:text="剩余名额1"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/price_places_rl"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/position_image"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/ic_launcher"/>
+            <TextView
+                android:id="@+id/position_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="朝阳"
+                android:layout_marginLeft="2dp"
+                android:layout_toRightOf="@+id/position_image"/>
+
+            <ImageView
+                android:id="@+id/visit_image"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/position_text"
+                android:background="@drawable/ic_launcher"/>
+            <TextView
+                android:id="@+id/visit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:layout_marginLeft="2dp"
+                android:layout_toRightOf="@+id/visit_image"/>
+
+            <ImageView
+                android:id="@+id/time_image"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/visit_text"
+                android:background="@drawable/ic_launcher"/>
+            <TextView
+                android:id="@+id/time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="刚刚"
+                android:layout_marginLeft="2dp"
+                android:layout_toRightOf="@+id/time_image"/>
+
+            <TextView
+                android:id="@+id/source_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="线下"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"/>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
 
 
 </LinearLayout>
