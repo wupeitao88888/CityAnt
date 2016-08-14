@@ -7,6 +7,7 @@ import com.cityant.main.R;
 import com.iloomo.base.ActivitySupport;
 
 /**
+ * 设置页面
  * Created by wupeitao on 16/8/13.
  */
 public class SettingActivity extends ActivitySupport {
