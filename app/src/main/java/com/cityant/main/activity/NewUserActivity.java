@@ -1,6 +1,8 @@
 package com.cityant.main.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -9,8 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.cityant.main.R;
+import com.cityant.main.bean.LoginUserInfoData;
+import com.cityant.main.db.DBControl;
 import com.iloomo.base.ActivitySupport;
+import com.iloomo.bean.SMSRegister;
 import com.iloomo.global.AppConfig;
+import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.DialogUtil;
 import com.iloomo.utils.ToastUtil;
 import com.iloomo.global.SMSAppConfig;
@@ -47,9 +53,9 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
         code_number = (EditText) findViewById(R.id.code_number);
         pwnumber = (EditText) findViewById(R.id.pwnumber);
         re_pwnumber = (EditText) findViewById(R.id.re_pwnumber);
-
         sendcode = (Button) findViewById(R.id.sendcode);
         login_button = (Button) findViewById(R.id.login_button);
+
         phone_number.addTextChangedListener(new EditChangedListener());
         code_number.addTextChangedListener(new EditChangedListener());
         pwnumber.addTextChangedListener(new EditChangedListener());
@@ -109,6 +115,34 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
             // 验证成功
             ToastUtil.showShort(context, "验证成功");
             mIntent(context, IndexFragment.class);
+        } else {
+            // 验证失败
+            ToastUtil.showShort(context, "验证失败");
+        }
+    }
+
+    @Override
+    public void onSecurityCodeCallBack(boolean blean, Object userRegister) {
+
+        if (blean) {
+            // 验证成功
+//            ToastUtil.showShort(context, "验证成功:" + ((SMSRegister.UserRegister) userRegister).getToken());
+            MyThreadPool.getInstance().submit(new Runnable() {
+                @Override
+                public void run() {
+                    LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
+                    loginUserInfoData.setToken(((SMSRegister.UserRegister) userRegister).getToken());
+                    loginUserInfoData.setMobile(phone_number.getText().toString());
+                    DBControl.getInstance(context).insertLoginInfo(loginUserInfoData);
+                    DBControl.getInstance(context).insertLastUser(phone_number.getText().toString(), pwnumber.getText().toString());
+                    Message message = new Message();
+                    message.what = REGISTER;
+                    message.obj = "";
+                    handler.sendMessage(message);
+                }
+            });
+
+
         } else {
             // 验证失败
             ToastUtil.showShort(context, "验证失败");
@@ -176,6 +210,21 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
         public void afterTextChanged(Editable s) {
         }
     }
+
+    private final int REGISTER = 100;
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case REGISTER:
+                    DialogUtil.stopDialogLoading(context);
+                    mIntent(context, IndexFragment.class);
+                    finish();
+                    break;
+            }
+        }
+    };
 
 
 }

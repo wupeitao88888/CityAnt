@@ -3,9 +3,9 @@ package com.iloomo.db;
 
 public class DButils {
 
-	public DButils(DbHelper DbHelper) {
+	public DButils(DbHelperBase DbHelperBase) {
 		super();
-		DatabaseManager.initializeInstance(DbHelper);
+		DatabaseManager.initializeInstance(DbHelperBase);
 	}
 
 

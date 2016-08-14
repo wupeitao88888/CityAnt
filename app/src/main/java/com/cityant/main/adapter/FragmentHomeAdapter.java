@@ -30,7 +30,7 @@ public class FragmentHomeAdapter extends CommonAdapter {
             convertView = LayoutInflater.from(context).inflate(
                     R.layout.layout_fragmenthome_adapter, null);
         }
-        TextView view = ViewHolder.get(convertView, R.id.content);
+        TextView view = ViewHolder.get(convertView, R.id.user_name);
 
         view.setText(mDatas.get(position) + "");
         return convertView;

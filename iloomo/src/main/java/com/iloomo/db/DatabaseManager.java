@@ -1,9 +1,9 @@
 package com.iloomo.db;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class DatabaseManager {
 

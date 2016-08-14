@@ -6,6 +6,7 @@ import android.os.Message;
 import android.text.TextUtils;
 
 import com.iloomo.bean.SMSBaseModel;
+import com.iloomo.bean.SMSRegister;
 import com.iloomo.global.SMSAppConfig;
 import com.iloomo.global.SMSTaskID;
 import com.iloomo.net.AsyncHttpGet;
@@ -26,8 +27,6 @@ public class SecurityCodeUtils implements ThreadCallBack {
     public static final int PHONE_FILE = 0;
     public static final int PHONE_NULL = 2;
     public static final int NET_FILE = 3;
-    public static final int VTYPE_REGISTER = 1;// 注册
-    public static final int VTYPE_FORGETPASSWORD = 2;// 找回密码
 
     public Timer timer;
     private Context context;
@@ -126,13 +125,23 @@ public class SecurityCodeUtils implements ThreadCallBack {
                 securityCodeCallBack.onNetErrorCallBack("密码不一致", PHONE_FILE);
             return;
         }
-
+        if (password.length() < 6) {
+            if (securityCodeCallBack != null)
+                securityCodeCallBack.onNetErrorCallBack("密码长度太短", PHONE_FILE);
+            return;
+        }
+        if (password.length() > 16) {
+            if (securityCodeCallBack != null)
+                securityCodeCallBack.onNetErrorCallBack("密码长度太长", PHONE_FILE);
+            return;
+        }
         Map<String, Object> parameter = new HashMap<String, Object>();
         parameter.put(SMSAppConfig.mobilekey, phonenumber);
         parameter.put(SMSAppConfig.codeskey, vcode);
         parameter.put(SMSAppConfig.typekey, vtype);
-        startHttpRequst("POST", SMSAppConfig.SEND_CODE, parameter,
-                SMSTaskID.SEND_CODE);
+        parameter.put(SMSAppConfig.passwordkey, password);
+        startHttpRequstRegister("POST", SMSAppConfig.SEND_CODE, parameter,
+                SMSTaskID.SEND_CODE_REGISTER);
     }
     // 获取验证码
 
@@ -182,6 +191,22 @@ public class SecurityCodeUtils implements ThreadCallBack {
             securityCodeCallBack.onStartNet();
     }
 
+    public void startHttpRequstRegister(String requestType, String url,
+                                        Map<String, Object> parameter, int resultCode) {
+
+        BaseRequest httpRequest = null;
+        if ("POST".equalsIgnoreCase(requestType)) {
+            httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
+                    SMSRegister.class);
+        } else {
+            httpRequest = new AsyncHttpGet(this, url, parameter, resultCode,
+                    SMSRegister.class);
+        }
+        DefaultThreadPool.getInstance().execute(httpRequest);
+        if (securityCodeCallBack != null)
+            securityCodeCallBack.onStartNet();
+    }
+
     @Override
     public void onCallbackFromThread(String resultJson, Object modelClass) {
         // TODO Auto-generated method stub
@@ -192,9 +217,10 @@ public class SecurityCodeUtils implements ThreadCallBack {
     public void onCallBackFromThread(String resultJson, int resultCode,
                                      Object modelClass) {
         // TODO Auto-generated method stub
-        SMSBaseModel smsBaseModel = (SMSBaseModel) modelClass;
+
         switch (resultCode) {
             case SMSTaskID.GET_CODE:
+                SMSBaseModel smsBaseModel = (SMSBaseModel) modelClass;
                 if ("200".equals(smsBaseModel.getCode())) {
                     if (securityCodeCallBack != null)
                         securityCodeCallBack.onSendSecurityCodeCallBack();
@@ -206,13 +232,25 @@ public class SecurityCodeUtils implements ThreadCallBack {
                 }
                 break;
             case SMSTaskID.SEND_CODE:
-                if ("200".equals(smsBaseModel.getCode())) {
+                SMSBaseModel smsModel = (SMSBaseModel) modelClass;
+                if ("200".equals(smsModel.getCode())) {
                     if (securityCodeCallBack != null)
                         securityCodeCallBack.onSecurityCodeCallBack(true);
                 } else {
                     if (securityCodeCallBack != null)
                         if (securityCodeCallBack != null)
                             securityCodeCallBack.onSecurityCodeCallBack(false);
+                }
+                break;
+            case SMSTaskID.SEND_CODE_REGISTER:
+                SMSRegister smsRegister = (SMSRegister) modelClass;
+                if ("200".equals(smsRegister.getCode())) {
+                    if (securityCodeCallBack != null)
+                        securityCodeCallBack.onSecurityCodeCallBack(true, smsRegister.getData());
+                } else {
+                    if (securityCodeCallBack != null)
+                        if (securityCodeCallBack != null)
+                            securityCodeCallBack.onSecurityCodeCallBack(false, smsRegister.getData());
                 }
                 break;
         }
