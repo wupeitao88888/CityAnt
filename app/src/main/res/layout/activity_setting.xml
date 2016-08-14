@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:orientation="vertical">
+
     <RelativeLayout
         style="@style/me_guess_re"
         android:layout_marginTop="1dp"
-        android:onClick="onMessageClick"
-        >
+        android:onClick="onMessageClick">
 
         <TextView
             style="@style/me_guess_text"
@@ -19,12 +19,83 @@
     <RelativeLayout
         style="@style/me_guess_re"
         android:layout_marginTop="1dp"
-        android:onClick="onBlacklistClick"
-        >
+        android:onClick="onBlacklistClick">
 
         <TextView
             style="@style/me_guess_text"
             android:layout_toRightOf="@+id/guess_icon"
             android:text="@string/blacklist" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/clearceche"
+        style="@style/me_guess_re"
+        android:layout_marginTop="10dp"
+        android:onClick="onClearcCecheClick">
+
+        <TextView
+            style="@style/me_guess_text"
+            android:layout_toRightOf="@+id/guess_icon"
+            android:text="@string/clearceche" />
+
+        <TextView
+            style="@style/me_guess_text"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="0.0MB"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/textsize13" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/checkUpdate"
+        style="@style/me_guess_re"
+        android:layout_marginTop="1dp"
+        android:onClick="onCheckUpdateClick">
+
+        <TextView
+            style="@style/me_guess_text"
+            android:layout_toRightOf="@+id/guess_icon"
+            android:text="@string/checkupdate" />
+
+        <TextView
+            style="@style/me_guess_text"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="1.0"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/textsize13" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        style="@style/me_guess_re"
+        android:layout_marginTop="1dp"
+        android:onClick="onZanClick">
+
+        <TextView
+            style="@style/me_guess_text"
+            android:layout_toRightOf="@+id/guess_icon"
+            android:text="@string/zan" />
+    </RelativeLayout>
+    <RelativeLayout
+        style="@style/me_guess_re"
+        android:layout_marginTop="10dp"
+        android:onClick="onAccountSecurityClick">
+
+        <TextView
+            style="@style/me_guess_text"
+            android:layout_toRightOf="@+id/guess_icon"
+            android:text="@string/AccountSecurity" />
+    </RelativeLayout>
+    <RelativeLayout
+        style="@style/me_guess_re"
+        android:layout_marginTop="10dp"
+        android:onClick="onAboutMeClick">
+
+        <TextView
+            style="@style/me_guess_text"
+            android:layout_toRightOf="@+id/guess_icon"
+            android:text="@string/aboutme" />
     </RelativeLayout>
 </LinearLayout>

@@ -33,5 +33,43 @@ public class SettingActivity extends ActivitySupport {
 
     }
 
+    /***
+     * 清除缓存
+     * @param view
+     */
+    public void onClearcCecheClick(View view){
 
+    }
+
+    /***
+     * 检查更新
+     * @param view
+     */
+    public void onCheckUpdateClick(View view){
+
+    }
+
+    /***
+     * 给蚂蚁点个赞
+     * @param view
+     */
+    public void onZanClick(View view){
+
+    }
+
+    /***
+     * 账号安全
+     * @param view
+     */
+    public void onAccountSecurityClick(View view){
+
+    }
+
+    /****
+     * 关于我们
+     * @param view
+     */
+    public void onAboutMeClick(View view){
+
+    }
 }

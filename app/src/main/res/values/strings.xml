@@ -59,4 +59,9 @@
     <string name="confirm">确认</string>
     <string name="message">消息通知</string>
     <string name="blacklist">黑名单</string>
+    <string name="clearceche">清除缓存</string>
+    <string name="checkupdate">检查更新</string>
+    <string name="zan">给蚂蚁点个赞</string>
+    <string name="AccountSecurity">账号安全</string>
+    <string name="aboutme">关于我们</string>
 </resources>

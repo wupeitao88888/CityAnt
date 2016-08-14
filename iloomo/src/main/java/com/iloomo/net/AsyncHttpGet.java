@@ -38,6 +38,7 @@ import org.apache.http.params.CoreConnectionPNames;
 import com.alibaba.fastjson.JSON;
 import com.iloomo.bean.BaseModel;
 import com.iloomo.utils.L;
+import com.iloomo.utils.UnicodeUtils;
 
 import android.os.Handler;
 import android.os.Message;
@@ -63,21 +64,21 @@ public class AsyncHttpGet<T> extends BaseRequest {
 			if (!resultData.contains("ERROR.HTTP.008")) {
 				ThreadCallBack callBack = (ThreadCallBack) msg.getData()
 						.getSerializable("callback");
-				L.e("返回值："+resultData);
+				resultData= UnicodeUtils.decodeUnicode(resultData);
+				L.e("返回值：" + resultData);
 				Object model = JSON.parseObject(resultData, modelClass);
-				BaseModel baseMadel=(BaseModel)model;
-				String code=baseMadel.getCode();
-				if(!TextUtils.isEmpty(code)){
-					if (resultCode == -1){
-						callBack.onCallbackFromThreadError(resultData,baseMadel);
+				BaseModel baseMadel = (BaseModel) model;
+				if (baseMadel.getCode().equals("200")) {
+					if (resultCode == -1) {
+						callBack.onCallbackFromThread(resultData, model);
 					}
-					callBack.onCallBackFromThreadError(resultData, resultCode,baseMadel);
-					return;
+					callBack.onCallBackFromThread(resultData, resultCode, model);
+				} else {
+					if (resultCode == -1) {
+						callBack.onCallbackFromThreadError(resultData, baseMadel);
+					}
+					callBack.onCallBackFromThreadError(resultData, resultCode, baseMadel);
 				}
-				if (resultCode == -1){
-					callBack.onCallbackFromThread(resultData,model);
-				}
-				callBack.onCallBackFromThread(resultData, resultCode,model);
 			}
 		}
 	};

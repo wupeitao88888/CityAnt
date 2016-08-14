@@ -37,14 +37,14 @@ public class AppConfig {
     public static final String ACTION_WXPAY_UNSUPPORT = "com.iloomo.paysdk.ACTION_WXPAYUNSUPPORT";
     
     
-    public static final String BASEURL="http://www.tangbeian.cn";
-    public static final String API="/api/";
+    public static final String BASEURL="http://123.56.182.208";
+    public static final String API="/mayi/api.php/";
     //微信订单下单地址
     public static final String GET_WEIXINPAY=BASEURL+API+"Weixin_payUnifiedorder";
     //获取验证码请求参数  String phonenumber,String vtype//应用到什么地方的类型比如是注册还是找回密码等等
-    public static final String GET_CODE=BASEURL+"/yanhuibao/front/account/sendValidate.html";
+    public static final String GET_CODE=BASEURL+API+"/user/sendCode";
     // 校验验证码  String phonenumber,String vcode vcode是验证码校验验证码请求参数
-    public static final String SEND_CODE=BASEURL+"/yanhuibao/front/account/checkVcode.html";
+    public static final String SEND_CODE=BASEURL+API+"/user/register";
 
 
 
