@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <TextView
+        android:id="@+id/extension_text"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="推广"
+        android:paddingLeft="8dp"
+        android:paddingTop="14dp"
+        android:textSize="11sp"
+        android:textColor="#444444"
+        android:background="#f4f4f4" />
+
+    <RelativeLayout
+        android:id="@+id/title_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/extension_text"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#444444"
+            android:textSize="11sp"
+            android:layout_centerVertical="true"
+            android:text="分享链接赢现金啦"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="分享"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:textColor="#a9cdee"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/link_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_rl"
+        android:layout_alignLeft="@+id/title_rl"
+        android:layout_marginRight="10dp"
+        android:background="#f4f4f4">
+        
+        <ImageView
+            android:id="@+id/application_icon"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/ic_launcher"/>
+
+        <LinearLayout
+            android:id="@+id/application_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/application_icon"
+            android:layout_alignTop="@+id/application_icon"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/application_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="他去"
+                android:textColor="#444444"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@id/application_brief"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#868686"
+                android:maxLines="2"
+                android:layout_alignTop="@+id/application_icon"
+                android:layout_marginTop="2dp"
+                android:text="里面的东西，嘿嘿嘿，你懂得！"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/link_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textColor="#868686"
+            android:maxLines="3"
+            android:visibility="gone"
+            android:layout_toRightOf="@+id/application_icon"
+            android:layout_alignTop="@+id/application_icon"
+            android:layout_marginTop="2dp"
+            android:text="刘诗诗片场紧急救助，谁会为他挺身而出呢？期待下一个你！"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/price_places_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_alignLeft="@+id/title_rl"
+        android:layout_below="@+id/link_rl">
+
+        <TextView
+            android:id="@+id/price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="#f74a49"
+            android:textSize="17.5dp"
+            android:text="￥10 "/>
+
+        <TextView
+            android:id="@+id/price_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="#a7a7a7"
+            android:layout_toRightOf="@+id/price_text"
+            android:textSize="8.5dp"
+            android:text="/次"/>
+        </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_below="@+id/price_places_rl"
+        android:layout_marginTop="18dp"
+        android:background="@color/divider_line"/>
+
+</RelativeLayout>

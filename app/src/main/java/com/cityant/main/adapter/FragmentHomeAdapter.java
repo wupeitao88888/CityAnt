@@ -27,8 +27,13 @@ public class FragmentHomeAdapter extends CommonAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(
-                    R.layout.layout_fragmenthome_adapter, null);
+            if(true){
+                convertView = LayoutInflater.from(context).inflate(
+                        R.layout.layout_fragmenthome_adapter, null);
+            }else{
+                convertView = LayoutInflater.from(context).inflate(
+                        R.layout.layout_fragmenthome_adapter2, null);
+            }
         }
         TextView view = ViewHolder.get(convertView, R.id.user_name);
 
