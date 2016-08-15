@@ -2,36 +2,53 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="horizontal">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/logo_image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
             android:background="@drawable/ic_launcher"
-            android:layout_margin="20dp"/>
+            android:layout_marginTop="13dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="10dp"/>
+
+        <ImageView
+            android:id="@+id/sex_image"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@color/red"
+            android:layout_alignBottom="@+id/logo_image"
+            android:layout_toRightOf="@+id/logo_image"
+            android:layout_marginTop="-5dp"
+            android:layout_marginLeft="-15dp"/>
 
         <TextView
             android:id="@+id/tag_text"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:text="交友"
+            android:layout_below="@+id/logo_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
             android:maxLength="2"
+            android:textSize="9sp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/white"
             android:background="@color/red"/>
-    </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white">
 
         <TextView
@@ -39,29 +56,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="马晓丽"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:layout_marginTop="20dp"/>
+            android:textColor="#4A2701"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"/>
 
-        <TextView
+        <ImageView
             android:id="@+id/auth_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="认"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_toRightOf="@+id/user_name"
             android:layout_alignTop="@+id/user_name"
             android:layout_marginLeft="5dp"
-            android:padding="2dp"
-            android:textColor="@color/white"
-            android:background="@color/green"/>
-
-        <ImageView
-            android:id="@+id/sex_image"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@color/red"
-            android:layout_below="@+id/user_name"
-            android:layout_marginTop="5dp"/>
+            android:background="#fae001"/>
 
         <com.iloomo.widget.CostomRatingBar
             android:id="@+id/rating_bar_five"
@@ -69,7 +75,6 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_below="@+id/user_name"
-            android:layout_toRightOf="@+id/sex_image"
             android:layout_marginLeft="5dp" />
 
         <TextView
@@ -77,10 +82,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="求陪跑"
-            android:layout_below="@+id/sex_image"
+            android:layout_below="@+id/rating_bar_five"
             android:layout_marginTop="5dp"
             android:singleLine="true"
-            android:textColor="@color/black"/>
+            android:textSize="13sp"
+            android:textColor="#444444"/>
 
         <TextView
             android:id="@+id/introduction_text"
@@ -90,8 +96,10 @@
             android:layout_below="@+id/title_text"
             android:layout_marginTop="5dp"
             android:maxLines="2"
+            android:textSize="11sp"
             android:ellipsize="end"
-            android:textColor="@color/black"/>
+            android:background="#f4f4f4"
+            android:textColor="#868686"/>
 
         <RelativeLayout
             android:id="@+id/price_places_rl"
@@ -105,7 +113,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="￥10      /次"/>
+                android:textColor="#f74a49"
+                android:textSize="17.5dp"
+                android:text="￥10 "/>
+
+            <TextView
+                android:id="@+id/price_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="#a7a7a7"
+                android:layout_toRightOf="@+id/price_text"
+                android:textSize="8.5dp"
+                android:text="/次"/>
 
             <TextView
                 android:id="@+id/places_text"
@@ -114,8 +134,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
                 android:padding="10dp"
-                android:background="@color/red"
-                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:background="#fae001"
+                android:textColor="@color/black"
                 android:text="剩余名额1"/>
 
         </RelativeLayout>
@@ -129,6 +150,7 @@
                 android:id="@+id/position_image"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
+                android:layout_centerVertical="true"
                 android:background="@drawable/ic_launcher"/>
             <TextView
                 android:id="@+id/position_text"
@@ -136,6 +158,8 @@
                 android:layout_height="wrap_content"
                 android:text="朝阳"
                 android:layout_marginLeft="2dp"
+                android:textColor="#868686"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/position_image"/>
 
             <ImageView
@@ -143,6 +167,7 @@
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/position_text"
                 android:background="@drawable/ic_launcher"/>
             <TextView
@@ -151,6 +176,8 @@
                 android:layout_height="wrap_content"
                 android:text="5"
                 android:layout_marginLeft="2dp"
+                android:textColor="#868686"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/visit_image"/>
 
             <ImageView
@@ -158,6 +185,7 @@
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/visit_text"
                 android:background="@drawable/ic_launcher"/>
             <TextView
@@ -166,6 +194,8 @@
                 android:layout_height="wrap_content"
                 android:text="刚刚"
                 android:layout_marginLeft="2dp"
+                android:layout_centerVertical="true"
+                android:textColor="#868686"
                 android:layout_toRightOf="@+id/time_image"/>
 
             <TextView
@@ -174,6 +204,12 @@
                 android:layout_height="wrap_content"
                 android:text="线下"
                 android:layout_alignParentRight="true"
+                android:background="#f4f4f4"
+                android:textColor="#868686"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
                 android:layout_marginRight="15dp"/>
 
 

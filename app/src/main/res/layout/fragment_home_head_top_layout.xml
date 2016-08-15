@@ -1,26 +1,19 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white" >
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="0dp" />
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/home_top_ll"
+        android:id="@+id/home_top_ll_head"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:visibility="gone"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="@color/white">
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/recommend_text"
+            android:id="@+id/recommend_text_head"
             android:layout_width="54dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -29,7 +22,7 @@
             android:background="@drawable/home_center_bg_selector"
             android:text="推荐"/>
         <TextView
-            android:id="@+id/nearby_text"
+            android:id="@+id/nearby_text_head"
             android:layout_width="54dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -38,7 +31,7 @@
             android:background="@drawable/home_center_bg_selector"
             android:text="附近"/>
         <TextView
-            android:id="@+id/city_text"
+            android:id="@+id/city_text_head"
             android:layout_width="54dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -47,7 +40,7 @@
             android:background="@drawable/home_center_bg_selector"
             android:text="同城"/>
         <TextView
-            android:id="@+id/friends_text"
+            android:id="@+id/friends_text_head"
             android:layout_width="54dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -58,4 +51,4 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
