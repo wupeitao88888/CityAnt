@@ -11,32 +11,6 @@ package com.iloomo.global;
  */
 public class AppConfig {
 
-    //微信支付
-    public static final String WX_APP_ID = "wxab37c2bd3bbb2b0b";
-    public static final String WX_API_KEY = "mnbvcxzlkjhgfdsapoiuytrewq098765";
-    
-    // 支付宝商户PID
-    public static final String PARTNER = "2088121413289894";
-    //  支付宝商户收款账号
-    public static final String SELLER = "3295822272@qq.com";
-    //  支付宝商户私钥，pkcs8格式
-    public static final String RSA_PRIVATE = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAOtGffx6x0pnsZulNvqgJWrFAXi8FWDms9+BPXt774iFYQn5Z8pv29Zczt37qiF5MjI4SWkgLzExboT+WnOGg1QEQ5uPJLnmGFqD1RfqcIpWdddctHSmyxgGZyvPNpoCIOGO5CozrsBwdolgNGFGtbZdLzjY3QxSy4AhK2vu4agDAgMBAAECgYEAzo4/06bzSmaJLo25HAX3c6psJVRzLHS+3G25zay8Wk5HKJuXPMpB5gvq7kahUev2XtK92JaR+A1e61HnlV818aEyqUFcaaZHoVjWXXoH3FpZBjPuyRvLeEa58pmfbHFNsuFsr/9d3+5Pp6L+QusZwLoZraIkLh8pZeb3A7vaankCQQD2AgAY+92YAYH7bG/IVuD0rEZNwlYcjrq2zcecpwUAsUDyu1C1rN/gVK0Buip8ZaoKzWoTWaG4CuRE2rZhGnG1AkEA9NTlLp29TbkgkKsDLFmWb5ZjYcdVpGG/Tl7EDQkHuA2M50ido8zjl5h5qIBD9oyYWeZLx7m5Ogx6awAmvGkl1wJBANLOLgU6ts2N5TNs3XEAOa6QfYIemKnKCOei+H0dhiTsv2oA5412wTU7ejEztTp557dwBIjmUrUh6C+0d3pILc0CQFNvUgMG4oJgOobSoKw2g5vXhlrGEZuJbCaLCQjgMO86PvB6wK4XnuAEqEESJRcaZrkMUHrqAgOUSQu563l949UCQA7anrBVh/KMQjPq8WQ+UZ1sThJWV4U/VcQ5eElag3I8w8/qm8l0ioP8QcoaANxjsKLHBV7eq0VXTXlIYMr8J18=";
-    
-  
-    
-    
-    
-    public static final String ACTION_ZHIFUBAO_SUCCESS = "com.iloomo.paysdk.ACTION_ZFBSHARESHARE";
-    public static final String ACTION_ZHIFUBAO_FAILD = "com.iloomo.paysdk.ACTION_ZFBSHAREFAILD";
-    public static final String ACTION_ZHIFUBAO_CHECKING = "com.iloomo.paysdk.ACTION_ZFBSHARECHECKING";
-    public static final String ACTION_WXSHARE_SUCCESS = "com.iloomo.paysdk.ACTION_WXSHARESHARE";
-    public static final String ACTION_WXSHARE_FAILD = "com.iloomo.paysdk.ACTION_WXSHAREFAILD";
-    public static final String ACTION_WXPAY_SUCCESS = "com.iloomo.paysdk.ACTION_WXPAYSUCCESS";
-    public static final String ACTION_WXPAY_CANCLE = "com.iloomo.paysdk.ACTION_WXPAYCANCLE";
-    public static final String ACTION_WXPAY_FAILD = "com.iloomo.paysdk.ACTION_WXPAYFALID";
-    public static final String ACTION_WXPAY_UNSUPPORT = "com.iloomo.paysdk.ACTION_WXPAYUNSUPPORT";
-    
-    
     public static final String BASEURL="http://123.56.182.208";
     public static final String API="/mayi/api.php/";
     //微信订单下单地址
