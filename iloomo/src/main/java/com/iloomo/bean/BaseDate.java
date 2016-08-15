@@ -15,4 +15,16 @@ public class BaseDate implements Serializable {
     public void setCode_message(String code_message) {
         this.code_message = code_message;
     }
+
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+
 }

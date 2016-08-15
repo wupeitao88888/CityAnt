@@ -69,20 +69,23 @@ public class AsyncHttpPost<T> extends BaseRequest {
             if (!resultData.contains("ERROR.HTTP.008")) {
                 ThreadCallBack callBack = (ThreadCallBack) msg.getData()
                         .getSerializable("callback");
-                resultData= UnicodeUtils.decodeUnicode(resultData);
+                resultData = UnicodeUtils.decodeUnicode(resultData);
                 L.e("返回值：" + resultData);
+
+//                resultData = "{\"code\":505,\"data\":{\"code_message\":\"验证码不正确\"}}";
+
                 Object model = JSON.parseObject(resultData, modelClass);
                 BaseModel baseMadel = (BaseModel) model;
                 if (baseMadel.getCode().equals("200")) {
-                    if (resultCode == -1) {
-                        callBack.onCallbackFromThread(resultData, model);
-                    }
+//                    if (resultCode == -1) {
+                    callBack.onCallbackFromThread(resultData, model);
+//                    }
                     callBack.onCallBackFromThread(resultData, resultCode, model);
                 } else {
-                    if (resultCode == -1) {
-                        callBack.onCallbackFromThreadError(resultData, baseMadel);
-                    }
-                    callBack.onCallBackFromThreadError(resultData, resultCode, baseMadel);
+//                    if (resultCode == -1) {
+                    callBack.onCallbackFromThreadError(resultData, model);
+//                    }
+                    callBack.onCallBackFromThreadError(resultData, resultCode, model);
                 }
             }
 
