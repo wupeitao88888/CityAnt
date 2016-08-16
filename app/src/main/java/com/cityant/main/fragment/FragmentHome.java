@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.cityant.main.R;
 import com.cityant.main.activity.DoTaskActivity;
+import com.cityant.main.activity.HomeDetailsActivity;
 import com.cityant.main.activity.LocationChoiceActivity;
 import com.cityant.main.activity.SearchActivity;
 import com.cityant.main.adapter.FragmentHomeAdapter;
@@ -95,6 +96,12 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         FragmentHomeAdapter adapter = new FragmentHomeAdapter(context,list);
         listView.setAdapter(adapter);
         listView.setOnScrollListener(this);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                HomeDetailsActivity.startActivity(context);
+            }
+        });
         return view;
     }
 

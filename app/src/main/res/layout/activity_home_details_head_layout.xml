@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/demand_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/ic_launcher"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/logo_image"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:background="@drawable/ic_launcher"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="10dp"/>
+
+            <ImageView
+                android:id="@+id/sex_image"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@color/red"
+                android:layout_alignBottom="@+id/logo_image"
+                android:layout_toRightOf="@+id/logo_image"
+                android:layout_marginTop="-5dp"
+                android:layout_marginLeft="-15dp"/>
+
+            <TextView
+                android:id="@+id/tag_text"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:text="交友"
+                android:layout_below="@+id/logo_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:maxLength="2"
+                android:textSize="9sp"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:background="@color/red"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="马晓丽"
+                android:textColor="#4A2701"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"/>
+
+            <ImageView
+                android:id="@+id/auth_text"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_toRightOf="@+id/user_name"
+                android:layout_alignTop="@+id/user_name"
+                android:layout_marginLeft="5dp"
+                android:background="#fae001"/>
+
+            <RelativeLayout
+                android:id="@+id/title_rating_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/user_name">
+
+                <com.iloomo.widget.CostomRatingBar
+                    android:id="@+id/rating_bar_five"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="求陪跑"
+                    android:layout_below="@+id/rating_bar_five"
+                    android:layout_marginTop="5dp"
+                    android:singleLine="true"
+                    android:textSize="13sp"
+                    android:textColor="#444444"/>
+
+                <RelativeLayout
+                    android:id="@+id/price_places_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/price_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:textColor="#f74a49"
+                        android:textSize="17.5dp"
+                        android:text="￥10 "/>
+
+                    <TextView
+                        android:id="@+id/price_company"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:textColor="#a7a7a7"
+                        android:layout_toRightOf="@+id/price_text"
+                        android:textSize="8.5dp"
+                        android:text="/次"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/introduction_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="晚上一个人跑好无聊"
+                android:layout_below="@+id/title_rating_rl"
+                android:layout_marginTop="5dp"
+                android:maxLines="2"
+                android:textSize="11sp"
+                android:ellipsize="end"
+                android:background="#f4f4f4"
+                android:textColor="#868686"/>
+
+            <TextView
+                android:id="@+id/demand_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间：1993.9.21 19:30"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/introduction_text"/>
+            <TextView
+                android:id="@+id/demand_adr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地点：北京大学体育场东口"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/demand_time"/>
+            <TextView
+                android:id="@+id/demand_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="性别要求：那女不限"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/demand_adr"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/places_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="13sp"
+            android:background="#fae001"
+            android:layout_marginLeft="11dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:text="剩余名额1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:text="截止倒计时:"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            android:text="15 : 48 : 23"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="11dp"
+        android:text="晚上一个人围着马路跑步挺无聊的，求跑步爱好者一起陪伴跑步！"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="11dp"
+        android:text="【晚上一个人围着马路跑步挺无聊的，求跑步爱好者一起陪伴跑步！】"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="举报"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="报名留言"
+        android:background="@color/gray"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="5dp"/>
+
+
+
+
+
+</LinearLayout>
