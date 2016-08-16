@@ -64,4 +64,8 @@
     <string name="zan">给蚂蚁点个赞</string>
     <string name="AccountSecurity">账号安全</string>
     <string name="aboutme">关于我们</string>
+    <string name="notifymsg">接收新消息通知</string>
+    <string name="motifyshow">通知显示详情</string>
+    <string name="sound">声音</string>
+    <string name="shake">震动</string>
 </resources>
