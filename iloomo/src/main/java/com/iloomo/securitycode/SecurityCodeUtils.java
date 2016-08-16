@@ -14,6 +14,7 @@ import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.BaseRequest;
 import com.iloomo.net.DefaultThreadPool;
 import com.iloomo.net.ThreadCallBack;
+import com.iloomo.utils.L;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -217,7 +218,6 @@ public class SecurityCodeUtils implements ThreadCallBack {
     public void onCallBackFromThread(String resultJson, int resultCode,
                                      Object modelClass) {
         // TODO Auto-generated method stub
-
         switch (resultCode) {
             case SMSTaskID.GET_CODE:
                 SMSBaseModel smsBaseModel = (SMSBaseModel) modelClass;
@@ -232,6 +232,7 @@ public class SecurityCodeUtils implements ThreadCallBack {
                 }
                 break;
             case SMSTaskID.SEND_CODE:
+
                 SMSBaseModel smsModel = (SMSBaseModel) modelClass;
                 if ("200".equals(smsModel.getCode())) {
                     if (securityCodeCallBack != null)
@@ -243,6 +244,7 @@ public class SecurityCodeUtils implements ThreadCallBack {
                 }
                 break;
             case SMSTaskID.SEND_CODE_REGISTER:
+
                 SMSRegister smsRegister = (SMSRegister) modelClass;
                 if ("200".equals(smsRegister.getCode())) {
                     if (securityCodeCallBack != null)
@@ -266,19 +268,19 @@ public class SecurityCodeUtils implements ThreadCallBack {
     public void onCallBackFromThreadError(String resultJson, int resultCode,
                                           Object modelClass) {
         SMSBaseModel baseModel = (SMSBaseModel) modelClass;
-        switch (resultCode) {
-            case SMSTaskID.GET_CODE:
-                if (securityCodeCallBack != null)
-                    securityCodeCallBack.onNetErrorCallBack(baseModel.getData().getCode_message(),
-                            PHONE_NULL);
-                break;
-            case SMSTaskID.SEND_CODE:
+//        switch (resultCode) {
+//            case SMSTaskID.GET_CODE:
+//                if (securityCodeCallBack != null)
+//                    securityCodeCallBack.onNetErrorCallBack(baseModel.getData().getCode_message(),
+//                            PHONE_NULL);
+////                break;
+//            case SMSTaskID.SEND_CODE:
                 if (securityCodeCallBack != null)
                     securityCodeCallBack.onNetErrorCallBack(baseModel.getData().getCode_message(),
                             PHONE_NULL);
 
-                break;
-        }
+//                break;
+//        }
     }
 
     Handler handler = new Handler() {

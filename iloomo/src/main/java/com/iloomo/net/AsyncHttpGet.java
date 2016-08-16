@@ -69,15 +69,15 @@ public class AsyncHttpGet<T> extends BaseRequest {
 				Object model = JSON.parseObject(resultData, modelClass);
 				BaseModel baseMadel = (BaseModel) model;
 				if (baseMadel.getCode().equals("200")) {
-					if (resultCode == -1) {
+//					if (resultCode == -1) {
 						callBack.onCallbackFromThread(resultData, model);
-					}
+//					}
 					callBack.onCallBackFromThread(resultData, resultCode, model);
 				} else {
-					if (resultCode == -1) {
-						callBack.onCallbackFromThreadError(resultData, baseMadel);
-					}
-					callBack.onCallBackFromThreadError(resultData, resultCode, baseMadel);
+//					if (resultCode == -1) {
+						callBack.onCallbackFromThreadError(resultData, model);
+//					}
+					callBack.onCallBackFromThreadError(resultData, resultCode, model);
 				}
 			}
 		}

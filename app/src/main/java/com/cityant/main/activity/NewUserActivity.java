@@ -14,7 +14,8 @@ import com.cityant.main.R;
 import com.cityant.main.bean.LoginUserInfoData;
 import com.cityant.main.db.DBControl;
 import com.iloomo.base.ActivitySupport;
-import com.iloomo.bean.SMSRegister;
+
+import com.iloomo.bean.UserRegisterData;
 import com.iloomo.global.AppConfig;
 import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.DialogUtil;
@@ -110,11 +111,11 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
 
     @Override
     public void onSecurityCodeCallBack(boolean blean) {
-        DialogUtil.stopDialogLoading(context);
+
         if (blean) {
             // 验证成功
-            ToastUtil.showShort(context, "验证成功");
-            mIntent(context, IndexFragment.class);
+//            ToastUtil.showShort(context, "验证成功");
+//            mIntent(context, IndexFragment.class);
         } else {
             // 验证失败
             ToastUtil.showShort(context, "验证失败");
@@ -126,12 +127,11 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
 
         if (blean) {
             // 验证成功
-//            ToastUtil.showShort(context, "验证成功:" + ((SMSRegister.UserRegister) userRegister).getToken());
             MyThreadPool.getInstance().submit(new Runnable() {
                 @Override
                 public void run() {
                     LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
-                    loginUserInfoData.setToken(((SMSRegister.UserRegister) userRegister).getToken());
+                    loginUserInfoData.setToken(((UserRegisterData) userRegister).getToken());
                     loginUserInfoData.setMobile(phone_number.getText().toString());
                     DBControl.getInstance(context).insertLoginInfo(loginUserInfoData);
                     DBControl.getInstance(context).insertLastUser(phone_number.getText().toString(), pwnumber.getText().toString());
@@ -141,10 +141,9 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
                     handler.sendMessage(message);
                 }
             });
-
-
         } else {
             // 验证失败
+            DialogUtil.stopDialogLoading(context);
             ToastUtil.showShort(context, "验证失败");
         }
     }

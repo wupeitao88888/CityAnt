@@ -10,7 +10,6 @@ import com.iloomo.db.DbHelperBase;
  */
 public class DbHelper extends DbHelperBase {
     public DbHelper(Context context) {
-
         super(context);
     }
 

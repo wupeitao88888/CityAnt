@@ -26,6 +26,7 @@ import com.iloomo.net.ThreadCallBack;
 import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.DialogUtil;
 import com.iloomo.utils.L;
+import com.iloomo.utils.ToastUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -182,7 +183,10 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
 
     @Override
     public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
-
+        L.e(""+resultJson);
+        DialogUtil.stopDialogLoading(context);
+        LoginUserInfo loginUserInfo = (LoginUserInfo) modelClass;
+        ToastUtil.showShort(context,loginUserInfo.getData().getCode_message());
     }
 
     private final int LOGIN = 100;
