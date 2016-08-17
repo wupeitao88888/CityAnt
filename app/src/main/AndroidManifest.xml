@@ -251,6 +251,11 @@
             android:name=".activity.MessageNotifyActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <!--创建需求详情-->
+        <activity
+            android:name=".activity.CreateDemandActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
     </application>
 
 </manifest>
