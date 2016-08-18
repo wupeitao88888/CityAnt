@@ -34,7 +34,7 @@
 
                     <TextView
                         android:id="@+id/today_income"
-                        style="@style/forget_new"
+                        style="@style/forget_new_black"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
                         android:text="@string/todayincome" />
@@ -83,7 +83,7 @@
                             android:background="@color/gray" />
 
                         <TextView
-                            style="@style/forget_new"
+                            style="@style/forget_new_black"
                             android:layout_below="@+id/income_icon"
                             android:layout_centerHorizontal="true"
                             android:text="@string/wallet" />
@@ -101,7 +101,7 @@
                             android:background="@color/gray" />
 
                         <TextView
-                            style="@style/forget_new"
+                            style="@style/forget_new_black"
                             android:layout_below="@+id/warehouse_icon"
                             android:layout_centerHorizontal="true"
                             android:text="@string/warehouse" />
@@ -120,7 +120,7 @@
                             android:background="@color/gray" />
 
                         <TextView
-                            style="@style/forget_new"
+                            style="@style/forget_new_black"
                             android:layout_below="@+id/bean_icon"
                             android:layout_centerHorizontal="true"
                             android:text="@string/bean" />
@@ -137,7 +137,7 @@
 
                     <TextView
                         android:id="@+id/title"
-                        style="@style/forget_new"
+                        style="@style/forget_new_black"
                         android:layout_marginBottom="3dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="3dp"
@@ -165,7 +165,7 @@
                                 android:background="@color/gray" />
 
                             <TextView
-                                style="@style/forget_new"
+                                style="@style/forget_new_black"
                                 android:layout_below="@+id/created_icon"
                                 android:layout_centerHorizontal="true"
                                 android:text="@string/created" />
@@ -182,7 +182,7 @@
                                 android:background="@color/gray" />
 
                             <TextView
-                                style="@style/forget_new"
+                                style="@style/forget_new_black"
                                 android:layout_below="@+id/signup_icon"
                                 android:layout_centerHorizontal="true"
                                 android:text="@string/signup" />
@@ -199,7 +199,7 @@
                                 android:background="@color/gray" />
 
                             <TextView
-                                style="@style/forget_new"
+                                style="@style/forget_new_black"
                                 android:layout_below="@+id/finished_icon"
                                 android:layout_centerHorizontal="true"
                                 android:text="@string/finished" />
@@ -216,7 +216,7 @@
                                 android:background="@color/gray" />
 
                             <TextView
-                                style="@style/forget_new"
+                                style="@style/forget_new_black"
                                 android:layout_below="@+id/judge_icon"
                                 android:layout_centerHorizontal="true"
                                 android:text="@string/judge" />
@@ -354,7 +354,7 @@
                                 android:background="@color/gray" />
 
                             <TextView
-                                style="@style/forget_new"
+                                style="@style/forget_new_black"
                                 android:layout_below="@+id/idea_icon"
                                 android:layout_centerHorizontal="true"
                                 android:text="@string/created" />
@@ -371,7 +371,7 @@
                                 android:background="@color/gray" />
 
                             <TextView
-                                style="@style/forget_new"
+                                style="@style/forget_new_black"
                                 android:layout_below="@+id/service_icon"
                                 android:layout_centerHorizontal="true"
                                 android:text="@string/service" />
@@ -388,7 +388,7 @@
                                 android:background="@color/gray" />
 
                             <TextView
-                                style="@style/forget_new"
+                                style="@style/forget_new_black"
                                 android:layout_below="@+id/setting_icon"
                                 android:layout_centerHorizontal="true"
                                 android:text="@string/setting" />

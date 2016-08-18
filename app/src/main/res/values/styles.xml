@@ -56,7 +56,13 @@
         <item name="android:textSize">@dimen/textsize13</item>
 
     </style>
+    <style name="forget_new_black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/textsize13</item>
 
+    </style>
     <style name="me_wallet">
         <item name="android:layout_width">70dp</item>
         <item name="android:layout_marginTop">10dp</item>

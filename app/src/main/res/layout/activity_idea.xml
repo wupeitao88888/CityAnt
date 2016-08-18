@@ -12,22 +12,24 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="17dp"
-        android:background="@color/white">
+        android:background="@color/lightyellow">
 
         <EditText
             android:id="@+id/lc_feedback_idea"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="13dp"
-            android:background="@color/white"
-            android:editable="false"
+            android:background="@color/lightyellow"
             android:gravity="left|top"
             android:hint="@string/idea"
             android:inputType="textMultiLine"
             android:maxLength="200"
             android:maxLines="13"
             android:textCursorDrawable="@null"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            />
 
         <TextView
             android:id="@+id/lc_feedback_residueIdea"

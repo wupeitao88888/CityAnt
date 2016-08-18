@@ -47,6 +47,7 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener 
     private RelativeLayout rank;
     private RelativeLayout idea;
     private RelativeLayout service;
+    private RelativeLayout setting;
 
     @Override
     public View initView() {
@@ -68,7 +69,8 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener 
         center = (RelativeLayout) findViewById(inflate, R.id.center);
         rank = (RelativeLayout) findViewById(inflate, R.id.rank);
         idea = (RelativeLayout) findViewById(inflate, R.id.idea);
-        service= (RelativeLayout) findViewById(inflate, R.id.service);
+        service = (RelativeLayout) findViewById(inflate, R.id.service);
+        setting= (RelativeLayout) findViewById(inflate, R.id.setting);
 
         userhead.setOnClickListener(this);
         reseive_re.setOnClickListener(this);
@@ -86,6 +88,7 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener 
         rank.setOnClickListener(this);
         idea.setOnClickListener(this);
         service.setOnClickListener(this);
+        setting.setOnClickListener(this);
         return inflate;
     }
 
