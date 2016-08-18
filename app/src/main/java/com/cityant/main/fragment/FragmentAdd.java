@@ -6,7 +6,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.cityant.main.R;
+import com.cityant.main.activity.CreateAntGuessActivity;
 import com.cityant.main.activity.CreateDemandActivity;
+import com.cityant.main.activity.CreateFriendshipActivity;
+import com.cityant.main.activity.CreateSmallGrabActivity;
 import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.iloomo.base.FragmentSupport;
 import com.iloomo.utils.ToastUtil;
@@ -37,7 +40,10 @@ public class FragmentAdd extends FragmentSupport {
         create_ant_ll = (LinearLayout) view.findViewById(R.id.create_ant_ll);
         small_amount_ll = (LinearLayout) view.findViewById(R.id.small_amount_ll);
         part_time_job_ll = (LinearLayout) view.findViewById(R.id.part_time_job_ll);
-        friendship_ll.setOnClickListener(v -> CreateDemandActivity.startActivity(context));
+        friendship_ll.setOnClickListener(v -> CreateFriendshipActivity.startActivity(context));
+        create_ant_ll.setOnClickListener(v -> CreateAntGuessActivity.startActivity(context));
+        small_amount_ll.setOnClickListener(v -> CreateSmallGrabActivity.startActivity(context));
+        part_time_job_ll.setOnClickListener(v -> CreateDemandActivity.startActivity(context));
         return view;
     }
 

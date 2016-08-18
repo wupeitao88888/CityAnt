@@ -6,15 +6,30 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.bigkoo.pickerview.TimePickerView;
 import com.cityant.main.R;
+import com.cityant.main.glabal.MYAppconfig;
+import com.cityant.main.glabal.MYTaskID;
 import com.iloomo.base.ActivitySupport;
+import com.iloomo.net.AsyncHttpPost;
+import com.iloomo.net.BaseRequest;
+import com.iloomo.net.DefaultThreadPool;
+import com.iloomo.net.ThreadCallBack;
+import com.iloomo.utils.DialogUtil;
+import com.iloomo.utils.ToastUtil;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lvfl on 2016/8/17.
  */
-public class CreateDemandActivity extends ActivitySupport{
+public class CreateDemandActivity extends ActivitySupport implements ThreadCallBack {
 
     private Button commit_btn;
+    private TimePickerView birthPicker;
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context,CreateDemandActivity.class);
@@ -30,7 +45,11 @@ public class CreateDemandActivity extends ActivitySupport{
     }
 
     private void initView() {
+        initBirthPicker();
         commit_btn = (Button) findViewById(R.id.commit_btn);
+        birthPicker.setOnTimeSelectListener(data ->{
+            ToastUtil.show(context,data.toString(),ToastUtil.SHOW_TOAST);
+        });
         commit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,10 +70,66 @@ public class CreateDemandActivity extends ActivitySupport{
 //                string   pay_price   单价
 //                string   pay_unit   单位
 //                int   need_man   所需名额
-
-
+                birthPicker.show();
+//                DialogUtil.startDialogLoading(context);
+//                Map<String, Object> parameter = new HashMap<>();
+//                parameter.put("token", "");
+//                parameter.put("latitude", "");
+//                parameter.put("longitude", "");
+//                parameter.put("city_id", "");
+//                parameter.put("pay_type", "");
+//                parameter.put("need_way", "");
+//                parameter.put("need_title", "");
+//                parameter.put("tag_id", "");
+//                parameter.put("need_content", "");
+//                parameter.put("need_sex", "");
+//                parameter.put("address", "");
+//                parameter.put("need_time", "");
+//                parameter.put("end_time", "");
+//                parameter.put("pay_price", "15");
+//                parameter.put("pay_unit", "元");
+//                parameter.put("need_man", "3");
+//                startHttpRequst(MYAppconfig.USERLOGIN, parameter
+//                        , MYTaskID.USERLOGIN);
             }
         });
     }
 
+    private void initBirthPicker() {
+        birthPicker = new TimePickerView(this, TimePickerView.Type.ALL);
+        Calendar calendar = Calendar.getInstance();
+        birthPicker.setRange(calendar.get(Calendar.YEAR) - 99, calendar.get(Calendar.YEAR));
+        birthPicker.setTime(new Date());
+        birthPicker.setCyclic(false);
+        birthPicker.setCancelable(true);
+    }
+
+    public void startHttpRequst(String url,
+                                Map<String, Object> parameter, int resultCode) {
+
+        BaseRequest httpRequest = null;
+        httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
+                CreateDemandActivity.class);
+        DefaultThreadPool.getInstance().execute(httpRequest);
+    }
+
+    @Override
+    public void onCallbackFromThread(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+
+    }
 }

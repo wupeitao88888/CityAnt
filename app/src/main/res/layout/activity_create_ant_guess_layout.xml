@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ant_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_launcher"/>
+
+                <TextView
+                    android:id="@+id/ant_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/ant_image"
+                    android:text="题干"/>
+
+                <EditText
+                    android:id="@+id/ant_details_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/ant_text"
+                    android:minLines="5"
+                    android:hint="输入题干详情"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ant_details_edit"
+                    android:text="0/200"
+                    android:layout_alignParentRight="true"/>
+
+                <LinearLayout
+                    android:id="@+id/option_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/ant_details_edit"
+                    android:layout_alignLeft="@+id/ant_details_edit">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="选项"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="双选"
+                        android:layout_marginLeft="5dp"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:background="@color/gray"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="三选"
+                        android:layout_marginLeft="5dp"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:background="@color/gray"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="四选"
+                        android:layout_marginLeft="5dp"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:background="@color/gray"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/option_a_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignLeft="@+id/ant_details_edit"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/option_ll">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray"
+                        android:layout_marginLeft="15dp"
+                        android:textColorHint="@color/white"
+                        android:hint="输入答案"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/option_b_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignLeft="@+id/ant_details_edit"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/option_a_ll">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray"
+                        android:layout_marginLeft="15dp"
+                        android:textColorHint="@color/white"
+                        android:hint="输入答案"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/option_c_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignLeft="@+id/ant_details_edit"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/option_b_ll">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray"
+                        android:layout_marginLeft="15dp"
+                        android:textColorHint="@color/white"
+                        android:hint="输入答案"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/option_d_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignLeft="@+id/ant_details_edit"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/option_c_ll">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray"
+                        android:layout_marginLeft="15dp"
+                        android:textColorHint="@color/white"
+                        android:hint="输入答案"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/answer_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignLeft="@+id/ant_details_edit"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/option_d_ll">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="确定正确答案"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"
+                        android:layout_marginLeft="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="B"
+                        android:layout_marginLeft="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="C"
+                        android:layout_marginLeft="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="D"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/how_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="谁可参与"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/how_text">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="所有人"
+                        android:padding="5dp"
+                        android:background="@color/gray"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="仅限好友"
+                        android:padding="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/gray"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="答对奖励参与者"/>
+
+                <EditText
+                    android:id="@+id/ant_d_edit"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:hint="输入蚂蚁豆"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/gray"
+                    android:textColor="@color/white"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_launcher"
+                    android:layout_marginRight="5dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/ant_d_edit"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="答错收入"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="提示：没提限答一次"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:text="确认创建"
+                android:background="@color/red"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

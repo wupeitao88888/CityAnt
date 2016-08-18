@@ -256,6 +256,21 @@
             android:name=".activity.CreateDemandActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <!--创建友请购-->
+        <activity
+            android:name=".activity.CreateFriendshipActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <!--创建蚂蚁猜-->
+        <activity
+            android:name=".activity.CreateAntGuessActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <!--创建小额抢-->
+        <activity
+            android:name=".activity.CreateSmallGrabActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
     </application>
 
 </manifest>
