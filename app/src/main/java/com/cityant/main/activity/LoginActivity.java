@@ -192,10 +192,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                     EMClient.getInstance().contactManager().addContact("wpt", "没理由");
                 } catch (HyphenateException e) {
                 }
-                try {
-                    EMClient.getInstance().contactManager().addContact("wpt", "没理由");
-                } catch (HyphenateException e) {
-                }
+
                 MyThreadPool.getInstance().submit(new Runnable() {
                     @Override
                     public void run() {

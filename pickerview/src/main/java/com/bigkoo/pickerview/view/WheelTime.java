@@ -1,7 +1,9 @@
 package com.bigkoo.pickerview.view;
 
-import android.content.Context;
-import android.view.View;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.List;
 
 import com.bigkoo.pickerview.R;
 import com.bigkoo.pickerview.TimePickerView.Type;
@@ -9,10 +11,8 @@ import com.bigkoo.pickerview.adapter.NumericWheelAdapter;
 import com.bigkoo.pickerview.lib.WheelView;
 import com.bigkoo.pickerview.listener.OnItemSelectedListener;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.List;
+import android.content.Context;
+import android.view.View;
 
 
 public class WheelTime {
@@ -31,6 +31,7 @@ public class WheelTime {
 	private int endYear = DEFULT_END_YEAR;
 
 
+
 	public WheelTime(View view) {
 		super();
 		this.view = view;
@@ -47,9 +48,6 @@ public class WheelTime {
 		this.setPicker(year, month, day, 0, 0);
 	}
 	
-	/**
-	 * @Description: TODO 弹出日期时间选择器
-	 */
 	public void setPicker(int year ,int month ,int day,int h,int m) {
 		// 添加大小月月份并将其转换为list,方便之后的判断
 		String[] months_big = { "1", "3", "5", "7", "8", "10", "12" };
@@ -243,6 +241,4 @@ public class WheelTime {
 	public void setEndYear(int endYear) {
 		this.endYear = endYear;
 	}
-
-
 }
