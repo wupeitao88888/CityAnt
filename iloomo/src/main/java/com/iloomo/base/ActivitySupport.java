@@ -15,6 +15,7 @@ import com.iloomo.paysdk.R;
 import com.iloomo.utils.LCSharedPreferencesHelper;
 import com.iloomo.widget.TitleBar;
 import com.umeng.analytics.MobclickAgent;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -270,11 +271,13 @@ public class ActivitySupport extends FragmentActivity implements
 /**
  * 友盟统计
  */
-        String centerTitle = titleBar.getCenterTitle();
-        if (TextUtils.isEmpty(centerTitle))
-            centerTitle = "Activity";
-        MobclickAgent.onPageStart(centerTitle);
-        MobclickAgent.onResume(this);
+        if (titleBar != null) {
+            String centerTitle = titleBar.getCenterTitle();
+            if (TextUtils.isEmpty(centerTitle))
+                centerTitle = "Activity";
+            MobclickAgent.onPageStart(centerTitle);
+            MobclickAgent.onResume(this);
+        }
     }
 
     @Override
@@ -289,11 +292,14 @@ public class ActivitySupport extends FragmentActivity implements
 /**
  * 友盟统计
  */
-        String centerTitle = titleBar.getCenterTitle();
-        if (TextUtils.isEmpty(centerTitle))
-            centerTitle = "Activity";
-        MobclickAgent.onPageEnd(centerTitle);
-        MobclickAgent.onPause(this);
+        if (titleBar != null) {
+            String centerTitle = titleBar.getCenterTitle();
+            if (TextUtils.isEmpty(centerTitle))
+                centerTitle = "Activity";
+            MobclickAgent.onPageEnd(centerTitle);
+            MobclickAgent.onPause(this);
+        }
+
     }
 
     @Override
@@ -305,6 +311,8 @@ public class ActivitySupport extends FragmentActivity implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        //可以取消同一个tag的网络请求
+        OkHttpUtils.getInstance().cancelTag(context);
         unbindDrawables(linearLayout);
         System.gc();
     }

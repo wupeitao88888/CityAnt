@@ -6,22 +6,26 @@ import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
+import com.cityant.main.HXUtlis.HXErrorUtlis;
+import com.cityant.main.HXUtlis.OnUserNotFoundListener;
 import com.cityant.main.R;
 import com.cityant.main.bean.LoginUserInfo;
 import com.cityant.main.db.DBControl;
-import com.cityant.main.glabal.MYAppconfig;
-import com.cityant.main.glabal.MYTaskID;
+import com.cityant.main.global.MYAppconfig;
+import com.cityant.main.global.MYTaskID;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
 import com.iloomo.base.ActivitySupport;
-import com.iloomo.bean.SMSBaseModel;
 import com.iloomo.net.AsyncHttpGet;
 import com.iloomo.net.AsyncHttpPost;
-import com.iloomo.net.BaseRequest;
-import com.iloomo.net.DefaultThreadPool;
+
+
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.DialogUtil;
@@ -138,15 +142,11 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
     public void startHttpRequst(String requestType, String url,
                                 Map<String, Object> parameter, int resultCode) {
 
-        BaseRequest httpRequest = null;
-        if ("POST".equalsIgnoreCase(requestType)) {
-            httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
-                    LoginUserInfo.class);
-        } else {
-            httpRequest = new AsyncHttpGet(this, url, parameter, resultCode,
-                    LoginUserInfo.class);
-        }
-        DefaultThreadPool.getInstance().execute(httpRequest);
+        AsyncHttpPost httpRequest;
+        httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
+                LoginUserInfo.class, context);
+
+
     }
 
 
@@ -160,6 +160,34 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
 
         switch (resultCode) {
             case MYTaskID.USERLOGIN:
+                hxLogin(modelClass);
+
+                break;
+        }
+    }
+
+    @Override
+    public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+        L.e("" + resultJson);
+        DialogUtil.stopDialogLoading(context);
+        LoginUserInfo loginUserInfo = (LoginUserInfo) modelClass;
+        ToastUtil.showShort(context, loginUserInfo.getData().getCode_message());
+    }
+
+    private boolean isopen = false;
+
+    private void hxLogin(Object modelClass) {
+        EMClient.getInstance().login(phone_number.getText().toString(), password_number.getText().toString(), new EMCallBack() {//回调
+            @Override
+            public void onSuccess() {
+                EMClient.getInstance().groupManager().loadAllGroups();
+                EMClient.getInstance().chatManager().loadAllConversations();
+                L.e("登录聊天服务器成功！");
                 MyThreadPool.getInstance().submit(new Runnable() {
                     @Override
                     public void run() {
@@ -172,21 +200,37 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                         handler.sendMessage(message);
                     }
                 });
-                break;
-        }
-    }
+            }
 
-    @Override
-    public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+            @Override
+            public void onProgress(int progress, String status) {
 
-    }
+            }
 
-    @Override
-    public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
-        L.e(""+resultJson);
-        DialogUtil.stopDialogLoading(context);
-        LoginUserInfo loginUserInfo = (LoginUserInfo) modelClass;
-        ToastUtil.showShort(context,loginUserInfo.getData().getCode_message());
+            @Override
+            public void onError(int code, String message) {
+                Log.d("main", "登录聊天服务器失败！");
+                if (!isopen) {
+                    DialogUtil.stopDialogLoading(context);
+                    HXErrorUtlis.getHxErrorUtlis(context).showError(code);
+                    HXErrorUtlis.getHxErrorUtlis(context).setOnUserNotFoundListener(new OnUserNotFoundListener() {
+                        @Override
+                        public void onUserNotFound() {
+                            //注册失败会抛出HyphenateException
+                            try {
+                                EMClient.getInstance().createAccount(phone_number.getText().toString(), password_number.getText().toString());//同步方法
+                            } catch (HyphenateException e) {
+                                ToastUtil.showShort(context, mString(R.string.USER_REG_FAILED));
+                            }
+                        }
+                    });
+                } else {
+                    DialogUtil.stopDialogLoading(context);
+                    HXErrorUtlis.getHxErrorUtlis(context).showError(code);
+                }
+
+            }
+        });
     }
 
     private final int LOGIN = 100;
@@ -200,9 +244,10 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                     DialogUtil.stopDialogLoading(context);
                     mIntent(context, IndexFragment.class);
                     finish();
+
                     break;
                 case INIT:
-                    Bundle bundle=(Bundle)msg.obj;
+                    Bundle bundle = (Bundle) msg.obj;
                     String mobile = bundle.getString("mobile");
                     String password = bundle.getString("password");
 
@@ -213,7 +258,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                         password_number.setText(password);
                         login_button.setPressed(false);
                         login_button.setClickable(true);
-                    }else{
+                    } else {
                         login_button.setPressed(true);
                         login_button.setClickable(false);
                     }

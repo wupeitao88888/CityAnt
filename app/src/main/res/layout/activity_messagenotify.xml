@@ -18,8 +18,17 @@
                 android:id="@+id/textView"
                 style="@style/me_guess_text"
                 android:layout_toRightOf="@+id/guess_icon"
+
                 android:text="@string/notifymsg" />
 
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/switch1"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                />
         </RelativeLayout>
 
         <RelativeLayout
@@ -30,6 +39,15 @@
                 style="@style/me_guess_text"
                 android:layout_toRightOf="@+id/guess_icon"
                 android:text="@string/motifyshow" />
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/switch1"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -40,7 +58,14 @@
                 style="@style/me_guess_text"
                 android:layout_toRightOf="@+id/guess_icon"
                 android:text="@string/sound" />
-
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/switch1"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                />
         </RelativeLayout>
 
         <RelativeLayout
@@ -50,12 +75,20 @@
             <TextView
                 style="@style/me_guess_text"
                 android:layout_toRightOf="@+id/guess_icon"
-                android:text="@string/shake" />
+                android:text="@string/shake"
+                android:id="@+id/textView2" />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/switch1"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                 />
+
         </RelativeLayout>
 
-        <com.iloomo.widget.MSwitchButton
-            android:layout_width="100dp"
-            android:layout_height="50dp"></com.iloomo.widget.MSwitchButton>
 
     </LinearLayout>
 </LinearLayout>

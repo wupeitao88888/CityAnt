@@ -18,35 +18,23 @@
 
 package com.iloomo.net;
 
-import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.zip.GZIPInputStream;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.CoreConnectionPNames;
-import org.apache.http.protocol.HTTP;
 
 import com.alibaba.fastjson.JSON;
 import com.iloomo.bean.BaseModel;
 import com.iloomo.utils.L;
 import com.iloomo.utils.UnicodeUtils;
-
-import android.os.Handler;
-import android.os.Message;
-import android.text.TextUtils;
-import android.util.Log;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+import android.content.Context;
+import okhttp3.Call;
+import okhttp3.MediaType;
 
 /**
  * 异步HTTPPOST请求
@@ -57,55 +45,44 @@ import android.util.Log;
  * @param <T>
  * @author sailor
  */
-public class AsyncHttpPost<T> extends BaseRequest {
-    private static final long serialVersionUID = 2L;
-    DefaultHttpClient httpClient;
-    Map<String, Object> parameter = null;
-    private int resultCode = -1;
-    private Class<T> modelClass;
-    Handler resultHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            String resultData = (String) msg.obj;
-            if (!resultData.contains("ERROR.HTTP.008")) {
-                ThreadCallBack callBack = (ThreadCallBack) msg.getData()
-                        .getSerializable("callback");
-                resultData = UnicodeUtils.decodeUnicode(resultData);
-                L.e("返回值：" + resultData);
-
-//                resultData = "{\"code\":505,\"data\":{\"code_message\":\"验证码不正确\"}}";
-
-                Object model = JSON.parseObject(resultData, modelClass);
-                BaseModel baseMadel = (BaseModel) model;
-                if (baseMadel.getCode().equals("200")) {
-//                    if (resultCode == -1) {
-                    callBack.onCallbackFromThread(resultData, model);
-//                    }
-                    callBack.onCallBackFromThread(resultData, resultCode, model);
-                } else {
-//                    if (resultCode == -1) {
-                    callBack.onCallbackFromThreadError(resultData, model);
-//                    }
-                    callBack.onCallBackFromThreadError(resultData, resultCode, model);
-                }
-            }
-
-        }
-    };
-    ThreadCallBack callBack;
-
-    public AsyncHttpPost(ThreadCallBack callBack, String url,
-                         Map<String, Object> parameter, int resultCode, Class<T> modelClass) {
-        this.callBack = callBack;
-        this.resultCode = resultCode;
-        this.url = url;
-        this.parameter = parameter;
-        this.modelClass = modelClass;
+public class AsyncHttpPost<T> {
+    public AsyncHttpPost(final ThreadCallBack callBack, String url,
+                         Map<String, String> parameter, final int resultCode, final Class<T> modelClass, Context context) {
         L.e("请求：" + url + "?" + sort(parameter));
-        if (httpClient == null)
-            httpClient = new DefaultHttpClient();
+        OkHttpUtils
+                .post()
+                .url(url)
+                .params(parameter)
+                .tag(context)
+                .build()
+                .execute(new StringCallback() {
+
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        String response = ErrorUtil.errorJson("404", "网络连接失败，请检查网络");
+                        Object model = JSON.parseObject(response, modelClass);
+                        callBack.onCallbackFromThreadError(response, model);
+                        callBack.onCallBackFromThreadError(response, resultCode, model);
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        response = UnicodeUtils.decodeUnicode(response);
+                        L.e("返回值：" + response);
+                        Object model = JSON.parseObject(response, modelClass);
+                        BaseModel baseMadel = (BaseModel) model;
+                        if (baseMadel.getCode().equals("200")) {
+                            callBack.onCallbackFromThread(response, model);
+                            callBack.onCallBackFromThread(response, resultCode, model);
+                        } else {
+                            callBack.onCallbackFromThreadError(response, model);
+                            callBack.onCallBackFromThreadError(response, resultCode, model);
+                        }
+                    }
+                });
     }
 
-    public String sort(Map<String, Object> params) {
+    public String sort(Map<String, String> params) {
 
         List<String> key = new ArrayList<String>();
         Iterator it = params.keySet().iterator();
@@ -130,128 +107,52 @@ public class AsyncHttpPost<T> extends BaseRequest {
         }
     }
 
-
-    public AsyncHttpPost(ThreadCallBack callBack, String url,
-                         Map<String, Object> parameter, int connectTimeout, int readTimeout, Class<T> modelClass) {
-        this(callBack, url, parameter, -1, modelClass);
-        if (connectTimeout > 0) {
-            this.connectTimeout = connectTimeout;
-        }
-        if (readTimeout > 0) {
-            this.readTimeout = readTimeout;
-        }
+    /****
+     * 将文件作为请求体，发送到服务器。
+     */
+    public AsyncHttpPost(String url,File file,StringCallback stringCallback,Context context) {
+        L.e("请求：" + url );
+        OkHttpUtils
+                .postFile()
+                .url(url)
+                .file(file)
+                .tag(context)
+                .build()
+                .execute(stringCallback);
     }
 
-    public AsyncHttpPost(ThreadCallBack callBack, String url,
-                         Map<String, Object> parameter, String loadingDialogContent,
-                         boolean isHideCloseBtn, int connectTimeout, int readTimeout,
-                         int resultCode, Class<T> modelClass) {
-        this(callBack, url, parameter, resultCode, modelClass);
-        if (connectTimeout > 0) {
-            this.connectTimeout = connectTimeout;
-        }
-        if (readTimeout > 0) {
-            this.readTimeout = readTimeout;
-        }
+    /****
+     * 将文件作为请求体，发送到服务器。
+     */
+    public AsyncHttpPost(String url,Map<String,String> params,String fliekey,File file,StringCallback stringCallback,Context context) {
+        L.e("请求：" + url + "?" + sort(params));
+        OkHttpUtils.post()//
+                .addFile(fliekey, file.getName(), file)//
+                .url(url)
+                .params(params)//
+                .tag(context)
+                .build()//
+                .execute(stringCallback);
     }
 
-    @Override
-    public void run() {
-        String ret = "";
-        try {
-            for (int i = 0; i < HttpConstant.CONNECTION_COUNT; i++) {
-                try {
-                    request = new HttpPost(url);
-                    request.addHeader("Accept-Encoding", "default");
-
-                    if (parameter != null && parameter.size() > 0) {
-                        List<BasicNameValuePair> list = new ArrayList<BasicNameValuePair>();
-                        Set<String> keys = parameter.keySet();
-
-                        for (String key : keys) {
-                            list.add(new BasicNameValuePair(key, String
-                                    .valueOf(parameter.get(key))));
-                        }
-                        ((HttpPost) request)
-                                .setEntity(new UrlEncodedFormEntity(list,
-                                        HTTP.UTF_8));
-                    }
-                    httpClient.getParams().setParameter(
-                            CoreConnectionPNames.CONNECTION_TIMEOUT,
-                            connectTimeout);
-                    httpClient.getParams().setParameter(
-                            CoreConnectionPNames.SO_TIMEOUT, readTimeout);
-                    HttpResponse response = httpClient.execute(request);
-                    int statusCode = response.getStatusLine().getStatusCode();
-                    if (statusCode == HttpStatus.SC_OK) {
-                        InputStream is = response.getEntity().getContent();
-                        BufferedInputStream bis = new BufferedInputStream(is);
-                        bis.mark(2);
-                        // 取前两个字节
-                        byte[] header = new byte[2];
-                        int result = bis.read(header);
-                        // reset输入流到开始位置
-                        bis.reset();
-                        // 判断是否是GZIP格式
-                        int headerData = getShort(header);
-                        // Gzip 流 的前两个字节是 0x1f8b
-                        if (result != -1 && headerData == 0x1f8b) {
-                            // LogUtil.d("HttpTask", " use GZIPInputStream  ");
-                            is = new GZIPInputStream(bis);
-                        } else {
-                            // LogUtil.d("HttpTask",
-                            // " not use GZIPInputStream");
-                            is = bis;
-                        }
-                        InputStreamReader reader = new InputStreamReader(is,
-                                "utf-8");
-                        char[] data = new char[100];
-                        int readSize;
-                        StringBuffer sb = new StringBuffer();
-                        while ((readSize = reader.read(data)) > 0) {
-                            sb.append(data, 0, readSize);
-                        }
-                        ret = sb.toString();
-                        bis.close();
-                        reader.close();
-
-                    } else {
-                        RequestException exception = new RequestException(
-                                RequestException.IO_EXCEPTION, "响应码异常,响应码："
-                                + statusCode);
-                        ret = ErrorUtil
-                                .errorJson("999", exception.getMessage());
-                    }
-
-                    break;
-                } catch (Exception e) {
-                    if (i == HttpConstant.CONNECTION_COUNT - 1) {
-                        RequestException exception = new RequestException(
-                                RequestException.IO_EXCEPTION, "网络连接超时");
-                        ret = ErrorUtil
-                                .errorJson("999", exception.getMessage());
-                    } else {
-                        Log.d("connection url", "连接超时" + i);
-                        continue;
-                    }
-                }
-            }
-        } catch (java.lang.IllegalArgumentException e) {
-            RequestException exception = new RequestException(
-                    RequestException.IO_EXCEPTION, HttpConstant.ERROR_MESSAGE);
-            ret = ErrorUtil.errorJson("999", exception.getMessage());
-        } finally {
-            if (!HttpConstant.IS_STOP_REQUEST) {
-                Message msg = new Message();
-                msg.obj = ret;
-                msg.getData().putSerializable("callback", callBack);
-                resultHandler.sendMessage(msg);
-            }
-        }
-        super.run();
+    /****
+     * 提交一个Gson字符串到服务器端。
+     * @param url
+     * @param object
+     * @param stringCallback
+     */
+    public AsyncHttpPost(String url,Object object,StringCallback stringCallback,Context context) {
+        L.e("请求：" + url + "?" + JSON.toJSON(object).toString());
+        OkHttpUtils
+                .postString()
+                .url(url)
+                .mediaType(MediaType.parse("application/json; charset=utf-8"))
+                .content(JSON.toJSON(object).toString())
+                .tag(context)
+                .build()
+                .execute(stringCallback);
     }
 
-    private int getShort(byte[] data) {
-        return (int) ((data[0] << 8) | data[1] & 0xFF);
-    }
+
+
 }

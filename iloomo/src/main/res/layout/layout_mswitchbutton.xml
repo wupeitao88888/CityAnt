@@ -4,18 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+
+    <LinearLayout
+        android:id="@+id/mswitch"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:id="@+id/mswitch"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/mswitch_button"
-            android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:background="@drawable/mswitch_button_noselect"
+        android:orientation="horizontal"
+        android:padding="3dp">
 
 
-        </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.iloomo.utils;
 
 import com.iloomo.paysdk.R;
 import com.iloomo.widget.LCDialog;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -37,5 +38,6 @@ public class DialogUtil {
             dialog.cancel();
             dialog = null;
         }
+        OkHttpUtils.getInstance().cancelTag(context);
     }
 }

@@ -8,19 +8,16 @@ import android.widget.Button;
 
 import com.bigkoo.pickerview.TimePickerView;
 import com.cityant.main.R;
-import com.cityant.main.glabal.MYAppconfig;
-import com.cityant.main.glabal.MYTaskID;
+
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.net.AsyncHttpPost;
-import com.iloomo.net.BaseRequest;
-import com.iloomo.net.DefaultThreadPool;
+
 import com.iloomo.net.ThreadCallBack;
-import com.iloomo.utils.DialogUtil;
+
 import com.iloomo.utils.ToastUtil;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -32,7 +29,7 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
     private TimePickerView birthPicker;
 
     public static void startActivity(Context context) {
-        Intent intent = new Intent(context,CreateDemandActivity.class);
+        Intent intent = new Intent(context, CreateDemandActivity.class);
         context.startActivity(intent);
     }
 
@@ -47,8 +44,8 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
     private void initView() {
         initBirthPicker();
         commit_btn = (Button) findViewById(R.id.commit_btn);
-        birthPicker.setOnTimeSelectListener(data ->{
-            ToastUtil.show(context,data.toString(),ToastUtil.SHOW_TOAST);
+        birthPicker.setOnTimeSelectListener(data -> {
+            ToastUtil.show(context, data.toString(), ToastUtil.SHOW_TOAST);
         });
         commit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,10 +104,10 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
     public void startHttpRequst(String url,
                                 Map<String, Object> parameter, int resultCode) {
 
-        BaseRequest httpRequest = null;
-        httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
-                CreateDemandActivity.class);
-        DefaultThreadPool.getInstance().execute(httpRequest);
+
+        AsyncHttpPost httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
+                CreateDemandActivity.class, context);
+
     }
 
     @Override

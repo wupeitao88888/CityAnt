@@ -33,7 +33,7 @@ public class SettingActivity extends ActivitySupport {
      * @param view
      */
     public void onBlacklistClick(View view) {
-
+        mIntent(context, BlacklistActivity.class);
     }
 
     /***
@@ -69,7 +69,7 @@ public class SettingActivity extends ActivitySupport {
      * @param view
      */
     public void onAccountSecurityClick(View view) {
-
+        mIntent(context, AccountSecurityActivity.class);
     }
 
     /****
