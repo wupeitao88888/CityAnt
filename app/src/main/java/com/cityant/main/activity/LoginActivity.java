@@ -188,6 +188,14 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                 EMClient.getInstance().groupManager().loadAllGroups();
                 EMClient.getInstance().chatManager().loadAllConversations();
                 L.e("登录聊天服务器成功！");
+                try {
+                    EMClient.getInstance().contactManager().addContact("wpt", "没理由");
+                } catch (HyphenateException e) {
+                }
+                try {
+                    EMClient.getInstance().contactManager().addContact("wpt", "没理由");
+                } catch (HyphenateException e) {
+                }
                 MyThreadPool.getInstance().submit(new Runnable() {
                     @Override
                     public void run() {
@@ -211,6 +219,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
             public void onError(int code, String message) {
                 Log.d("main", "登录聊天服务器失败！");
                 if (!isopen) {
+                    isopen=true;
                     DialogUtil.stopDialogLoading(context);
                     HXErrorUtlis.getHxErrorUtlis(context).showError(code);
                     HXErrorUtlis.getHxErrorUtlis(context).setOnUserNotFoundListener(new OnUserNotFoundListener() {
