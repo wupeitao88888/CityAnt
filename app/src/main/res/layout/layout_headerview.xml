@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/hand_qun"
+            style="@style/myfrends_userhand"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/ic_launcher"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/username_qun"
+            style="@style/myfrends_username"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/hand_qun"
+            android:text="@string/mequn" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/hand_brand"
+            style="@style/myfrends_userhand"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/ic_launcher"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/username_brand"
+            style="@style/myfrends_username"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/hand_brand"
+            android:text="@string/brand" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/hand_newfrend"
+            style="@style/myfrends_userhand"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/ic_launcher"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/username"
+            style="@style/myfrends_username"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/hand_newfrend" />
+
+    </RelativeLayout>
+
+</LinearLayout>

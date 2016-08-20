@@ -11,8 +11,7 @@ import com.iloomo.global.SMSAppConfig;
 import com.iloomo.global.SMSTaskID;
 import com.iloomo.net.AsyncHttpGet;
 import com.iloomo.net.AsyncHttpPost;
-import com.iloomo.net.BaseRequest;
-import com.iloomo.net.DefaultThreadPool;
+
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.L;
 
@@ -176,18 +175,14 @@ public class SecurityCodeUtils implements ThreadCallBack {
                 SMSTaskID.GET_CODE);
     }
 
+    AsyncHttpPost httpRequest;
+
     public void startHttpRequst(String requestType, String url,
                                 Map<String, Object> parameter, int resultCode) {
 
-        BaseRequest httpRequest = null;
-        if ("POST".equalsIgnoreCase(requestType)) {
-            httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
-                    SMSBaseModel.class);
-        } else {
-            httpRequest = new AsyncHttpGet(this, url, parameter, resultCode,
-                    SMSBaseModel.class);
-        }
-        DefaultThreadPool.getInstance().execute(httpRequest);
+        httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
+                SMSBaseModel.class, context);
+
         if (securityCodeCallBack != null)
             securityCodeCallBack.onStartNet();
     }
@@ -195,15 +190,9 @@ public class SecurityCodeUtils implements ThreadCallBack {
     public void startHttpRequstRegister(String requestType, String url,
                                         Map<String, Object> parameter, int resultCode) {
 
-        BaseRequest httpRequest = null;
-        if ("POST".equalsIgnoreCase(requestType)) {
-            httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
-                    SMSRegister.class);
-        } else {
-            httpRequest = new AsyncHttpGet(this, url, parameter, resultCode,
-                    SMSRegister.class);
-        }
-        DefaultThreadPool.getInstance().execute(httpRequest);
+
+        httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
+                SMSRegister.class,context);
         if (securityCodeCallBack != null)
             securityCodeCallBack.onStartNet();
     }
@@ -275,9 +264,9 @@ public class SecurityCodeUtils implements ThreadCallBack {
 //                            PHONE_NULL);
 ////                break;
 //            case SMSTaskID.SEND_CODE:
-                if (securityCodeCallBack != null)
-                    securityCodeCallBack.onNetErrorCallBack(baseModel.getData().getCode_message(),
-                            PHONE_NULL);
+        if (securityCodeCallBack != null)
+            securityCodeCallBack.onNetErrorCallBack(baseModel.getData().getCode_message(),
+                    PHONE_NULL);
 
 //                break;
 //        }

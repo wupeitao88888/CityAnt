@@ -1,15 +1,12 @@
 package com.bigkoo.pickerview.view;
 
+import java.util.ArrayList;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.bigkoo.pickerview.R;
 import com.bigkoo.pickerview.adapter.ArrayWheelAdapter;
 import com.bigkoo.pickerview.lib.WheelView;
 import com.bigkoo.pickerview.listener.OnItemSelectedListener;
-
-import java.util.ArrayList;
 
 public class WheelOptions<T> {
 	private View view;
@@ -138,10 +135,9 @@ public class WheelOptions<T> {
 
 	/**
 	 * 设置选项的单位
-	 * 
-	 * @param label1
-	 * @param label2
-	 * @param label3
+	 * @param label1 单位
+	 * @param label2 单位
+	 * @param label3 单位
 	 */
 	public void setLabels(String label1, String label2, String label3) {
 		if (label1 != null)
@@ -154,8 +150,7 @@ public class WheelOptions<T> {
 
 	/**
 	 * 设置是否循环滚动
-	 * 
-	 * @param cyclic
+	 * @param cyclic 是否循环
 	 */
 	public void setCyclic(boolean cyclic) {
 		wv_option1.setCyclic(cyclic);
@@ -165,8 +160,7 @@ public class WheelOptions<T> {
 
 	/**
 	 * 分别设置第一二三级是否循环滚动
-	 *
-	 * @param cyclic1,cyclic2,cyclic3
+	 * @param cyclic1,cyclic2,cyclic3 是否循环
 	 */
 	public void setCyclic(boolean cyclic1,boolean cyclic2,boolean cyclic3) {
         wv_option1.setCyclic(cyclic1);
@@ -175,16 +169,15 @@ public class WheelOptions<T> {
 	}
     /**
      * 设置第二级是否循环滚动
-     *
-     * @param cyclic
+     * @param cyclic 是否循环
      */
     public void setOption2Cyclic(boolean cyclic) {
         wv_option2.setCyclic(cyclic);
     }
-/**
+
+	/**
      * 设置第三级是否循环滚动
-     *
-     * @param cyclic
+     * @param cyclic 是否循环
      */
     public void setOption3Cyclic(boolean cyclic) {
         wv_option3.setCyclic(cyclic);
@@ -192,9 +185,8 @@ public class WheelOptions<T> {
 
 	/**
 	 * 返回当前选中的结果对应的位置数组 因为支持三级联动效果，分三个级别索引，0，1，2
-	 * 
-	 * @return
-	 */
+	 * @return 索引数组
+     */
 	public int[] getCurrentItems() {
 		int[] currentItems = new int[3];
 		currentItems[0] = wv_option1.getCurrentItem();
@@ -226,16 +218,5 @@ public class WheelOptions<T> {
 		}
 	}
 
-	public void setExpand(){
-		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-		lp.weight = 2f;
-
-		LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-		lp2.weight = 1f;
-
-		wv_option1.setLayoutParams(lp);
-		wv_option2.setLayoutParams(lp);
-		wv_option3.setLayoutParams(lp2);
-	}
 
 }

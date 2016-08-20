@@ -8,6 +8,9 @@ import com.cityant.main.fragment.FragmentHome;
 import com.cityant.main.fragment.FragmentKnock;
 import com.cityant.main.fragment.FragmentMessage;
 import com.cityant.main.fragment.FragmentMy;
+import com.cityant.main.global.MyConnectionListener;
+import com.hyphenate.EMContactListener;
+import com.hyphenate.chat.EMClient;
 import com.iloomo.base.TabFragmentActivity;
 import com.iloomo.widget.MainTabHost;
 
@@ -40,7 +43,37 @@ public class IndexFragment extends TabFragmentActivity {
         mainTabSupport.setTabFragment(classTab);
         mainTabSupport.setTabBackground(styleTab);
         setContentView(mainTabSupport);
+        //注册一个监听连接状态的listener
+        EMClient.getInstance().addConnectionListener(new MyConnectionListener(context));
+        EMClient.getInstance().contactManager().setContactListener(emContactListener);
+
     }
 
+    EMContactListener emContactListener = new EMContactListener() {
+        @Override
+        public void onContactAgreed(String username) {
+            //好友请求被同意
+        }
 
+        @Override
+        public void onContactRefused(String username) {
+            //好友请求被拒绝
+        }
+
+        @Override
+        public void onContactInvited(String username, String reason) {
+            //收到好友邀请
+        }
+
+        @Override
+        public void onContactDeleted(String username) {
+            //被删除时回调此方法
+        }
+
+
+        @Override
+        public void onContactAdded(String username) {
+            //增加了联系人时回调此方法
+        }
+    };
 }

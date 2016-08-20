@@ -13,9 +13,9 @@
         <shape>
             <corners android:radius="6dp" />
 
-            <stroke android:width="0.5dp" android:color="@color/gray" android:dashGap="0dp" />
+            <stroke android:width="0.5dp" android:color="@color/white" android:dashGap="0dp" />
 
-            <solid android:color="@color/gray" />
+            <solid android:color="@color/white" />
         </shape>
     </item>
 

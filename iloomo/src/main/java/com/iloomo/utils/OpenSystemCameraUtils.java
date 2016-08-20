@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.iloomo.bean.BaseModel;
 import com.iloomo.net.AsyncHttpPost;
-import com.iloomo.net.DefaultThreadPool;
+
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.paysdk.R;
 
@@ -242,8 +242,8 @@ public class OpenSystemCameraUtils {
 
             }
 
-        }, neturl, parames, 100, BaseModel.class);
-        DefaultThreadPool.getInstance().execute(httpRequest);
+        }, neturl, parames, 100, BaseModel.class,context);
+
     }
 
     public void uploading(final String fileurl) {
