@@ -4,12 +4,13 @@
     <color name="albumback">#E1E0DE</color>
     <color name="aliceblue">#f0f8ff</color>
     <color name="antiquewhite">#faebd7</color>
+    <color name="app_theme">#fea001</color>
     <color name="aqua">#00ffff</color>
     <color name="aquamarine">#7fffd4</color>
     <color name="azure">#f0ffff</color>
     <color name="background">#F0F0F0</color>
     <color name="beige">#f5f5dc</color>
-    <color name="bg">#FFFFFF</color>
+    <color name="bg">#BFBFBF</color>
     <color name="bisque">#ffe4c4</color>
     <color name="black">#000000</color>
     <color name="black_e0">#99000000</color>
@@ -53,6 +54,7 @@
     <color name="deepskyblue">#00bfff</color>
     <color name="dimgray">#696969</color>
     <color name="dimgrey">#696969</color>
+    <color name="divider_line">#f4f4f4</color>
     <color name="dodgerblue">#1e90ff</color>
     <color name="firebrick">#b22222</color>
     <color name="floralwhite">#fffaf0</color>
@@ -66,6 +68,7 @@
     <color name="green">#008000</color>
     <color name="greenyellow">#adff2f</color>
     <color name="grey">#808080</color>
+    <color name="home_line">#eaf0f0</color>
     <color name="honeydew">#f0fff0</color>
     <color name="hotpink">#ff69b4</color>
     <color name="indianred">#cd5c5c</color>
@@ -155,7 +158,7 @@
     <color name="tan">#d2b48c</color>
     <color name="teal">#008080</color>
     <color name="thistle">#d8bfd8</color>
-    <color name="title_text">#000000</color>
+    <color name="title_text">#FFFFFF</color>
     <color name="tomato">#ff6347</color>
     <color name="transparent">#0000</color>
     <color name="transparent2">#8000</color>
@@ -166,7 +169,7 @@
     <color name="white">#ffffff</color>
     <color name="white_e1">#80FFFFFF</color>
     <color name="whitesmoke">#f5f5f5</color>
-    <color name="yellow">#ffff00</color>
+    <color name="yellow">#f4cc08</color>
     <declare-styleable name="GenericDraweeHierarchy"><attr format="integer" name="fadeDuration"/><attr format="float" name="viewAspectRatio"/><attr format="reference" name="placeholderImage"/><attr name="placeholderImageScaleType"><enum name="none" value="-1"/><enum name="fitXY" value="0"/><enum name="fitStart" value="1"/><enum name="fitCenter" value="2"/><enum name="fitEnd" value="3"/><enum name="center" value="4"/><enum name="centerInside" value="5"/><enum name="centerCrop" value="6"/><enum name="focusCrop" value="7"/></attr><attr format="reference" name="retryImage"/><attr name="retryImageScaleType"><enum name="none" value="-1"/><enum name="fitXY" value="0"/><enum name="fitStart" value="1"/><enum name="fitCenter" value="2"/><enum name="fitEnd" value="3"/><enum name="center" value="4"/><enum name="centerInside" value="5"/><enum name="centerCrop" value="6"/><enum name="focusCrop" value="7"/></attr><attr format="reference" name="failureImage"/><attr name="failureImageScaleType"><enum name="none" value="-1"/><enum name="fitXY" value="0"/><enum name="fitStart" value="1"/><enum name="fitCenter" value="2"/><enum name="fitEnd" value="3"/><enum name="center" value="4"/><enum name="centerInside" value="5"/><enum name="centerCrop" value="6"/><enum name="focusCrop" value="7"/></attr><attr format="reference" name="progressBarImage"/><attr name="progressBarImageScaleType"><enum name="none" value="-1"/><enum name="fitXY" value="0"/><enum name="fitStart" value="1"/><enum name="fitCenter" value="2"/><enum name="fitEnd" value="3"/><enum name="center" value="4"/><enum name="centerInside" value="5"/><enum name="centerCrop" value="6"/><enum name="focusCrop" value="7"/></attr><attr format="integer" name="progressBarAutoRotateInterval"/><attr name="actualImageScaleType"><enum name="none" value="-1"/><enum name="fitXY" value="0"/><enum name="fitStart" value="1"/><enum name="fitCenter" value="2"/><enum name="fitEnd" value="3"/><enum name="center" value="4"/><enum name="centerInside" value="5"/><enum name="centerCrop" value="6"/><enum name="focusCrop" value="7"/></attr><attr format="reference" name="backgroundImage"/><attr format="reference" name="overlayImage"/><attr format="reference" name="pressedStateOverlayImage"/><attr format="boolean" name="roundAsCircle"/><attr format="dimension" name="roundedCornerRadius"/><attr format="boolean" name="roundTopLeft"/><attr format="boolean" name="roundTopRight"/><attr format="boolean" name="roundBottomRight"/><attr format="boolean" name="roundBottomLeft"/><attr format="color" name="roundWithOverlayColor"/><attr format="dimension" name="roundingBorderWidth"/><attr format="color" name="roundingBorderColor"/><attr format="dimension" name="roundingBorderPadding"/></declare-styleable>
     <declare-styleable name="PullToRefresh"><attr format="reference|color" name="ptrRefreshableViewBackground"/><attr format="reference|color" name="ptrHeaderBackground"/><attr format="reference|color" name="ptrHeaderTextColor"/><attr format="reference|color" name="ptrHeaderSubTextColor"/><attr name="ptrMode"><flag name="disabled" value="0x0"/><flag name="pullFromStart" value="0x1"/><flag name="pullFromEnd" value="0x2"/><flag name="both" value="0x3"/><flag name="manualOnly" value="0x4"/><flag name="pullDownFromTop" value="0x1"/><flag name="pullUpFromBottom" value="0x2"/></attr><attr format="reference|boolean" name="ptrShowIndicator"/><attr format="reference" name="ptrDrawable"/><attr format="reference" name="ptrDrawableStart"/><attr format="reference" name="ptrDrawableEnd"/><attr format="reference|boolean" name="ptrOverScroll"/><attr format="reference" name="ptrHeaderTextAppearance"/><attr format="reference" name="ptrSubHeaderTextAppearance"/><attr name="ptrAnimationStyle"><flag name="rotate" value="0x0"/><flag name="flip" value="0x1"/></attr><attr format="reference|boolean" name="ptrScrollingWhileRefreshingEnabled"/><attr format="reference|boolean" name="ptrListViewExtrasEnabled"/><attr format="reference|boolean" name="ptrRotateDrawableWhilePulling"/><attr format="reference|color" name="ptrAdapterViewBackground"/><attr format="reference" name="ptrDrawableTop"/><attr format="reference" name="ptrDrawableBottom"/></declare-styleable>
     <declare-styleable name="SimpleDraweeView"><attr format="string" name="actualImageUri"/></declare-styleable>
@@ -174,7 +177,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <drawable name="gray">#c1c1c1</drawable>
     <drawable name="pg_bar">#003F51B5</drawable>
-    <drawable name="title_bar">#ffff00</drawable>
+    <drawable name="title_bar">#f4cc08</drawable>
     <drawable name="white">#FFFFFF</drawable>
     <item name="gridview" type="id"/>
     <item name="scrollview" type="id"/>
@@ -218,8 +221,19 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+    <style name="StyleRatingBar" parent="ratingbar_style">
+        <item name="android:layout_width">19dp</item>
+        <item name="android:layout_height">18dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+    </style>
     <style name="anim_popup_dir">
         <item name="android:windowEnterAnimation">@anim/slide_in</item>
         <item name="android:windowExitAnimation">@anim/slide_out</item>
+    </style>
+    <style name="ratingbar_style" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/myratingbar</item>
+        <item name="android:minHeight">22dip</item>
+        <item name="android:maxHeight">22dip</item>
+        <item name="android:scaleType">centerInside</item>
     </style>
 </resources>

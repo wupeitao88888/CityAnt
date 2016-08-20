@@ -50,6 +50,7 @@ int id scrollview 0x7f06000a
 int id webview 0x7f06000b
 int layout pull_to_refresh_header_horizontal 0x7f030000
 int layout pull_to_refresh_header_vertical 0x7f030001
+int string app_name 0x7f050006
 int string pull_to_refresh_from_bottom_pull_label 0x7f050003
 int string pull_to_refresh_from_bottom_refreshing_label 0x7f050004
 int string pull_to_refresh_from_bottom_release_label 0x7f050005

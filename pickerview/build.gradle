@@ -6,7 +6,7 @@ version = "2.0.8"
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "20.0.0"
+    buildToolsVersion '22.0.1'
 
     defaultConfig {
         minSdkVersion 9
@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
 }
 
 def siteUrl = 'https://github.com/saiwu-bigkoo/Android-PickerView'                        // #CONFIG# // project homepage

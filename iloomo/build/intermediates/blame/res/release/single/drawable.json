@@ -1,42 +1,54 @@
 [
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/drawable/button_normal_l.xml",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable/button_normal_l.xml"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\default_ptr_rotate.png",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\default_ptr_rotate.png"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/drawable/default_ptr_flip.png",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable/default_ptr_flip.png"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\indicator_bg_top.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\indicator_bg_top.xml"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/drawable/default_ptr_rotate.png",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable/default_ptr_rotate.png"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\shape_norcer.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\shape_norcer.xml"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/drawable/indicator_bg_bottom.xml",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable/indicator_bg_bottom.xml"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\progress_dialog.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\progress_dialog.xml"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/drawable/indicator_arrow.png",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable/indicator_arrow.png"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\myratingbar.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\myratingbar.xml"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/drawable/cam_focus.xml",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable/cam_focus.xml"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\default_ptr_flip.png",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\default_ptr_flip.png"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/drawable/progress_dialog.xml",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable/progress_dialog.xml"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\mswitch_button.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\mswitch_button.xml"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/drawable/indicator_bg_top.xml",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable/indicator_bg_top.xml"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\indicator_bg_bottom.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\indicator_bg_bottom.xml"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/drawable/check_selector.xml",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable/check_selector.xml"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\button_normal_l.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\button_normal_l.xml"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/release/drawable/shape_norcer.xml",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable/shape_norcer.xml"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\cam_focus.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\cam_focus.xml"
+    },
+    {
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\mswitch_button_select.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\mswitch_button_select.xml"
+    },
+    {
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\check_selector.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\check_selector.xml"
+    },
+    {
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\indicator_arrow.png",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\indicator_arrow.png"
     }
 ]

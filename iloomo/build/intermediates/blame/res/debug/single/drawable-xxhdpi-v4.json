@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/hy.png",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable-xxhdpi/hy.png"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\hy.png",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable-xxhdpi\\hy.png"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ic_launcher.png",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/CityAnt/iloomo/src/main/res/drawable-xxhdpi/ic_launcher.png"
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
     }
 ]

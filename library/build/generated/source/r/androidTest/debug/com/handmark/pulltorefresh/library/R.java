@@ -72,6 +72,7 @@ public final class R {
 		public static final int pull_to_refresh_header_vertical = 0x7f030001;
 	}
 	public static final class string {
+		public static final int app_name = 0x7f050006;
 		public static final int pull_to_refresh_from_bottom_pull_label = 0x7f050003;
 		public static final int pull_to_refresh_from_bottom_refreshing_label = 0x7f050004;
 		public static final int pull_to_refresh_from_bottom_release_label = 0x7f050005;

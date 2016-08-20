@@ -1,1 +1,1 @@
-include ':app', ':iloomo'
+include ':app', ':iloomo', ':library', ':pickerview'
