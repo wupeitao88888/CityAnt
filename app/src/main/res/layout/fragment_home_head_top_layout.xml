@@ -8,7 +8,7 @@
     <LinearLayout
         android:id="@+id/home_top_ll_head"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="35dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -17,7 +17,7 @@
             android:layout_width="54dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textColor="@color/home_center_selector"
             android:background="@drawable/home_center_bg_selector"
             android:text="推荐"/>
@@ -26,7 +26,7 @@
             android:layout_width="54dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textColor="@color/home_center_selector"
             android:background="@drawable/home_center_bg_selector"
             android:text="附近"/>
@@ -35,7 +35,7 @@
             android:layout_width="54dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textColor="@color/home_center_selector"
             android:background="@drawable/home_center_bg_selector"
             android:text="同城"/>
@@ -44,7 +44,7 @@
             android:layout_width="54dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textColor="@color/home_center_selector"
             android:background="@drawable/home_center_bg_selector"
             android:text="好友"/>

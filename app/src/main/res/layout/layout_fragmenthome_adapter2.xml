@@ -6,14 +6,14 @@
 
     <TextView
         android:id="@+id/extension_text"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="54dp"
+        android:layout_height="40dp"
         android:text="推广"
         android:paddingLeft="8dp"
         android:paddingTop="14dp"
         android:textSize="11sp"
         android:textColor="#444444"
-        android:background="#f4f4f4" />
+        android:background="@drawable/home_extension" />
 
     <RelativeLayout
         android:id="@+id/title_rl"
@@ -46,15 +46,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title_rl"
-        android:layout_alignLeft="@+id/title_rl"
         android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:background="#f4f4f4">
         
         <ImageView
             android:id="@+id/application_icon"
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:layout_margin="6dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginRight="8dp"
             android:background="@drawable/ic_launcher"/>
 
         <LinearLayout
@@ -105,7 +108,7 @@
         android:id="@+id/price_places_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_alignLeft="@+id/title_rl"
         android:layout_below="@+id/link_rl">
 
@@ -127,6 +130,32 @@
             android:layout_toRightOf="@+id/price_text"
             android:textSize="8.5dp"
             android:text="/次"/>
+
+        <TextView
+            android:id="@+id/share_text"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:text="分享"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:background="@drawable/fenxiang_pre"/>
+
+        <TextView
+            android:id="@+id/down_text"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:text="下载"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:textColor="#a9cdee"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:background="@drawable/fenxiang"/>
+
         </RelativeLayout>
 
     <View

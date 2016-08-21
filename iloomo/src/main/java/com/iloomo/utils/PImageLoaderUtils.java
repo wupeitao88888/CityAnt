@@ -1,7 +1,10 @@
 package com.iloomo.utils;
 
+import android.content.Context;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.iloomo.paysdk.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
@@ -30,6 +33,15 @@ public class PImageLoaderUtils {
      */
     public static void displayDrawableImage(String uri, ImageView imageView, DisplayImageOptions options) {
         ImageLoader.getInstance().displayImage("drawable://" + uri, new ImageViewAware(imageView), options, null, null);
+    }
+
+
+    public static void displayuserHand(String uri, ImageView imageView, Context context) {
+        Glide.with(context)
+                .load(uri)
+                .placeholder(R.drawable.gray)
+                .override(100, 100)
+                .error(R.drawable.gray).crossFade().into(imageView);
     }
 
 
