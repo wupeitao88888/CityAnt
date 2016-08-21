@@ -11,17 +11,31 @@
 
         <ImageView
             android:id="@+id/user_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/ic_launcher"
             android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/message_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="旅**第"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            android:layout_marginTop="12.5dp"
+            android:layout_toRightOf="@+id/user_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/user_icon"
+            android:textSize="13sp"
+            android:textColor="#666666"
             android:text="你是北大的咱们是校友啊，选我吧"
-            android:layout_centerVertical="true"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="11dp"
+            android:layout_below="@+id/message_user_name"/>
     </RelativeLayout>
 
     <View
