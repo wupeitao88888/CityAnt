@@ -66,32 +66,15 @@
 
     </com.iloomo.widget.imgscroll.MyImgScroll>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:background="@color/white">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="热门小组、活动"
-            android:layout_marginLeft="10dp"
-            android:textColor="#333333"
-            android:textSize="14sp"/>
-
-        <TextView
-            android:id="@+id/hot_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="查看全部"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:textColor="#4a2701"
-            android:textSize="12sp"/>
-
-    </RelativeLayout>
+        android:layout_centerVertical="true"
+        android:text="精彩推荐"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:textColor="#333333"
+        android:textSize="14sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

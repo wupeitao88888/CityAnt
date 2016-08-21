@@ -20,14 +20,23 @@ import com.cityant.main.activity.HomeDetailsActivity;
 import com.cityant.main.activity.LocationChoiceActivity;
 import com.cityant.main.activity.SearchActivity;
 import com.cityant.main.adapter.FragmentHomeAdapter;
+import com.cityant.main.bean.LoginUserInfo;
+import com.cityant.main.global.MYAppconfig;
+import com.cityant.main.global.MYApplication;
+import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.FragmentSupport;
-
+import com.iloomo.global.MApplication;
+import com.iloomo.net.AsyncHttpPost;
+import com.iloomo.net.ThreadCallBack;
+import com.iloomo.utils.DialogUtil;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class FragmentHome extends FragmentSupport implements AbsListView.OnScrollListener,View.OnClickListener {
+public class FragmentHome extends FragmentSupport implements AbsListView.OnScrollListener,View.OnClickListener,ThreadCallBack {
 
     private TextView position_text;
     private EditText search_edit;
@@ -102,9 +111,34 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
                 HomeDetailsActivity.startActivity(context);
             }
         });
+        sendInternet();
         return view;
     }
+    private void sendInternet(){
+        DialogUtil.startDialogLoading(context);
+        Map<String, Object> parameter = new HashMap<>();
+        parameter.put("page", "1");
+        parameter.put("page_size", "15");
+        parameter.put("city_id", "");
+        parameter.put("latitude", "15");
+        parameter.put("longitude", "15");
+        parameter.put("token", "15");
+        parameter.put("type", "0"); // type   类别(0:推荐,1:附近,2:同城,3:好友)
 
+        AsyncHttpPost httpRequest;
+        startHttpRequst("POST", MYAppconfig.HOME_INDEX, parameter
+                , MYTaskID.HOME_INDEX);
+    }
+
+    public void startHttpRequst(String requestType, String url,
+                                Map<String, Object> parameter, int resultCode) {
+
+        AsyncHttpPost httpRequest;
+        httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
+                FragmentHome.class, context);
+
+
+    }
 
     @Override
     public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -177,5 +211,25 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         if(friends_text.isSelected()){
             friends_text.setSelected(false);
         }
+    }
+
+    @Override
+    public void onCallbackFromThread(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+
     }
 }
