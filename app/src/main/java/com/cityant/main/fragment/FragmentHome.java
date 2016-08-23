@@ -20,6 +20,7 @@ import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.cityant.main.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.FragmentSupport;
+import com.iloomo.bean.BaseModel;
 import com.iloomo.global.MApplication;
 import com.iloomo.model.ApplicationLocationListener;
 import com.iloomo.net.AsyncHttpPost;
@@ -73,8 +74,8 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         search_edit = (EditText) head_view.findViewById(R.id.search_edit);
         position_text.setOnClickListener(v ->LocationChoiceActivity.startActivity(context));
         search_edit.setOnClickListener(v -> SearchActivity.startActivity(context));
-        sing_ll.setOnClickListener(v -> DoTaskActivity.startActivity(context));
-        sing_display_ll.setOnClickListener(v -> DoTaskActivity.startActivity(context));
+//        sing_ll.setOnClickListener(v -> DoTaskActivity.startActivity(context));
+//        sing_display_ll.setOnClickListener(v -> DoTaskActivity.startActivity(context));
 
         View head_view_top = LayoutInflater.from(context).inflate(R.layout.fragment_home_head_top_layout, null);
         recommend_text_head = (TextView) head_view_top.findViewById(R.id.recommend_text_head);
@@ -145,7 +146,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
         AsyncHttpPost httpRequest;
         httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
-                FragmentHome.class, context);
+                BaseModel.class, context);
 
 
     }

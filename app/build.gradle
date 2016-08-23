@@ -40,8 +40,8 @@ dependencies {
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     compile project(':library')
     compile files('libs/hyphenatechat_3.1.4.jar')
-    compile project(':pickerview')
     compile 'com.github.obiteaaron:pinyin4j-multi:1.0.0'
+    compile(name: 'pickerview-release', ext: 'aar')
 }
 //    compile project(':pickerview')
 repositories {
