@@ -231,7 +231,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
     @Override
     public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
-
+        DialogUtil.stopDialogLoading(context);
     }
 
     @Override
@@ -241,6 +241,6 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
     @Override
     public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
-
+        DialogUtil.stopDialogLoading(context);
     }
 }

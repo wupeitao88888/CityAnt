@@ -47,7 +47,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        setRemoveTitle();
+       setCtenterTitle(mString(R.string.login));
         initView();
     }
 

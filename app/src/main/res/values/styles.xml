@@ -4,7 +4,7 @@
 
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">24dp</item>
-        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginRight">25dp</item>
         <item name="android:gravity">center</item>
     </style>
 
@@ -16,8 +16,8 @@
     <style name="login_edittext">
         <item name="android:paddingLeft">10dp</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColor">#d2d2d2</item>
+        <item name="android:textColorHint">#d2d2d2</item>
         <item name="android:textSize">15dp</item>
         <item name="android:background">#00000000</item>
         <item name="android:gravity">center_vertical</item>

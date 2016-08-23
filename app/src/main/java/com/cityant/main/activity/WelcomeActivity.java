@@ -52,7 +52,7 @@ public class WelcomeActivity extends ActivitySupport {
                                     e.printStackTrace();
                                 }
                             }
-                            startActivity(new Intent(context, IndexFragment.class));
+                            startActivity(new Intent(context, LoginActivity.class));
                             finish();
                         } else {
                             try {

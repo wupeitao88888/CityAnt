@@ -27,10 +27,10 @@
 
                 <ImageView
                     android:id="@+id/lc_left_back"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="21.5dp"
+                    android:layout_height="34dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/pc_back" />
             </RelativeLayout>
 

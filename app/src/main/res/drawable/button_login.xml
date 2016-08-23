@@ -3,15 +3,15 @@
 
     <item android:state_pressed="true">
         <shape>
-            <corners android:radius="90dp" />
+            <corners android:radius="8dp" />
 
-            <solid android:color="@color/gray" />
+            <solid android:color="#e0bc0b" />
             <!-- 填充的颜色 -->
         </shape>
     </item>
     <item>
         <shape>
-            <corners android:radius="90dp" />
+            <corners android:radius="8dp" />
 
             <stroke android:width="0.5dp" android:color="@color/yellow" android:dashGap="0dp" />
 
