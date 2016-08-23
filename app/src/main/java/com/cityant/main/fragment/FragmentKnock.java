@@ -22,21 +22,9 @@ public class FragmentKnock extends FragmentSupport {
 
     @Override
     public View initView() {
-        View view = LayoutInflater.from(context).inflate(R.layout.fragment_message, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.fragment_knock, null);
         setTitle("抢");
-//        mlist = (ListView) view.findViewById(R.id.mlist);
-//        List<String> list = new ArrayList<>();
-//        for (int i = 0; i < 100; i++) {
-//            list.add("王尼玛" + i);
-//        }
-//        fragmentHomeAdapter = new FragmentHomeAdapter(context, list);
-//        mlist.setAdapter(fragmentHomeAdapter);
-//        mlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                startActivity(new Intent(context, ChatActivity.class));
-//            }
-//        });
+
         return view;
     }
 

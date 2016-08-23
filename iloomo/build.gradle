@@ -2,11 +2,11 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "19.1.0"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 21
+        targetSdkVersion 23
     }
 
     buildTypes {
@@ -31,4 +31,5 @@ dependencies {
     compile project(':okhttputils')
     compile 'com.squareup.okhttp3:okhttp-urlconnection:3.2.0'
     compile project(':okhttp3-persistent-cookiejar')
+    compile files('libs/locSDK_6.13.jar')
 }
