@@ -6,7 +6,7 @@ import com.cityant.main.R;
 import com.iloomo.base.ActivitySupport;
 
 /**
- * Created by wupeitao on 16/8/17.
+ * Created by wupeitao on 16/8/17.注释
  */
 public class AccountSecurityActivity extends ActivitySupport {
     @Override
