@@ -59,7 +59,9 @@
             android:id="@+id/username"
             style="@style/myfrends_username"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/hand_newfrend" />
+            android:layout_toRightOf="@+id/hand_newfrend"
+            android:text="@string/newfrends"
+            />
 
     </RelativeLayout>
 

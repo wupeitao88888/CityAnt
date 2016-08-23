@@ -118,4 +118,25 @@
     <string name="mequn">我的群组</string>
     <string name="brand">我的品牌</string>
     <string name="newfrend">新的朋友</string>
+
+    <string name="xml_custom_send">发送</string>
+    <string name="location_recv">[%1$s的位置]</string>
+    <string name="location_prefix">[我的位置]</string>
+    <string name="picture">[图片]</string>
+    <string name="video">[视频]</string>
+    <string name="file">[文件]</string>
+    <string name="voice_prefix">[语音]</string>
+    <string name="voice_call">[语音通话]</string>
+    <string name="video_call">[视频通话]</string>
+    <string name="dynamic_expression">[动态表情]</string>
+    <string name="not_download">未下载:</string>
+    <string name="text_ack_msg">已读</string>
+    <string name="text_delivered_msg">送达</string>
+    <string name="pictures">图片</string>
+    <string name="tip">小费</string>
+    <string name="videos">地理位置</string>
+    <string name="gift">送礼物</string>
+    <string name="localtion">地理位置</string>
+    <string name="double_rob">双人抢</string>
+    <string name="newfrends">新朋友</string>
 </resources>

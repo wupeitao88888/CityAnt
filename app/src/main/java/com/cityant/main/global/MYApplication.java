@@ -3,6 +3,7 @@ package com.cityant.main.global;
 import android.app.ActivityManager;
 import android.content.pm.PackageManager;
 
+import com.cityant.main.utlis.FaceConversionUtil;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.iloomo.global.MApplication;
@@ -38,6 +39,7 @@ public class MYApplication extends MApplication {
             // 则此application::onCreate 是被service 调用的，直接返回
             return;
         }
+        FaceConversionUtil.getInstace().getFileText(context);
     }
 
     private String getAppName(int pID) {

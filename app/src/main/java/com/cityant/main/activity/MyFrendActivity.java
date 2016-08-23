@@ -1,5 +1,6 @@
 package com.cityant.main.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -11,6 +12,7 @@ import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -39,7 +41,7 @@ import com.cityant.main.utlis.*;
 /**
  * Created by wupeitao on 16/8/19.
  */
-public class MyFrendActivity extends ActivitySupport {
+public class MyFrendActivity extends ActivitySupport implements AdapterView.OnItemClickListener {
     private ListView myfrendslist;
     private MyFrendsAdapter myFrendsAdapter;
     private HashMap<String, Integer> selector;// 存放含有索引字母的位置
@@ -95,12 +97,12 @@ public class MyFrendActivity extends ActivitySupport {
                     selector.put(indexStr[j], i);
                 }
             }
-
         }
         myFrendsAdapter = new MyFrendsAdapter(context, newmyFrends);
         myfrendslist.setAdapter(myFrendsAdapter);
         View inflate = LayoutInflater.from(context).inflate(R.layout.layout_headerview, null);
         myfrendslist.addHeaderView(inflate);
+        myfrendslist.setOnItemClickListener(this);
     }
 
 
@@ -123,14 +125,9 @@ public class MyFrendActivity extends ActivitySupport {
                         newmyFrends.add(p);
                     }
                 }
-            }
-            else {
+            } else {
                 MyFrends p = new MyFrends();
                 p.setUser_name(allNames[i]);
-//                p.setUser_avar(myFrends.get(j).getUser_avar());
-//                p.setToken(myFrends.get(j).getToken());
-//                p.setMobile(myFrends.get(j).getMobile());
-//                p.setPinYinName(myFrends.get(j).getPinYinName());
                 newmyFrends.add(p);
             }
         }
@@ -180,6 +177,8 @@ public class MyFrendActivity extends ActivitySupport {
                             tv_show.setVisibility(View.VISIBLE);
                             tv_show.setText(indexStr[index]);
                         }
+                        tv_show.setVisibility(View.VISIBLE);
+                        tv_show.setText(indexStr[index]);
                     }
                     switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
@@ -192,7 +191,7 @@ public class MyFrendActivity extends ActivitySupport {
                             break;
                         case MotionEvent.ACTION_UP:
                             layoutIndex.setBackgroundColor(Color
-                                    .parseColor("#00ffffff"));
+                                    .parseColor("#33606060"));
                             tv_show.setVisibility(View.GONE);
                             break;
                     }
@@ -237,4 +236,10 @@ public class MyFrendActivity extends ActivitySupport {
         return names;
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        if (i - 1 > -1 && i - 1 < newmyFrends.size()) {
+            startActivity(new Intent(context, MYChatActivity.class).putExtra("MyFrend", newmyFrends.get(i - 1)));
+        }
+    }
 }
