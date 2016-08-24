@@ -8,8 +8,19 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/login_edittext_height"
-        android:layout_marginTop="1dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/phone_number"
+            style="@style/login_edittext"
+            android:layout_weight="1"
+            android:hint="@string/phonenumber"
+            android:inputType="phone"
+            android:maxLength="11" />
 
         <RelativeLayout
             android:id="@+id/phone_icon"
@@ -17,54 +28,55 @@
 
             <ImageView
                 style="@style/img_icon"
-                android:background="@color/white" />
+                android:background="@drawable/phone" />
         </RelativeLayout>
-
-        <EditText
-            android:id="@+id/phone_number"
-            style="@style/login_edittext"
-            android:layout_weight="1"
-            android:hint="@string/phonenumber"
-            android:maxLength="11"
-            android:phoneNumber="true" />
-
-        <Button
-            android:id="@+id/sendcode"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:background="@drawable/button_send_code"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="发送验证码"
-            android:textColor="@color/black"
-            android:textSize="13dp" />
 
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="29dp"
+        android:background="#d2d2d2" />
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/login_edittext_height"
-        android:layout_marginTop="1dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="29dp"
         android:orientation="horizontal">
 
-        <RelativeLayout
-            android:id="@+id/code_icon"
-            style="@style/icon_re">
-
-            <ImageView
-                style="@style/img_icon"
-                android:background="@color/white" />
-        </RelativeLayout>
 
         <EditText
             android:id="@+id/code_number"
             style="@style/login_edittext"
             android:layout_weight="1"
             android:hint="@string/code"
-            android:maxLength="11"
-            android:phoneNumber="true" />
+            android:inputType="textPassword"
+            android:maxLength="11" />
 
+        <Button
+            android:id="@+id/sendcode"
+            android:layout_width="96.6dp"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="9dp"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/button_login"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="发送验证码"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+        <!--<RelativeLayout-->
+        <!--android:id="@+id/code_icon"-->
+        <!--style="@style/icon_re">-->
+
+        <!--<ImageView-->
+        <!--style="@style/img_icon"-->
+        <!--android:background="@color/white" />-->
+        <!--</RelativeLayout>-->
         <!--<Button-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="fill_parent"-->
@@ -78,15 +90,24 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="29dp"
+        android:background="#d2d2d2" />
+
     <Button
         android:id="@+id/login_button"
         android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:layout_margin="20dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/button_login"
         android:onClick="onLoginClick"
-        android:text="@string/login"
-        android:textColor="@color/black"
-        android:textSize="15dp" />
+        android:text="@string/bindingphone"
+        android:textColor="@color/title_text"
+        android:textSize="16.6dp" />
 
 </LinearLayout>

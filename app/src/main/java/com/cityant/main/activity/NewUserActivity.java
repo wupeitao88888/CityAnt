@@ -8,7 +8,10 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.cityant.main.R;
 import com.cityant.main.bean.LoginUserInfoData;
@@ -35,12 +38,20 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
     private Button login_button;
     private EditText pwnumber;
     private EditText re_pwnumber;
-
+    private TextView negotiate;
+    private CheckBox agree;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newuser);
         setCtenterTitle(mString(R.string.newuser));
+        setRightTitle(mString(R.string.login_title));
+        setRightTitleListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         SMSAppConfig.GET_CODE = AppConfig.GET_CODE;
         SMSAppConfig.SEND_CODE = AppConfig.SEND_CODE;
         SMSAppConfig.mobilekey = "mobile";
@@ -58,6 +69,9 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
         sendcode = (Button) findViewById(R.id.sendcode);
         login_button = (Button) findViewById(R.id.login_button);
 
+        negotiate= (TextView) findViewById(R.id.negotiate);
+        agree= (CheckBox) findViewById(R.id.agree);
+
         phone_number.addTextChangedListener(new EditChangedListener());
         code_number.addTextChangedListener(new EditChangedListener());
         pwnumber.addTextChangedListener(new EditChangedListener());
@@ -66,10 +80,54 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
         sendcode.setClickable(false);
         login_button.setPressed(true);
         login_button.setClickable(false);
+        negotiate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //跳转协议内容
+            }
+        });
+        agree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(agree.isChecked()){
+                    if (phone_number.getText().length() > 0) {
+                        if (pwnumber.getText().length() > 0) {
 
+                            if (phone_number.getText().length() == 11) {
+                                login_button.setPressed(false);
+                                login_button.setClickable(true);
+                            } else {
+                                login_button.setPressed(true);
+                                login_button.setClickable(false);
+                            }
+                        } else {
+                            login_button.setPressed(true);
+                            login_button.setClickable(false);
+                        }
+                    } else {
+                        login_button.setPressed(true);
+                        login_button.setClickable(false);
+                    }
+                }else{
+                    login_button.setPressed(true);
+                    login_button.setClickable(false);
+                }
+            }
+        });
         SecurityCodeUtils.instance(context).setCodeCallBack(this);
     }
 
+    public void onQQLoginClick(View view) {
+        mIntent(context, BindingActivity.class);
+    }
+
+    public void onWeiXinLoginClick(View view) {
+        mIntent(context, BindingActivity.class);
+    }
+
+    public void onWeboLoginClick(View view) {
+        mIntent(context, BindingActivity.class);
+    }
 
     public void onLoginClick(View view) {
         SecurityCodeUtils.instance(context).sendCodeRegister(phone_number.getText().toString(), code_number.getText().toString(), 0 + "", pwnumber.getText().toString(), re_pwnumber.getText().toString());

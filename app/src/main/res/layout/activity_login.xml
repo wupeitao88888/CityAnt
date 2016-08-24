@@ -21,11 +21,11 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="38dp">
+                    android:layout_marginTop="31.5dp">
 
                     <ImageView
-                        android:layout_width="104dp"
-                        android:layout_height="104dp"
+                        android:layout_width="86dp"
+                        android:layout_height="86dp"
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/default_head" />
                 </RelativeLayout>
@@ -36,7 +36,7 @@
                     android:layout_height="@dimen/login_edittext_height"
                     android:layout_marginLeft="29dp"
                     android:layout_marginRight="29dp"
-                    android:layout_marginTop="52dp"
+                    android:layout_marginTop="18dp"
                     android:orientation="horizontal">
 
 
@@ -54,7 +54,7 @@
 
                         <ImageView
                             style="@style/img_icon"
-                            android:background="@color/gray" />
+                            android:background="@drawable/phone" />
                     </RelativeLayout>
                     <!--<Button-->
                     <!--android:layout_width="wrap_content"-->
@@ -71,18 +71,16 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray"
+                    android:layout_height="0.5dp"
                     android:layout_marginLeft="29dp"
                     android:layout_marginRight="29dp"
-                    />
+                    android:background="#d2d2d2" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="@dimen/login_edittext_height"
                     android:layout_marginLeft="29dp"
                     android:layout_marginRight="29dp"
-                    android:layout_marginTop="15dp"
                     android:orientation="horizontal">
 
 
@@ -100,7 +98,7 @@
 
                         <ImageView
                             style="@style/img_icon"
-                            android:background="@color/gray" />
+                            android:background="@drawable/pw" />
                     </RelativeLayout>
                     <!--<Button-->
                     <!--android:layout_width="wrap_content"-->
@@ -114,68 +112,96 @@
 
 
                 </LinearLayout>
+
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray"
+                    android:layout_height="0.5dp"
                     android:layout_marginLeft="29dp"
                     android:layout_marginRight="29dp"
-                    />
+                    android:background="#d2d2d2" />
 
                 <Button
                     android:id="@+id/login_button"
                     android:layout_width="fill_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="43dp"
                     android:layout_marginLeft="27dp"
                     android:layout_marginRight="27dp"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/button_login"
                     android:onClick="onLoginClick"
                     android:text="@string/login"
-                    android:textColor="@color/white"
-                    android:textSize="15dp" />
+                    android:textColor="@color/title_text"
+                    android:textSize="16.6dp" />
 
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp">
+                    android:layout_marginTop="20dp">
 
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="onForgetPasswordClick"
-                        android:paddingLeft="50dp">
+                        android:layout_centerInParent="true"
+                        android:onClick="onForgetPasswordClick">
 
                         <TextView
                             style="@style/forget_new"
-                            android:text="@string/forgetpw"
-
-                            />
+                            android:text="@string/forgetpw" />
                     </RelativeLayout>
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:onClick="onNewUserClick"
-                        android:paddingRight="50dp">
+                    <!--<RelativeLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:onClick="onNewUserClick"-->
+                    <!--android:paddingRight="50dp">-->
 
-                        <TextView
-                            style="@style/forget_new"
-                            android:text="@string/newuser" />
+                    <!--<TextView-->
+                    <!--style="@style/forget_new"-->
+                    <!--android:text="@string/newuser" />-->
 
-                    </RelativeLayout>
+                    <!--</RelativeLayout>-->
 
                 </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="30dp"
+                    >
+
+                    <CheckBox
+                        android:id="@+id/agree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/checked_text"
+                        android:textColor="@color/title_text"
+                        style="@style/MyCheckBox"
+                        android:textSize="11.3dp" />
+
+                    <TextView
+                        android:id="@+id/negotiate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/agree"
+                        android:text="@string/negotiate"
+                        android:textColor="@color/yellow"
+                        android:textSize="11.3dp" />
+                </RelativeLayout>
+
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="31dp"
                     android:layout_marginRight="31dp"
-                    android:layout_marginTop="97dp">
+                    android:layout_marginTop="58dp">
 
                     <RelativeLayout
                         android:id="@+id/fast_line_left"
@@ -187,7 +213,7 @@
                         <View
                             android:layout_width="fill_parent"
                             android:layout_height="1dp"
-                            android:background="@color/white" />
+                            android:background="@color/fast_login" />
 
                     </RelativeLayout>
 
@@ -204,7 +230,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/fast_login"
-                            android:textColor="@color/white"
+                            android:textColor="@color/fast_login"
                             android:textSize="@dimen/textsize13" />
 
                     </RelativeLayout>
@@ -221,7 +247,7 @@
                         <View
                             android:layout_width="fill_parent"
                             android:layout_height="1dp"
-                            android:background="@color/white" />
+                            android:background="@color/fast_login" />
 
                     </RelativeLayout>
 
@@ -231,13 +257,27 @@
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="21dp"
                     android:gravity="center_horizontal">
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
+                        <RelativeLayout
+                            style="@style/fast_login_re"
+                            android:onClick="onWeboLoginClick">
 
+                            <ImageView
+                                android:id="@+id/weibo_icon"
+                                style="@style/fast_login_img_icon"
+                                android:background="@mipmap/wb" />
+
+                            <TextView
+                                style="@style/fast_login_text"
+                                android:layout_below="@+id/weibo_icon"
+                                android:text="@string/webo" />
+
+                        </RelativeLayout>
                         <RelativeLayout
                             style="@style/fast_login_re"
                             android:onClick="onQQLoginClick">
@@ -245,12 +285,12 @@
                             <ImageView
                                 android:id="@+id/qq_icon"
                                 style="@style/fast_login_img_icon"
-                                android:background="@color/white" />
+                                android:background="@mipmap/wqq" />
 
-                            <!--<TextView-->
-                            <!--style="@style/fast_login_text"-->
-                            <!--android:layout_below="@+id/qq_icon"-->
-                            <!--android:text="@string/qq" />-->
+                            <TextView
+                                style="@style/fast_login_text"
+                                android:layout_below="@+id/qq_icon"
+                                android:text="@string/qq" />
 
                         </RelativeLayout>
 
@@ -261,29 +301,15 @@
                             <ImageView
                                 android:id="@+id/wexin_icon"
                                 style="@style/fast_login_img_icon"
-                                android:background="@color/white" />
+                                android:background="@mipmap/wx" />
 
-                            <!--<TextView-->
-                            <!--style="@style/fast_login_text"-->
-                            <!--android:layout_below="@+id/wexin_icon"-->
-                            <!--android:text="@string/weixin" />-->
+                            <TextView
+                                style="@style/fast_login_text"
+                                android:layout_below="@+id/wexin_icon"
+                                android:text="@string/weixin" />
                         </RelativeLayout>
 
-                        <RelativeLayout
-                            style="@style/fast_login_re"
-                            android:onClick="onWeboLoginClick">
 
-                            <ImageView
-                                android:id="@+id/weibo_icon"
-                                style="@style/fast_login_img_icon"
-                                android:background="@color/white" />
-
-                            <!--<TextView-->
-                            <!--style="@style/fast_login_text"-->
-                            <!--android:layout_below="@+id/weibo_icon"-->
-                            <!--android:text="@string/webo" />-->
-
-                        </RelativeLayout>
 
                     </LinearLayout>
                 </RelativeLayout>
