@@ -11,7 +11,8 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/iloomo" />
             <option value="$PROJECT_DIR$/library" />
-            <option value="$PROJECT_DIR$/pickerview" />
+            <option value="$PROJECT_DIR$/okhttp3-persistent-cookiejar" />
+            <option value="$PROJECT_DIR$/okhttputils" />
           </set>
         </option>
         <option name="myModules">
@@ -20,7 +21,8 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/iloomo" />
             <option value="$PROJECT_DIR$/library" />
-            <option value="$PROJECT_DIR$/pickerview" />
+            <option value="$PROJECT_DIR$/okhttp3-persistent-cookiejar" />
+            <option value="$PROJECT_DIR$/okhttputils" />
           </set>
         </option>
       </GradleProjectSettings>
