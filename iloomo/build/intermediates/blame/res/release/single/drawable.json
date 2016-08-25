@@ -40,6 +40,10 @@
         "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\cam_focus.xml"
     },
     {
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\mswitch_button_noselect.xml",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\mswitch_button_noselect.xml"
+    },
+    {
         "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable\\mswitch_button_select.xml",
         "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable\\mswitch_button_select.xml"
     },

@@ -4,13 +4,14 @@
     <color name="albumback">#E1E0DE</color>
     <color name="aliceblue">#f0f8ff</color>
     <color name="antiquewhite">#faebd7</color>
+    <color name="app_bg">#eaf0f0</color>
     <color name="app_theme">#fea001</color>
     <color name="aqua">#00ffff</color>
     <color name="aquamarine">#7fffd4</color>
     <color name="azure">#f0ffff</color>
     <color name="background">#F0F0F0</color>
     <color name="beige">#f5f5dc</color>
-    <color name="bg">#BFBFBF</color>
+    <color name="bg">#FFFFFF</color>
     <color name="bisque">#ffe4c4</color>
     <color name="black">#000000</color>
     <color name="black_e0">#99000000</color>
@@ -158,7 +159,7 @@
     <color name="tan">#d2b48c</color>
     <color name="teal">#008080</color>
     <color name="thistle">#d8bfd8</color>
-    <color name="title_text">#FFFFFF</color>
+    <color name="title_text">#333333</color>
     <color name="tomato">#ff6347</color>
     <color name="transparent">#0000</color>
     <color name="transparent2">#8000</color>

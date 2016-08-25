@@ -263,10 +263,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
             @Override
             public void onError(int code, String message) {
                 Log.d("main", "登录聊天服务器失败！");
-                if (!isopen) {
-                    isopen = true;
                     DialogUtil.stopDialogLoading(context);
-//                    HXErrorUtlis.getHxErrorUtlis(context).showError(code);
                     HXErrorUtlis.getHxErrorUtlis(context).setOnUserNotFoundListener(new OnUserNotFoundListener() {
                         @Override
                         public void onUserNotFound() {
@@ -278,11 +275,6 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                             }
                         }
                     });
-                } else {
-                    DialogUtil.stopDialogLoading(context);
-                    HXErrorUtlis.getHxErrorUtlis(context).showError(code);
-                }
-
             }
         });
     }

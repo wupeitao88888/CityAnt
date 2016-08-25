@@ -8,5 +8,7 @@ import com.iloomo.global.AppConfig;
 public class MYAppconfig extends AppConfig  {
     public static final String USERLOGIN=BASEURL+API+"/user/login";
     public static final String HOME_INDEX=BASEURL+API+"/home/index";
+    public static final String HOME_SEARCH=BASEURL+API+"/home/search";
+    public static final String NEED_NEEDINFO=BASEURL+API+"/need/needInfo";
 
 }

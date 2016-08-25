@@ -6,4 +6,6 @@ package com.cityant.main.global;
 public class MYTaskID {
     public static final int USERLOGIN = 1000;
     public static final int HOME_INDEX = 1001;
+    public static final int HOMESEARCH = 1002;
+    public static final int NEEDNEEDINFO = 1003;
 }

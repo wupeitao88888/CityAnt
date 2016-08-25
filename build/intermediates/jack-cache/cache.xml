@@ -2,58 +2,226 @@
 <items version="2" >
 
     <item
-        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\json-simple-1.1.1.jar"
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\okhttputils\unspecified\jars\classes.jar"
         revision="24.0.0"
-        sha1="a2a977b198f82299a7c957c85c16eabebe3af019">
-        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\json-simple-1.1.1-8c61ff8c88d98b5ea87243c267d588990dffe8d4.jar" />
-    </item>
-    <item
-        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\umeng-analytics-v5.6.4.jar"
-        revision="24.0.0"
-        sha1="b7094ef0e91381ec8617c2123c3c6038d8738be3">
-        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\umeng-analytics-v5.6.4-57d74fb41689782a1ab811174ef231466271e2a6.jar" />
-    </item>
-    <item
-        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\locSDK_6.13.jar"
-        revision="24.0.0"
-        sha1="29e897422a7e9ed03431bc6adfaec9a6bae7f49c">
-        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\locSDK_6.13-76719afbdf52cc1a9564fab1aadb9b4a0d834dd6.jar" />
-    </item>
-    <item
-        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\user_profile_mtj_1.4.jar"
-        revision="24.0.0"
-        sha1="5105f7362d352992ccf4e824949b03e9ee17f431">
-        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\user_profile_mtj_1.4-098b34217d8da466a5b5169e8eed53cffbe76d35.jar" />
+        sha1="085e6674e31424c8d63a92e9e647f7ea271c609f">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-6b5dfded27e7a6537cb09721c302e7c3ec3cf261.jar" />
     </item>
     <item
         jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\classes.jar"
         revision="24.0.0"
-        sha1="5027bc2e7901a4a4a10568d0a53c6528d1272358">
+        sha1="e4470bb5ee42fdf6678699b1c6fe5b810000f752">
         <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-5924e856a45ea095054f58092f95031260bf16b5.jar" />
+    </item>
+    <item
+        jar="C:\Users\lvfl\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
+        revision="24.0.0"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\junit-4.12-a55b2c3fef693e71644cc897b6a674e342947d50.jar" />
     </item>
     <item
         jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\universal-image-loader-1.9.4.jar"
         revision="24.0.0"
-        sha1="f1ab4b04628daa2ba7608698a5d88d79402d334e">
+        sha1="3c7fd81b7a4d3a6f42ed4f8e648770d7854c6c33">
         <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\universal-image-loader-1.9.4-092f215de49e85ae4750b48b2269b3b1839ccb94.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\library\unspecified\jars\classes.jar"
+        revision="24.0.0"
+        sha1="bd52800e7431471742e9b1b17c6ce7e3927f55bc">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-9a9f7347327522ffd2fb9580cc3c022b65d85316.jar" />
+    </item>
+    <item
+        jar="C:\Users\lvfl\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        revision="24.0.0"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\okio-1.8.0-49f32318fb4770a0043abfb4478e20c64d3a1239.jar" />
     </item>
     <item
         jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\fastjson-1.1.40.jar"
         revision="24.0.0"
-        sha1="4cf8fc4e81e18fb33bbda054b63e1262ed3fbe4f">
+        sha1="01fb51fb1cbdb6b5c082be0db7382c64d11c639b">
         <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\fastjson-1.1.40-393ebbaff4218f3b31c76785b2690f928e5d0dcc.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\libammsdk.jar"
+        revision="24.0.0"
+        sha1="e515033aaab4d94252b7d06dc70824639e67382a">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\libammsdk-d1964fea4c809008e1de4ec01251c7546fbd1d49.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.11.0\jars\classes.jar"
+        revision="24.0.0"
+        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-f9852bc136e62dddd2eae1f755bff4e9b151dc2a.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\json-simple-1.1.1.jar"
+        revision="24.0.0"
+        sha1="2dec3c5f933e84f77a2cfa7f6db765593bf7ed3e">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\json-simple-1.1.1-8c61ff8c88d98b5ea87243c267d588990dffe8d4.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\otto-1.3.5.jar"
+        revision="24.0.0"
+        sha1="3280e1c43af1ac0fde63dd3c3b677e2362e5507d">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\otto-1.3.5-b3660f3ff95fb15dffab17a752ba5b0ad8233bb2.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\0.11.0\jars\classes.jar"
+        revision="24.0.0"
+        sha1="ca63c521b5745ae9a09629d7ca67ff6bc2a967fe">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-f361805bd9ab58d0a28f93ac8f7b3f5a9a3577ff.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.11.0\jars\classes.jar"
+        revision="24.0.0"
+        sha1="98786c1770b531b9194fb6448b2a2692c64074b6">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-177ae422207c674f8ac855df423c528cb75f03b6.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\user_profile_mtj_1.4.jar"
+        revision="24.0.0"
+        sha1="dcd80b4929d8e3f1d386cbbfba0fff48d82852b7">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\user_profile_mtj_1.4-098b34217d8da466a5b5169e8eed53cffbe76d35.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\okhttp3-persistent-cookiejar\unspecified\jars\classes.jar"
+        revision="24.0.0"
+        sha1="cc2177665d4984e9907572c7827e9c120c882d0c">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-f03893f296d6d88382a03aabd936183c38617864.jar" />
+    </item>
+    <item
+        jar="C:\Users\lvfl\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        revision="24.0.0"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\bolts-tasks-1.4.0-b4832229d62739a01d994800bf978f4f9cfa888f.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        revision="24.0.0"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-6f631cc4b9fa44ec87f34392883624949272c107.jar" />
     </item>
     <item
         jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\org.apache.http.legacy.jar"
         revision="24.0.0"
-        sha1="137707d6613418a856c92b4a0fe330df96fa5708">
+        sha1="f3cf4a63d9e14dad25001070a1835ad8d3c7ae4a">
         <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\org.apache.http.legacy-1b8c30253aa33146f3971277c3d231f6d1d5ad9b.jar" />
     </item>
     <item
         jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\glide-3.6.1.jar"
         revision="24.0.0"
-        sha1="382069dd81244324748fa3ed8a89999d498423f7">
+        sha1="81954cb5aa20ebd72c759eabcd7c492bc4c53bed">
         <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\glide-3.6.1-b5cd8b225151591c8f14e2c9428cf0c6b1dc93e6.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\SocialSDK_WeiXin_2.jar"
+        revision="24.0.0"
+        sha1="0ab80aa510982de32dd636e10d6a82e53192a8a4">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\SocialSDK_WeiXin_2-f82017dedb70fb067eb15f84bac9f73c6e43125c.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\0.11.0\jars\classes.jar"
+        revision="24.0.0"
+        sha1="3341b66c54367e777a0647e2db96c045329bfeab">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-afd7e234851ca07ecc5d0d104b758323ce8f65da.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
+        revision="24.0.0"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\internal_impl-23.2.1-9dcc73c3445495f91ff4756476d3e43c4ea391f7.jar" />
+    </item>
+    <item
+        jar="F:\Users\lvfl\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
+        revision="24.0.0"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\support-annotations-23.2.1-9aa7c6de219dd0aea4492ea70b3fef96184be87e.jar" />
+    </item>
+    <item
+        jar="C:\Users\lvfl\.gradle\caches\modules-2\files-2.1\com.github.obiteaaron\pinyin4j-multi\1.0.0\c7d91d6abaf36f761d0b9cf211516819cdbff311\pinyin4j-multi-1.0.0.jar"
+        revision="24.0.0"
+        sha1="c7d91d6abaf36f761d0b9cf211516819cdbff311">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\pinyin4j-multi-1.0.0-e8cc196f10b72b8dcd71ca5b83504e64c97062e7.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        revision="24.0.0"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-440645bec0191f35c75c92eccc082dbdfe27970e.jar" />
+    </item>
+    <item
+        jar="C:\Users\lvfl\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.1\19047bdb6a4fc00a44124f64ca98e88fc204e7e3\okhttp-3.3.1.jar"
+        revision="24.0.0"
+        sha1="19047bdb6a4fc00a44124f64ca98e88fc204e7e3">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\okhttp-3.3.1-051ef5a46c2f934a1a7cbdac1b746938f87feb18.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\umeng-analytics-v5.6.4.jar"
+        revision="24.0.0"
+        sha1="d54ba4195d0a3d8e8c4183c6338ddb6d9230b422">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\umeng-analytics-v5.6.4-57d74fb41689782a1ab811174ef231466271e2a6.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\locSDK_6.13.jar"
+        revision="24.0.0"
+        sha1="191878b97830c5784d1d11261ded8e7dc481af4f">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\locSDK_6.13-76719afbdf52cc1a9564fab1aadb9b4a0d834dd6.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.11.0\jars\classes.jar"
+        revision="24.0.0"
+        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-ecc05da6bc4f21f66f711064d662f14351110ee0.jar" />
+    </item>
+    <item
+        jar="F:\Users\lvfl\AppData\Local\Android\sdk\platforms\android-24\android.jar"
+        revision="24.0.0"
+        sha1="1311cbfaf9f46b5700b213534bccdc789794b057">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\runtime\android-3ed589763be4d192b848f580a985609d0b673dc1.jar" />
+    </item>
+    <item
+        jar="C:\Users\lvfl\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
+        revision="24.0.0"
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\hamcrest-core-1.3-fa979f01797ec0aa4441302b55984a47c2032bf6.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\libs\hyphenatechat_3.1.4.jar"
+        revision="24.0.0"
+        sha1="0f22ba6fd450d473e8b0c1654d05624b67e19451">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\hyphenatechat_3.1.4-9efead9ebaf23ff8269fcef56bf6d0cc8576ee53.jar" />
+    </item>
+    <item
+        jar="C:\Users\lvfl\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-urlconnection\3.2.0\6f8a4b1435c9e0a6f9c5fe4a1be46627b848fd0c\okhttp-urlconnection-3.2.0.jar"
+        revision="24.0.0"
+        sha1="6f8a4b1435c9e0a6f9c5fe4a1be46627b848fd0c">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\okhttp-urlconnection-3.2.0-39f5e69772a37bcd8e057e4c82fd8854b79fe946.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\pickerview-release\jars\classes.jar"
+        revision="24.0.0"
+        sha1="fc3eddd770674dea891c72fa0664e2070331d709">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-151de709e7b6f5dcee5961a7577c7c86016c6ef1.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\alipaySdk-20151112.jar"
+        revision="24.0.0"
+        sha1="07761aeee022ee876801fafdf3371a39a8985db4">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\alipaySdk-20151112-d754ad64df09c43719efb8d98113fc9d33cb5180.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        revision="24.0.0"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-5058aa8434076ea28e0f5248994a39aa9bde19d0.jar" />
+    </item>
+    <item
+        jar="C:\Users\lvfl\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        revision="24.0.0"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\library-2.4.0-946bae7e32e6ed65972cecb5b12a139f31127df6.jar" />
     </item>
 
 </items>

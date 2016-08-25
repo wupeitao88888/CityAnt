@@ -19,7 +19,7 @@ public class HomeBean extends BaseModel {
         this.data = data;
     }
 
-    class HomeData{
+    public class HomeData{
         public String code_message;
         public List<BannerList> banner_list;
         public List<ADList> ad_list;
@@ -57,7 +57,7 @@ public class HomeBean extends BaseModel {
             this.need_list = need_list;
         }
 
-        class BannerList{
+        public class BannerList{
             public String ad_title;
             public String ad_url;
             public String ad_image;

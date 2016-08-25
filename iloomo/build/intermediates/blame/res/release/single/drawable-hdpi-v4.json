@@ -12,12 +12,12 @@
         "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable-hdpi\\check_select.png"
     },
     {
-        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\loading_fild.png",
-        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable-hdpi\\loading_fild.png"
-    },
-    {
         "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\pay_wx.png",
         "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable-hdpi\\pay_wx.png"
+    },
+    {
+        "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\loading_fild.png",
+        "source": "E:\\workspace_wpt\\iloomo\\src\\main\\res\\drawable-hdpi\\loading_fild.png"
     },
     {
         "merged": "E:\\workspace_wpt\\iloomo\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\start_select.png",

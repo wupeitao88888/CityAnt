@@ -25,6 +25,11 @@
           <theme>@android:style/Theme.Material.Light</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/ad_bottom_item.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
         <config>
           <theme>@android:style/Theme.Material.Light</theme>
@@ -63,51 +68,83 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e252436-48ee-4689-92e6-04b863572cf0" name="Default" comment="添加需求详情页" />
-    <list id="6206613f-8e18-41e5-9e4c-86f83b8ff16c" name="New changelist" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/accessibility_test_framework_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ant_1_8_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ant_launcher_1_8_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/asm_5_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/asm_analysis_5_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/asm_commons_5_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/asm_tree_5_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/asm_util_5_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/bcprov_jdk16_1_46.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hyphenatechat_3_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/icu4j_53_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/locSDK_6_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/maven_ant_tasks_2_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/okhttp_3_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/okhttp_3_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/okhttp_urlconnection_3_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/okio_1_6_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/okio_1_8_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/pickerview_release_.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/pinyin4j_multi_1_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/robolectric_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/robolectric_annotations_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/robolectric_resources_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/robolectric_utils_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/shadows_core_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/sqlite4java_0_282.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/vtd_xml_2_11.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/SocialSDK_WeiXin_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/alipaySdk_20151112.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/libammsdk.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/otto_1_3_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_bak___" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_old___" afterPath="" />
+    <list default="true" id="3e252436-48ee-4689-92e6-04b863572cf0" name="Default" comment="添加需求详情页">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/check_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/drawable-hdpi-v4/start_ban.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/drawable-hdpi-v4/start_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/drawable-hdpi-v4/start_select.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/drawable-hdpi-v4/start_ban.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/drawable-hdpi-v4/start_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/drawable-hdpi-v4/start_select.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/doc/~$架使用API.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/bean/HomeSearch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/ad_bottom_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/drawable/mswitch_button.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/drawable/mswitch_button_noselect.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/drawable/mswitch_button_select.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/drawable/myratingbar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/layout/layout_lcratingbar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/layout/layout_mswitchbutton.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/R$styleable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/backends/pipeline/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/backends/pipeline/R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/backends/pipeline/R$styleable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/backends/pipeline/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/franmontiel/persistentcookiejar/R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/franmontiel/persistentcookiejar/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/adapter/PMyAdapter$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/adapter/PMyAdapter$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/adapter/PMyAdapter$3$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/adapter/PMyAdapter$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/adapter/PMyAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/base/ActivitySupport.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/base/CommonAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/base/FragmentSupport.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/base/IActivitySupport.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/base/IFragmentSupport.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/base/PBaseActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/base/TabFragmentActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/AppProcessInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/BaseDate.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/BaseModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/CPUInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/Info.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/PImageFloder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/PMFile.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/ProcessInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/PsRow.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/SMSBaseModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/SMSRegister.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/bean/UserRegisterData.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/db/DBbase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/db/DButils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/db/DatabaseManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/db/DbHelperBase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/global/AppConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/global/MApplication$MyLocationListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/global/MApplication.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/global/SMSAppConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/global/SMSTaskID.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/global/TaskID.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/model/ApplicationLocationListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/mphoto/App.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/mphoto/AppConstants.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/mphoto/CameraBaseActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/mphoto/CameraManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpGet$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpGet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpPost$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpPost.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/BaseRequest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/DefaultThreadPool.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/EncodeUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/ErrorUtil.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/HttpConstant.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/HttpManager$1.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/HttpManager$2.class" afterPath="" />
@@ -115,6 +152,179 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/MessageIF.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/RequestException.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/ResponseMessage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/ThreadCallBack.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/downloader/Downloader$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/downloader/Downloader$DownloadThread.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/downloader/Downloader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$anim.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$menu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$styleable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/OnRotateListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$ClipCalculate.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$END.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$InterpolatorProxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$OTHER.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$START.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView$Transform.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/PPhotoView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/photoview/RotateGestureDetector.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/securitycode/SecurityCodeCallBack.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/securitycode/SecurityCodeUtils$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/securitycode/SecurityCodeUtils$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/securitycode/SecurityCodeUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/threadpool/MyThreadPool.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/threadpool/PriorityThreadFactory$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/threadpool/PriorityThreadFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$10$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$10.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$11.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$12.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$8$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$8.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$MyPictureCallback.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$SavePicTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity$SurfaceCallback.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PCameraActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PListImageDirPopupWindowP$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PListImageDirPopupWindowP$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PListImageDirPopupWindowP$OnImageDirSelected.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PListImageDirPopupWindowP.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PMyPhoto$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PMyPhoto$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PMyPhoto$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PMyPhoto$4$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PMyPhoto$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PMyPhoto$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PMyPhoto$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PMyPhoto.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PViewPagerPActivity$1$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PViewPagerPActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PViewPagerPActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PhotoItem$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/ui/PhotoItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/AppUtil$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/AppUtil$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/AppUtil$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/AppUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/BigDecimalUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/DateUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/DesUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/DeviceUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/DialogUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/L.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/LCSharedPreferencesHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/MD5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/OpenSystemCameraUtils$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/OpenSystemCameraUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PActivitySupport.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PAppUtil$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PAppUtil$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PAppUtil$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PAppUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PCameraHelper$CameraHelperImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PCameraHelper$CameraInfo2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PCameraHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PCameraHelperBase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PCameraHelperGB.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PCommonAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PCrop.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PDistanceUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PFileUtils$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PFileUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PIOUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoader$1$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoader$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoader$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoader$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoader$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoader$ImageSize.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoader$ImgBeanHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoader$Type.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoaderUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageUtils$LoadImageCallback.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageUtils$LoadImageUriTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageUtils$LoadSmallPicTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PMD5Util.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PObjectUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PStringUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PViewHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PViewUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/SMSL.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/StrUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/ToastUtil$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/ToastUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/UnicodeUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/ViewHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/ViewUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/ChoosePopWindow.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/CostomRatingBar.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/CustomGridView$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/CustomGridView$FixedViewInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/CustomGridView$FullWidthFixedViewLayout.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/CustomGridView$HeaderViewGridAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/CustomGridView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/LCDialog.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/MainTabHost.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/NoScrollGridView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/NoScrollListView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/PBasePopupWindowForListView$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/PBasePopupWindowForListView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/PCameraGrid.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/PTitleBar$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/PTitleBar.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/StartPic.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/TabFragmentHost$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/TabFragmentHost$DummyTabFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/TabFragmentHost$SavedState$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/TabFragmentHost$SavedState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/TabFragmentHost$TabInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/TabFragmentHost.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/TitleBar$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/TitleBar.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/imgscroll/FixedSpeedScroller.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/imgscroll/MyImgScroll$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/imgscroll/MyImgScroll$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/imgscroll/MyImgScroll$3$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/imgscroll/MyImgScroll$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/imgscroll/MyImgScroll$MyPagerAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/imgscroll/MyImgScroll.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/slideshowview/MyViewPage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/slideshowview/SlideShowView$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/slideshowview/SlideShowView$MyPageChangeListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/slideshowview/SlideShowView$MyPagerAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/slideshowview/SlideShowView$SlideShowTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/slideshowview/SlideShowView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/slideshowview/ViewPageSelectListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/switchview/OnSwitchFinishListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/switchview/OnViewChangeListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/switchview/SwitchLayout.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/net/BaseRequest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/net/DefaultThreadPool.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/net/EncodeUtils.class" afterPath="" />
@@ -159,33 +369,11 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/values-pt/values-pt.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/values-ro/values-ro.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/values-ru/values-ru.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-ar/values-ar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-cs/values-cs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-de/values-de.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-es/values-es.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-fi/values-fi.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-fr/values-fr.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-he/values-he.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-it/values-it.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-iw/values-iw.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-ja/values-ja.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-ko/values-ko.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-nl/values-nl.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-pl/values-pl.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-pt-rBR/values-pt-rBR.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-pt/values-pt.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-ro/values-ro.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-ru/values-ru.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pickerview/proguard-rules.pro" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_iloomo_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
@@ -194,45 +382,26 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_library_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_library_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_library_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_library_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_library_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_library_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/fastjson-1.1.40.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/fastjson-1.1.40.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/glide-3.6.1.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/glide-3.6.1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/json-simple-1.1.1.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/json-simple-1.1.1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/org.apache.http.legacy.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/org.apache.http.legacy.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/umeng-analytics-v5.6.4.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/umeng-analytics-v5.6.4.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/universal-image-loader-1.9.4.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/universal-image-loader-1.9.4.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/user_profile_mtj_1.4.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/libs/user_profile_mtj_1.4.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/drawable-hdpi-v4/pc_back.png" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/drawable-hdpi-v4/pc_back.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttp3-persistent-cookiejar_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttp3-persistent-cookiejar_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttp3-persistent-cookiejar_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttp3-persistent-cookiejar_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttp3-persistent-cookiejar_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttp3-persistent-cookiejar_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttp3-persistent-cookiejar_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttp3-persistent-cookiejar_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttputils_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttputils_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttputils_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttputils_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttputils_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttputils_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttputils_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_okhttputils_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/phone.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/phone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/pw.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/pw.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/fastjson-1.1.40.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/fastjson-1.1.40.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/glide-3.6.1.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/glide-3.6.1.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/json-simple-1.1.1.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/json-simple-1.1.1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/locSDK_6.13.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/locSDK_6.13.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/org.apache.http.legacy.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/org.apache.http.legacy.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/umeng-analytics-v5.6.4.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/umeng-analytics-v5.6.4.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/universal-image-loader-1.9.4.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/universal-image-loader-1.9.4.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/user_profile_mtj_1.4.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/libs/user_profile_mtj_1.4.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/drawable-hdpi-v4/pc_back.png" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/drawable-hdpi-v4/pc_back.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/R$id.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/backends/pipeline/R$id.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/facebook/drawee/backends/pipeline/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/base/ActivitySupport.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/base/ActivitySupport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/global/MApplication.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/global/MApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpGet$1.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpGet$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpGet.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpGet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpPost$1.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpPost$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpPost.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/net/AsyncHttpPost.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$color.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$color.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$dimen.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$dimen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$drawable.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$id.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$layout.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$menu.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$string.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$style.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$styleable.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/paysdk/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/DialogUtil.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/DialogUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/OpenSystemCameraUtils.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/OpenSystemCameraUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoaderUtils.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/utils/PImageLoaderUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/LCDialog.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/debug/com/iloomo/widget/LCDialog.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/facebook/drawee/R$id.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/facebook/drawee/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/facebook/drawee/backends/pipeline/R$id.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/facebook/drawee/backends/pipeline/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/base/ActivitySupport.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/base/ActivitySupport.class" />
@@ -254,64 +423,63 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/utils/OpenSystemCameraUtils.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/utils/OpenSystemCameraUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/utils/PImageLoaderUtils.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/utils/PImageLoaderUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/widget/LCDialog.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/widget/LCDialog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/pc_back.png" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/pc_back.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/pc_back.png" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/pc_back.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/widget/PTitleBar.class" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/classes/release/com/iloomo/widget/PTitleBar.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/workspace_wpt/okhttp3-persistent-cookiejar/unspecified/jars/classes.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/workspace_wpt/okhttp3-persistent-cookiejar/unspecified/jars/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/workspace_wpt/okhttputils/unspecified/jars/classes.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/workspace_wpt/okhttputils/unspecified/jars/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/drawable-hdpi-v4/pc_back.png" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/drawable-hdpi-v4/pc_back.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/transforms/mergeJavaRes/debug/jars/2/3/main.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/transforms/mergeJavaRes/debug/jars/2/3/main.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/transforms/mergeJavaRes/release/jars/2/3/main.jar" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/transforms/mergeJavaRes/release/jars/2/3/main.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/outputs/aar/iloomo-debug.aar" afterPath="$PROJECT_DIR$/iloomo/build/outputs/aar/iloomo-debug.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/outputs/aar/iloomo-release.aar" afterPath="$PROJECT_DIR$/iloomo/build/outputs/aar/iloomo-release.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/classes/debug/com/handmark/pulltorefresh/library/R$string.class" afterPath="$PROJECT_DIR$/library/build/intermediates/classes/debug/com/handmark/pulltorefresh/library/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/classes/release/com/handmark/pulltorefresh/library/R$string.class" afterPath="$PROJECT_DIR$/library/build/intermediates/classes/release/com/handmark/pulltorefresh/library/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/library/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/outputs/aar/library-debug.aar" afterPath="$PROJECT_DIR$/library/build/outputs/aar/library-debug.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/outputs/aar/library-release.aar" afterPath="$PROJECT_DIR$/library/build/outputs/aar/library-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/accessibility_test_framework_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/accessibility_test_framework_1_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ant_1_8_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ant_1_8_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/asm_5_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/asm_5_0_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/asm_analysis_5_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/asm_analysis_5_0_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/asm_commons_5_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/asm_commons_5_0_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/asm_tree_5_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/asm_tree_5_0_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/asm_util_5_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/asm_util_5_0_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/bcprov_jdk16_1_46.xml" afterPath="$PROJECT_DIR$/.idea/libraries/bcprov_jdk16_1_46.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/bolts_tasks_1_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/bolts_tasks_1_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/icu4j_53_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/icu4j_53_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/library_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/library_2_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/maven_ant_tasks_2_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/maven_ant_tasks_2_1_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/okhttp_3_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/okhttp_3_1_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/okhttp_3_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/okhttp_3_3_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/okhttp_urlconnection_3_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/okhttp_urlconnection_3_2_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/okio_1_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/okio_1_6_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/okio_1_8_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/okio_1_8_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/pinyin4j_multi_1_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/pinyin4j_multi_1_0_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/robolectric_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/robolectric_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/robolectric_annotations_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/robolectric_annotations_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/robolectric_resources_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/robolectric_resources_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/robolectric_utils_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/robolectric_utils_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/shadows_core_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/shadows_core_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/sqlite4java_0_282.xml" afterPath="$PROJECT_DIR$/.idea/libraries/sqlite4java_0_282.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/vtd_xml_2_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/vtd_xml_2_11.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/NewUserActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/NewUserActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/SearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/SearchActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/bean/HomeBean.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/bean/HomeBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/fragment/FragmentHome.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/fragment/FragmentHome.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/global/MYAppconfig.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/global/MYAppconfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/global/MYTaskID.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/cityant/main/global/MYTaskID.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/checkbox_selector.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/checkbox_selector.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/buildConfig/androidTest/debug/com/iloomo/paysdk/test/BuildConfig.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/buildConfig/androidTest/debug/com/iloomo/paysdk/test/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/jack-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/jack-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/buildConfig/debug/com/iloomo/paysdk/BuildConfig.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/buildConfig/debug/com/iloomo/paysdk/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/buildConfig/release/com/iloomo/paysdk/BuildConfig.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/buildConfig/release/com/iloomo/paysdk/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/r/androidTest/debug/com/facebook/drawee/R.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/r/androidTest/debug/com/facebook/drawee/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/r/androidTest/debug/com/facebook/drawee/backends/pipeline/R.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/r/androidTest/debug/com/facebook/drawee/backends/pipeline/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/r/androidTest/debug/com/iloomo/paysdk/R.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/r/androidTest/debug/com/iloomo/paysdk/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/r/androidTest/debug/com/iloomo/paysdk/test/R.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/r/androidTest/debug/com/iloomo/paysdk/test/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/r/debug/com/facebook/drawee/R.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/r/debug/com/facebook/drawee/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/r/debug/com/facebook/drawee/backends/pipeline/R.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/r/debug/com/facebook/drawee/backends/pipeline/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/r/debug/com/iloomo/paysdk/R.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/r/debug/com/iloomo/paysdk/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/r/release/com/facebook/drawee/R.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/r/release/com/facebook/drawee/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/r/release/com/facebook/drawee/backends/pipeline/R.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/r/release/com/facebook/drawee/backends/pipeline/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/generated/source/r/release/com/iloomo/paysdk/R.java" afterPath="$PROJECT_DIR$/iloomo/build/generated/source/r/release/com/iloomo/paysdk/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/multi/values-sw720dp-land-v13.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/multi/values-sw720dp-land-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/multi/values-v11.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/multi/values-v11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/multi/values-v14.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/multi/values-v14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/multi/values-w820dp-v13.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/multi/values-w820dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/multi/values.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/anim.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/anim.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/drawable-hdpi-v4.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/drawable-hdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/drawable-mdpi-v4.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/drawable-mdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/drawable-xhdpi-v4.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/drawable-xhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/drawable-xxhdpi-v4.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/drawable-xxhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/drawable.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/drawable.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/layout.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/layout.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/menu.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/androidTest/debug/single/menu.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/multi/values-sw720dp-land-v13.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/multi/values-sw720dp-land-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/multi/values-v11.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/multi/values-v11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/multi/values-v14.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/multi/values-v14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/multi/values-w820dp-v13.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/multi/values-w820dp-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/anim.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/anim.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/drawable.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/drawable.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/layout.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/layout.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/menu.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/debug/single/menu.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/multi/values-sw720dp-land-v13.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/multi/values-sw720dp-land-v13.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/multi/values-v11.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/multi/values-v11.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/multi/values-v14.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/multi/values-v14.json" />
@@ -325,26 +493,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/single/drawable.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/single/drawable.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/single/layout.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/single/layout.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/single/menu.json" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/blame/res/release/single/menu.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/R.txt" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/layout/lc_layout_title.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/layout/lc_layout_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/layout/pactivity_view_pager.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/layout/pactivity_view_pager.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/layout/plc_layout_title.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/layout/plc_layout_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/values-v11/values-v11.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/values-v11/values-v11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/values-v14/values-v14.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/values-v14/values-v14.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/values-w820dp-v13/values-w820dp-v13.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/values-w820dp-v13/values-w820dp-v13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/values/values.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/debug/res/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/R.txt" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/R.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/aapt/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/layout/lc_layout_title.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/layout/lc_layout_title.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/layout/pactivity_view_pager.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/layout/pactivity_view_pager.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/layout/plc_layout_title.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/layout/plc_layout_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/values-v11/values-v11.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/values-v11/values-v11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/values-v14/values-v14.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/values-v14/values-v14.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/values-w820dp-v13/values-w820dp-v13.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/values-w820dp-v13/values-w820dp-v13.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/values/values.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/bundles/release/res/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.11.0/AndroidManifest.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.11.0/AndroidManifest.xml" />
@@ -360,36 +514,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.11.0/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.11.0/aapt/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/AndroidManifest.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/aapt/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugAndroidTestShaders/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugAndroidTestShaders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeDebugShaders/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeReleaseAssets/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeReleaseAssets/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeReleaseResources/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeReleaseShaders/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/mergeReleaseShaders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/packageDebugResources/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/packageReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/incremental/packageReleaseResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/layout/lc_layout_title.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/layout/lc_layout_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/layout/pactivity_view_pager.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/layout/pactivity_view_pager.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/layout/plc_layout_title.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/layout/plc_layout_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/values-v11/values-v11.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/values-v11/values-v11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/values-v14/values-v14.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/values-v14/values-v14.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/values-w820dp-v13/values-w820dp-v13.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/values-w820dp-v13/values-w820dp-v13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/values/values.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/androidTest/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/layout/lc_layout_title.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/layout/lc_layout_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/layout/pactivity_view_pager.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/layout/pactivity_view_pager.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/layout/plc_layout_title.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/layout/plc_layout_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/values-sw720dp-land-v13/values-sw720dp-land-v13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/values-v11/values-v11.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/values-v11/values-v11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/values-v14/values-v14.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/values-v14/values-v14.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/values-w820dp-v13/values-w820dp-v13.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/values-w820dp-v13/values-w820dp-v13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/layout/lc_layout_title.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/layout/lc_layout_title.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/layout/pactivity_view_pager.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/layout/pactivity_view_pager.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/layout/plc_layout_title.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/layout/plc_layout_title.xml" />
@@ -398,53 +528,23 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/values-v14/values-v14.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/values-v14/values-v14.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/values-w820dp-v13/values-w820dp-v13.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/values-w820dp-v13/values-w820dp-v13.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/values/values.xml" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/res/merged/release/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/build/intermediates/symbols/androidTest/debug/R.txt" afterPath="$PROJECT_DIR$/iloomo/build/intermediates/symbols/androidTest/debug/R.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iloomo/iloomo.iml" afterPath="$PROJECT_DIR$/iloomo/iloomo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/generated/source/buildConfig/androidTest/debug/com/handmark/pulltorefresh/library/test/BuildConfig.java" afterPath="$PROJECT_DIR$/library/build/generated/source/buildConfig/androidTest/debug/com/handmark/pulltorefresh/library/test/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/generated/source/buildConfig/debug/com/handmark/pulltorefresh/library/BuildConfig.java" afterPath="$PROJECT_DIR$/library/build/generated/source/buildConfig/debug/com/handmark/pulltorefresh/library/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/generated/source/buildConfig/release/com/handmark/pulltorefresh/library/BuildConfig.java" afterPath="$PROJECT_DIR$/library/build/generated/source/buildConfig/release/com/handmark/pulltorefresh/library/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/generated/source/r/androidTest/debug/com/handmark/pulltorefresh/library/R.java" afterPath="$PROJECT_DIR$/library/build/generated/source/r/androidTest/debug/com/handmark/pulltorefresh/library/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/generated/source/r/androidTest/debug/com/handmark/pulltorefresh/library/test/R.java" afterPath="$PROJECT_DIR$/library/build/generated/source/r/androidTest/debug/com/handmark/pulltorefresh/library/test/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/generated/source/r/debug/com/handmark/pulltorefresh/library/R.java" afterPath="$PROJECT_DIR$/library/build/generated/source/r/debug/com/handmark/pulltorefresh/library/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/generated/source/r/release/com/handmark/pulltorefresh/library/R.java" afterPath="$PROJECT_DIR$/library/build/generated/source/r/release/com/handmark/pulltorefresh/library/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/multi/values-zh.json" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/multi/values-zh.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/multi/values.json" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/anim.json" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/anim.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable-hdpi-v4.json" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable-hdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable-mdpi-v4.json" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable-mdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable-xhdpi-v4.json" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable-xhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable.json" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/drawable.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/layout.json" afterPath="$PROJECT_DIR$/library/build/intermediates/blame/res/androidTest/debug/single/layout.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/R.txt" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/res/values-zh/values-zh.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/res/values-zh/values-zh.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/res/values/values.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/debug/res/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/release/R.txt" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/release/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/aapt/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/values-zh/values-zh.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/values-zh/values-zh.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/values/values.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/bundles/release/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAndroidTestShaders/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAndroidTestShaders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeDebugShaders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeReleaseAssets/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeReleaseAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeReleaseShaders/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/mergeReleaseShaders/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/packageDebugResources/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/incremental/packageReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/incremental/packageReleaseResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-zh/values-zh.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values-zh/values-zh.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values/values.xml" afterPath="$PROJECT_DIR$/library/build/intermediates/res/merged/androidTest/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/build/intermediates/symbols/androidTest/debug/R.txt" afterPath="$PROJECT_DIR$/library/build/intermediates/symbols/androidTest/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/library.iml" afterPath="$PROJECT_DIR$/library/library.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/okhttp3-persistent-cookiejar/okhttp3-persistent-cookiejar.iml" afterPath="$PROJECT_DIR$/okhttp3-persistent-cookiejar/okhttp3-persistent-cookiejar.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/okhttputils/okhttputils.iml" afterPath="$PROJECT_DIR$/okhttputils/okhttputils.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_1.xml" />
     </list>
+    <list id="6206613f-8e18-41e5-9e4c-86f83b8ff16c" name="New changelist" comment="" />
     <ignored path="workspace_wpt.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -686,21 +786,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/global/MApplication.java">
+      <file leaf-file-name="FragmentHome.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/fragment/FragmentHome.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="132" column="26" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
+              <caret line="41" column="125" selection-start-line="41" selection-start-column="111" selection-end-line="41" selection-end-column="125" />
+              <folding>
+                <element signature="e#9767#9773#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewUserActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/NewUserActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="134" column="203" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="203" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/LoginActivity.java">
+      <file leaf-file-name="SecurityCodeUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/securitycode/SecurityCodeUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38271606">
-              <caret line="216" column="44" selection-start-line="216" selection-start-column="44" selection-end-line="216" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="174" column="36" selection-start-line="174" selection-start-column="36" selection-end-line="174" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/SearchActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2576687">
+              <caret line="86" column="37" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_search_layout.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_layout.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.8032787">
+              <caret line="11" column="36" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeBean.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/bean/HomeBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+              <folding>
+                <element signature="e#232#233#0" expanded="true" />
+                <element signature="e#259#260#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyImgScroll.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/widget/imgscroll/MyImgScroll.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -4768,7 +4926,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="10304328196169" />
+        <entry key="$PROJECT_DIR$" value="10304415475207" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -5733,9 +5891,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/SettingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/DoTaskActivity.java" />
-        <option value="$PROJECT_DIR$/iloomo/src/main/res/layout/layout_lcratingbar.xml" />
         <option value="$PROJECT_DIR$/iloomo/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/widget/CostomRatingBar.java" />
         <option value="$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/utils/DeviceUtils.java" />
@@ -5750,7 +5905,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/adapter/FragmentHomeAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/home_details_item_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_home_details_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/fragment/FragmentHome.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/HomeDetailsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_home_details_head_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_layout.xml" />
@@ -5772,7 +5926,6 @@
         <option value="$PROJECT_DIR$/library/src/main/res/layout/pull_to_refresh_header_vertical.xml" />
         <option value="$PROJECT_DIR$/library/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/pickerview/build/intermediates/bundles/release/res/values/values.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/proguard-rules.pro" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/AccountSecurityActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
@@ -5781,6 +5934,14 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/HXUtlis/HXErrorUtlis.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/ad_bottom_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/bean/HomeBean.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/fragment/FragmentHome.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/bean/HomeSearch.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/SearchActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/global/MYAppconfig.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cityant/main/global/MYTaskID.java" />
       </list>
     </option>
   </component>
@@ -5889,70 +6050,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="workspace_wpt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="workspace_wpt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="workspace_wpt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="workspace_wpt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="AndroidView">
@@ -5975,25 +6072,26 @@
     <property name="device.picker.selection" value="DU2SSE14CW015357" />
     <property name="settings.editor.selected.configurable" value="gradle.compiler" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="login&#9;FILE&#9;file://E:/workspace_wpt/app/src/main/java/com/cityant/main/activity/LoginActivity.java&#10;Touch&#9;PSI&#9;JAVA://android.text.method.Touch" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/workspace_wpt/app/src/main/java/com/cityant/main/activity/NewUserActivity.java&#10;sear&#9;PSI&#9;JAVA://com.cityant.main.activity.SearchActivity&#10;login&#9;FILE&#9;file://E:/workspace_wpt/app/src/main/java/com/cityant/main/activity/LoginActivity.java&#10;Touch&#9;PSI&#9;JAVA://android.text.method.Touch" />
     <property name="DEBUGGABLE_DEVICE" value="huawei-h60_l01-DU2SSE14CW015357" />
     <property name="DEBUGGABLE_PROCESS" value="com.cityant.main" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\workspace_wpt" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cityant.main.bean" />
+      <recent name="com.cityant.main.activity" />
+      <recent name="com.iloomo.utils" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\workspace_wpt\pickerview\src\main\java\com\example\pickerview" />
       <recent name="E:\workspace_wpt\pickerview" />
       <recent name="E:\workspace_wpt" />
       <recent name="E:\workspace_wpt\app\src\main\res\layout" />
       <recent name="E:\workspace_wpt\app\src\main\res\color" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.cityant.main.activity" />
-      <recent name="com.iloomo.utils" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\workspace_wpt" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -6346,8 +6444,9 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993174" sideWeight="0.5136157" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39761093" sideWeight="0.47881997" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39419794" sideWeight="0.5204236" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39419794" sideWeight="0.4795764" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.48865354" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -6367,7 +6466,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.46066564" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -6438,92 +6536,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/ui/PCameraActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.09065934">
-          <caret line="264" column="52" selection-start-line="264" selection-start-column="52" selection-end-line="264" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/widget/switchview/SwitchLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.120879">
-          <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/BindingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6978022">
-          <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/widget/PCameraGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/java/com/handmark/pulltorefresh/library/PullToRefreshBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33241758">
-          <caret line="1323" column="97" selection-start-line="1323" selection-start-column="82" selection-end-line="1323" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/java/com/handmark/pulltorefresh/library/PullToRefreshListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4203297">
-          <caret line="190" column="37" selection-start-line="190" selection-start-column="37" selection-end-line="190" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/java/com/handmark/pulltorefresh/library/ILoadingLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3241758">
-          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1442623">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/res/anim/slide_in_from_bottom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.3873874">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/res/values/pull_refresh_strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33033034">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/res/drawable/indicator_bg_bottom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2072072">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/doc/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028455285">
-          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/src/main/java/com/handmark/pulltorefresh/library/internal/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3956044">
@@ -6654,13 +6666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43956044">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06043956">
@@ -6672,14 +6677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.55307263">
           <caret line="26" column="76" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/global/MYAppconfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -6719,14 +6716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/net/AsyncHttpPost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="40" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/db/DBControl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -6743,16 +6732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40298507">
           <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/fragment/FragmentHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="23" selection-start-line="108" selection-start-column="23" selection-end-line="108" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -6821,14 +6800,152 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06790123">
           <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/threadpool/MyThreadPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5416666">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+          <folding>
+            <element signature="e#1397#1398#0" expanded="true" />
+            <element signature="e#1439#1440#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31868133">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38271606">
-          <caret line="216" column="44" selection-start-line="216" selection-start-column="44" selection-end-line="216" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.4351852">
+          <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ad_bottom_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49811321">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/icon_1_d.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/widget/imgscroll/MyImgScroll.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/bean/HomeBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+          <folding>
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#259#260#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/securitycode/SecurityCodeUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="174" column="36" selection-start-line="174" selection-start-column="36" selection-end-line="174" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/net/AsyncHttpPost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.2269938">
+          <caret line="64" column="78" selection-start-line="64" selection-start-column="78" selection-end-line="64" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/NewUserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="134" column="203" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="203" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iloomo/src/main/java/com/iloomo/net/ThreadCallBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33742332">
+          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/fragment/FragmentHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="125" selection-start-line="41" selection-start-column="111" selection-end-line="41" selection-end-column="125" />
+          <folding>
+            <element signature="e#9767#9773#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/bean/HomeSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.607362">
+          <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8032787">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/global/MYAppconfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4601227">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/global/MYTaskID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5276074">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cityant/main/activity/SearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2576687">
+          <caret line="86" column="37" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
           <folding />
         </state>
       </provider>

@@ -119,26 +119,6 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         });
         token = DBControl.getInstance(context).selectUserToken();
         sendInternet();
-
-//        List<View> listViews = new ArrayList<View>();
-//
-//        for (int i = 0; i < list.size(); i++) {
-//            ImageView imageView = new ImageView(context);
-//            imageView.setOnClickListener(new View.OnClickListener() {
-//                public void onClick(View v) {// 设置图片点击事件
-//
-//                }
-//            });
-//            Glide.with(context).load(list.get(i)).into(imageView);
-////            setImage(imageView, lista.get(i).getCover(), context);
-//            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//            listViews.add(imageView);
-//        }
-//        banner_scroll.stopTimer();
-//        //开始滚动
-//        banner_scroll.start(context, listViews, 4000, ovalLayout,
-//                R.layout.ad_bottom_item, R.id.ad_item_v,
-//                R.mipmap.ad_select, R.mipmap.ad_normal);
         return view;
     }
 
@@ -259,7 +239,8 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
     @Override
     public void onCallbackFromThread(String resultJson, Object modelClass) {
         Log.e("---成功--",resultJson);
-
+        HomeBean homeBean = (HomeBean) modelClass;
+        setBanner_scroll(homeBean.data.banner_list);
         // TODO
     }
 
@@ -277,5 +258,26 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
     public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
         DialogUtil.stopDialogLoading(context);
         Log.e("--失败---",resultJson);
+    }
+
+    private void setBanner_scroll(List<HomeBean.HomeData.BannerList> banner_list){
+        List<View> listViews = new ArrayList<View>();
+        for (int i = 0; i < banner_list.size(); i++) {
+            ImageView imageView = new ImageView(context);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {// 设置图片点击事件
+
+                }
+            });
+            Glide.with(context).load(list.get(i)).into(imageView);
+//            setImage(imageView, lista.get(i).getCover(), context);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            listViews.add(imageView);
+        }
+        banner_scroll.stopTimer();
+        //开始滚动
+        banner_scroll.start(getActivity(), listViews, 4000, vb,
+                R.layout.ad_bottom_item, R.id.ad_item_v,
+                R.mipmap.ic_launcher, R.mipmap.icon_1_d);
     }
 }
