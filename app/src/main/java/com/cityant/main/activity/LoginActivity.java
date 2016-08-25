@@ -263,25 +263,8 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
             @Override
             public void onError(int code, String message) {
                 Log.d("main", "登录聊天服务器失败！");
-                if (!isopen) {
-                    isopen = true;
                     DialogUtil.stopDialogLoading(context);
-                    HXErrorUtlis.getHxErrorUtlis(context).showError(code);
-                    HXErrorUtlis.getHxErrorUtlis(context).setOnUserNotFoundListener(new OnUserNotFoundListener() {
-                        @Override
-                        public void onUserNotFound() {
-                            //注册失败会抛出HyphenateException
-                            try {
-                                EMClient.getInstance().createAccount(phone_number.getText().toString(), password_number.getText().toString());//同步方法
-                            } catch (HyphenateException e) {
-                                ToastUtil.showShort(context, mString(R.string.USER_REG_FAILED));
-                            }
-                        }
-                    });
-                } else {
-                    DialogUtil.stopDialogLoading(context);
-                    HXErrorUtlis.getHxErrorUtlis(context).showError(code);
-                }
+                ToastUtil.showShort(context,message);
 
             }
         });

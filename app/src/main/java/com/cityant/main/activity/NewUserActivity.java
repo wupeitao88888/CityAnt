@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.cityant.main.R;
 import com.cityant.main.bean.LoginUserInfoData;
 import com.cityant.main.db.DBControl;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
 import com.iloomo.base.ActivitySupport;
 
 import com.iloomo.bean.BaseDate;
@@ -185,21 +187,26 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
     public void onSecurityCodeCallBack(boolean blean, Object userRegister) {
 
         if (blean) {
-            // 验证成功
-            MyThreadPool.getInstance().submit(new Runnable() {
-                @Override
-                public void run() {
-                    LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
-                    loginUserInfoData.setToken(((BaseDate) userRegister).getToken());
-                    loginUserInfoData.setMobile(phone_number.getText().toString());
-                    DBControl.getInstance(context).insertLoginInfo(loginUserInfoData);
-                    DBControl.getInstance(context).insertLastUser(phone_number.getText().toString(), pwnumber.getText().toString());
-                    Message message = new Message();
-                    message.what = REGISTER;
-                    message.obj = "";
-                    handler.sendMessage(message);
-                }
-            });
+            try {
+                EMClient.getInstance().createAccount(phone_number.getText().toString(), pwnumber.getText().toString());//同步方法
+                // 验证成功
+                MyThreadPool.getInstance().submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
+                        loginUserInfoData.setToken(((BaseDate) userRegister).getToken());
+                        loginUserInfoData.setMobile(phone_number.getText().toString());
+                        DBControl.getInstance(context).insertLoginInfo(loginUserInfoData);
+                        DBControl.getInstance(context).insertLastUser(phone_number.getText().toString(), pwnumber.getText().toString());
+                        Message message = new Message();
+                        message.what = REGISTER;
+                        message.obj = "";
+                        handler.sendMessage(message);
+                    }
+                });
+            } catch (HyphenateException e) {
+                ToastUtil.showShort(context, mString(R.string.USER_REG_FAILED));
+            }
         } else {
             // 验证失败
             DialogUtil.stopDialogLoading(context);
