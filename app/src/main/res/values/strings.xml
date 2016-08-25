@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">城市蚂蚁</string>
-    <string name="login">登陆</string>
+    <string name="login">登&#12288;&#12288;&#32;陆</string>
+    <string name="login_title">登陆</string>
     <string name="fast_login">快速登陆</string>
+    <string name="regist_login">注册并登陆</string>
+    <string name="confirmupdate">确认修改</string>
     <string name="qq">QQ</string>
     <string name="weixin">微信</string>
     <string name="webo">微博</string>
-    <string name="forgetpw">忘记密码</string>
-    <string name="newuser">新号码注册</string>
+    <string name="forgetpw">忘记密码?</string>
+    <string name="newuser">注册</string>
     <string name="phonenumber">手机号</string>
     <string name="insrtpw">输入密码</string>
     <string name="code">输入验证码</string>
@@ -140,4 +143,6 @@
     <string name="localtion">地理位置</string>
     <string name="double_rob">双人抢</string>
     <string name="newfrends">新朋友</string>
+    <string name="checked_text">我已阅读并接受</string>
+    <string name="negotiate">《城市蚂蚁用户协议》</string>
 </resources>

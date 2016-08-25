@@ -4,173 +4,360 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@mipmap/beijign"
-        android:orientation="vertical"
-        android:paddingLeft="26dp"
-        android:paddingRight="26dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="@dimen/login_edittext_height"
-            android:layout_marginTop="1dp"
-            android:background="@drawable/login_edittext"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg"
+            android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/phone_icon"
-                style="@style/icon_re">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_edittext_height"
+                android:layout_marginLeft="29dp"
+                android:layout_marginRight="29dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
 
-                <ImageView
-                    style="@style/img_icon"
-                    android:background="@color/white" />
-            </RelativeLayout>
 
-            <EditText
-                android:id="@+id/phone_number"
-                style="@style/login_edittext"
-                android:layout_weight="1"
-                android:hint="@string/phonenumber"
-                android:maxLength="11"
-                android:phoneNumber="true" />
+                <EditText
+                    android:id="@+id/phone_number"
+                    style="@style/login_edittext"
+                    android:layout_weight="1"
+                    android:hint="@string/phonenumber"
+                    android:inputType="phone"
+                    android:maxLength="11" />
+
+                <RelativeLayout
+                    android:id="@+id/phone_icon"
+                    style="@style/icon_re">
+
+                    <ImageView
+                        style="@style/img_icon"
+                        android:background="@drawable/phone" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginRight="29dp"
+                android:background="#d2d2d2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_edittext_height"
+                android:layout_marginLeft="29dp"
+                android:layout_marginRight="29dp"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal">
+
+                <!--<RelativeLayout-->
+                <!--android:id="@+id/code_icon"-->
+                <!--style="@style/icon_re">-->
+
+                <!--<ImageView-->
+                <!--style="@style/img_icon"-->
+                <!--android:background="@color/white" />-->
+                <!--</RelativeLayout>-->
+
+                <EditText
+                    android:id="@+id/code_number"
+                    style="@style/login_edittext"
+                    android:layout_weight="1"
+                    android:hint="@string/code"
+                    android:inputType="number"
+                    android:maxLength="11" />
+
+
+                <Button
+                    android:id="@+id/sendcode"
+                    android:layout_width="96.6dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginTop="9dp"
+                    android:background="@drawable/button_login"
+                    android:onClick="onSendCode"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@string/sendcode"
+                    android:textColor="@color/title_text"
+                    android:textSize="14dp" />
+                <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:background="@drawable/button_send_code"-->
+                <!--android:paddingLeft="10dp"-->
+                <!--android:paddingRight="10dp"-->
+                <!--android:text="发送验证码"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="13dp" />-->
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginRight="29dp"
+                android:background="#d2d2d2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_edittext_height"
+                android:layout_marginLeft="29dp"
+                android:layout_marginRight="29dp"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/pwnumber"
+                    style="@style/login_edittext"
+                    android:layout_weight="1"
+                    android:hint="@string/insrtpw"
+                    android:inputType="textPassword"
+                    android:maxLength="11" />
+
+                <RelativeLayout
+                    android:id="@+id/pw_icon"
+                    style="@style/icon_re">
+
+                    <ImageView
+                        style="@style/img_icon"
+                        android:background="@drawable/pw" />
+                </RelativeLayout>
+                <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:background="@drawable/button_send_code"-->
+                <!--android:paddingLeft="10dp"-->
+                <!--android:paddingRight="10dp"-->
+                <!--android:text="发送验证码"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="13dp" />-->
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginRight="29dp"
+                android:background="#d2d2d2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_edittext_height"
+                android:layout_marginLeft="29dp"
+                android:layout_marginRight="29dp"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/re_pwnumber"
+                    style="@style/login_edittext"
+                    android:layout_weight="1"
+                    android:hint="@string/reinsrtpw"
+                    android:inputType="textPassword"
+                    android:maxLength="11" />
+
+                <RelativeLayout
+                    android:id="@+id/re_pw_icon"
+                    style="@style/icon_re">
+
+                    <ImageView
+                        style="@style/img_icon"
+                        android:background="@drawable/pw" />
+                </RelativeLayout>
+                <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:background="@drawable/button_send_code"-->
+                <!--android:paddingLeft="10dp"-->
+                <!--android:paddingRight="10dp"-->
+                <!--android:text="发送验证码"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="13dp" />-->
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginRight="29dp"
+                android:background="#d2d2d2" />
 
             <Button
-                android:id="@+id/sendcode"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:background="@drawable/button_send_code"
-                android:onClick="onSendCode"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="@string/sendcode"
-                android:textColor="@color/white"
-                android:textSize="13dp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="@dimen/login_edittext_height"
-            android:layout_marginTop="1dp"
-            android:background="@drawable/login_edittext"
-            android:orientation="horizontal">
+                android:id="@+id/login_button"
+                android:layout_width="fill_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="27dp"
+                android:layout_marginRight="27dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_login"
+                android:onClick="onLoginClick"
+                android:text="@string/regist_login"
+                android:textColor="@color/title_text"
+                android:textSize="16.6dp" />
 
             <RelativeLayout
-                android:id="@+id/code_icon"
-                style="@style/icon_re">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center">
 
-                <ImageView
-                    style="@style/img_icon"
-                    android:background="@color/white" />
+                <CheckBox
+                    android:id="@+id/agree"
+                    style="@style/MyCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/checked_text"
+                    android:textColor="@color/title_text"
+                    android:textSize="11.3dp" />
+
+                <TextView
+                    android:id="@+id/negotiate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/agree"
+                    android:text="@string/negotiate"
+                    android:textColor="@color/yellow"
+                    android:textSize="11.3dp" />
             </RelativeLayout>
 
-            <EditText
-                android:id="@+id/code_number"
-                style="@style/login_edittext"
-                android:layout_weight="1"
-                android:hint="@string/code"
-                android:maxLength="11"
-                android:phoneNumber="true" />
-
-            <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="fill_parent"-->
-            <!--android:background="@drawable/button_send_code"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:paddingRight="10dp"-->
-            <!--android:text="发送验证码"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textSize="13dp" />-->
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="@dimen/login_edittext_height"
-            android:layout_marginTop="1dp"
-            android:background="@drawable/login_edittext"
-            android:orientation="horizontal">
 
             <RelativeLayout
-                android:id="@+id/pw_icon"
-                style="@style/icon_re">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="31dp"
+                android:layout_marginRight="31dp"
+                android:layout_marginTop="118dp">
 
-                <ImageView
-                    style="@style/img_icon"
-                    android:background="@color/white" />
+                <RelativeLayout
+                    android:id="@+id/fast_line_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/fast">
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/fast_login" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/fast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="15.5dp"
+                    android:paddingRight="15.5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fast_login"
+                        android:textColor="@color/fast_login"
+                        android:textSize="@dimen/textsize13" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/fast_line_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/fast">
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/fast_login" />
+
+                </RelativeLayout>
+
             </RelativeLayout>
 
-            <EditText
-                android:id="@+id/pwnumber"
-                style="@style/login_edittext"
-                android:layout_weight="1"
-                android:hint="@string/insrtpw"
-                android:maxLength="11"
-                android:password="true" />
-
-            <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="fill_parent"-->
-            <!--android:background="@drawable/button_send_code"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:paddingRight="10dp"-->
-            <!--android:text="发送验证码"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textSize="13dp" />-->
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="@dimen/login_edittext_height"
-            android:layout_marginTop="1dp"
-            android:background="@drawable/login_edittext"
-            android:orientation="horizontal">
 
             <RelativeLayout
-                android:id="@+id/re_pw_icon"
-                style="@style/icon_re">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:gravity="center_horizontal">
 
-                <ImageView
-                    style="@style/img_icon"
-                    android:background="@color/white" />
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        style="@style/fast_login_re"
+                        android:onClick="onWeboLoginClick">
+
+                        <ImageView
+                            android:id="@+id/weibo_icon"
+                            style="@style/fast_login_img_icon"
+                            android:background="@mipmap/wb" />
+
+                        <TextView
+                            style="@style/fast_login_text"
+                            android:layout_below="@+id/weibo_icon"
+                            android:text="@string/webo" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        style="@style/fast_login_re"
+                        android:onClick="onQQLoginClick">
+
+                        <ImageView
+                            android:id="@+id/qq_icon"
+                            style="@style/fast_login_img_icon"
+                            android:background="@mipmap/wqq" />
+
+                        <TextView
+                            style="@style/fast_login_text"
+                            android:layout_below="@+id/qq_icon"
+                            android:text="@string/qq" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        style="@style/fast_login_re"
+                        android:onClick="onWeiXinLoginClick">
+
+                        <ImageView
+                            android:id="@+id/wexin_icon"
+                            style="@style/fast_login_img_icon"
+                            android:background="@mipmap/wx" />
+
+                        <TextView
+                            style="@style/fast_login_text"
+                            android:layout_below="@+id/wexin_icon"
+                            android:text="@string/weixin" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
             </RelativeLayout>
-
-            <EditText
-                android:id="@+id/re_pwnumber"
-                style="@style/login_edittext"
-                android:layout_weight="1"
-                android:hint="@string/insrtpw"
-                android:maxLength="11"
-                android:password="true" />
-
-            <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="fill_parent"-->
-            <!--android:background="@drawable/button_send_code"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:paddingRight="10dp"-->
-            <!--android:text="发送验证码"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textSize="13dp" />-->
-
-
         </LinearLayout>
-
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="fill_parent"
-            android:layout_height="45dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/button_login"
-            android:onClick="onLoginClick"
-            android:text="@string/login"
-            android:textColor="@color/white"
-            android:textSize="15dp" />
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

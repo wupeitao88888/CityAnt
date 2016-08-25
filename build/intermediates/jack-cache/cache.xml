@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\json-simple-1.1.1.jar"
+        revision="24.0.0"
+        sha1="a2a977b198f82299a7c957c85c16eabebe3af019">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\json-simple-1.1.1-8c61ff8c88d98b5ea87243c267d588990dffe8d4.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\umeng-analytics-v5.6.4.jar"
+        revision="24.0.0"
+        sha1="b7094ef0e91381ec8617c2123c3c6038d8738be3">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\umeng-analytics-v5.6.4-57d74fb41689782a1ab811174ef231466271e2a6.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\locSDK_6.13.jar"
+        revision="24.0.0"
+        sha1="29e897422a7e9ed03431bc6adfaec9a6bae7f49c">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\locSDK_6.13-76719afbdf52cc1a9564fab1aadb9b4a0d834dd6.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\user_profile_mtj_1.4.jar"
+        revision="24.0.0"
+        sha1="5105f7362d352992ccf4e824949b03e9ee17f431">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\user_profile_mtj_1.4-098b34217d8da466a5b5169e8eed53cffbe76d35.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\classes.jar"
+        revision="24.0.0"
+        sha1="5027bc2e7901a4a4a10568d0a53c6528d1272358">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\classes-5924e856a45ea095054f58092f95031260bf16b5.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\universal-image-loader-1.9.4.jar"
+        revision="24.0.0"
+        sha1="f1ab4b04628daa2ba7608698a5d88d79402d334e">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\universal-image-loader-1.9.4-092f215de49e85ae4750b48b2269b3b1839ccb94.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\fastjson-1.1.40.jar"
+        revision="24.0.0"
+        sha1="4cf8fc4e81e18fb33bbda054b63e1262ed3fbe4f">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\fastjson-1.1.40-393ebbaff4218f3b31c76785b2690f928e5d0dcc.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\org.apache.http.legacy.jar"
+        revision="24.0.0"
+        sha1="137707d6613418a856c92b4a0fe330df96fa5708">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\org.apache.http.legacy-1b8c30253aa33146f3971277c3d231f6d1d5ad9b.jar" />
+    </item>
+    <item
+        jar="E:\workspace_wpt\app\build\intermediates\exploded-aar\workspace_wpt\iloomo\unspecified\jars\libs\glide-3.6.1.jar"
+        revision="24.0.0"
+        sha1="382069dd81244324748fa3ed8a89999d498423f7">
+        <dex dex="E:\workspace_wpt\app\build\intermediates\jill\debug\packaged\glide-3.6.1-b5cd8b225151591c8f14e2c9428cf0c6b1dc93e6.jar" />
+    </item>
+
+</items>

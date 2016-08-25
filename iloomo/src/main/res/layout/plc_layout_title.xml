@@ -11,11 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/title_bar"
-        android:paddingTop="25dp">
+        android:paddingTop="20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:orientation="horizontal">
 
             <RelativeLayout
@@ -27,10 +27,10 @@
 
                 <ImageView
                     android:id="@+id/lc_left_back"
-                    android:layout_width="21.5dp"
-                    android:layout_height="34dp"
+                    android:layout_width="12dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="7.6dp"
                     android:background="@drawable/pc_back" />
             </RelativeLayout>
 
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:text="标题"
                     android:textColor="@color/title_text"
-                    android:textSize="17sp" />
+                    android:textSize="16dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -64,7 +64,7 @@
                     android:layout_centerVertical="true"
                     android:text="下一步"
                     android:textColor="@color/title_text"
-                    android:textSize="15sp"
+                    android:textSize="14dp"
                     android:visibility="gone" />
 
                 <ImageView

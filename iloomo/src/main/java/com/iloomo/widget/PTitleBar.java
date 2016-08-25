@@ -65,7 +65,7 @@ public class PTitleBar extends FrameLayout {
         lc_right_menu = (TextView) inflate.findViewById(R.id.lc_right_menu);
         lc_left_back_all.setOnClickListener(backListener);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            ll_title_content.setPadding(0, (int) PViewUtil.dip2px(context, 25.0f), 0, 0);
+            ll_title_content.setPadding(0, (int) PViewUtil.dip2px(context, 20.0f), 0, 0);
         } else {
             ll_title_content.setPadding(0, 0, 0, 0);
         }

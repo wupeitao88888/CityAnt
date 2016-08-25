@@ -37,6 +37,7 @@
             android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:background="#F9E683"
+            android:focusable="false"
             android:paddingLeft="5dp"
             android:hint="搜索你感兴趣的内容"
             android:gravity="center"
@@ -50,6 +51,7 @@
     </RelativeLayout>
 
     <com.iloomo.widget.imgscroll.MyImgScroll
+        android:id="@+id/banner_scroll"
         android:layout_width="match_parent"
         android:layout_height="135dp"
         android:background="@color/gray">

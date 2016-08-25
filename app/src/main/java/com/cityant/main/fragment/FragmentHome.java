@@ -1,22 +1,27 @@
 package com.cityant.main.fragment;
 
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
+import com.bumptech.glide.Glide;
 import com.cityant.main.R;
 import com.cityant.main.activity.DoTaskActivity;
 import com.cityant.main.activity.HomeDetailsActivity;
 import com.cityant.main.activity.LocationChoiceActivity;
 import com.cityant.main.activity.SearchActivity;
 import com.cityant.main.adapter.FragmentHomeAdapter;
+import com.cityant.main.bean.HomeBean;
+import com.cityant.main.db.DBControl;
 import com.cityant.main.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.FragmentSupport;
@@ -26,6 +31,7 @@ import com.iloomo.model.ApplicationLocationListener;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.DialogUtil;
+import com.iloomo.widget.imgscroll.MyImgScroll;
 
 
 import java.util.ArrayList;
@@ -51,6 +57,9 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
     private TextView nearby_text;
     private TextView city_text;
     private TextView friends_text;
+    private String token = "";
+    private MyImgScroll banner_scroll;
+    private LinearLayout vb;
 
     @Override
     public View setTitleBar(View view) {
@@ -70,6 +79,8 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         friends_text = (TextView) view.findViewById(R.id.friends_text);
 
         View head_view = LayoutInflater.from(context).inflate(R.layout.fragment_home_head_layout, null);
+        banner_scroll = (MyImgScroll) head_view.findViewById(R.id.banner_scroll);
+        vb = (LinearLayout) head_view.findViewById(R.id.vb);
         position_text = (TextView) head_view.findViewById(R.id.position_text);
         search_edit = (EditText) head_view.findViewById(R.id.search_edit);
         position_text.setOnClickListener(v ->LocationChoiceActivity.startActivity(context));
@@ -106,7 +117,28 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
                 HomeDetailsActivity.startActivity(context);
             }
         });
+        token = DBControl.getInstance(context).selectUserToken();
         sendInternet();
+
+//        List<View> listViews = new ArrayList<View>();
+//
+//        for (int i = 0; i < list.size(); i++) {
+//            ImageView imageView = new ImageView(context);
+//            imageView.setOnClickListener(new View.OnClickListener() {
+//                public void onClick(View v) {// 设置图片点击事件
+//
+//                }
+//            });
+//            Glide.with(context).load(list.get(i)).into(imageView);
+////            setImage(imageView, lista.get(i).getCover(), context);
+//            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            listViews.add(imageView);
+//        }
+//        banner_scroll.stopTimer();
+//        //开始滚动
+//        banner_scroll.start(context, listViews, 4000, ovalLayout,
+//                R.layout.ad_bottom_item, R.id.ad_item_v,
+//                R.mipmap.ad_select, R.mipmap.ad_normal);
         return view;
     }
 
@@ -131,9 +163,9 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         parameter.put("page", "1");
         parameter.put("page_size", "15");
         parameter.put("city_id", "");
-        parameter.put("latitude", "15");
-        parameter.put("longitude", "15");
-        parameter.put("token", "15");
+        parameter.put("latitude", MApplication.getInstance().latitude+"");
+        parameter.put("longitude", MApplication.getInstance().longitude+"");
+        parameter.put("token", token);
         parameter.put("type", "0"); // type   类别(0:推荐,1:附近,2:同城,3:好友)
 
         AsyncHttpPost httpRequest;
@@ -146,7 +178,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
         AsyncHttpPost httpRequest;
         httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
-                BaseModel.class, context);
+                HomeBean.class, context);
 
 
     }
@@ -226,7 +258,9 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
     @Override
     public void onCallbackFromThread(String resultJson, Object modelClass) {
+        Log.e("---成功--",resultJson);
 
+        // TODO
     }
 
     @Override
@@ -236,11 +270,12 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
     @Override
     public void onCallbackFromThreadError(String resultJson, Object modelClass) {
-
+        Log.e("--失败---",resultJson);
     }
 
     @Override
     public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
         DialogUtil.stopDialogLoading(context);
+        Log.e("--失败---",resultJson);
     }
 }

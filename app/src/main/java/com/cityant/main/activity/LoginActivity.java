@@ -9,7 +9,10 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.cityant.main.HXUtlis.HXErrorUtlis;
 import com.cityant.main.HXUtlis.OnUserNotFoundListener;
@@ -42,12 +45,21 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
     private EditText phone_number;
     private EditText password_number;
     private Button login_button;
+    private TextView negotiate;
+    private CheckBox agree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-       setCtenterTitle(mString(R.string.login));
+        setCtenterTitle(mString(R.string.login_title));
+        setRightTitle(mString(R.string.newuser));
+        setRightTitleListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onNewUserClick();
+            }
+        });
         initView();
     }
 
@@ -55,9 +67,45 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
         phone_number = (EditText) findViewById(R.id.phone_number);
         password_number = (EditText) findViewById(R.id.password_number);
         login_button = (Button) findViewById(R.id.login_button);
+        negotiate= (TextView) findViewById(R.id.negotiate);
+        agree= (CheckBox) findViewById(R.id.agree);
+
         phone_number.addTextChangedListener(new EditChangedListener());
         password_number.addTextChangedListener(new EditChangedListener());
+        negotiate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //跳转协议内容
+            }
+        });
+        agree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(agree.isChecked()){
+                    if (phone_number.getText().length() > 0) {
+                        if (password_number.getText().length() > 0) {
 
+                            if (phone_number.getText().length() == 11) {
+                                login_button.setPressed(false);
+                                login_button.setClickable(true);
+                            } else {
+                                login_button.setPressed(true);
+                                login_button.setClickable(false);
+                            }
+                        } else {
+                            login_button.setPressed(true);
+                            login_button.setClickable(false);
+                        }
+                    } else {
+                        login_button.setPressed(true);
+                        login_button.setClickable(false);
+                    }
+                }else{
+                    login_button.setPressed(true);
+                    login_button.setClickable(false);
+                }
+            }
+        });
     }
 
 
@@ -102,7 +150,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
         mIntent(context, ForgetPasswordActivity.class);
     }
 
-    public void onNewUserClick(View view) {
+    public void onNewUserClick() {
         mIntent(context, NewUserActivity.class);
     }
 
@@ -216,7 +264,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
             public void onError(int code, String message) {
                 Log.d("main", "登录聊天服务器失败！");
                 if (!isopen) {
-                    isopen=true;
+                    isopen = true;
                     DialogUtil.stopDialogLoading(context);
 //                    HXErrorUtlis.getHxErrorUtlis(context).showError(code);
                     HXErrorUtlis.getHxErrorUtlis(context).setOnUserNotFoundListener(new OnUserNotFoundListener() {

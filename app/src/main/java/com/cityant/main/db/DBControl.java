@@ -188,6 +188,23 @@ public class DBControl extends DBbase {
         DatabaseManager.getInstance().closeDatabase();
         return bundle;
     }
+
+    /**
+     * 获取token
+     * @return
+     */
+    public synchronized String selectUserToken() {
+        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                .readDatabase();
+        Cursor cursor = readableDatabase.rawQuery("select token from logininfo", new String[]{});
+        String token = "";
+        while (cursor.moveToNext()) {
+            token = cursor.getString(0);
+        }
+        cursor.close();
+        DatabaseManager.getInstance().closeDatabase();
+        return token;
+    }
     /************
      * +++++++++++++++++end+++++++++++++++++++++++
      */
