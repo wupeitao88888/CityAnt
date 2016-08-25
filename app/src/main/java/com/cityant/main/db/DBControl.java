@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class DBControl extends DBbase {
 
-    public static String DB_VERSION = "28";
+    public static String DB_VERSION = "1";
 
     public DBControl(Context context, DbHelperBase DbHelperBase) {
         super(context, DbHelperBase);
@@ -67,6 +67,22 @@ public class DBControl extends DBbase {
      * @param loginUserInfoData
      */
     public synchronized void insertLoginInfo(LoginUserInfoData loginUserInfoData) {
+        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                .readDatabase();
+        Cursor cursor = readableDatabase.rawQuery("select * from logininfo", new String[]{});
+//        tb
+        String token = null;
+        while (cursor.moveToNext()) {
+            token = deCode(cursor.getString(cursor.getColumnIndex("token")));
+        }
+        cursor.close();
+        DatabaseManager.getInstance().closeDatabase();
+        if (!TextUtils.isEmpty(token)) {
+            SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
+                    .openDatabase();
+            writableDatabase.execSQL("delete from logininfo");
+            DatabaseManager.getInstance().closeDatabase();
+        }
         try {
             SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
                     .openDatabase();
@@ -112,6 +128,27 @@ public class DBControl extends DBbase {
 
         cursor.close();
         DatabaseManager.getInstance().closeDatabase();
+        return loginUserInfoData;
+    }
+
+    public synchronized LoginUserInfoData selectLoginInfo() {
+        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                .readDatabase();
+        Cursor cursor = readableDatabase.rawQuery(
+                "select * from logininfo",
+                new String[]{});
+        LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
+        while (cursor.moveToNext()) {
+            loginUserInfoData.setToken(deCode(cursor.getString(cursor.getColumnIndex("token"))));
+            loginUserInfoData.setMobile(deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
+            loginUserInfoData.setUser_name(deCode(cursor.getString(cursor.getColumnIndex("user_name"))));
+            loginUserInfoData.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex("user_avar"))));
+        }
+        cursor.close();
+        DatabaseManager.getInstance().closeDatabase();
+        if (TextUtils.isEmpty(loginUserInfoData.getToken())) {
+            loginUserInfoData = null;
+        }
         return loginUserInfoData;
     }
 
@@ -181,34 +218,17 @@ public class DBControl extends DBbase {
         Cursor cursor = readableDatabase.rawQuery("select * from lastuser", new String[]{});
         Bundle bundle = new Bundle();
         while (cursor.moveToNext()) {
-            bundle.putString("mobile",deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
-            bundle.putString("password",deCode(cursor.getString(cursor.getColumnIndex("password"))));
+            bundle.putString("mobile", deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
+            bundle.putString("password", deCode(cursor.getString(cursor.getColumnIndex("password"))));
         }
         cursor.close();
         DatabaseManager.getInstance().closeDatabase();
         return bundle;
     }
 
-    /**
-     * 获取token
-     * @return
-     */
-    public synchronized String selectUserToken() {
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery("select token from logininfo", new String[]{});
-        String token = "";
-        while (cursor.moveToNext()) {
-            token = cursor.getString(0);
-        }
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
-        return token;
-    }
     /************
      * +++++++++++++++++end+++++++++++++++++++++++
      */
-
 //        public synchronized void insertExec(ExeTime exeTime) {
 //        try {
 //            SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
@@ -633,5 +653,21 @@ public class DBControl extends DBbase {
 //    /*******
 //     * **************************end***********************************
 //     */
+    public synchronized void deleteAllTab() {
+        SQLiteDatabase db = DatabaseManager.getInstance()
+                .openDatabase();
+        db.execSQL(DbHelper.DELETE_LOGININFO);
+        db.execSQL(DbHelper.LASTUSER);
+        DatabaseManager.getInstance().closeDatabase();
+        createAllTab();
+    }
 
+    //    创建表
+    public synchronized void createAllTab() {
+        SQLiteDatabase db = DatabaseManager.getInstance()
+                .openDatabase();
+        db.execSQL(DbHelper.LOGININFO);
+        db.execSQL(DbHelper.LASTUSER);
+        DatabaseManager.getInstance().closeDatabase();
+    }
 }

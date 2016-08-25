@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by wupeitao on 16/8/14.
  */
-public class BaseDate implements Serializable {
+public class BaseData implements Serializable {
     private String code_message;
 
     public String getCode_message() {

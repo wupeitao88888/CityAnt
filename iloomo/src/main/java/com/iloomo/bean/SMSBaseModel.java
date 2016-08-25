@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class SMSBaseModel extends BaseModel implements Serializable {
 
-    private BaseDate data;
-    public BaseDate getData() {
+    private BaseData data;
+    public BaseData getData() {
         return data;
     }
 
-    public void setData(BaseDate data) {
+    public void setData(BaseData data) {
         this.data = data;
     }
 }

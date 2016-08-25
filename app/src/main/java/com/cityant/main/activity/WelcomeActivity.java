@@ -2,11 +2,17 @@ package com.cityant.main.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 
 import com.cityant.main.R;
+import com.cityant.main.db.DBControl;
+import com.cityant.main.db.DbHelper;
 import com.hyphenate.chat.EMClient;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.threadpool.MyThreadPool;
+import com.iloomo.utils.L;
+import com.iloomo.utils.LCSharedPreferencesHelper;
 import com.iloomo.widget.StartPic;
 import com.nineoldandroids.animation.Animator;
 
@@ -16,7 +22,8 @@ import com.nineoldandroids.animation.Animator;
  */
 public class WelcomeActivity extends ActivitySupport {
     private StartPic welcome;
-    private static final int sleepTime = 2000;
+    private static final int sleepTime = 1000;
+    private LCSharedPreferencesHelper lcSharedPreferencesHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +31,7 @@ public class WelcomeActivity extends ActivitySupport {
 
         setContentView(R.layout.layout_welcome);
         setRemoveTitle();
+        checkDb();
         welcome = (StartPic) findViewById(R.id.welcome);
         welcome.setStartPicImage(R.drawable.white);
         welcome.setAnimationListener(new Animator.AnimatorListener() {
@@ -52,7 +60,7 @@ public class WelcomeActivity extends ActivitySupport {
                                     e.printStackTrace();
                                 }
                             }
-                            startActivity(new Intent(context, LoginActivity.class));
+                            startActivity(new Intent(context, IndexFragment.class));
                             finish();
                         } else {
                             try {
@@ -84,5 +92,25 @@ public class WelcomeActivity extends ActivitySupport {
     protected void onStart() {
         super.onStart();
 
+    }
+
+    private void checkDb() {
+        lcSharedPreferencesHelper = LCSharedPreferencesHelper.instance(context, LCSharedPreferencesHelper.ILOOMO);
+        DbHelper dbHelper = new DbHelper(context);
+        DBControl dbControl = new DBControl(context, dbHelper);
+        try {
+            if (TextUtils.isEmpty(lcSharedPreferencesHelper.getValue(LCSharedPreferencesHelper.UPDATE_DB))) {
+                lcSharedPreferencesHelper.putValue(LCSharedPreferencesHelper.UPDATE_DB, DBControl.DB_VERSION);
+                dbControl.deleteAllTab();
+                dbControl.createAllTab();
+            } else {
+                if (!DBControl.DB_VERSION.equals(lcSharedPreferencesHelper.getValue(LCSharedPreferencesHelper.UPDATE_DB))) {
+                    lcSharedPreferencesHelper.putValue(LCSharedPreferencesHelper.UPDATE_DB, DBControl.DB_VERSION);
+                    dbControl.deleteAllTab();
+                    dbControl.createAllTab();
+                }
+            }
+        } catch (Exception e) {
+        }
     }
 }

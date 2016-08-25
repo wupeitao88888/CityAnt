@@ -67,8 +67,8 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
         phone_number = (EditText) findViewById(R.id.phone_number);
         password_number = (EditText) findViewById(R.id.password_number);
         login_button = (Button) findViewById(R.id.login_button);
-        negotiate= (TextView) findViewById(R.id.negotiate);
-        agree= (CheckBox) findViewById(R.id.agree);
+        negotiate = (TextView) findViewById(R.id.negotiate);
+        agree = (CheckBox) findViewById(R.id.agree);
 
         phone_number.addTextChangedListener(new EditChangedListener());
         password_number.addTextChangedListener(new EditChangedListener());
@@ -81,7 +81,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
         agree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(agree.isChecked()){
+                if (agree.isChecked()) {
                     if (phone_number.getText().length() > 0) {
                         if (password_number.getText().length() > 0) {
 
@@ -100,7 +100,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                         login_button.setPressed(true);
                         login_button.setClickable(false);
                     }
-                }else{
+                } else {
                     login_button.setPressed(true);
                     login_button.setClickable(false);
                 }
@@ -249,7 +249,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                         DBControl.getInstance(context).insertLoginInfo(loginUserInfo.getData());
                         Message message = new Message();
                         message.what = LOGIN;
-                        message.obj = "";
+                        message.obj = modelClass;
                         handler.sendMessage(message);
                     }
                 });
@@ -263,24 +263,20 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
             @Override
             public void onError(int code, String message) {
                 Log.d("main", "登录聊天服务器失败！");
-                    DialogUtil.stopDialogLoading(context);
-                    HXErrorUtlis.getHxErrorUtlis(context).setOnUserNotFoundListener(new OnUserNotFoundListener() {
-                        @Override
-                        public void onUserNotFound() {
-                            //注册失败会抛出HyphenateException
-                            try {
-                                EMClient.getInstance().createAccount(phone_number.getText().toString(), password_number.getText().toString());//同步方法
-                            } catch (HyphenateException e) {
-                                ToastUtil.showShort(context, mString(R.string.USER_REG_FAILED));
-                            }
-                        }
-                    });
+
+                Message mge = new Message();
+                mge.what = LOGIN;
+                mge.obj = message;
+                handler.sendMessage(mge);
+
+
             }
         });
     }
 
     private final int LOGIN = 100;
     private final int INIT = 101;
+    private final int EORRO = 102;
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -288,9 +284,10 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
             switch (msg.what) {
                 case LOGIN:
                     DialogUtil.stopDialogLoading(context);
+                    LoginUserInfo LoginUserInfo = (LoginUserInfo) msg.obj;
+                    MYAppconfig.loginUserInfoData = LoginUserInfo.getData();
                     mIntent(context, IndexFragment.class);
                     finish();
-
                     break;
                 case INIT:
                     Bundle bundle = (Bundle) msg.obj;
@@ -308,6 +305,10 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                         login_button.setPressed(true);
                         login_button.setClickable(false);
                     }
+                    break;
+                case EORRO:
+                    DialogUtil.stopDialogLoading(context);
+                    ToastUtil.showShort(context, msg.obj.toString());
                     break;
             }
         }

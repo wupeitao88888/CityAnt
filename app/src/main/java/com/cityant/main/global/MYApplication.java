@@ -2,11 +2,16 @@ package com.cityant.main.global;
 
 import android.app.ActivityManager;
 import android.content.pm.PackageManager;
+import android.os.Handler;
+import android.os.Message;
 
+import com.cityant.main.bean.LoginUserInfoData;
+import com.cityant.main.db.DBControl;
 import com.cityant.main.utlis.FaceConversionUtil;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.iloomo.global.MApplication;
+import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.L;
 
 import java.util.Iterator;
@@ -17,9 +22,24 @@ import java.util.List;
  * Created by wupeitao on 16/8/18.
  */
 public class MYApplication extends MApplication {
+    private final int GETLOGINFO = 100;
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case GETLOGINFO:
+                    MYAppconfig.loginUserInfoData = (LoginUserInfoData) msg.obj;
+                    break;
+            }
+        }
+    };
+
     @Override
     public void onCreate() {
         super.onCreate();
+//
+        initDate();
         EMOptions options = new EMOptions();
         // 默认添加好友时，是不需要验证的，改成需要验证
 //        options.setAcceptInvitationAlways(false);
@@ -40,6 +60,21 @@ public class MYApplication extends MApplication {
             return;
         }
         FaceConversionUtil.getInstace().getFileText(context);
+
+    }
+
+    private void initDate() {
+        MyThreadPool.getInstance().submit(new Runnable() {
+            @Override
+            public void run() {
+                Message message = new Message();
+                message.what = GETLOGINFO;
+                message.obj = DBControl.getInstance(context).selectLoginInfo();
+                handler.sendMessage(message);
+            }
+        });
+
+
     }
 
     private String getAppName(int pID) {

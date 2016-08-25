@@ -6,8 +6,7 @@ import java.io.Serializable;
  * Created by wupeitao on 16/8/19.
  */
 public class MyFrends implements Serializable {
-    private String token;
-    private String mobile;
+    private String friend_id;
     private String user_name;
     private String user_avar;
     private String PinYinName;
@@ -20,20 +19,12 @@ public class MyFrends implements Serializable {
         PinYinName = pinYinName;
     }
 
-    public String getToken() {
-        return token;
+    public String getFriend_id() {
+        return friend_id;
     }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setFriend_id(String friend_id) {
+        this.friend_id = friend_id;
     }
 
     public String getUser_name() {
