@@ -140,8 +140,9 @@ public class HXErrorUtlis {
                 break;
             case EMError.USER_NOT_FOUND:
                 ToastUtil.showShort(context, mString(R.string.USER_NOT_FOUND));
-                if (onUserNotFoundListener != null)
+                if (null != onUserNotFoundListener){
                     onUserNotFoundListener.onUserNotFound();
+                }
                 break;
             case EMError.USER_NOT_LOGIN:
                 ToastUtil.showShort(context, mString(R.string.USER_NOT_LOGIN));
@@ -157,6 +158,9 @@ public class HXErrorUtlis {
                 break;
             case EMError.USER_UPDATEINFO_FAILED:
                 ToastUtil.showShort(context, mString(R.string.USER_UPDATEINFO_FAILED));
+                break;
+            default:
+                ToastUtil.showShort(context, mString(R.string.USER_FAILED));
                 break;
         }
 

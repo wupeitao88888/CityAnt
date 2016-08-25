@@ -116,6 +116,7 @@ public class MApplication extends App {
             try {
                 dbFiles.createNewFile();
             } catch (IOException e1) {
+                e1.printStackTrace();
             }
         }
 

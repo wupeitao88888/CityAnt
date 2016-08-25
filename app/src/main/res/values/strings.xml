@@ -113,6 +113,7 @@
     <string name="USER_REMOVED">账户被删除</string>
     <string name="USER_UNBIND_DEVICETOKEN_FAILED">解绑设备token失败</string>
     <string name="USER_UPDATEINFO_FAILED">更新用户信息失败</string>
+    <string name="USER_FAILED">不知名错误</string>
     <!---环信错误码-->
     <string name="addressbook">通讯录</string>
     <string name="mequn">我的群组</string>

@@ -218,7 +218,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                 if (!isopen) {
                     isopen=true;
                     DialogUtil.stopDialogLoading(context);
-                    HXErrorUtlis.getHxErrorUtlis(context).showError(code);
+//                    HXErrorUtlis.getHxErrorUtlis(context).showError(code);
                     HXErrorUtlis.getHxErrorUtlis(context).setOnUserNotFoundListener(new OnUserNotFoundListener() {
                         @Override
                         public void onUserNotFound() {

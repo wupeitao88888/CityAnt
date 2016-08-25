@@ -72,7 +72,7 @@ public class DBControl extends DBbase {
                     .openDatabase();
             writableDatabase
                     .execSQL(
-                            "insert into logininfo(token,mobile,user_name,user_avar)values(?,?,?,?)",
+                            "insert into logininfo(token,mobile,user_name,user_avar) values (?,?,?,?)",
                             new Object[]{enCode(loginUserInfoData.getToken()),
                                     enCode(loginUserInfoData.getMobile()),
                                     enCode(loginUserInfoData.getUser_name()),
@@ -139,7 +139,7 @@ public class DBControl extends DBbase {
                     .openDatabase();
             writableDatabase
                     .execSQL(
-                            "insert into lastuser(mobile,password)values(?,?)",
+                            "insert into lastuser(mobile,password) values (?,?)",
                             new Object[]{enCode(mobile),
                                     enCode(password)});
             DatabaseManager.getInstance().closeDatabase();
