@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white"
+    android:background="@color/app_bg"
     >
 
     <ScrollView
@@ -21,157 +21,180 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:background="@color/app_theme"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/launch_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/launch_image"
+                            android:layout_width="25dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/faqi"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="我要发起"
+                            android:layout_toRightOf="@+id/launch_image"
+                            android:textSize="13sp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:textColor="#4a2701"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relevant_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/relevant_image"
+                            android:layout_width="25dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/xianggaun"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="和我相关"
+                            android:layout_toRightOf="@+id/relevant_image"
+                            android:textSize="13sp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:textColor="#4a2701"/>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:id="@+id/brand_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/title_text"
+                        android:layout_marginLeft="12dp"
+                        android:text="品牌部落"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="品牌部落 好商品不容错过"/>
+                        android:textColor="#f46608"
+                        android:textSize="12sp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="12dp"
+                        android:layout_toRightOf="@+id/brand_text"
+                        android:text="好商品，不容错过！"/>
 
                     <TextView
+                        android:id="@+id/brand_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:textSize="14sp"
+                        android:textColor="@color/title_text"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
                         android:text="更多》"/>
                 </RelativeLayout>
 
-                <LinearLayout
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider_line"/>
+
+                <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    
+                    android:scrollbars="none"
+                    android:visibility="gone"
+                    android:layout_marginTop="13.3dp">
                     <LinearLayout
+                        android:id="@+id/brand_array_ll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/ic_launcher"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="屈臣氏"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/ic_launcher"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="屈臣氏"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/ic_launcher"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="屈臣氏"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/ic_launcher"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="屈臣氏"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@drawable/ic_launcher"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="屈臣氏"/>
-
-                    </LinearLayout>
-                </LinearLayout>
+                        android:orientation="horizontal"/>
+                </HorizontalScrollView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:orientation="horizontal">
                     
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_weight="1"
-                        android:layout_height="100dp">
+                        android:layout_weight="1.13"
+                        android:layout_height="188dp">
+
+                        <ImageView
+                            android:layout_width="166dp"
+                            android:layout_height="120dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/py"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="24dp"
+                            android:textColor="@color/black_6"
+                            android:textSize="12sp"
                             android:text="朋友帮帮忙"/>
 
                     </RelativeLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="188dp"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_weight="2"
+                            android:layout_weight="1.35"
                             android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/her_sisterm_image"
+                                android:layout_width="95dp"
+                                android:layout_height="62dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="9dp"
+                                android:background="@drawable/her_sisterm"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="32dp"
+                                android:textSize="12sp"
+                                android:textColor="@color/black_6"
+                                android:layout_toRightOf="@+id/her_sisterm_image"
                                 android:text="撩妹必备"/>
 
                         </RelativeLayout>
@@ -184,13 +207,25 @@
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_weight="1"
+                                android:layout_weight="1.1"
                                 android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/gift_w_image"
+                                    android:layout_width="96dp"
+                                    android:layout_height="68dp"
+                                    android:layout_marginTop="6dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/gift_w"/>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerInParent="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:textSize="12sp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginBottom="12dp"
+                                    android:textColor="@color/black_6"
                                     android:text="礼物首选"/>
 
                             </RelativeLayout>
@@ -200,10 +235,22 @@
                                 android:layout_weight="1"
                                 android:layout_height="match_parent">
 
+                                <ImageView
+                                    android:id="@+id/cheap_image"
+                                    android:layout_width="103dp"
+                                    android:layout_height="63dp"
+                                    android:layout_marginTop="8.8dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/cheap"/>
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerInParent="true"
+                                    android:textSize="12sp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginBottom="12dp"
+                                    android:textColor="@color/black_6"
                                     android:text="便宜有好货"/>
                             </RelativeLayout>
                         </LinearLayout>
@@ -212,12 +259,12 @@
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="4dp"
                 android:background="@color/divider_line"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
