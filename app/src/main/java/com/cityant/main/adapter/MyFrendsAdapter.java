@@ -35,18 +35,9 @@ public class MyFrendsAdapter extends CommonAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         final MyFrends classList = (MyFrends) mDatas.get(i);
-//        if (view == null) {
-//            view = LayoutInflater.from(context).inflate(
-//                    R.layout.adapter_myfrends, null);
-//        }
-//
-
-//        String item = list.get(position).getName();
         if (classList.getUser_name().length() == 1) {
             view = LayoutInflater.from(context).inflate(R.layout.layout_index,
                     null);
-//            viewHolder.indexTv = (TextView) convertView
-//                    .findViewById(R.id.indexTv);
             TextView username = ViewHolder.get(view, R.id.indexTv);
             username.setText(classList.getUser_name());
         } else {
@@ -57,11 +48,6 @@ public class MyFrendsAdapter extends CommonAdapter {
             TextView username = ViewHolder.get(view, R.id.username);
             StrUtil.setText(username,classList.getUser_name());
         }
-//        if (item.length() == 1) {
-//            viewHolder.indexTv.setText(list.get(position).getName());
-//        } else {
-//            viewHolder.itemTv.setText(list.get(position).getName());
-//        }
         return view;
     }
 }

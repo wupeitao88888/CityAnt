@@ -1,11 +1,11 @@
 package com.cityant.main.bean;
 
-import com.iloomo.bean.BaseDate;
+import com.iloomo.bean.BaseData;
 
 /**
  * Created by wupeitao on 16/8/14.
  */
-public class LoginUserInfoData extends BaseDate {
+public class LoginUserInfoData extends BaseData {
     private String token;
     private String mobile;
     private String user_name;

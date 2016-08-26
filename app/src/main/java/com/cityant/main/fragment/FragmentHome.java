@@ -39,7 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FragmentHome extends FragmentSupport implements AbsListView.OnScrollListener,View.OnClickListener,ThreadCallBack {
+public class FragmentHome extends FragmentSupport implements AbsListView.OnScrollListener, View.OnClickListener, ThreadCallBack {
 
     private TextView position_text;
     private EditText search_edit;
@@ -83,7 +83,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         vb = (LinearLayout) head_view.findViewById(R.id.vb);
         position_text = (TextView) head_view.findViewById(R.id.position_text);
         search_edit = (EditText) head_view.findViewById(R.id.search_edit);
-        position_text.setOnClickListener(v ->LocationChoiceActivity.startActivity(context));
+        position_text.setOnClickListener(v -> LocationChoiceActivity.startActivity(context));
         search_edit.setOnClickListener(v -> SearchActivity.startActivity(context));
 //        sing_ll.setOnClickListener(v -> DoTaskActivity.startActivity(context));
 //        sing_display_ll.setOnClickListener(v -> DoTaskActivity.startActivity(context));
@@ -105,10 +105,10 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
         listView.addHeaderView(head_view);
         listView.addHeaderView(head_view_top);
-        for(int i = 0;i<10;i++){
-            list.add(i+"");
+        for (int i = 0; i < 10; i++) {
+            list.add(i + "");
         }
-        FragmentHomeAdapter adapter = new FragmentHomeAdapter(context,list);
+        FragmentHomeAdapter adapter = new FragmentHomeAdapter(context, list);
         listView.setAdapter(adapter);
         listView.setOnScrollListener(this);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -117,16 +117,15 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
                 HomeDetailsActivity.startActivity(context);
             }
         });
-        token = DBControl.getInstance(context).selectUserToken();
+        token = MYAppconfig.loginUserInfoData.getToken();
         sendInternet();
         return view;
     }
 
     /**
-     *
      * 获取定位结果
      */
-    private void getLocationResult(){
+    private void getLocationResult() {
         MApplication.getInstance().setOnReceiveLocation(new ApplicationLocationListener() {
             @Override
             public void onReceiveLocation(BDLocation var1) {
@@ -137,14 +136,15 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
             }
         });
     }
-    private void sendInternet(){
+
+    private void sendInternet() {
         DialogUtil.startDialogLoading(context);
         Map<String, Object> parameter = new HashMap<>();
         parameter.put("page", "1");
         parameter.put("page_size", "15");
         parameter.put("city_id", "");
-        parameter.put("latitude", MApplication.getInstance().latitude+"");
-        parameter.put("longitude", MApplication.getInstance().longitude+"");
+        parameter.put("latitude", MApplication.getInstance().latitude + "");
+        parameter.put("longitude", MApplication.getInstance().longitude + "");
         parameter.put("token", token);
         parameter.put("type", "0"); // type   类别(0:推荐,1:附近,2:同城,3:好友)
 
@@ -181,7 +181,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.recommend_text_head:
             case R.id.recommend_text:
                 setSelectTool();
@@ -210,35 +210,35 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
     }
 
     private void setSelectTool() {
-        if(recommend_text_head.isSelected()){
+        if (recommend_text_head.isSelected()) {
             recommend_text_head.setSelected(false);
         }
-        if(recommend_text.isSelected()){
+        if (recommend_text.isSelected()) {
             recommend_text.setSelected(false);
         }
-        if(nearby_text_head.isSelected()){
+        if (nearby_text_head.isSelected()) {
             nearby_text_head.setSelected(false);
         }
-        if(nearby_text.isSelected()){
+        if (nearby_text.isSelected()) {
             nearby_text.setSelected(false);
         }
-        if(city_text_head.isSelected()){
+        if (city_text_head.isSelected()) {
             city_text_head.setSelected(false);
         }
-        if(city_text.isSelected()){
+        if (city_text.isSelected()) {
             city_text.setSelected(false);
         }
-        if(friends_text_head.isSelected()){
+        if (friends_text_head.isSelected()) {
             friends_text_head.setSelected(false);
         }
-        if(friends_text.isSelected()){
+        if (friends_text.isSelected()) {
             friends_text.setSelected(false);
         }
     }
 
     @Override
     public void onCallbackFromThread(String resultJson, Object modelClass) {
-        Log.e("---成功--",resultJson);
+        Log.e("---成功--", resultJson);
         HomeBean homeBean = (HomeBean) modelClass;
         setBanner_scroll(homeBean.data.banner_list);
         // TODO
@@ -251,16 +251,16 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
     @Override
     public void onCallbackFromThreadError(String resultJson, Object modelClass) {
-        Log.e("--失败---",resultJson);
+        Log.e("--失败---", resultJson);
     }
 
     @Override
     public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
         DialogUtil.stopDialogLoading(context);
-        Log.e("--失败---",resultJson);
+        Log.e("--失败---", resultJson);
     }
 
-    private void setBanner_scroll(List<HomeBean.HomeData.BannerList> banner_list){
+    private void setBanner_scroll(List<HomeBean.HomeData.BannerList> banner_list) {
         List<View> listViews = new ArrayList<View>();
         for (int i = 0; i < banner_list.size(); i++) {
             ImageView imageView = new ImageView(context);

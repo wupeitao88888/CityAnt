@@ -14,8 +14,7 @@ import com.cityant.main.bean.LoginUserInfoData;
 
 import com.cityant.main.db.DBControl;
 import com.iloomo.base.ActivitySupport;
-import com.iloomo.bean.BaseDate;
-import com.iloomo.bean.UserRegisterData;
+import com.iloomo.bean.BaseData;
 import com.iloomo.global.AppConfig;
 import com.iloomo.global.SMSAppConfig;
 import com.iloomo.securitycode.SecurityCodeCallBack;
@@ -176,7 +175,7 @@ public class ForgetPasswordActivity extends ActivitySupport implements SecurityC
                 @Override
                 public void run() {
                     LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
-                    loginUserInfoData.setToken(((BaseDate) userRegister).getToken());
+                    loginUserInfoData.setToken(((BaseData) userRegister).getToken());
                     loginUserInfoData.setMobile(phone_number.getText().toString());
                     DBControl.getInstance(context).insertLoginInfo(loginUserInfoData);
                     DBControl.getInstance(context).insertLastUser(phone_number.getText().toString(), pwnumber.getText().toString());

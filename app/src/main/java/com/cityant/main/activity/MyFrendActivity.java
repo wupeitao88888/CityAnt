@@ -20,12 +20,19 @@ import android.widget.Toast;
 
 import com.cityant.main.R;
 import com.cityant.main.adapter.MyFrendsAdapter;
+import com.cityant.main.bean.LoginUserInfo;
 import com.cityant.main.bean.MyFrends;
+import com.cityant.main.bean.MyFrendsModel;
+import com.cityant.main.global.MYAppconfig;
+import com.cityant.main.global.MYTaskID;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.iloomo.base.ActivitySupport;
+import com.iloomo.bean.BaseModel;
+import com.iloomo.net.AsyncHttpPost;
+import com.iloomo.net.ThreadCallBack;
 import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.L;
 
@@ -33,15 +40,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeSet;
 import java.util.zip.Inflater;
 
 import com.cityant.main.utlis.*;
+import com.iloomo.utils.ToastUtil;
 
 /**
  * Created by wupeitao on 16/8/19.
  */
-public class MyFrendActivity extends ActivitySupport implements AdapterView.OnItemClickListener {
+public class MyFrendActivity extends ActivitySupport implements AdapterView.OnItemClickListener, ThreadCallBack {
     private ListView myfrendslist;
     private MyFrendsAdapter myFrendsAdapter;
     private HashMap<String, Integer> selector;// 存放含有索引字母的位置
@@ -68,41 +77,20 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
         layoutIndex = (LinearLayout) this.findViewById(R.id.layout);
         tv_show = (TextView) findViewById(R.id.tv);
         tv_show.setVisibility(View.GONE);
-        myFrends = new ArrayList<>();
 
-        for (int i = 0; i < 20; i++) {
-            MyFrends my = new MyFrends();
-            my.setToken("wpt");
-            my.setMobile("18612464312");
-            switch (i % 2) {
-                case 0:
-                    my.setUser_avar("http://image.baidu.com/search/down?tn=download&ipn=dwnl&word=download&ie=utf8&fr=result&url=http%3A%2F%2Fimg4q.duitang.com%2Fuploads%2Fitem%2F201504%2F10%2F20150410H1800_kM8CA.thumb.700_0.jpeg&thumburl=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D3101136660%2C3048342976%26fm%3D21%26gp%3D0.jpg");
-                    my.setUser_name("豆腐西施" + i);
-                    break;
-                default:
-                    my.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fe.hiphotos.bdimg.com%2Fimgad%2Fpic%2Fitem%2F7a899e510fb30f246ebc6fddcd95d143ac4b03cd.jpg&thumburl=http%3A%2F%2Fe.hiphotos.baidu.com%2Fimage%2Fh%253D200%2Fsign%3D94eb6ecc36adcbef1e3479069caf2e0e%2F6d81800a19d8bc3ef57c51c2858ba61ea8d34545.jpg");
-                    my.setUser_name("刘涛" + i);
-                    break;
-            }
-            myFrends.add(my);
-        }
+        Map<String, Object> parameter = new HashMap<>();
+        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
+        parameter.put("page", "1");
+        parameter.put("page_size", "1000");
 
-        String[] allNames = sortIndex(myFrends);
-        sortList(allNames);
-        selector = new HashMap<String, Integer>();
+        startHttpRequst(MYAppconfig.FREND_LIST, parameter, MYTaskID.FRENDS_LIST);
+    }
 
-        for (int j = 0; j < indexStr.length; j++) {// 循环字母表，找出newPersons中对应字母的位置
-            for (int i = 0; i < newmyFrends.size(); i++) {
-                if (newmyFrends.get(i).getUser_name().equals(indexStr[j])) {
-                    selector.put(indexStr[j], i);
-                }
-            }
-        }
-        myFrendsAdapter = new MyFrendsAdapter(context, newmyFrends);
-        myfrendslist.setAdapter(myFrendsAdapter);
-        View inflate = LayoutInflater.from(context).inflate(R.layout.layout_headerview, null);
-        myfrendslist.addHeaderView(inflate);
-        myfrendslist.setOnItemClickListener(this);
+    public void startHttpRequst(String url,
+                                Map<String, Object> parameter, int resultCode) {
+
+        new AsyncHttpPost(this, url, parameter, resultCode,
+                MyFrendsModel.class, context);
     }
 
 
@@ -119,8 +107,7 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
                         MyFrends p = new MyFrends();
                         p.setUser_name(myFrends.get(j).getUser_name());
                         p.setUser_avar(myFrends.get(j).getUser_avar());
-                        p.setToken(myFrends.get(j).getToken());
-                        p.setMobile(myFrends.get(j).getMobile());
+                        p.setFriend_id(myFrends.get(j).getFriend_id());
                         p.setPinYinName(myFrends.get(j).getPinYinName());
                         newmyFrends.add(p);
                     }
@@ -241,5 +228,47 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
         if (i - 1 > -1 && i - 1 < newmyFrends.size()) {
             startActivity(new Intent(context, MYChatActivity.class).putExtra("MyFrend", newmyFrends.get(i - 1)));
         }
+    }
+
+    @Override
+    public void onCallbackFromThread(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+        switch (resultCode) {
+            case MYTaskID.FRENDS_LIST:
+                MyFrendsModel baseModel = (MyFrendsModel) modelClass;
+                myFrends = baseModel.getData().getFriend_list();
+                String[] allNames = sortIndex(myFrends);
+                sortList(allNames);
+                selector = new HashMap<String, Integer>();
+
+                for (int j = 0; j < indexStr.length; j++) {// 循环字母表，找出newPersons中对应字母的位置
+                    for (int i = 0; i < newmyFrends.size(); i++) {
+                        if (newmyFrends.get(i).getUser_name().equals(indexStr[j])) {
+                            selector.put(indexStr[j], i);
+                        }
+                    }
+                }
+                myFrendsAdapter = new MyFrendsAdapter(context, newmyFrends);
+                myfrendslist.setAdapter(myFrendsAdapter);
+                View inflate = LayoutInflater.from(context).inflate(R.layout.layout_headerview, null);
+                myfrendslist.addHeaderView(inflate);
+                myfrendslist.setOnItemClickListener(this);
+                break;
+        }
+    }
+
+    @Override
+    public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+        MyFrendsModel baseModel = (MyFrendsModel) modelClass;
+        ToastUtil.showShort(context, baseModel.getData().getCode_message());
     }
 }

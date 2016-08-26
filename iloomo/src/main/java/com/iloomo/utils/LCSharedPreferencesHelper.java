@@ -13,6 +13,10 @@ import android.content.SharedPreferences;
 public class LCSharedPreferencesHelper {
 
 	public static String TAG = "SharedPreferencesHelper";
+	public static String ILOOMO="iloomo";
+	public final static String UPDATE_DB = "updat_db";
+	public final static String START = "TASKSTART";
+	public final static String END = "TASKEND";
 	SharedPreferences sp;
 	SharedPreferences.Editor editor;
 

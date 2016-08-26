@@ -60,8 +60,7 @@
             style="@style/myfrends_username"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/hand_newfrend"
-            android:text="@string/newfrends"
-            />
+            android:text="@string/newfrends" />
 
     </RelativeLayout>
 

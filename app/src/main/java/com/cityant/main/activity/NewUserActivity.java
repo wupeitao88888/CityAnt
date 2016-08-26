@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -20,8 +19,7 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.iloomo.base.ActivitySupport;
 
-import com.iloomo.bean.BaseDate;
-import com.iloomo.bean.UserRegisterData;
+import com.iloomo.bean.BaseData;
 import com.iloomo.global.AppConfig;
 import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.DialogUtil;
@@ -187,14 +185,19 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
     public void onSecurityCodeCallBack(boolean blean, Object userRegister) {
 
         if (blean) {
-            try {
-                EMClient.getInstance().createAccount(phone_number.getText().toString(), pwnumber.getText().toString());//同步方法
+
                 // 验证成功
                 MyThreadPool.getInstance().submit(new Runnable() {
                     @Override
                     public void run() {
+                        try {
+                            EMClient.getInstance().createAccount(phone_number.getText().toString(), pwnumber.getText().toString());//同步方法
+                        } catch (HyphenateException e) {
+                            ToastUtil.showShort(context, mString(R.string.USER_REG_FAILED));
+                            return;
+                        }
                         LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
-                        loginUserInfoData.setToken(((BaseDate) userRegister).getToken());
+                        loginUserInfoData.setToken(((BaseData) userRegister).getToken());
                         loginUserInfoData.setMobile(phone_number.getText().toString());
                         DBControl.getInstance(context).insertLoginInfo(loginUserInfoData);
                         DBControl.getInstance(context).insertLastUser(phone_number.getText().toString(), pwnumber.getText().toString());
@@ -204,9 +207,7 @@ public class NewUserActivity extends ActivitySupport implements SecurityCodeCall
                         handler.sendMessage(message);
                     }
                 });
-            } catch (HyphenateException e) {
-                ToastUtil.showShort(context, mString(R.string.USER_REG_FAILED));
-            }
+
         } else {
             // 验证失败
             DialogUtil.stopDialogLoading(context);
