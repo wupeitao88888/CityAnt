@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\workspace_wpt\library\src\main\assets"/><source path="E:\workspace_wpt\library\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\workspace_wpt\library\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/wupeitao/Desktop/androidworkspase/cityant/library/src/main/assets"/><source path="/Users/wupeitao/Desktop/androidworkspase/cityant/library/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/wupeitao/Desktop/androidworkspase/cityant/library/src/debug/assets"/></dataSet></merger>

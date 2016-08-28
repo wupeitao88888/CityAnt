@@ -14,8 +14,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.cityant.main.HXUtlis.HXErrorUtlis;
-import com.cityant.main.HXUtlis.OnUserNotFoundListener;
 import com.cityant.main.R;
 import com.cityant.main.bean.LoginUserInfo;
 import com.cityant.main.db.DBControl;
@@ -25,7 +23,6 @@ import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.iloomo.base.ActivitySupport;
-import com.iloomo.net.AsyncHttpGet;
 import com.iloomo.net.AsyncHttpPost;
 
 
@@ -151,7 +148,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
     }
 
     public void onNewUserClick() {
-        mIntent(context, NewUserActivity.class);
+        mIntent(context, RegisterActivity.class);
     }
 
     class EditChangedListener implements TextWatcher {

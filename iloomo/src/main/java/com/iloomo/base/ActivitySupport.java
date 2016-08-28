@@ -63,7 +63,7 @@ public class ActivitySupport extends FragmentActivity implements
     protected MApplication jxbApplication;
     protected LCSharedPreferencesHelper sharedPreferencesHelper = null;
     private Toast mToast;
-    private TitleBar titleBar;
+    public TitleBar titleBar;
     private LinearLayout linearLayout;
 
 

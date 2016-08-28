@@ -2,8 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
-    tools:context="com.example.bm.photoview.ViewPagerActivity">
+    android:background="@android:color/black">
 
 
     <android.support.v4.view.ViewPager
@@ -28,8 +27,8 @@
                 android:layout_width="80dp"
                 android:layout_height="48dp"
                 android:layout_centerVertical="true"
-                android:onClick="onBack"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:onClick="onBack">
 
                 <ImageView
                     android:id="@+id/lc_left_back"
