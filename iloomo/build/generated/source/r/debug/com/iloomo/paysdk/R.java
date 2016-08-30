@@ -373,172 +373,174 @@ containing a value of this type.
         public static int albumback=0x7f070001;
         public static int aliceblue=0x7f070002;
         public static int antiquewhite=0x7f070003;
-        public static int app_theme=0x7f070004;
-        public static int aqua=0x7f070005;
-        public static int aquamarine=0x7f070006;
-        public static int azure=0x7f070007;
-        public static int background=0x7f070008;
-        public static int beige=0x7f070009;
-        public static int bg=0x7f07000a;
-        public static int bisque=0x7f07000b;
-        public static int black=0x7f07000c;
-        public static int black_e0=0x7f07000d;
-        public static int black_e1=0x7f07000e;
-        public static int blanchedalmond=0x7f07000f;
-        public static int blue=0x7f070010;
-        public static int blueviolet=0x7f070011;
-        public static int brown=0x7f070012;
-        public static int burlywood=0x7f070013;
-        public static int cadetblue=0x7f070014;
-        public static int chartreuse=0x7f070015;
-        public static int chocolate=0x7f070016;
-        public static int colorAccent=0x7f070017;
-        public static int colorPrimary=0x7f070018;
-        public static int colorPrimaryDark=0x7f070019;
-        public static int coral=0x7f07001a;
-        public static int cornflowerblue=0x7f07001b;
-        public static int cornsilk=0x7f07001c;
-        public static int crimson=0x7f07001d;
-        public static int cyan=0x7f07001e;
-        public static int darkblue=0x7f07001f;
-        public static int darkcyan=0x7f070020;
-        public static int darkgoldenrod=0x7f070021;
-        public static int darkgray=0x7f070022;
-        public static int darkgreen=0x7f070023;
-        public static int darkgrey=0x7f070024;
-        public static int darkkhaki=0x7f070025;
-        public static int darkmagenta=0x7f070026;
-        public static int darkolivegreen=0x7f070027;
-        public static int darkorange=0x7f070028;
-        public static int darkorchid=0x7f070029;
-        public static int darkred=0x7f07002a;
-        public static int darksalmon=0x7f07002b;
-        public static int darkseagreen=0x7f07002c;
-        public static int darkslateblue=0x7f07002d;
-        public static int darkslategray=0x7f07002e;
-        public static int darkslategrey=0x7f07002f;
-        public static int darkturquoise=0x7f070030;
-        public static int darkviolet=0x7f070031;
-        public static int deeppink=0x7f070032;
-        public static int deepskyblue=0x7f070033;
-        public static int dimgray=0x7f070034;
-        public static int dimgrey=0x7f070035;
-        public static int divider_line=0x7f070036;
-        public static int dodgerblue=0x7f070037;
-        public static int firebrick=0x7f070038;
-        public static int floralwhite=0x7f070039;
-        public static int forestgreen=0x7f07003a;
-        public static int fuchsia=0x7f07003b;
-        public static int gainsboro=0x7f07003c;
-        public static int ghostwhite=0x7f07003d;
-        public static int gold=0x7f07003e;
-        public static int goldenrod=0x7f07003f;
-        public static int gray=0x7f070040;
-        public static int green=0x7f070041;
-        public static int greenyellow=0x7f070042;
-        public static int grey=0x7f070043;
-        public static int home_line=0x7f070044;
-        public static int honeydew=0x7f070045;
-        public static int hotpink=0x7f070046;
-        public static int indianred=0x7f070047;
-        public static int indigo=0x7f070048;
-        public static int ivory=0x7f070049;
-        public static int khaki=0x7f07004a;
-        public static int lavender=0x7f07004b;
-        public static int lavenderblush=0x7f07004c;
-        public static int lawngreen=0x7f07004d;
-        public static int lemonchiffon=0x7f07004e;
-        public static int light_blue=0x7f07004f;
-        public static int lightblue=0x7f070050;
-        public static int lightcoral=0x7f070051;
-        public static int lightcyan=0x7f070052;
-        public static int lightgoldenrodyellow=0x7f070053;
-        public static int lightgray=0x7f070054;
-        public static int lightgreen=0x7f070055;
-        public static int lightgrey=0x7f070056;
-        public static int lightpink=0x7f070057;
-        public static int lightsalmon=0x7f070058;
-        public static int lightseagreen=0x7f070059;
-        public static int lightskyblue=0x7f07005a;
-        public static int lightslategray=0x7f07005b;
-        public static int lightslategrey=0x7f07005c;
-        public static int lightsteelblue=0x7f07005d;
-        public static int lightyellow=0x7f07005e;
-        public static int lime=0x7f07005f;
-        public static int limegreen=0x7f070060;
-        public static int linen=0x7f070061;
-        public static int magenta=0x7f070062;
-        public static int maroon=0x7f070063;
-        public static int mediumaquamarine=0x7f070064;
-        public static int mediumblue=0x7f070065;
-        public static int mediumorchid=0x7f070066;
-        public static int mediumpurple=0x7f070067;
-        public static int mediumseagreen=0x7f070068;
-        public static int mediumslateblue=0x7f070069;
-        public static int mediumspringgreen=0x7f07006a;
-        public static int mediumturquoise=0x7f07006b;
-        public static int mediumvioletred=0x7f07006c;
-        public static int midnightblue=0x7f07006d;
-        public static int mintcream=0x7f07006e;
-        public static int mistyrose=0x7f07006f;
-        public static int moccasin=0x7f070070;
-        public static int navajowhite=0x7f070071;
-        public static int navy=0x7f070072;
-        public static int none_color=0x7f070073;
-        public static int oldlace=0x7f070074;
-        public static int olive=0x7f070075;
-        public static int olivedrab=0x7f070076;
-        public static int orange=0x7f070077;
-        public static int orangered=0x7f070078;
-        public static int orchid=0x7f070079;
-        public static int palegoldenrod=0x7f07007a;
-        public static int palegreen=0x7f07007b;
-        public static int paleturquoise=0x7f07007c;
-        public static int palevioletred=0x7f07007d;
-        public static int papayawhip=0x7f07007e;
-        public static int peachpuff=0x7f07007f;
-        public static int peru=0x7f070080;
-        public static int pink=0x7f070081;
-        public static int plugin_black=0x7f070082;
-        public static int plugin_camera_black=0x7f070083;
-        public static int plum=0x7f070084;
-        public static int powderblue=0x7f070085;
-        public static int purple=0x7f070086;
-        public static int red=0x7f070087;
-        public static int rosybrown=0x7f070088;
-        public static int royalblue=0x7f070089;
-        public static int saddlebrown=0x7f07008a;
-        public static int salmon=0x7f07008b;
-        public static int sandybrown=0x7f07008c;
-        public static int sdk_chat_ll_facechoose_color=0x7f07008d;
-        public static int sdk_chat_ll_pluschoose_color=0x7f07008e;
-        public static int sdk_face_textitem_color=0x7f07008f;
-        public static int seaShell=0x7f070090;
-        public static int seagreen=0x7f070091;
-        public static int sienna=0x7f070092;
-        public static int silver=0x7f070093;
-        public static int skyblue=0x7f070094;
-        public static int slateblue=0x7f070095;
-        public static int slategray=0x7f070096;
-        public static int slategrey=0x7f070097;
-        public static int snow=0x7f070098;
-        public static int springgreen=0x7f070099;
-        public static int steelblue=0x7f07009a;
-        public static int tan=0x7f07009b;
-        public static int teal=0x7f07009c;
-        public static int thistle=0x7f07009d;
-        public static int title_text=0x7f07009e;
-        public static int tomato=0x7f07009f;
-        public static int transparent=0x7f0700a0;
-        public static int transparent2=0x7f0700a1;
-        public static int transparent_black=0x7f0700a2;
-        public static int turquoise=0x7f0700a3;
-        public static int violet=0x7f0700a4;
-        public static int wheat=0x7f0700a5;
-        public static int white=0x7f0700a6;
-        public static int white_e1=0x7f0700a7;
-        public static int whitesmoke=0x7f0700a8;
-        public static int yellow=0x7f0700a9;
+        public static int app_bg=0x7f070004;
+        public static int app_theme=0x7f070005;
+        public static int aqua=0x7f070006;
+        public static int aquamarine=0x7f070007;
+        public static int azure=0x7f070008;
+        public static int background=0x7f070009;
+        public static int beige=0x7f07000a;
+        public static int bg=0x7f07000b;
+        public static int bisque=0x7f07000c;
+        public static int black=0x7f07000d;
+        public static int black_6=0x7f07000e;
+        public static int black_e0=0x7f07000f;
+        public static int black_e1=0x7f070010;
+        public static int blanchedalmond=0x7f070011;
+        public static int blue=0x7f070012;
+        public static int blueviolet=0x7f070013;
+        public static int brown=0x7f070014;
+        public static int burlywood=0x7f070015;
+        public static int cadetblue=0x7f070016;
+        public static int chartreuse=0x7f070017;
+        public static int chocolate=0x7f070018;
+        public static int colorAccent=0x7f070019;
+        public static int colorPrimary=0x7f07001a;
+        public static int colorPrimaryDark=0x7f07001b;
+        public static int coral=0x7f07001c;
+        public static int cornflowerblue=0x7f07001d;
+        public static int cornsilk=0x7f07001e;
+        public static int crimson=0x7f07001f;
+        public static int cyan=0x7f070020;
+        public static int darkblue=0x7f070021;
+        public static int darkcyan=0x7f070022;
+        public static int darkgoldenrod=0x7f070023;
+        public static int darkgray=0x7f070024;
+        public static int darkgreen=0x7f070025;
+        public static int darkgrey=0x7f070026;
+        public static int darkkhaki=0x7f070027;
+        public static int darkmagenta=0x7f070028;
+        public static int darkolivegreen=0x7f070029;
+        public static int darkorange=0x7f07002a;
+        public static int darkorchid=0x7f07002b;
+        public static int darkred=0x7f07002c;
+        public static int darksalmon=0x7f07002d;
+        public static int darkseagreen=0x7f07002e;
+        public static int darkslateblue=0x7f07002f;
+        public static int darkslategray=0x7f070030;
+        public static int darkslategrey=0x7f070031;
+        public static int darkturquoise=0x7f070032;
+        public static int darkviolet=0x7f070033;
+        public static int deeppink=0x7f070034;
+        public static int deepskyblue=0x7f070035;
+        public static int dimgray=0x7f070036;
+        public static int dimgrey=0x7f070037;
+        public static int divider_line=0x7f070038;
+        public static int dodgerblue=0x7f070039;
+        public static int firebrick=0x7f07003a;
+        public static int floralwhite=0x7f07003b;
+        public static int forestgreen=0x7f07003c;
+        public static int fuchsia=0x7f07003d;
+        public static int gainsboro=0x7f07003e;
+        public static int ghostwhite=0x7f07003f;
+        public static int gold=0x7f070040;
+        public static int goldenrod=0x7f070041;
+        public static int gray=0x7f070042;
+        public static int green=0x7f070043;
+        public static int greenyellow=0x7f070044;
+        public static int grey=0x7f070045;
+        public static int home_line=0x7f070046;
+        public static int honeydew=0x7f070047;
+        public static int hotpink=0x7f070048;
+        public static int indianred=0x7f070049;
+        public static int indigo=0x7f07004a;
+        public static int ivory=0x7f07004b;
+        public static int khaki=0x7f07004c;
+        public static int lavender=0x7f07004d;
+        public static int lavenderblush=0x7f07004e;
+        public static int lawngreen=0x7f07004f;
+        public static int lemonchiffon=0x7f070050;
+        public static int light_blue=0x7f070051;
+        public static int lightblue=0x7f070052;
+        public static int lightcoral=0x7f070053;
+        public static int lightcyan=0x7f070054;
+        public static int lightgoldenrodyellow=0x7f070055;
+        public static int lightgray=0x7f070056;
+        public static int lightgreen=0x7f070057;
+        public static int lightgrey=0x7f070058;
+        public static int lightpink=0x7f070059;
+        public static int lightsalmon=0x7f07005a;
+        public static int lightseagreen=0x7f07005b;
+        public static int lightskyblue=0x7f07005c;
+        public static int lightslategray=0x7f07005d;
+        public static int lightslategrey=0x7f07005e;
+        public static int lightsteelblue=0x7f07005f;
+        public static int lightyellow=0x7f070060;
+        public static int lime=0x7f070061;
+        public static int limegreen=0x7f070062;
+        public static int linen=0x7f070063;
+        public static int magenta=0x7f070064;
+        public static int maroon=0x7f070065;
+        public static int mediumaquamarine=0x7f070066;
+        public static int mediumblue=0x7f070067;
+        public static int mediumorchid=0x7f070068;
+        public static int mediumpurple=0x7f070069;
+        public static int mediumseagreen=0x7f07006a;
+        public static int mediumslateblue=0x7f07006b;
+        public static int mediumspringgreen=0x7f07006c;
+        public static int mediumturquoise=0x7f07006d;
+        public static int mediumvioletred=0x7f07006e;
+        public static int midnightblue=0x7f07006f;
+        public static int mintcream=0x7f070070;
+        public static int mistyrose=0x7f070071;
+        public static int moccasin=0x7f070072;
+        public static int navajowhite=0x7f070073;
+        public static int navy=0x7f070074;
+        public static int none_color=0x7f070075;
+        public static int oldlace=0x7f070076;
+        public static int olive=0x7f070077;
+        public static int olivedrab=0x7f070078;
+        public static int orange=0x7f070079;
+        public static int orangered=0x7f07007a;
+        public static int orchid=0x7f07007b;
+        public static int palegoldenrod=0x7f07007c;
+        public static int palegreen=0x7f07007d;
+        public static int paleturquoise=0x7f07007e;
+        public static int palevioletred=0x7f07007f;
+        public static int papayawhip=0x7f070080;
+        public static int peachpuff=0x7f070081;
+        public static int peru=0x7f070082;
+        public static int pink=0x7f070083;
+        public static int plugin_black=0x7f070084;
+        public static int plugin_camera_black=0x7f070085;
+        public static int plum=0x7f070086;
+        public static int powderblue=0x7f070087;
+        public static int purple=0x7f070088;
+        public static int red=0x7f070089;
+        public static int rosybrown=0x7f07008a;
+        public static int royalblue=0x7f07008b;
+        public static int saddlebrown=0x7f07008c;
+        public static int salmon=0x7f07008d;
+        public static int sandybrown=0x7f07008e;
+        public static int sdk_chat_ll_facechoose_color=0x7f07008f;
+        public static int sdk_chat_ll_pluschoose_color=0x7f070090;
+        public static int sdk_face_textitem_color=0x7f070091;
+        public static int seaShell=0x7f070092;
+        public static int seagreen=0x7f070093;
+        public static int sienna=0x7f070094;
+        public static int silver=0x7f070095;
+        public static int skyblue=0x7f070096;
+        public static int slateblue=0x7f070097;
+        public static int slategray=0x7f070098;
+        public static int slategrey=0x7f070099;
+        public static int snow=0x7f07009a;
+        public static int springgreen=0x7f07009b;
+        public static int steelblue=0x7f07009c;
+        public static int tan=0x7f07009d;
+        public static int teal=0x7f07009e;
+        public static int thistle=0x7f07009f;
+        public static int title_text=0x7f0700a0;
+        public static int tomato=0x7f0700a1;
+        public static int transparent=0x7f0700a2;
+        public static int transparent2=0x7f0700a3;
+        public static int transparent_black=0x7f0700a4;
+        public static int turquoise=0x7f0700a5;
+        public static int violet=0x7f0700a6;
+        public static int wheat=0x7f0700a7;
+        public static int white=0x7f0700a8;
+        public static int white_e1=0x7f0700a9;
+        public static int whitesmoke=0x7f0700aa;
+        public static int yellow=0x7f0700ab;
     }
     public static final class dimen {
         public static int activity_horizontal_margin=0x7f050000;
@@ -562,7 +564,7 @@ containing a value of this type.
         public static int default_ptr_flip=0x7f02000e;
         public static int default_ptr_rotate=0x7f02000f;
         public static int dir_choose=0x7f020010;
-        public static int gray=0x7f02002a;
+        public static int gray=0x7f02002b;
         public static int hy=0x7f020011;
         public static int ic_launcher=0x7f020012;
         public static int indicator_arrow=0x7f020013;
@@ -572,25 +574,26 @@ containing a value of this type.
         public static int loading=0x7f020017;
         public static int loading_fild=0x7f020018;
         public static int mswitch_button=0x7f020019;
-        public static int mswitch_button_select=0x7f02001a;
-        public static int myratingbar=0x7f02001b;
-        public static int night_loading_1=0x7f02001c;
-        public static int pay_wx=0x7f02001d;
-        public static int pay_zfb=0x7f02001e;
-        public static int pc_back=0x7f02001f;
-        public static int pcamera_back=0x7f020020;
-        public static int pg_bar=0x7f02002b;
-        public static int pic_dir=0x7f020021;
-        public static int picture_unselected=0x7f020022;
-        public static int pictures_no=0x7f020023;
-        public static int pictures_selected=0x7f020024;
-        public static int progress_dialog=0x7f020025;
-        public static int shape_norcer=0x7f020026;
-        public static int start_ban=0x7f020027;
-        public static int start_normal=0x7f020028;
-        public static int start_select=0x7f020029;
-        public static int title_bar=0x7f02002c;
-        public static int white=0x7f02002d;
+        public static int mswitch_button_noselect=0x7f02001a;
+        public static int mswitch_button_select=0x7f02001b;
+        public static int myratingbar=0x7f02001c;
+        public static int night_loading_1=0x7f02001d;
+        public static int pay_wx=0x7f02001e;
+        public static int pay_zfb=0x7f02001f;
+        public static int pc_back=0x7f020020;
+        public static int pcamera_back=0x7f020021;
+        public static int pg_bar=0x7f02002c;
+        public static int pic_dir=0x7f020022;
+        public static int picture_unselected=0x7f020023;
+        public static int pictures_no=0x7f020024;
+        public static int pictures_selected=0x7f020025;
+        public static int progress_dialog=0x7f020026;
+        public static int shape_norcer=0x7f020027;
+        public static int start_ban=0x7f020028;
+        public static int start_normal=0x7f020029;
+        public static int start_select=0x7f02002a;
+        public static int title_bar=0x7f02002d;
+        public static int white=0x7f02002e;
     }
     public static final class id {
         public static int action_settings=0x7f080061;
@@ -598,23 +601,23 @@ containing a value of this type.
         public static int both=0x7f08000c;
         public static int buttonLayout=0x7f080036;
         public static int camera_top=0x7f08003c;
-        public static int center=0x7f080005;
-        public static int centerCrop=0x7f080007;
-        public static int centerInside=0x7f080006;
+        public static int center=0x7f080003;
+        public static int centerCrop=0x7f080004;
+        public static int centerInside=0x7f080005;
         public static int change=0x7f08003e;
         public static int choose_photo=0x7f080045;
-        public static int disabled=0x7f080009;
-        public static int fitCenter=0x7f080003;
-        public static int fitEnd=0x7f080004;
-        public static int fitStart=0x7f080002;
-        public static int fitXY=0x7f080001;
+        public static int disabled=0x7f08000d;
+        public static int fitCenter=0x7f080006;
+        public static int fitEnd=0x7f080007;
+        public static int fitStart=0x7f080008;
+        public static int fitXY=0x7f080009;
         public static int fl_inner=0x7f08005b;
         public static int flashBtn=0x7f08003d;
-        public static int flip=0x7f080011;
-        public static int focusCrop=0x7f080008;
+        public static int flip=0x7f080013;
+        public static int focusCrop=0x7f08000a;
         public static int focus_index=0x7f080040;
         public static int frist_menu=0x7f080055;
-        public static int gridview=0x7f080012;
+        public static int gridview=0x7f080000;
         public static int id_bottom_ly=0x7f080042;
         public static int id_choose_dir=0x7f080043;
         public static int id_dir_item_count=0x7f08005a;
@@ -648,11 +651,11 @@ containing a value of this type.
         public static int linearlayout=0x7f08001e;
         public static int ll_title=0x7f08001f;
         public static int ll_title_content=0x7f080020;
-        public static int manualOnly=0x7f08000d;
+        public static int manualOnly=0x7f08000e;
         public static int masking=0x7f08003f;
         public static int mswitch=0x7f08001c;
         public static int next=0x7f08003a;
-        public static int none=0x7f080000;
+        public static int none=0x7f08000b;
         public static int pager=0x7f080046;
         public static int panel_take_photo=0x7f080037;
         public static int pay=0x7f080052;
@@ -661,16 +664,16 @@ containing a value of this type.
         public static int photo_area=0x7f08003b;
         public static int product_price=0x7f080049;
         public static int product_subject=0x7f080047;
-        public static int pullDownFromTop=0x7f08000e;
-        public static int pullFromEnd=0x7f08000b;
-        public static int pullFromStart=0x7f08000a;
-        public static int pullUpFromBottom=0x7f08000f;
+        public static int pullDownFromTop=0x7f08000f;
+        public static int pullFromEnd=0x7f080010;
+        public static int pullFromStart=0x7f080011;
+        public static int pullUpFromBottom=0x7f080012;
         public static int pull_to_refresh_image=0x7f08005c;
         public static int pull_to_refresh_progress=0x7f08005d;
         public static int pull_to_refresh_sub_text=0x7f08005f;
         public static int pull_to_refresh_text=0x7f08005e;
-        public static int rotate=0x7f080010;
-        public static int scrollview=0x7f080013;
+        public static int rotate=0x7f080014;
+        public static int scrollview=0x7f080001;
         public static int second_menu=0x7f080056;
         public static int star1=0x7f080017;
         public static int star2=0x7f080018;
@@ -684,7 +687,7 @@ containing a value of this type.
         public static int title=0x7f080025;
         public static int viewPager=0x7f08001d;
         public static int view_2=0x7f080034;
-        public static int webview=0x7f080014;
+        public static int webview=0x7f080002;
         public static int wx_rl=0x7f08004e;
         public static int wx_select=0x7f080051;
         public static int wx_zfb_icon=0x7f08004f;
@@ -842,7 +845,7 @@ containing a value of this type.
 </table>
           @attr name com.iloomo.paysdk:actualImageScaleType
         */
-        public static final int GenericDraweeHierarchy_actualImageScaleType = 11;
+        public static int GenericDraweeHierarchy_actualImageScaleType = 11;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#backgroundImage}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -852,7 +855,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:backgroundImage
         */
-        public static final int GenericDraweeHierarchy_backgroundImage = 12;
+        public static int GenericDraweeHierarchy_backgroundImage = 12;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#fadeDuration}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -866,7 +869,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:fadeDuration
         */
-        public static final int GenericDraweeHierarchy_fadeDuration = 0;
+        public static int GenericDraweeHierarchy_fadeDuration = 0;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#failureImage}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -876,7 +879,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:failureImage
         */
-        public static final int GenericDraweeHierarchy_failureImage = 6;
+        public static int GenericDraweeHierarchy_failureImage = 6;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#failureImageScaleType}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -900,7 +903,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name com.iloomo.paysdk:failureImageScaleType
         */
-        public static final int GenericDraweeHierarchy_failureImageScaleType = 7;
+        public static int GenericDraweeHierarchy_failureImageScaleType = 7;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#overlayImage}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -910,7 +913,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:overlayImage
         */
-        public static final int GenericDraweeHierarchy_overlayImage = 13;
+        public static int GenericDraweeHierarchy_overlayImage = 13;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#placeholderImage}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -920,7 +923,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:placeholderImage
         */
-        public static final int GenericDraweeHierarchy_placeholderImage = 2;
+        public static int GenericDraweeHierarchy_placeholderImage = 2;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#placeholderImageScaleType}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -944,7 +947,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name com.iloomo.paysdk:placeholderImageScaleType
         */
-        public static final int GenericDraweeHierarchy_placeholderImageScaleType = 3;
+        public static int GenericDraweeHierarchy_placeholderImageScaleType = 3;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#pressedStateOverlayImage}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -954,7 +957,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:pressedStateOverlayImage
         */
-        public static final int GenericDraweeHierarchy_pressedStateOverlayImage = 14;
+        public static int GenericDraweeHierarchy_pressedStateOverlayImage = 14;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#progressBarAutoRotateInterval}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -968,7 +971,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:progressBarAutoRotateInterval
         */
-        public static final int GenericDraweeHierarchy_progressBarAutoRotateInterval = 10;
+        public static int GenericDraweeHierarchy_progressBarAutoRotateInterval = 10;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#progressBarImage}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -978,7 +981,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:progressBarImage
         */
-        public static final int GenericDraweeHierarchy_progressBarImage = 8;
+        public static int GenericDraweeHierarchy_progressBarImage = 8;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#progressBarImageScaleType}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1002,7 +1005,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name com.iloomo.paysdk:progressBarImageScaleType
         */
-        public static final int GenericDraweeHierarchy_progressBarImageScaleType = 9;
+        public static int GenericDraweeHierarchy_progressBarImageScaleType = 9;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#retryImage}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1012,7 +1015,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:retryImage
         */
-        public static final int GenericDraweeHierarchy_retryImage = 4;
+        public static int GenericDraweeHierarchy_retryImage = 4;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#retryImageScaleType}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1036,7 +1039,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name com.iloomo.paysdk:retryImageScaleType
         */
-        public static final int GenericDraweeHierarchy_retryImageScaleType = 5;
+        public static int GenericDraweeHierarchy_retryImageScaleType = 5;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#roundAsCircle}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1050,7 +1053,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:roundAsCircle
         */
-        public static final int GenericDraweeHierarchy_roundAsCircle = 15;
+        public static int GenericDraweeHierarchy_roundAsCircle = 15;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#roundBottomLeft}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1064,7 +1067,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:roundBottomLeft
         */
-        public static final int GenericDraweeHierarchy_roundBottomLeft = 20;
+        public static int GenericDraweeHierarchy_roundBottomLeft = 20;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#roundBottomRight}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1078,7 +1081,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:roundBottomRight
         */
-        public static final int GenericDraweeHierarchy_roundBottomRight = 19;
+        public static int GenericDraweeHierarchy_roundBottomRight = 19;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#roundTopLeft}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1092,7 +1095,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:roundTopLeft
         */
-        public static final int GenericDraweeHierarchy_roundTopLeft = 17;
+        public static int GenericDraweeHierarchy_roundTopLeft = 17;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#roundTopRight}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1106,7 +1109,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:roundTopRight
         */
-        public static final int GenericDraweeHierarchy_roundTopRight = 18;
+        public static int GenericDraweeHierarchy_roundTopRight = 18;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#roundWithOverlayColor}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1121,7 +1124,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:roundWithOverlayColor
         */
-        public static final int GenericDraweeHierarchy_roundWithOverlayColor = 21;
+        public static int GenericDraweeHierarchy_roundWithOverlayColor = 21;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#roundedCornerRadius}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1137,7 +1140,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:roundedCornerRadius
         */
-        public static final int GenericDraweeHierarchy_roundedCornerRadius = 16;
+        public static int GenericDraweeHierarchy_roundedCornerRadius = 16;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#roundingBorderColor}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1152,7 +1155,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:roundingBorderColor
         */
-        public static final int GenericDraweeHierarchy_roundingBorderColor = 23;
+        public static int GenericDraweeHierarchy_roundingBorderColor = 23;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#roundingBorderPadding}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1168,7 +1171,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:roundingBorderPadding
         */
-        public static final int GenericDraweeHierarchy_roundingBorderPadding = 24;
+        public static int GenericDraweeHierarchy_roundingBorderPadding = 24;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#roundingBorderWidth}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1184,7 +1187,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:roundingBorderWidth
         */
-        public static final int GenericDraweeHierarchy_roundingBorderWidth = 22;
+        public static int GenericDraweeHierarchy_roundingBorderWidth = 22;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#viewAspectRatio}
           attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
@@ -1198,7 +1201,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:viewAspectRatio
         */
-        public static final int GenericDraweeHierarchy_viewAspectRatio = 1;
+        public static int GenericDraweeHierarchy_viewAspectRatio = 1;
         /** Attributes that can be used with a PullToRefresh.
            <p>Includes the following attributes:</p>
            <table>
@@ -1263,7 +1266,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name com.iloomo.paysdk:ptrAdapterViewBackground
         */
-        public static final int PullToRefresh_ptrAdapterViewBackground = 16;
+        public static int PullToRefresh_ptrAdapterViewBackground = 16;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrAnimationStyle}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1280,7 +1283,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name com.iloomo.paysdk:ptrAnimationStyle
         */
-        public static final int PullToRefresh_ptrAnimationStyle = 12;
+        public static int PullToRefresh_ptrAnimationStyle = 12;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrDrawable}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1290,7 +1293,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:ptrDrawable
         */
-        public static final int PullToRefresh_ptrDrawable = 6;
+        public static int PullToRefresh_ptrDrawable = 6;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrDrawableBottom}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1300,7 +1303,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:ptrDrawableBottom
         */
-        public static final int PullToRefresh_ptrDrawableBottom = 18;
+        public static int PullToRefresh_ptrDrawableBottom = 18;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrDrawableEnd}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1310,7 +1313,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:ptrDrawableEnd
         */
-        public static final int PullToRefresh_ptrDrawableEnd = 8;
+        public static int PullToRefresh_ptrDrawableEnd = 8;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrDrawableStart}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1320,7 +1323,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:ptrDrawableStart
         */
-        public static final int PullToRefresh_ptrDrawableStart = 7;
+        public static int PullToRefresh_ptrDrawableStart = 7;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrDrawableTop}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1330,7 +1333,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:ptrDrawableTop
         */
-        public static final int PullToRefresh_ptrDrawableTop = 17;
+        public static int PullToRefresh_ptrDrawableTop = 17;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrHeaderBackground}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1342,7 +1345,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name com.iloomo.paysdk:ptrHeaderBackground
         */
-        public static final int PullToRefresh_ptrHeaderBackground = 1;
+        public static int PullToRefresh_ptrHeaderBackground = 1;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrHeaderSubTextColor}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1354,7 +1357,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name com.iloomo.paysdk:ptrHeaderSubTextColor
         */
-        public static final int PullToRefresh_ptrHeaderSubTextColor = 3;
+        public static int PullToRefresh_ptrHeaderSubTextColor = 3;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrHeaderTextAppearance}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1364,7 +1367,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:ptrHeaderTextAppearance
         */
-        public static final int PullToRefresh_ptrHeaderTextAppearance = 10;
+        public static int PullToRefresh_ptrHeaderTextAppearance = 10;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrHeaderTextColor}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1376,7 +1379,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name com.iloomo.paysdk:ptrHeaderTextColor
         */
-        public static final int PullToRefresh_ptrHeaderTextColor = 2;
+        public static int PullToRefresh_ptrHeaderTextColor = 2;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrListViewExtrasEnabled}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1387,7 +1390,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           @attr name com.iloomo.paysdk:ptrListViewExtrasEnabled
         */
-        public static final int PullToRefresh_ptrListViewExtrasEnabled = 14;
+        public static int PullToRefresh_ptrListViewExtrasEnabled = 14;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrMode}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1409,7 +1412,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name com.iloomo.paysdk:ptrMode
         */
-        public static final int PullToRefresh_ptrMode = 4;
+        public static int PullToRefresh_ptrMode = 4;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrOverScroll}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1420,7 +1423,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           @attr name com.iloomo.paysdk:ptrOverScroll
         */
-        public static final int PullToRefresh_ptrOverScroll = 9;
+        public static int PullToRefresh_ptrOverScroll = 9;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrRefreshableViewBackground}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1432,7 +1435,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name com.iloomo.paysdk:ptrRefreshableViewBackground
         */
-        public static final int PullToRefresh_ptrRefreshableViewBackground = 0;
+        public static int PullToRefresh_ptrRefreshableViewBackground = 0;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrRotateDrawableWhilePulling}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1443,7 +1446,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           @attr name com.iloomo.paysdk:ptrRotateDrawableWhilePulling
         */
-        public static final int PullToRefresh_ptrRotateDrawableWhilePulling = 15;
+        public static int PullToRefresh_ptrRotateDrawableWhilePulling = 15;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrScrollingWhileRefreshingEnabled}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1454,7 +1457,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           @attr name com.iloomo.paysdk:ptrScrollingWhileRefreshingEnabled
         */
-        public static final int PullToRefresh_ptrScrollingWhileRefreshingEnabled = 13;
+        public static int PullToRefresh_ptrScrollingWhileRefreshingEnabled = 13;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrShowIndicator}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1465,7 +1468,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           @attr name com.iloomo.paysdk:ptrShowIndicator
         */
-        public static final int PullToRefresh_ptrShowIndicator = 5;
+        public static int PullToRefresh_ptrShowIndicator = 5;
         /**
           <p>This symbol is the offset where the {@link com.iloomo.paysdk.R.attr#ptrSubHeaderTextAppearance}
           attribute's value can be found in the {@link #PullToRefresh} array.
@@ -1475,7 +1478,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.iloomo.paysdk:ptrSubHeaderTextAppearance
         */
-        public static final int PullToRefresh_ptrSubHeaderTextAppearance = 11;
+        public static int PullToRefresh_ptrSubHeaderTextAppearance = 11;
         /** Attributes that can be used with a SimpleDraweeView.
            <p>Includes the following attributes:</p>
            <table>
@@ -1502,6 +1505,6 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.iloomo.paysdk:actualImageUri
         */
-        public static final int SimpleDraweeView_actualImageUri = 0;
+        public static int SimpleDraweeView_actualImageUri = 0;
     };
 }

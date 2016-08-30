@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/mequn_chatlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -25,6 +26,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/mebrand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -45,6 +47,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/addNewFrend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

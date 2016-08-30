@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,7 @@ import com.iloomo.utils.ToastUtil;
 /**
  * Created by wupeitao on 16/8/19.
  */
-public class MyFrendActivity extends ActivitySupport implements AdapterView.OnItemClickListener, ThreadCallBack {
+public class MyFrendActivity extends ActivitySupport implements AdapterView.OnItemClickListener, ThreadCallBack, View.OnClickListener {
     private ListView myfrendslist;
     private MyFrendsAdapter myFrendsAdapter;
     private HashMap<String, Integer> selector;// 存放含有索引字母的位置
@@ -63,6 +64,9 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
     private TextView tv_show;
     private List<MyFrends> myFrends;
     private List<MyFrends> newmyFrends = new ArrayList<>();
+    private RelativeLayout mequn_chatlist;
+    private RelativeLayout mebrand;
+    private RelativeLayout addNewFrend;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,7 +81,16 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
         layoutIndex = (LinearLayout) this.findViewById(R.id.layout);
         tv_show = (TextView) findViewById(R.id.tv);
         tv_show.setVisibility(View.GONE);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.layout_headerview, null);
+        mequn_chatlist = (RelativeLayout) inflate.findViewById(R.id.mequn_chatlist);
+        mebrand = (RelativeLayout) inflate.findViewById(R.id.mebrand);
+        addNewFrend = (RelativeLayout) inflate.findViewById(R.id.addNewFrend);
+        myfrendslist.addHeaderView(inflate);
 
+
+        mequn_chatlist.setOnClickListener(this);
+        mebrand.setOnClickListener(this);
+        addNewFrend.setOnClickListener(this);
         Map<String, Object> parameter = new HashMap<>();
         parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
         parameter.put("page", "1");
@@ -254,8 +267,6 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
                 }
                 myFrendsAdapter = new MyFrendsAdapter(context, newmyFrends);
                 myfrendslist.setAdapter(myFrendsAdapter);
-                View inflate = LayoutInflater.from(context).inflate(R.layout.layout_headerview, null);
-                myfrendslist.addHeaderView(inflate);
                 myfrendslist.setOnItemClickListener(this);
                 break;
         }
@@ -271,4 +282,22 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
         MyFrendsModel baseModel = (MyFrendsModel) modelClass;
         ToastUtil.showShort(context, baseModel.getData().getCode_message());
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.mequn_chatlist:
+                mIntent(context, MeCrowdActivity.class);
+                break;
+            case R.id.mebrand:
+                mIntent(context, MeBrandsActivity.class);
+                break;
+            case R.id.addNewFrend:
+                mIntent(context,NewFrendsActivity.class);
+                break;
+        }
+    }
+
+
+
 }
