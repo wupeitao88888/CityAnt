@@ -193,7 +193,11 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
                         try {
                             EMClient.getInstance().createAccount(phone_number.getText().toString(), pwnumber.getText().toString());//同步方法
                         } catch (HyphenateException e) {
-                            ToastUtil.showShort(context, mString(R.string.USER_REG_FAILED));
+//                            ToastUtil.showShort(context, mString(R.string.USER_REG_FAILED));
+                            Message message = new Message();
+                            message.what = ERROR;
+                            message.obj = "";
+                            handler.sendMessage(message);
                             return;
                         }
                         LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
@@ -278,6 +282,7 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
     }
 
     private final int REGISTER = 100;
+    private final int ERROR = 101;
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -287,6 +292,10 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
                     DialogUtil.stopDialogLoading(context);
                     mIntent(context, IndexFragment.class);
                     finish();
+                    break;
+                case ERROR:
+                    DialogUtil.stopDialogLoading(context);
+                    showToast("注册失败");
                     break;
             }
         }

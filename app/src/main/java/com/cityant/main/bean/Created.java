@@ -1,11 +1,9 @@
 package com.cityant.main.bean;
 
-import java.io.Serializable;
-
 /**
- * Created by wupeitao on 16/8/28.
+ * Created by wupeitao on 16/8/31.
  */
-public class NeedList implements Serializable {
+public class Created {
     private String need_id;
     private String need_title;
     private String need_content;
