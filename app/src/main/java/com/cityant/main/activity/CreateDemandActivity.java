@@ -3,21 +3,28 @@ package com.cityant.main.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.bigkoo.pickerview.TimePickerView;
 import com.cityant.main.R;
 
+import com.cityant.main.global.MYAppconfig;
+import com.cityant.main.global.MYApplication;
+import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.ActivitySupport;
+import com.iloomo.bean.BaseModel;
 import com.iloomo.net.AsyncHttpPost;
 
 import com.iloomo.net.ThreadCallBack;
 
+import com.iloomo.utils.DialogUtil;
 import com.iloomo.utils.ToastUtil;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -68,26 +75,26 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
 //                string   pay_unit   单位
 //                int   need_man   所需名额
                 birthPicker.show();
-//                DialogUtil.startDialogLoading(context);
-//                Map<String, Object> parameter = new HashMap<>();
-//                parameter.put("token", "");
-//                parameter.put("latitude", "");
-//                parameter.put("longitude", "");
-//                parameter.put("city_id", "");
-//                parameter.put("pay_type", "");
-//                parameter.put("need_way", "");
-//                parameter.put("need_title", "");
-//                parameter.put("tag_id", "");
-//                parameter.put("need_content", "");
-//                parameter.put("need_sex", "");
-//                parameter.put("address", "");
-//                parameter.put("need_time", "");
-//                parameter.put("end_time", "");
-//                parameter.put("pay_price", "15");
-//                parameter.put("pay_unit", "元");
-//                parameter.put("need_man", "3");
-//                startHttpRequst(MYAppconfig.USERLOGIN, parameter
-//                        , MYTaskID.USERLOGIN);
+                DialogUtil.startDialogLoading(context);
+                Map<String, Object> parameter = new HashMap<>();
+                parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
+                parameter.put("latitude", MYApplication.getInstance().latitude);
+                parameter.put("longitude", MYApplication.getInstance().longitude);
+                parameter.put("city_id", "10");
+                parameter.put("pay_type", "0");
+                parameter.put("need_way", "0");
+                parameter.put("need_title", "测试需求");
+                parameter.put("tag_id", "0");
+                parameter.put("need_content", "我要发布一款测试需求");
+                parameter.put("need_sex", "0");
+                parameter.put("address", "北京");
+                parameter.put("need_time", "2016-09-01");
+                parameter.put("end_time", "2016-09-06");
+                parameter.put("pay_price", "15");
+                parameter.put("pay_unit", "元");
+                parameter.put("need_man", "3");
+                startHttpRequst(MYAppconfig.USERLOGIN, parameter
+                        , MYTaskID.USERLOGIN);
             }
         });
     }
@@ -106,27 +113,27 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
 
 
         AsyncHttpPost httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
-                CreateDemandActivity.class, context);
+                BaseModel.class, context);
 
     }
 
     @Override
     public void onCallbackFromThread(String resultJson, Object modelClass) {
-
+        Log.e("-----chen gong -------",resultJson);
     }
 
     @Override
     public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
-
+        Log.e("-----chen gong -------",resultJson);
     }
 
     @Override
     public void onCallbackFromThreadError(String resultJson, Object modelClass) {
-
+        Log.e("-----shi bai  -------",resultJson);
     }
 
     @Override
     public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
-
+        Log.e("-----shi bai -------",resultJson);
     }
 }
