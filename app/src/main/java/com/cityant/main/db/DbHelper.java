@@ -19,12 +19,12 @@ public class DbHelper extends DbHelperBase {
     public static final String DELETE_LOGININFO = "drop table if exists logininfo";
     public static final String DELETE_LASTUSER = "drop table if exists lastuser";
 
-    public static final String MYFREDNS_NAME="myfends";
-    public static final String FREND_ID="friend_id";
-    public static final String USER_NAME="user_name";
-    public static final String USER_AVAR="user_avar";
-    public static final String MYFRENDS = "create table "+DbHelper.MYFREDNS_NAME+"("+FREND_ID+" varchar(30) primary key,"+USER_NAME+" varchar(30),"+USER_AVAR+" varchar(150))";
-    public static final String DELETE_MYFRENDS = "drop table if exists "+DbHelper.MYFREDNS_NAME;
+    public static final String MYFREDNS_NAME = "myfends";
+    public static final String FREND_ID = "friend_id";
+    public static final String USER_NAME = "user_name";
+    public static final String USER_AVAR = "user_avar";
+    public static final String MYFRENDS = "create table " + DbHelper.MYFREDNS_NAME + "(" + FREND_ID + " varchar(30) primary key," + USER_NAME + " varchar(30)," + USER_AVAR + " varchar(150))";
+    public static final String DELETE_MYFRENDS = "drop table if exists " + DbHelper.MYFREDNS_NAME;
 
 
     @Override

@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
 
-    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         ptr:ptrAnimationStyle="flip"
@@ -407,6 +407,6 @@
                 </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>
-    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+    </ScrollView>
 
 </LinearLayout>

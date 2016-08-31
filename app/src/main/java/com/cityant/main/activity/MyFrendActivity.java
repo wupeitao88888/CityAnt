@@ -26,10 +26,6 @@ import com.cityant.main.bean.MyFrends;
 import com.cityant.main.bean.MyFrendsModel;
 import com.cityant.main.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.exceptions.HyphenateException;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.bean.BaseModel;
 import com.iloomo.net.AsyncHttpPost;
@@ -293,11 +289,10 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
                 mIntent(context, MeBrandsActivity.class);
                 break;
             case R.id.addNewFrend:
-                mIntent(context,NewFrendsActivity.class);
+                mIntent(context, NewFrendsActivity.class);
                 break;
         }
     }
-
 
 
 }

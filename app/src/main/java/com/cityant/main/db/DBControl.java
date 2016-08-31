@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class DBControl extends DBbase {
 
-    public static String DB_VERSION = "1";
+    public static String DB_VERSION = "2";
 
     public DBControl(Context context, DbHelperBase DbHelperBase) {
         super(context, DbHelperBase);
@@ -67,22 +67,27 @@ public class DBControl extends DBbase {
      * @param loginUserInfoData
      */
     public synchronized void insertLoginInfo(LoginUserInfoData loginUserInfoData) {
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery("select * from logininfo", new String[]{});
+        try {
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery("select * from logininfo", new String[]{});
 //        tb
-        String token = null;
-        while (cursor.moveToNext()) {
-            token = deCode(cursor.getString(cursor.getColumnIndex("token")));
-        }
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
-        if (!TextUtils.isEmpty(token)) {
-            SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
-                    .openDatabase();
-            writableDatabase.execSQL("delete from logininfo");
+            String token = null;
+            while (cursor.moveToNext()) {
+                token = deCode(cursor.getString(cursor.getColumnIndex("token")));
+            }
+            cursor.close();
             DatabaseManager.getInstance().closeDatabase();
+            if (!TextUtils.isEmpty(token)) {
+                SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
+                        .openDatabase();
+                writableDatabase.execSQL("delete from logininfo");
+                DatabaseManager.getInstance().closeDatabase();
+            }
+        } catch (Exception e) {
+
         }
+
         try {
             SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
                     .openDatabase();
@@ -657,7 +662,8 @@ public class DBControl extends DBbase {
         SQLiteDatabase db = DatabaseManager.getInstance()
                 .openDatabase();
         db.execSQL(DbHelper.DELETE_LOGININFO);
-        db.execSQL(DbHelper.LASTUSER);
+        db.execSQL(DbHelper.DELETE_LASTUSER);
+        db.execSQL(DbHelper.DELETE_MYFRENDS);
         DatabaseManager.getInstance().closeDatabase();
         createAllTab();
     }
@@ -668,6 +674,8 @@ public class DBControl extends DBbase {
                 .openDatabase();
         db.execSQL(DbHelper.LOGININFO);
         db.execSQL(DbHelper.LASTUSER);
+        db.execSQL(DbHelper.MYFRENDS);
+
         DatabaseManager.getInstance().closeDatabase();
     }
 }

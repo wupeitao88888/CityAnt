@@ -232,6 +232,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
             public void onSuccess() {
                 EMClient.getInstance().groupManager().loadAllGroups();
                 EMClient.getInstance().chatManager().loadAllConversations();
+
                 L.e("登录聊天服务器成功！");
                 try {
                     EMClient.getInstance().contactManager().addContact("wpt", "没理由");
@@ -260,13 +261,19 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
             @Override
             public void onError(int code, String message) {
                 Log.d("main", "登录聊天服务器失败！");
-
-                Message mge = new Message();
-                mge.what = LOGIN;
-                mge.obj = message;
-                handler.sendMessage(mge);
-
-
+                if (!isopen) {
+                    isopen = true;
+                    try {
+                        EMClient.getInstance().createAccount(phone_number.getText().toString(), password_number.getText().toString());//同步方法
+                        hxLogin(modelClass);
+                    } catch (HyphenateException e) {
+                    }
+                } else {
+                    Message mge = new Message();
+                    mge.what = EORRO;
+                    mge.obj = message;
+                    handler.sendMessage(mge);
+                }
             }
         });
     }

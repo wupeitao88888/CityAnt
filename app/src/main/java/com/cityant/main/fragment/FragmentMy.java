@@ -26,8 +26,6 @@ import com.cityant.main.activity.TodayReseiveActivity;
 import com.cityant.main.activity.UserinfoActivity;
 import com.cityant.main.activity.WalletActivity;
 import com.iloomo.base.FragmentSupport;
-
-
 public class FragmentMy extends FragmentSupport implements View.OnClickListener {
 
     private ImageView userhead;//头像
