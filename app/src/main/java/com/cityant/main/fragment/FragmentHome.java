@@ -148,7 +148,6 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         parameter.put("token", token);
         parameter.put("type", "0"); // type   类别(0:推荐,1:附近,2:同城,3:好友)
 
-        AsyncHttpPost httpRequest;
         startHttpRequst("POST", MYAppconfig.HOME_INDEX, parameter
                 , MYTaskID.HOME_INDEX);
     }

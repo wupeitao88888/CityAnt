@@ -18,4 +18,5 @@ public class MYAppconfig extends AppConfig {
     public static final String NEWFRENDS = BASEURL + API + "chats/newFriendList";
     public static final String HANDLEFRENDS = BASEURL + API + "/chats/processFriend";
     public static final String NEEDLIST = BASEURL + API + "need/meNeedList";
+    public static final String CITY_LIST = BASEURL + API + "home/cityList";
 }

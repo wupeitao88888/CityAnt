@@ -13,4 +13,5 @@ public class MYTaskID {
     public static final int NEWFRENDS = 1006;
     public static final int HANDLERFRENDS = 1007;
     public static final int NEEDLIST = 1008;
+    public static final int CITY_LIST = 1009;
 }

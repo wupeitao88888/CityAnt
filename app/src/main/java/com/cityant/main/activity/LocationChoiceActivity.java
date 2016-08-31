@@ -8,16 +8,25 @@ import android.widget.ListView;
 
 import com.cityant.main.R;
 import com.cityant.main.adapter.LocationChoiceAdapter;
+import com.cityant.main.bean.HomeBean;
+import com.cityant.main.global.MYAppconfig;
+import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.ActivitySupport;
+import com.iloomo.global.MApplication;
+import com.iloomo.net.AsyncHttpPost;
+import com.iloomo.net.ThreadCallBack;
+import com.iloomo.utils.DialogUtil;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lvfl on 2016/8/10.
  */
-public class LocationChoiceActivity extends ActivitySupport {
+public class LocationChoiceActivity extends ActivitySupport implements ThreadCallBack {
 
     private ListView listView;
     private List<String> list = new ArrayList<>();
@@ -44,7 +53,46 @@ public class LocationChoiceActivity extends ActivitySupport {
         }
         LocationChoiceAdapter adapter = new LocationChoiceAdapter(list, context);
         listView.setAdapter(adapter);
+        getCity();
+    }
 
+    private void getCity() {
+        DialogUtil.startDialogLoading(context);
+        Map<String, Object> parameter = new HashMap<>();
+        parameter.put("is_hot", "1"); // 1 热门  0 全部
+
+        startHttpRequst("POST", MYAppconfig.CITY_LIST, parameter
+                , MYTaskID.CITY_LIST);
+    }
+
+
+    public void startHttpRequst(String requestType, String url,
+                                Map<String, Object> parameter, int resultCode) {
+
+        AsyncHttpPost httpRequest;
+        httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
+                HomeBean.class, context);
+
+
+    }
+
+    @Override
+    public void onCallbackFromThread(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
 
     }
 }
