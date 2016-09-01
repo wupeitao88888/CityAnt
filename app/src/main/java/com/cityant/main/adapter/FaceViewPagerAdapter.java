@@ -7,7 +7,7 @@ import android.view.View;
 import java.util.List;
 
 /**
- * Created by wupeitao on 16/9/1.
+ * Created by wupeitao on
  */
 public class FaceViewPagerAdapter extends PagerAdapter {
 

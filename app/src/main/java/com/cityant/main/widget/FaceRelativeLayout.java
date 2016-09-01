@@ -39,8 +39,6 @@ import com.cityant.main.adapter.FacePagerAdapter;
 import com.cityant.main.adapter.MessagePlusAdapter;
 import com.cityant.main.adapter.MessagePlusEndity;
 import com.cityant.main.utlis.FaceConversionUtil;
-import com.iloomo.utils.L;
-import com.iloomo.utils.ToastUtil;
 
 
 @SuppressLint("NewApi")
