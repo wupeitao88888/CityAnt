@@ -32,12 +32,12 @@ import android.widget.RelativeLayout;
 
 import com.cityant.main.R;
 import com.cityant.main.activity.MYChatActivity;
+import com.cityant.main.adapter.FaceViewPagerAdapter;
 import com.cityant.main.bean.ChatEmoji;
 import com.cityant.main.adapter.FaceAdapter;
 import com.cityant.main.adapter.FacePagerAdapter;
 import com.cityant.main.adapter.MessagePlusAdapter;
 import com.cityant.main.adapter.MessagePlusEndity;
-import com.cityant.main.adapter.ViewPagerAdapter;
 import com.cityant.main.utlis.FaceConversionUtil;
 import com.iloomo.utils.L;
 import com.iloomo.utils.ToastUtil;
@@ -503,7 +503,7 @@ public class FaceRelativeLayout extends RelativeLayout implements
      * 填充数据
      */
     private void Init_Data() {
-        vp_face.setAdapter(new ViewPagerAdapter(pageViews));
+        vp_face.setAdapter(new FaceViewPagerAdapter(pageViews));
 
         vp_face.setCurrentItem(1);
         current = 0;

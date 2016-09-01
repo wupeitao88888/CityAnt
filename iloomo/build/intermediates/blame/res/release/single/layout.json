@@ -52,12 +52,12 @@
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/layout/layout_slideshow.xml"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/release/layout/layout_lcratingbar.xml",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/layout/layout_lcratingbar.xml"
-    },
-    {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/release/layout/lc_layout_title.xml",
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/layout/lc_layout_title.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/release/layout/layout_lcratingbar.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/layout/layout_lcratingbar.xml"
     },
     {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/release/layout/pay_external.xml",
