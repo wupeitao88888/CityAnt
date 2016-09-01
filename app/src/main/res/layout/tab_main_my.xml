@@ -4,19 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:gravity="center" >
+    android:gravity="center"
+    android:orientation="vertical"
+    >
 
-   
+
+    <ImageView
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:background="@drawable/selector_my" />
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableTop="@drawable/selector_my"
         android:focusable="true"
         android:paddingTop="4dip"
         android:gravity="center_horizontal"
-        android:text="我的"
+        android:text="我"
         android:textColor="@drawable/tab_txt_sel"
-        android:textSize="14sp" />
+        android:textSize="10sp"/>
 
 </LinearLayout>

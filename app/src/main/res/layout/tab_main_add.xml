@@ -11,11 +11,10 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableTop="@drawable/selector_message"
         android:focusable="true"
         android:paddingTop="4dip"
         android:gravity="center_horizontal"
-        android:text="添加"
+        android:text=""
         android:textColor="@drawable/tab_txt_sel"
         android:textSize="14sp"
         android:textStyle="normal" />

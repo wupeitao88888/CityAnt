@@ -19,4 +19,7 @@
     <string name="load_succeed">加载成功</string>
     <string name="load_fail">加载失败</string>
     <!-- pull to re _end -->
+
+    <string name="createfrendsshopping">发起有情购</string>
+
 </resources>

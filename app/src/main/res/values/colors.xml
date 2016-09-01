@@ -17,7 +17,7 @@
     <color name="color_6">#FFffe0b2</color>
     <color name="color_7">#FFd7ccc8</color>
     <color name="color_8">#FFcfd8dc</color>
-
+    <drawable name="none_color">#00000000</drawable>
     <array name="fragment_colors">
         <item>@color/color_1</item>
         <item>@color/color_2</item>

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 
 import com.iloomo.paysdk.R;
@@ -28,6 +29,7 @@ public class MainTabHost extends LinearLayout {
     private Integer[] styleTab;
     private View inflate;
     private FragmentActivity fragmentActivity;
+    private RelativeLayout center_menu;
     public MainTabHost(Context context, FragmentActivity fragmentActivity) {
         super(context);
         this.context=context;
@@ -46,12 +48,19 @@ public class MainTabHost extends LinearLayout {
 
     protected void init(Context context) {
         inflate = LayoutInflater.from(context).inflate(R.layout.maintabs, null);
+
+        center_menu=(RelativeLayout)inflate.findViewById(R.id.center_menu);
         setupView();
         setLinstener();
         fillData();
         addView(inflate);
     }
 
+
+
+    public void  setCenter_menuOnClickLen(OnClickListener onClickListener){
+        center_menu.setOnClickListener(onClickListener);
+    }
 
     /***
      * 初始化第一步
