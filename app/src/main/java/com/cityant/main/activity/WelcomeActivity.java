@@ -60,7 +60,7 @@ public class WelcomeActivity extends ActivitySupport {
                                     e.printStackTrace();
                                 }
                             }
-                            startActivity(new Intent(context, LoginActivity.class));
+                            startActivity(new Intent(context, IndexFragment.class));
                             finish();
                         } else {
                             try {

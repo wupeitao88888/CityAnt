@@ -1,47 +1,48 @@
 package com.cityant.main.adapter;
 
+import android.content.res.Resources;
+import android.support.v4.app.FragmentManager;
+
+import com.cityant.main.fragment.BaseFragment;
+import com.cityant.main.fragment.FragmentPagerAdapterExt;
+
 import java.util.List;
 
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.view.View;
+/**
+ * Created by Dimitry Ivanov on 21.08.2015.
+ */
+public class ViewPagerAdapter extends FragmentPagerAdapterExt {
 
-public class ViewPagerAdapter extends PagerAdapter {
+    private final Resources mResources;
+    private final List<BaseFragment> mFragments;
 
-    private List<View> pageViews;
-
-    public ViewPagerAdapter(List<View> pageViews) {
-        super();
-        this.pageViews=pageViews;
+    public ViewPagerAdapter(FragmentManager fm, Resources r, List<BaseFragment> fragments) {
+        super(fm);
+        this.mResources = r;
+        this.mFragments = fragments;
     }
 
-    // 显示数目
+    @Override
+    public BaseFragment getItem(int position) {
+        return mFragments.get(position);
+    }
+
     @Override
     public int getCount() {
-        return pageViews.size();
+        return mFragments != null ? mFragments.size() : 0;
     }
 
     @Override
-    public boolean isViewFromObject(View arg0, Object arg1) {
-        return arg0 == arg1;
+    public String makeFragmentTag(int position) {
+        return mFragments.get(position).getSelfTag();
     }
 
     @Override
-    public int getItemPosition(Object object) {
-        return super.getItemPosition(object);
+    public CharSequence getPageTitle(int position) {
+        return mFragments.get(position).getTitle(mResources);
     }
 
-    @Override
-    public void destroyItem(View arg0, int arg1, Object arg2) {
-        ((ViewPager)arg0).removeView(pageViews.get(arg1));
-    }
-
-    /***
-     * 获取每一个item�?类于listview中的getview
-     */
-    @Override
-    public Object instantiateItem(View arg0, int arg1) {
-        ((ViewPager)arg0).addView(pageViews.get(arg1));
-        return pageViews.get(arg1);
+    public boolean canScrollVertically(int position, int direction) {
+        return getItem(position).canScrollVertically(direction);
     }
 }

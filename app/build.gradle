@@ -42,6 +42,7 @@ dependencies {
     compile 'com.github.obiteaaron:pinyin4j-multi:1.0.0'
     compile(name: 'pickerview-release', ext: 'aar')
     compile(name: 'ptr-lib-release', ext: 'aar')
+    compile(name: 'library-release', ext: 'aar')
 }
 //    compile project(':pickerview')
 repositories {

@@ -219,4 +219,6 @@
         <item name="android:paddingLeft">10.0dip</item>
         <!--<item name="android:maxHeight">10.0dip</item>-->
     </style>
+
+
 </resources>
