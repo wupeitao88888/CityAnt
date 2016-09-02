@@ -60,10 +60,8 @@ public class ForgetPasswordActivity extends ActivitySupport implements SecurityC
         code_number.addTextChangedListener(new EditChangedListener());
         pwnumber.addTextChangedListener(new EditChangedListener());
         re_pwnumber.addTextChangedListener(new EditChangedListener());
-        sendcode.setPressed(true);
-        sendcode.setClickable(false);
-        login_button.setPressed(true);
-        login_button.setClickable(false);
+        sendcode.setEnabled(false);
+        login_button.setEnabled(false);
 
         SecurityCodeUtils.instance(context).setCodeCallBack(this);
     }
@@ -88,31 +86,24 @@ public class ForgetPasswordActivity extends ActivitySupport implements SecurityC
             if (phone_number.getText().length() > 0) {
                 if (phone_number.getText().length() == 11) {
 
-                    sendcode.setPressed(false);
-                    sendcode.setClickable(true);
+                    sendcode.setEnabled(true);
                     if (pwnumber.getText().length() > 0) {
                         if (re_pwnumber.getText().length() > 0) {
-                            login_button.setPressed(false);
-                            login_button.setClickable(true);
+                            login_button.setEnabled(true);
                         } else {
-                            login_button.setPressed(true);
-                            login_button.setClickable(false);
+                            login_button.setEnabled(false);
                         }
                     } else {
-                        login_button.setPressed(true);
-                        login_button.setClickable(false);
+                        login_button.setEnabled(false);
                     }
                 } else {
-                    sendcode.setPressed(true);
-                    sendcode.setClickable(false);
-                    login_button.setPressed(true);
-                    login_button.setClickable(false);
+                    sendcode.setEnabled(false);
+                    login_button.setEnabled(false);
                 }
             } else
 
             {
-                sendcode.setPressed(true);
-                sendcode.setClickable(false);
+                sendcode.setEnabled(false);
             }
         }
 
@@ -124,16 +115,14 @@ public class ForgetPasswordActivity extends ActivitySupport implements SecurityC
     @Override
     public void onTitmerCallBack(String str, String phonenumber) {
         sendcode.setText(str);
-        sendcode.setPressed(true);
-        sendcode.setClickable(false);
+        sendcode.setEnabled(false);
         phone_number.setText(phonenumber);
     }
 
     @Override
     public void onTitmerOverCallBack() {
         sendcode.setText("再次发送");
-        sendcode.setPressed(false);
-        sendcode.setClickable(true);
+        sendcode.setEnabled(true);
     }
 
     @Override

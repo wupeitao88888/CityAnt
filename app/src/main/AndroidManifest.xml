@@ -324,6 +324,11 @@
             android:name=".activity.NewFrendsActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <!--发起小额抢的类型-->
+        <activity
+            android:name=".activity.CreateSmallGrabTypeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
 
         <!-- 设置环信应用的AppKey -->
         <meta-data

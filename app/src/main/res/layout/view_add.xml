@@ -9,84 +9,61 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/bg">
+        android:background="@color/bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/lbs_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/review_btn"
-            android:layout_marginEnd="69dp"
-            android:layout_marginRight="69dp"
-            android:layout_toLeftOf="@+id/review_btn"
-            android:layout_toStartOf="@+id/review_btn"
-            android:gravity="center"
-            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="76dp"
-                android:layout_height="76dp"
-                android:src="@mipmap/tabbar_compose_lbs" />
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/lbs_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="发起小额抢"
-                android:textColor="#666666"
-                android:textSize="12sp" />
-        </LinearLayout>
+                android:layout_marginEnd="64dp"
+                android:layout_marginRight="80dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_alignTop="@+id/review_btn"
+                android:layout_toLeftOf="@+id/review_btn"
+                android:layout_toStartOf="@+id/review_btn">
 
-        <LinearLayout
-            android:id="@+id/review_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="39dp"
-            android:layout_marginEnd="74dp"
-            android:layout_marginRight="74dp"
-            android:gravity="center"
-            android:orientation="vertical">
+                <ImageView
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
+                    android:src="@mipmap/tabbar_compose_lbs" />
 
-            <ImageView
-                android:layout_width="76dp"
-                android:layout_height="76dp"
-                android:src="@mipmap/tabbar_compose_review" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="发起小额抢"
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/more_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="兼职/需求发布"
-                android:textColor="#666666"
-                android:textSize="12sp" />
-        </LinearLayout>
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_alignTop="@+id/idea_btn"
+                android:layout_alignLeft="@+id/review_btn"
+                android:layout_alignStart="@+id/review_btn">
 
-        <LinearLayout
-            android:id="@+id/more_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/idea_btn"
-            android:layout_toEndOf="@+id/lbs_btn"
-            android:layout_toRightOf="@+id/lbs_btn"
-            android:gravity="center"
-            android:orientation="vertical">
+                <ImageView
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
+                    android:src="@mipmap/tabbar_compose_more" />
 
-            <ImageView
-                android:layout_width="76dp"
-                android:layout_height="76dp"
-                android:src="@mipmap/tabbar_compose_more" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="创建蚂蚁猜"
-                android:textColor="#666666"
-                android:textSize="12sp" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="创建蚂蚁猜"
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
         <LinearLayout
             android:id="@+id/idea_btn"
@@ -94,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@id/lbs_btn"
             android:layout_alignLeft="@id/lbs_btn"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="27dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -113,6 +90,33 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/review_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="42dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_gravity="right">
+
+            <ImageView
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:src="@mipmap/tabbar_compose_review" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="兼职/需求发布"
+                android:textColor="#666666"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -120,7 +124,7 @@
         android:layout_height="49dp"
         android:background="#fdfcfb"
         android:gravity="center">
-        
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"

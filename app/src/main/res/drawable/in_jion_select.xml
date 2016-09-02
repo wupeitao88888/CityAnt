@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_enabled="true">
+        <shape>
+            <corners android:radius="90dp" />
+
+            <solid android:color="#E6E6E6" />
+            <!-- 填充的颜色 -->
+        </shape>
+    </item>
+    <item android:state_enabled="false" >
+        <shape>
+            <corners android:radius="90dp" />
+
+            <stroke android:width="0.5dp" android:color="@color/yellow" android:dashGap="0dp" />
+
+            <solid android:color="@color/yellow" />
+        </shape>
+    </item>
+    <item  android:state_pressed="true" >
+        <shape>
+            <corners android:radius="90dp" />
+
+            <stroke android:width="0.5dp" android:color="@color/yellow" android:dashGap="0dp" />
+
+            <solid android:color="@color/yellow" />
+        </shape>
+    </item>
+
+    <item >
+        <shape>
+            <corners android:radius="90dp" />
+
+            <stroke android:width="0.5dp" android:color="#E6E6E6" android:dashGap="0dp" />
+
+            <solid android:color="#E6E6E6" />
+        </shape>
+    </item>
+</selector>

@@ -40,6 +40,7 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
     private EditText re_pwnumber;
     private TextView negotiate;
     private CheckBox agree;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,17 +70,15 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
         sendcode = (Button) findViewById(R.id.sendcode);
         login_button = (Button) findViewById(R.id.login_button);
 
-        negotiate= (TextView) findViewById(R.id.negotiate);
-        agree= (CheckBox) findViewById(R.id.agree);
+        negotiate = (TextView) findViewById(R.id.negotiate);
+        agree = (CheckBox) findViewById(R.id.agree);
 
         phone_number.addTextChangedListener(new EditChangedListener());
         code_number.addTextChangedListener(new EditChangedListener());
         pwnumber.addTextChangedListener(new EditChangedListener());
         re_pwnumber.addTextChangedListener(new EditChangedListener());
-        sendcode.setPressed(true);
-        sendcode.setClickable(false);
-        login_button.setPressed(true);
-        login_button.setClickable(false);
+        sendcode.setEnabled(false);
+        login_button.setEnabled(false);
         negotiate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,28 +88,23 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
         agree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(agree.isChecked()){
+                if (agree.isChecked()) {
                     if (phone_number.getText().length() > 0) {
                         if (pwnumber.getText().length() > 0) {
 
                             if (phone_number.getText().length() == 11) {
-                                login_button.setPressed(false);
-                                login_button.setClickable(true);
+                                login_button.setEnabled(true);
                             } else {
-                                login_button.setPressed(true);
-                                login_button.setClickable(false);
+                                login_button.setEnabled(false);
                             }
                         } else {
-                            login_button.setPressed(true);
-                            login_button.setClickable(false);
+                            login_button.setEnabled(false);
                         }
                     } else {
-                        login_button.setPressed(true);
-                        login_button.setClickable(false);
+                        login_button.setEnabled(false);
                     }
-                }else{
-                    login_button.setPressed(true);
-                    login_button.setClickable(false);
+                } else {
+                    login_button.setEnabled(false);
                 }
             }
         });
@@ -140,16 +134,14 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
     @Override
     public void onTitmerCallBack(String str, String phonenumber) {
         sendcode.setText(str);
-        sendcode.setPressed(true);
-        sendcode.setClickable(false);
+        sendcode.setEnabled(false);
         phone_number.setText(phonenumber);
     }
 
     @Override
     public void onTitmerOverCallBack() {
         sendcode.setText("再次发送");
-        sendcode.setPressed(false);
-        sendcode.setClickable(true);
+        sendcode.setEnabled(true);
     }
 
     @Override
@@ -186,31 +178,31 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
 
         if (blean) {
 
-                // 验证成功
-                MyThreadPool.getInstance().submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            EMClient.getInstance().createAccount(phone_number.getText().toString(), pwnumber.getText().toString());//同步方法
-                        } catch (HyphenateException e) {
+            // 验证成功
+            MyThreadPool.getInstance().submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        EMClient.getInstance().createAccount(phone_number.getText().toString(), pwnumber.getText().toString());//同步方法
+                    } catch (HyphenateException e) {
 //                            ToastUtil.showShort(context, mString(R.string.USER_REG_FAILED));
-                            Message message = new Message();
-                            message.what = ERROR;
-                            message.obj = "";
-                            handler.sendMessage(message);
-                            return;
-                        }
-                        LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
-                        loginUserInfoData.setToken(((BaseData) userRegister).getToken());
-                        loginUserInfoData.setMobile(phone_number.getText().toString());
-                        DBControl.getInstance(context).insertLoginInfo(loginUserInfoData);
-                        DBControl.getInstance(context).insertLastUser(phone_number.getText().toString(), pwnumber.getText().toString());
                         Message message = new Message();
-                        message.what = REGISTER;
+                        message.what = ERROR;
                         message.obj = "";
                         handler.sendMessage(message);
+                        return;
                     }
-                });
+                    LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
+                    loginUserInfoData.setToken(((BaseData) userRegister).getToken());
+                    loginUserInfoData.setMobile(phone_number.getText().toString());
+                    DBControl.getInstance(context).insertLoginInfo(loginUserInfoData);
+                    DBControl.getInstance(context).insertLastUser(phone_number.getText().toString(), pwnumber.getText().toString());
+                    Message message = new Message();
+                    message.what = REGISTER;
+                    message.obj = "";
+                    handler.sendMessage(message);
+                }
+            });
 
         } else {
             // 验证失败
@@ -248,31 +240,23 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
             if (phone_number.getText().length() > 0) {
                 if (phone_number.getText().length() == 11) {
 
-                    sendcode.setPressed(false);
-                    sendcode.setClickable(true);
+                    sendcode.setEnabled(true);
                     if (pwnumber.getText().length() > 0) {
                         if (re_pwnumber.getText().length() > 0) {
-                            login_button.setPressed(false);
-                            login_button.setClickable(true);
+                            login_button.setEnabled(true);
                         } else {
-                            login_button.setPressed(true);
-                            login_button.setClickable(false);
+                            login_button.setEnabled(false);
                         }
                     } else {
-                        login_button.setPressed(true);
-                        login_button.setClickable(false);
+                        login_button.setEnabled(false);
                     }
                 } else {
-                    sendcode.setPressed(true);
-                    sendcode.setClickable(false);
-                    login_button.setPressed(true);
-                    login_button.setClickable(false);
+                    sendcode.setEnabled(false);
+                    login_button.setEnabled(false);
                 }
             } else
-
             {
-                sendcode.setPressed(true);
-                sendcode.setClickable(false);
+                sendcode.setEnabled(false);
             }
         }
 

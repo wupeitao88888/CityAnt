@@ -28,4 +28,7 @@
         <item>@color/color_7</item>
         <item>@color/color_8</item>
     </array>
+    <color name="create_bg">#f4f4f4</color>
+    <color name="create_sec_color">#999999</color>
+    <color name="create_title">#333333</color>
 </resources>

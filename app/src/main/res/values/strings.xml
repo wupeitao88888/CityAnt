@@ -145,4 +145,8 @@
     <string name="newfrends">新朋友</string>
     <string name="checked_text">我已阅读并接受</string>
     <string name="negotiate">《城市蚂蚁用户协议》</string>
+
+
+    <string name='prompt'>温馨提示：请先选择参与对象后再点击发起类型</string>
+    <string name='mecreatek'>我要发起</string>
 </resources>

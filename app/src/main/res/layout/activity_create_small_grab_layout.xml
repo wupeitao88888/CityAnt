@@ -1,88 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="谁可参与"/>
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/create_bg"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="所有人"
-            android:background="@color/gray"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:layout_marginLeft="50dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white">
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="仅限好友"
-            android:background="@color/gray"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:layout_marginLeft="50dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/prompt"
+                android:textColor="@color/create_sec_color"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:background="@color/white"
+            android:paddingLeft="7dp">
+
+            <ImageView
+                android:id="@+id/userhead"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/username"
+                style="@style/create_title"
+                android:layout_marginLeft="9dp"
+                android:layout_toRightOf="@+id/userhead"
+                android:text="用户名" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:paddingLeft="7dp">
+
+            <RelativeLayout
+                android:id="@+id/choose_create_type"
+                android:layout_width="86dp"
+                android:layout_height="86dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="18dp"
+                android:background="#e6e6e6">
+
+                <ImageView
+                    android:id="@+id/add"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="11.5dp"
+                    android:background="@mipmap/leixing" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/add"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6.7dp"
+                    android:text="选择发起类型"
+                    android:textColor="#5F5F5F"
+                    android:textSize="8dp" />
+
+                <ImageView
+                    android:id="@+id/type_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/goods_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="23dp"
+                android:layout_marginTop="13dp"
+                android:layout_toLeftOf="@+id/goods_price"
+                android:layout_toRightOf="@+id/choose_create_type"
+                android:text="耳机   动感立体音质 最好听的音质鲜给你"
+                android:textColor="@color/create_title"
+                android:textSize="12dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/goods_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="9dp"
+                android:layout_marginTop="13dp"
+                android:text="￥1000.00"
+                android:textColor="#F05E60"
+                android:textSize="12dp"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/goods_specifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/goods_info"
+                android:layout_below="@+id/goods_info"
+                android:text="规格：Z1054 黑色"
+                android:textColor="#999999"
+                android:textSize="9dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/goods_all_pople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/choose_create_type"
+                android:layout_alignLeft="@+id/goods_info"
+                android:layout_marginBottom="3dp"
+                android:text="规格：Z1054 黑色"
+                android:textColor="#6F6F6F"
+                android:textSize="9dp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/title_who"
+                style="@style/create_title"
+                android:layout_marginLeft="9dp"
+                android:text="谁可参与" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/white">
+
+            <Button
+                android:id="@+id/permissions_all"
+                style="@style/create_check_button"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/in_jion_select"
+                android:text="所有人" />
+
+            <Button
+                android:id="@+id/permissions_frends"
+                style="@style/create_check_button"
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@+id/permissions_all"
+                android:background="@drawable/in_jion_select"
+                android:text="限好友" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/title_time"
+                style="@style/create_title"
+                android:layout_marginLeft="9dp"
+                android:text="限时" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/white">
+
+            <Button
+                android:id="@+id/one_day"
+                style="@style/create_check_button"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/in_jion_select"
+                android:text="一天" />
+
+            <Button
+                android:id="@+id/five_day"
+                style="@style/create_check_button"
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@+id/one_day"
+                android:background="@drawable/in_jion_select"
+                android:text="五天" />
+
+            <Button
+                android:id="@+id/ten_day"
+                style="@style/create_check_button"
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@+id/five_day"
+                android:background="@drawable/in_jion_select"
+                android:text="十天" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@color/white">
+
+
+            <Button
+                android:id="@+id/unlimited_day"
+                style="@style/create_check_button"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/in_jion_select"
+                android:text="不限" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp">
+
+            <TextView
+                android:id="@+id/toast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提示：超过限时抢购人数认为达到要求系统自动返还抢购金额，中途不得退款。"
+                android:textColor="#666666"
+                android:textSize="11dp" />
+        </RelativeLayout>
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="fill_parent"
+            android:layout_height="43dp"
+            android:layout_marginLeft="27dp"
+            android:layout_marginRight="27dp"
+            android:layout_marginTop="55dp"
+            android:background="@drawable/button_login"
+            android:text="确认发起"
+            android:textColor="@color/title_text"
+            android:textSize="16.6dp" />
+
     </LinearLayout>
-
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/ic_launcher"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="限时"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="不限"
-            android:background="@color/gray"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:layout_marginLeft="15dp"/>
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="5天"
-            android:background="@color/gray"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:layout_marginLeft="15dp"/>
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="10天"
-            android:background="@color/gray"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:layout_marginLeft="15dp"/>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:textColor="@color/white"
-        android:background="@color/red"
-        android:text="确认发起"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:gravity="center"/>
-
 
 </LinearLayout>

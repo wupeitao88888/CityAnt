@@ -83,23 +83,18 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                         if (password_number.getText().length() > 0) {
 
                             if (phone_number.getText().length() == 11) {
-                                login_button.setPressed(false);
-                                login_button.setClickable(true);
+                                login_button.setEnabled(true);
                             } else {
-                                login_button.setPressed(true);
-                                login_button.setClickable(false);
+                                login_button.setEnabled(false);
                             }
                         } else {
-                            login_button.setPressed(true);
-                            login_button.setClickable(false);
+                            login_button.setEnabled(false);
                         }
                     } else {
-                        login_button.setPressed(true);
-                        login_button.setClickable(false);
+                        login_button.setEnabled(false);
                     }
                 } else {
-                    login_button.setPressed(true);
-                    login_button.setClickable(false);
+                    login_button.setEnabled(false);
                 }
             }
         });
@@ -163,19 +158,15 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                 if (password_number.getText().length() > 0) {
 
                     if (phone_number.getText().length() == 11) {
-                        login_button.setPressed(false);
-                        login_button.setClickable(true);
+                        login_button.setEnabled(true);
                     } else {
-                        login_button.setPressed(true);
-                        login_button.setClickable(false);
+                        login_button.setEnabled(false);
                     }
                 } else {
-                    login_button.setPressed(true);
-                    login_button.setClickable(false);
+                    login_button.setEnabled(false);
                 }
             } else {
-                login_button.setPressed(true);
-                login_button.setClickable(false);
+                login_button.setEnabled(false);
             }
         }
 
@@ -303,11 +294,9 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                     }
                     if (!TextUtils.isEmpty(password)) {
                         password_number.setText(password);
-                        login_button.setPressed(false);
-                        login_button.setClickable(true);
+                        login_button.setEnabled(true);
                     } else {
-                        login_button.setPressed(true);
-                        login_button.setClickable(false);
+                        login_button.setEnabled(false);
                     }
                     break;
                 case EORRO:
