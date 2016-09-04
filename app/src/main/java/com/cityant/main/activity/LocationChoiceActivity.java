@@ -5,17 +5,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.cityant.main.R;
 import com.cityant.main.adapter.LocationChoiceAdapter;
+import com.cityant.main.bean.CityBean;
 import com.cityant.main.bean.HomeBean;
 import com.cityant.main.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.ActivitySupport;
+import com.iloomo.bean.BaseModel;
 import com.iloomo.global.MApplication;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.DialogUtil;
+import com.iloomo.utils.ToastUtil;
 
 
 import java.util.ArrayList;
@@ -29,7 +33,8 @@ import java.util.Map;
 public class LocationChoiceActivity extends ActivitySupport implements ThreadCallBack {
 
     private ListView listView;
-    private List<String> list = new ArrayList<>();
+    private List<CityBean.CityData.CityList> city_list = new ArrayList<>();
+    private LocationChoiceAdapter adapter;
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, LocationChoiceActivity.class);
@@ -42,16 +47,13 @@ public class LocationChoiceActivity extends ActivitySupport implements ThreadCal
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_choice_layout);
-        setRemoveTitle();
+        setCtenterTitle("位置");
         initView();
     }
 
     private void initView() {
         listView = (ListView) findViewById(R.id.listView);
-        for (int i = 0; i < 10; i++) {
-            list.add(i + "");
-        }
-        LocationChoiceAdapter adapter = new LocationChoiceAdapter(list, context);
+        adapter = new LocationChoiceAdapter(city_list, context);
         listView.setAdapter(adapter);
         getCity();
     }
@@ -71,7 +73,7 @@ public class LocationChoiceActivity extends ActivitySupport implements ThreadCal
 
         AsyncHttpPost httpRequest;
         httpRequest = new AsyncHttpPost(this, url, parameter, resultCode,
-                HomeBean.class, context);
+                CityBean.class, context);
 
 
     }
@@ -83,7 +85,12 @@ public class LocationChoiceActivity extends ActivitySupport implements ThreadCal
 
     @Override
     public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
-
+        DialogUtil.stopDialogLoading(context);
+        if(resultCode == MYTaskID.CITY_LIST){
+            CityBean cityBean = (CityBean) modelClass;
+            city_list.addAll(cityBean.getData().city_list);
+        }
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -93,6 +100,8 @@ public class LocationChoiceActivity extends ActivitySupport implements ThreadCal
 
     @Override
     public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
-
+        DialogUtil.stopDialogLoading(context);
+        BaseModel baseModel = (BaseModel) modelClass;
+        ToastUtil.show(context,baseModel.getResultMsg(), Toast.LENGTH_SHORT);
     }
 }

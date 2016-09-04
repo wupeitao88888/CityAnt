@@ -4,8 +4,9 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:singleLine="true"
-    android:textAllCaps="true"
-    android:padding="8dip"
     android:gravity="center"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:textColor="@color/tab_text_color" />
+    android:paddingLeft="9dp"
+    android:paddingRight="9dp"
+    android:textSize="14sp"
+    android:background="@drawable/home_center_bg_selector"
+    android:textColor="@color/home_center_selector" />

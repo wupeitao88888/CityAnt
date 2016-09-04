@@ -9,6 +9,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.cityant.main.R;
+import com.cityant.main.bean.CityBean;
 import com.iloomo.utils.ViewHolder;
 
 import java.util.List;
@@ -18,9 +19,9 @@ import java.util.List;
  */
 public class LocationChoiceAdapter extends BaseAdapter {
 
-    private List<String> list;
+    private List<CityBean.CityData.CityList> list;
     private Context context;
-    public LocationChoiceAdapter(List<String> list,Context context){
+    public LocationChoiceAdapter(List<CityBean.CityData.CityList> list, Context context){
         this.list = list;
         this.context = context;
     }
@@ -41,7 +42,7 @@ public class LocationChoiceAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        String string = (String) getItem(i);
+        CityBean.CityData.CityList string = (CityBean.CityData.CityList) getItem(i);
         if(null == view){
             view = LayoutInflater.from(context).inflate(R.layout.location_choic_item,null);
 
@@ -56,8 +57,8 @@ public class LocationChoiceAdapter extends BaseAdapter {
 
     class GridViewAdapter extends BaseAdapter{
 
-        private List<String> list_grid;
-        public GridViewAdapter(List<String> list_grid){
+        private List<CityBean.CityData.CityList> list_grid;
+        public GridViewAdapter(List<CityBean.CityData.CityList> list_grid){
             this.list_grid = list_grid;
         }
         @Override
@@ -77,12 +78,12 @@ public class LocationChoiceAdapter extends BaseAdapter {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            String string = (String) getItem(i);
+            CityBean.CityData.CityList string = (CityBean.CityData.CityList) getItem(i);
             if(null == view){
                 view = LayoutInflater.from(context).inflate(R.layout.location_choice_city_item,null);
             }
             TextView city_text = ViewHolder.get(view,R.id.city_text);
-
+            city_text.setText(string.city_name);
             return view;
         }
     }

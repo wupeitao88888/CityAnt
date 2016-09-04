@@ -1,5 +1,6 @@
 package com.cityant.main.fragment;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,8 +8,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.cityant.main.R;
 import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.cityant.main.adapter.ViewPagerAdapter;
@@ -16,6 +21,7 @@ import com.cityant.main.utlis.ColorRandomizer;
 import com.cityant.main.utlis.ConfigurationFragmentCallbacks;
 import com.cityant.main.widget.TabsLayout;
 import com.iloomo.base.FragmentSupport;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,6 +54,7 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_knock, null);
         setTitle("抢");
         final View header = view.findViewById(R.id.header);
+        final LinearLayout brand_array_ll = (LinearLayout) view.findViewById(R.id.brand_array_ll);
         final TabsLayout tabs = (TabsLayout) view.findViewById(R.id.tabs);
 
         mScrollableLayout = (ScrollableLayout) view.findViewById(R.id.scrollable_layout);
@@ -88,6 +95,9 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
             }
         });
 
+        for( int i = 0; i < 10 ; i++ ){
+            brand_array_ll.addView(addView());
+        }
 //        if (savedInstanceState != null) {
 //            final int y = savedInstanceState.getInt(ARG_LAST_SCROLL_Y);
 //            mScrollableLayout.post(new Runnable() {
@@ -97,6 +107,15 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
 //                }
 //            });
 //        }
+        return view;
+    }
+
+    private View addView() {
+        View view = null;
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        LayoutInflater inflater3 = LayoutInflater.from(getActivity());
+        view = inflater3.inflate(R.layout.brand_item_layout, null);
         return view;
     }
 
@@ -110,7 +129,6 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
     private List<BaseFragment> getFragments() {
 
         final FragmentManager manager = getFragmentManager();
-        final ColorRandomizer colorRandomizer = new ColorRandomizer(getResources().getIntArray(R.array.fragment_colors));
         final List<BaseFragment> list = new ArrayList<>();
 
 //        ConfigurationFragment configurationFragment
@@ -122,12 +140,12 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
         ListViewFragment listViewFragment
                 = (ListViewFragment) manager.findFragmentByTag(ListViewFragment.TAG);
         if (listViewFragment == null) {
-            listViewFragment = ListViewFragment.newInstance(colorRandomizer.next());
+            listViewFragment = ListViewFragment.newInstance(R.color.white);
         }
         ListViewFragment listViewFragment2
                 = (ListViewFragment) manager.findFragmentByTag(ListViewFragment.TAG);
         if (listViewFragment2 == null) {
-            listViewFragment2 = ListViewFragment.newInstance(colorRandomizer.next());
+            listViewFragment2 = ListViewFragment.newInstance(R.color.white);
         }
 
 //        ScrollViewFragment scrollViewFragment

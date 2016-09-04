@@ -10,6 +10,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cityant.main.R;
+import com.cityant.main.adapter.RobAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dimitry Ivanov (mail@dimitryivanov.ru) on 29.03.2015.
@@ -17,6 +21,8 @@ import com.cityant.main.R;
 public class ListViewFragment extends BaseFragment {
 
     static final String TAG = "tag.ListViewFragment";
+
+    private List<String> list = new ArrayList<>();
 
     public static ListViewFragment newInstance(int color) {
         final Bundle bundle = new Bundle();
@@ -33,9 +39,11 @@ public class ListViewFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle sis) {
 
         final View view = inflater.inflate(R.layout.fragment_list_view, parent, false);
-
+        for(int i = 0;i < 10 ; i++){
+            list.add(i+"");
+        }
         mListView = findView(view, R.id.list_view);
-        final BaseListAdapter adapter = new BaseListAdapter(getActivity(), 100);
+        RobAdapter adapter = new RobAdapter(getActivity(), list);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -49,7 +57,7 @@ public class ListViewFragment extends BaseFragment {
 
     @Override
     public CharSequence getTitle(Resources r) {
-        return "ListView";
+        return "推荐";
     }
 
     @Override
