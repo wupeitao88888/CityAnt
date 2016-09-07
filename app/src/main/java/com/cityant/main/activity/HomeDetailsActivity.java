@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cityant.main.R;
@@ -17,12 +18,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by lvfl on 2016/8/16.
- */
+* 需求详情
+* @author Lvfl
+* created at 2016/9/7 15:43
+*/
 public class HomeDetailsActivity extends ActivitySupport {
 
     private ListView details_listView;
     private List<String> list = new ArrayList<>();
+    private RelativeLayout sing_up_rl;
+    private TextView commit_sing_up;
+    private View sing_up_view;
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, HomeDetailsActivity.class);
@@ -40,12 +46,17 @@ public class HomeDetailsActivity extends ActivitySupport {
         setCtenterTitle("详情");
         View view = LayoutInflater.from(context).inflate(R.layout.activity_home_details_head_layout,null);
         details_listView = (ListView) findViewById(R.id.details_listView);
+        sing_up_rl = (RelativeLayout) findViewById(R.id.sing_up_rl);
+        commit_sing_up = (TextView) findViewById(R.id.commit_sing_up);
+        sing_up_view = (View) findViewById(R.id.sing_up_view);
         details_listView.addHeaderView(view);
         for(int i = 0;i<4;i++){
             list.add(i+"");
         }
         DetailsAdapter adapter = new DetailsAdapter();
         details_listView.setAdapter(adapter);
+        commit_sing_up.setOnClickListener(v -> sing_up_rl.setVisibility(View.VISIBLE));
+        sing_up_view.setOnClickListener(v -> sing_up_rl.setVisibility(View.GONE));
     }
 
     class DetailsAdapter extends BaseAdapter{
