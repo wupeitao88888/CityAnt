@@ -60,6 +60,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
     private String token = "";
     private MyImgScroll banner_scroll;
     private LinearLayout vb;
+    private List<HomeBean.HomeData.NeedList> needLists = new ArrayList<>();
 
     @Override
     public View setTitleBar(View view) {
@@ -83,7 +84,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         vb = (LinearLayout) head_view.findViewById(R.id.vb);
         position_text = (TextView) head_view.findViewById(R.id.position_text);
         search_edit = (EditText) head_view.findViewById(R.id.search_edit);
-        position_text.setOnClickListener(v -> LocationChoiceActivity.startActivity(context));
+//        position_text.setOnClickListener(v -> LocationChoiceActivity.startActivity(context));
         search_edit.setOnClickListener(v -> SearchActivity.startActivity(context));
 //        sing_ll.setOnClickListener(v -> DoTaskActivity.startActivity(context));
 //        sing_display_ll.setOnClickListener(v -> DoTaskActivity.startActivity(context));
@@ -105,10 +106,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
         listView.addHeaderView(head_view);
         listView.addHeaderView(head_view_top);
-        for (int i = 0; i < 10; i++) {
-            list.add(i + "");
-        }
-        FragmentHomeAdapter adapter = new FragmentHomeAdapter(context, list);
+        FragmentHomeAdapter adapter = new FragmentHomeAdapter(context, needLists);
         listView.setAdapter(adapter);
         listView.setOnScrollListener(this);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -237,15 +235,17 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
     @Override
     public void onCallbackFromThread(String resultJson, Object modelClass) {
-        Log.e("---成功--", resultJson);
-        HomeBean homeBean = (HomeBean) modelClass;
-        setBanner_scroll(homeBean.data.banner_list);
-        // TODO
     }
 
     @Override
     public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
-        DialogUtil.stopDialogLoading(context);
+        Log.e("---成功--", resultJson);
+        if(MYTaskID.HOME_INDEX == resultCode){
+            DialogUtil.stopDialogLoading(context);
+            HomeBean homeBean = (HomeBean) modelClass;
+            needLists.addAll(homeBean.getData().getNeed_list());
+            setBanner_scroll(homeBean.data.banner_list);
+        }
     }
 
     @Override

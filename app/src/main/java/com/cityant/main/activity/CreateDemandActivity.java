@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.bigkoo.pickerview.TimePickerView;
 import com.cityant.main.R;
 
+import com.cityant.main.bean.TagList;
 import com.cityant.main.global.MYAppconfig;
 import com.cityant.main.global.MYApplication;
 import com.cityant.main.global.MYTaskID;
@@ -22,9 +23,11 @@ import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.DialogUtil;
 import com.iloomo.utils.ToastUtil;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -34,6 +37,7 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
 
     private Button commit_btn;
     private TimePickerView birthPicker;
+    private List<TagList.Data.Tag_List>  tag_lists = new ArrayList<>();
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, CreateDemandActivity.class);
@@ -74,29 +78,30 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
 //                string   pay_price   单价
 //                string   pay_unit   单位
 //                int   need_man   所需名额
-                birthPicker.show();
                 DialogUtil.startDialogLoading(context);
                 Map<String, Object> parameter = new HashMap<>();
                 parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
-                parameter.put("latitude", MYApplication.getInstance().latitude);
-                parameter.put("longitude", MYApplication.getInstance().longitude);
+                parameter.put("latitude", MYApplication.getInstance().latitude+"");
+                parameter.put("longitude", MYApplication.getInstance().longitude+"");
                 parameter.put("city_id", "10");
                 parameter.put("pay_type", "0");
                 parameter.put("need_way", "0");
                 parameter.put("need_title", "测试需求");
-                parameter.put("tag_id", "0");
+                parameter.put("tag_id", tag_lists.get(0).getTag_id());
                 parameter.put("need_content", "我要发布一款测试需求");
                 parameter.put("need_sex", "0");
                 parameter.put("address", "北京");
                 parameter.put("need_time", "2016-09-01");
-                parameter.put("end_time", "2016-09-06");
+                parameter.put("end_time", "2");
                 parameter.put("pay_price", "15");
                 parameter.put("pay_unit", "元");
                 parameter.put("need_man", "3");
-                startHttpRequst(MYAppconfig.USERLOGIN, parameter
-                        , MYTaskID.USERLOGIN);
+                startHttpRequst(MYAppconfig.CREATE_NEED, parameter
+                        , MYTaskID.CREATE_NEED);
             }
         });
+        Map<String, Object> parameter = new HashMap<>();
+        new AsyncHttpPost(this,MYAppconfig.TAG_LIST,parameter,MYTaskID.TAG_LIST,TagList.class,context);
     }
 
     private void initBirthPicker() {
@@ -124,6 +129,12 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
 
     @Override
     public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+        if(MYTaskID.TAG_LIST == resultCode){
+            TagList tagList = (TagList) modelClass;
+            tag_lists.addAll(tagList.getData().getTag_list());
+        } else if(MYTaskID.CREATE_NEED == resultCode){
+            DialogUtil.stopDialogLoading(context);
+        }
         Log.e("-----chen gong -------",resultJson);
     }
 

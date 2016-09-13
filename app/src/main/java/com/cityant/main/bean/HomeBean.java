@@ -115,7 +115,7 @@ public class HomeBean extends BaseModel {
                 this.ad_image = ad_image;
             }
         }
-        class NeedList{
+        public class NeedList{
             public String need_id;
             public String need_title;
             public String need_content;
@@ -131,6 +131,15 @@ public class HomeBean extends BaseModel {
             public String sex;
             public String is_true;
             public String age;
+            public String address;
+
+            public String getAddress() {
+                return address;
+            }
+
+            public void setAddress(String address) {
+                this.address = address;
+            }
 
             public String getNeed_id() {
                 return need_id;
