@@ -21,4 +21,6 @@ public class MYAppconfig extends AppConfig {
     public static final String CITY_LIST = BASEURL + API + "home/cityList";
     public static final String CREATE_NEED = BASEURL + API + "need/createNeed";
     public static final String TAG_LIST = BASEURL + API + "need/tagList";
+    public static final String CLASSLIST = BASEURL + API + "rob/classList";
+    public static final String GOODSLIST = BASEURL + API + "rob/goodsList";
 }

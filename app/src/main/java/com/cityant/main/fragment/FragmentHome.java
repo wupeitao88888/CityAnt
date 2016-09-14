@@ -268,7 +268,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
                 }
             });
-            Glide.with(context).load(list.get(i)).into(imageView);
+            Glide.with(context).load(banner_list.get(i).getAd_image()).into(imageView);
 //            setImage(imageView, lista.get(i).getCover(), context);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             listViews.add(imageView);

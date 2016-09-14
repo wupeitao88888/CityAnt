@@ -31,21 +31,24 @@ public class CreateSmallGrabTypeActivity extends ActivitySupport {
         List<CreateSmallGreabType> list=new ArrayList<>();
         CreateSmallGreabType createSmallGreabType=new CreateSmallGreabType();
         createSmallGreabType.setName("多人抢");
-        createSmallGreabType.setValue("1");
+        createSmallGreabType.setValue("0");
         list.add(createSmallGreabType);
         CreateSmallGreabType bai=new CreateSmallGreabType();
         bai.setName("白人抢");
-        bai.setValue("2");
+        bai.setValue("100");
         list.add(bai);
         CreateSmallGreabType shi=new CreateSmallGreabType();
         shi.setName("十人抢");
-        shi.setValue("3");
+        shi.setValue("10");
         list.add(shi);
         CreateSmallGreabType wu=new CreateSmallGreabType();
         wu.setName("五人抢");
         wu.setValue("5");
         list.add(wu);
-
+        CreateSmallGreabType debule=new CreateSmallGreabType();
+        debule.setName("双人抢");
+        debule.setValue("2");
+        list.add(debule);
         createSmallGrabTypeAdapter=new CreateSmallGrabTypeAdapter(context,list);
         type.setAdapter(createSmallGrabTypeAdapter);
     }

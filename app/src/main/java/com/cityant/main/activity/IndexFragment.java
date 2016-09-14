@@ -143,7 +143,7 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
         //软键盘不会挡着popupwindow
         popWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         //设置菜单显示的位置
-        popWindow.showAtLocation(parent, Gravity.BOTTOM, 0, 0);
+        popWindow.showAtLocation(parent, Gravity.BOTTOM, 4, 0);
 
         //监听菜单的关闭事件
         popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
