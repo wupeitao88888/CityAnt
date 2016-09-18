@@ -14,6 +14,24 @@ public class ChatMsgEntity {
     private String street;
     private String longitude;
     private String latitude;
+    private String duration;
+    private String imgurl;
+
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
 
     public String getStreet() {
         return street;

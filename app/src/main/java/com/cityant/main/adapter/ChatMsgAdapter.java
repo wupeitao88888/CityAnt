@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.text.SpannableString;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +25,11 @@ import com.iloomo.net.AsyncHttpGet;
 import com.iloomo.utils.PImageLoaderUtils;
 import com.iloomo.utils.StrUtil;
 import com.iloomo.utils.ViewHolder;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener;
 import com.zhy.http.okhttp.callback.FileCallBack;
 
 import okhttp3.Call;
@@ -58,6 +64,7 @@ public class ChatMsgAdapter extends BaseAdapter {
     public final int RECEIVED_DOUBLE_ROB = 17;
     public final int SEND_DOUBLE_ROB = 18;
 
+    private boolean blean = false;
 
     private List<ChatMsgEntity> coll;
     private LayoutInflater mInflater;
@@ -68,6 +75,10 @@ public class ChatMsgAdapter extends BaseAdapter {
         this.coll = coll;
         mInflater = LayoutInflater.from(context);
         this.context = context;
+    }
+
+    public void IsGroup(boolean blean) {
+        this.blean = blean;
     }
 
     public int getCount() {
@@ -154,20 +165,36 @@ public class ChatMsgAdapter extends BaseAdapter {
                             R.layout.ease_row_sent_voice, null);
                     break;
                 case RECEIVED_BEAN:
+                    convertView = mInflater.inflate(
+                            R.layout.ease_row_received_bean, null);
                     break;
                 case SEND_BEAN:
+                    convertView = mInflater.inflate(
+                            R.layout.ease_row_sent_bean, null);
                     break;
                 case RECEIVED_TIP:
+                    convertView = mInflater.inflate(
+                            R.layout.ease_row_received_tip, null);
                     break;
                 case SEND_TIP:
+                    convertView = mInflater.inflate(
+                            R.layout.ease_row_sent_tip, null);
                     break;
                 case RECEIVED_GIFT:
+                    convertView = mInflater.inflate(
+                            R.layout.ease_row_received_gift, null);
                     break;
                 case SEND_GIFT:
+                    convertView = mInflater.inflate(
+                            R.layout.ease_row_sent_gift, null);
                     break;
                 case RECEIVED_DOUBLE_ROB:
+                    convertView = mInflater.inflate(
+                            R.layout.ease_row_received_double_rob, null);
                     break;
                 case SEND_DOUBLE_ROB:
+                    convertView = mInflater.inflate(
+                            R.layout.ease_row_sent_double_rob, null);
                     break;
                 default:
                     break;
@@ -189,7 +216,7 @@ public class ChatMsgAdapter extends BaseAdapter {
                 ImageView iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
                 TextView tv_location = ViewHolder.get(convertView, R.id.tv_location);
                 StrUtil.setText(tv_location, entity.getStreet());
-                PImageLoaderUtils.displayuserHand(entity.getUser_avar(),iv_userhead,context);
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), iv_userhead, context);
                 break;
             case RECEIVED_MESSAGE:
                 SpannableString spannableString = FaceConversionUtil
@@ -198,18 +225,71 @@ public class ChatMsgAdapter extends BaseAdapter {
                 ImageView iv_userheadmsg = ViewHolder.get(convertView, R.id.iv_userhead);
                 TextView tv_chatcontent = ViewHolder.get(convertView, R.id.tv_chatcontent);
 
-                PImageLoaderUtils.displayuserHand(entity.getUser_avar(),iv_userheadmsg,context);
-                StrUtil.setText(tv_chatcontent, entity.getMessage());
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), iv_userheadmsg, context);
+                StrUtil.setText(tv_chatcontent, spannableString);
                 break;
             case RECEIVED_PICTURE:
-                ImageView iv_userheadp= ViewHolder.get(convertView, R.id.iv_userhead);
+                ImageView iv_userheadp = ViewHolder.get(convertView, R.id.iv_userhead);
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), iv_userheadp, context);
 
-                PImageLoaderUtils.displayuserHand(entity.getUser_avar(),iv_userheadp,context);
+                ImageView image = ViewHolder.get(convertView, R.id.image);
+                ProgressBar progress_bar = ViewHolder.get(convertView, R.id.progress_bar);
+                TextView percentage = ViewHolder.get(convertView, R.id.percentage);
+                ImageLoader.getInstance().displayImage(entity.getImgurl(), new ImageViewAware(image), null, new ImageLoadingListener() {
+                    @Override
+                    public void onLoadingStarted(String s, View view) {
+                        progress_bar.setVisibility(View.VISIBLE);
+                    }
 
+                    @Override
+                    public void onLoadingFailed(String s, View view, FailReason failReason) {
+
+                    }
+
+                    @Override
+                    public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+
+                    }
+
+                    @Override
+                    public void onLoadingCancelled(String s, View view) {
+                        progress_bar.setVisibility(View.GONE);
+                    }
+                }, new ImageLoadingProgressListener() {
+
+                    @Override
+                    public void onProgressUpdate(String s, View view, int i, int i1) {
+                        StrUtil.setText(percentage, i + "/" + i1);
+                    }
+                });
                 break;
             case RECEIVED_VIDEO_CALL:
+                ImageView video_userheadp = ViewHolder.get(convertView, R.id.iv_userhead);
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), video_userheadp, context);
+                TextView chat_video_call_time = ViewHolder.get(convertView, R.id.tv_chatcontent);
+                StrUtil.setText(chat_video_call_time, entity.getDuration());
+//                if (blean) {
+//                    tv_userid.setVisibility(View.VISIBLE);
+//                }else{
+//                    tv_userid.setVisibility(View.GONE);
+//                }
                 break;
             case RECEIVED_VOICE:
+                ImageView voice_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
+                ImageView iv_voice = ViewHolder.get(convertView, R.id.iv_voice);
+                TextView tv_length = ViewHolder.get(convertView, R.id.tv_length);
+                ImageView iv_unread_voice = ViewHolder.get(convertView, R.id.iv_unread_voice);
+                ProgressBar voice_progress_bar = ViewHolder.get(convertView, R.id.progress_bar);
+                TextView tv_userid = ViewHolder.get(convertView, R.id.tv_userid);
+                if (blean) {
+                    tv_userid.setVisibility(View.VISIBLE);
+                }else{
+                    tv_userid.setVisibility(View.GONE);
+                }
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), voice_userhead, context);
+
+
+
                 break;
             case SEND_LOCATION:
                 break;

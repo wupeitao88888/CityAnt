@@ -1,45 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ru.noties.scrollable.ScrollableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/scrollable_layout"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:scrollable_autoMaxScroll="true"
-    app:scrollable_autoMaxScrollViewId="@+id/header"
-    app:scrollable_closeUpAnimationMillis="250"
-    app:scrollable_closeUpAnimatorInterpolator="@android:anim/accelerate_decelerate_interpolator"
-    app:scrollable_considerIdleMillis="125"
-    app:scrollable_defaultCloseUp="true"
-    app:scrollable_friction="0.075"
-    app:scrollable_scrollerFlywheel="false">
+    android:background="@color/bg"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/header_height"
-            android:background="@color/header_background"
-            android:gravity="center"
-            android:text="Header"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <com.cityant.main.widget.TabsLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/tabs_height"
-             />
-
-    </LinearLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/tabs_height" />
-
-</ru.noties.scrollable.ScrollableLayout>
+    <ListView
+        android:id="@+id/msglist"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#00000000"
+        android:dividerHeight="1dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:smoothScrollbar="true" />
+</LinearLayout>
