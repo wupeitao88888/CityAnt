@@ -111,11 +111,12 @@ public class AsyncHttpGet<T> {
                 .execute(stringCallback);
     }
 
-    public AsyncHttpGet(String url, Map<String, String> params, FileCallBack fileCallBack, Context context, int resultCode) {
+    public AsyncHttpGet(String url, FileCallBack fileCallBack, Context context, int resultCode) {
         OkHttpUtils//
                 .get()//
                 .url(url)//
                 .id(resultCode)
+                .tag(context)
                 .build()//
                 .execute(fileCallBack);
     }

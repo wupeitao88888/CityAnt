@@ -147,7 +147,24 @@ public class MApplication extends App {
         }
         return path;
     }
-
+    public static String getVoicePath() {
+        File sdDir = null;
+        boolean sdCardExist = Environment.getExternalStorageState()
+                .equals(android.os.Environment.MEDIA_MOUNTED);//判断sd卡是否存在
+        if (sdCardExist) {
+            sdDir = Environment.getExternalStorageDirectory();//获取跟目录
+        } else {
+            return "";
+        }
+        String replace = MApplication.context.getPackageName();
+        String path = sdDir.toString() + "/Android/data/" + replace + "/voice/";
+        File dbFolder = new File(path);
+        // 目录不存在则自动创建目录
+        if (!dbFolder.exists()) {
+            dbFolder.mkdirs();
+        }
+        return path;
+    }
 
     public double latitude;
     public double longitude;
