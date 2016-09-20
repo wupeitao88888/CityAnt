@@ -3,22 +3,22 @@ package com.cityant.main.bean;
 import com.hyphenate.chat.EMMessage;
 
 public class ChatMsgEntity {
-   /*类型 0：时间，
-    *1：接收地址，
-    * 2：接收消息，
-    * 3：接收图片，
-    * 4：接收语音电话，
-    * 5：接收语音，
-    * 6：发送地址，
-    * 7：发送消息，
-    * 8，发送图片，
-    * 9：发起语音电话，10：发送语音，11：接收蚂蚁豆，
-    * 12：发送蚂蚁豆，13：接收小费，14：发送小费，
-    * 15：接收礼物，16：发送礼物，17：接收双人抢，
-    * 18：发送双人抢
-    *
-    */
-   private int type;
+    /*类型 0：时间，
+     *1：接收地址，
+     * 2：接收消息，
+     * 3：接收图片，
+     * 4：接收语音电话，
+     * 5：接收语音，
+     * 6：发送地址，
+     * 7：发送消息，
+     * 8，发送图片，
+     * 9：发起语音电话，10：发送语音，11：接收蚂蚁豆，
+     * 12：发送蚂蚁豆，13：接收小费，14：发送小费，
+     * 15：接收礼物，16：发送礼物，17：接收双人抢，
+     * 18：发送双人抢
+     *
+     */
+    private int type;
     private String token;
     private String mobile;//手机号
     private String user_name;//名字
@@ -32,8 +32,26 @@ public class ChatMsgEntity {
     private String duration;//聊天的时间长度
     private String imgurl;//图片的URL
     private int status;//消息状态 -1://未发送0://发送失败1://发送中2://已送达3://已发送
-    private int voicestatus;//是否播放
+    private int voicestatus;//是否播放过
     private String voiceurl;//语音URL
+    private String voicelenth;//语音的长度
+    private boolean voiceplay;//是否增长播放
+
+    public boolean isVoiceplay() {
+        return voiceplay;
+    }
+
+    public void setVoiceplay(boolean voiceplay) {
+        this.voiceplay = voiceplay;
+    }
+
+    public String getVoicelenth() {
+        return voicelenth;
+    }
+
+    public void setVoicelenth(String voicelenth) {
+        this.voicelenth = voicelenth;
+    }
 
     public int getVoicestatus() {
         return voicestatus;

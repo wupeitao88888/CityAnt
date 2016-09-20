@@ -150,4 +150,6 @@
     <string name="prompt">温馨提示：请先选择参与对象后再点击发起类型</string>
     <string name="mecreatek">我要发起</string>
     <string name="choose">相关选择</string>
+
+    <string name="xml_custom_record">按住 说话</string>
 </resources>

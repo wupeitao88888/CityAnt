@@ -54,7 +54,6 @@ public class FaceConversionUtil {
         if (mFaceConversionUtil == null) {
             mFaceConversionUtil = new FaceConversionUtil();
         }
-        Log.e("我进这个类里啦", "谢谢");
         return mFaceConversionUtil;
     }
 

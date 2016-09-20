@@ -31,6 +31,7 @@ import com.cityant.main.utlis.FaceConversionUtil;
 import com.hyphenate.chat.EMMessage;
 import com.iloomo.global.MApplication;
 import com.iloomo.net.AsyncHttpGet;
+import com.iloomo.utils.L;
 import com.iloomo.utils.PImageLoaderUtils;
 import com.iloomo.utils.StrUtil;
 import com.iloomo.utils.ViewHolder;
@@ -80,6 +81,7 @@ public class ChatMsgAdapter extends BaseAdapter {
     private Context context;
 
     public static boolean isPlaying = false;
+    public int selectPlay = 0;
 
     @SuppressWarnings("-access")
     public ChatMsgAdapter(Context context, List<ChatMsgEntity> coll) {
@@ -212,12 +214,12 @@ public class ChatMsgAdapter extends BaseAdapter {
             }
 
         }
-        findViewById(type, convertView, entity);
+        findViewById(type, convertView, entity, position);
         return convertView;
     }
 
 
-    private void findViewById(int type, View convertView, ChatMsgEntity entity) {
+    private void findViewById(int type, View convertView, ChatMsgEntity entity, int position) {
         switch (type) {
             case VALUE_TIME_TIP:
                 TextView tv_sendtime = ViewHolder.get(convertView, R.id.tv_sendtime);
@@ -260,35 +262,36 @@ public class ChatMsgAdapter extends BaseAdapter {
                 ImageView image = ViewHolder.get(convertView, R.id.image);
                 ProgressBar progress_bar = ViewHolder.get(convertView, R.id.progress_bar);
                 TextView percentage = ViewHolder.get(convertView, R.id.percentage);
-                ImageLoader.getInstance().displayImage(entity.getImgurl(), new ImageViewAware(image), null, new ImageLoadingListener() {
-                    @Override
-                    public void onLoadingStarted(String s, View view) {
-                        progress_bar.setVisibility(View.VISIBLE);
-                        percentage.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onLoadingFailed(String s, View view, FailReason failReason) {
-
-                    }
-
-                    @Override
-                    public void onLoadingComplete(String s, View view, Bitmap bitmap) {
-
-                    }
-
-                    @Override
-                    public void onLoadingCancelled(String s, View view) {
-                        progress_bar.setVisibility(View.GONE);
-                        percentage.setVisibility(View.GONE);
-                    }
-                }, new ImageLoadingProgressListener() {
-
-                    @Override
-                    public void onProgressUpdate(String s, View view, int i, int i1) {
-                        StrUtil.setText(percentage, i + "/" + i1);
-                    }
-                });
+//                ImageLoader.getInstance().displayImage(entity.getImgurl(), new ImageViewAware(image), null, new ImageLoadingListener() {
+//                    @Override
+//                    public void onLoadingStarted(String s, View view) {
+//                        progress_bar.setVisibility(View.VISIBLE);
+//                        percentage.setVisibility(View.VISIBLE);
+//                    }
+//
+//                    @Override
+//                    public void onLoadingFailed(String s, View view, FailReason failReason) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onLoadingCancelled(String s, View view) {
+//                        progress_bar.setVisibility(View.GONE);
+//                        percentage.setVisibility(View.GONE);
+//                    }
+//                }, new ImageLoadingProgressListener() {
+//
+//                    @Override
+//                    public void onProgressUpdate(String s, View view, int i, int i1) {
+//                        StrUtil.setText(percentage, i + "/" + i1);
+//                    }
+//                });
+                PImageLoaderUtils.displaySmallpix(entity.getImgurl(), image, context);
                 TextView picture_tv_userid = ViewHolder.get(convertView, R.id.tv_userid);
                 if (blean) {
                     picture_tv_userid.setVisibility(View.VISIBLE);
@@ -312,6 +315,8 @@ public class ChatMsgAdapter extends BaseAdapter {
                 break;
             case RECEIVED_VOICE:
                 ImageView voice_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
+                RelativeLayout received_voice_bubble = ViewHolder.get(convertView, R.id.bubble);
+
                 ImageView iv_voice = ViewHolder.get(convertView, R.id.iv_voice);
                 TextView tv_length = ViewHolder.get(convertView, R.id.tv_length);
                 ImageView iv_unread_voice = ViewHolder.get(convertView, R.id.iv_unread_voice);
@@ -324,6 +329,31 @@ public class ChatMsgAdapter extends BaseAdapter {
                 }
                 PImageLoaderUtils.displayuserHand(entity.getUser_avar(), voice_userhead, context);
                 StrUtil.setText(tv_userid, entity.getUser_name());
+
+                received_voice_bubble.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (isPlaying) {
+                            stopPlayVoice(iv_voice, true, position);
+                            if (selectPlay == position)
+                                return;
+                            selectPlay = position;
+                            upLoadVoiceFiles(iv_voice, entity.getVoiceurl(), false, voice_progress_bar, position);
+                        } else {
+                            selectPlay = position;
+                            upLoadVoiceFiles(iv_voice, entity.getVoiceurl(), false, voice_progress_bar, position);
+                        }
+                    }
+                });
+                StrUtil.setText(tv_length, entity.getVoicelenth() + "’’");
+                if (entity.getVoicestatus() == 0) {
+                    iv_unread_voice.setVisibility(View.VISIBLE);
+                } else {
+                    iv_unread_voice.setVisibility(View.GONE);
+                }
+                if (!entity.isVoiceplay()) {
+                    iv_voice.setImageResource(R.drawable.ease_chatfrom_voice_playing);
+                }
                 break;
             case SEND_LOCATION:
                 ImageView send_location_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
@@ -332,7 +362,7 @@ public class ChatMsgAdapter extends BaseAdapter {
                 TextView send_location_tv_ack = ViewHolder.get(convertView, R.id.tv_ack);
                 TextView send_location_tv_delivered = ViewHolder.get(convertView, R.id.tv_delivered);
                 ProgressBar send_location_progress_bar = ViewHolder.get(convertView, R.id.progress_bar);
-
+                TextView send_location_tv_location = ViewHolder.get(convertView, R.id.tv_location);
                 PImageLoaderUtils.displayuserHand(entity.getUser_avar(), send_location_iv_userhead, context);
                 setMessageStatus(send_location_progress_bar, send_location_tv_delivered, send_location_tv_ack, send_location_status, entity.getStatus());
                 send_location_bubble.setOnClickListener(new View.OnClickListener() {
@@ -341,7 +371,7 @@ public class ChatMsgAdapter extends BaseAdapter {
 
                     }
                 });
-
+                StrUtil.setText(send_location_tv_location, entity.getStreet());
                 break;
             case SEND_MESSAGE:
                 ImageView send_message_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
@@ -363,8 +393,6 @@ public class ChatMsgAdapter extends BaseAdapter {
                 ImageView send_picture_image = ViewHolder.get(convertView, R.id.image);
 
                 RelativeLayout send_picture_bubble = ViewHolder.get(convertView, R.id.bubble);
-                ProgressBar send_picture_progress_bar = ViewHolder.get(convertView, R.id.progress_bar);
-                TextView send_picture_percentage = ViewHolder.get(convertView, R.id.percentage);
 
                 ImageView send_picture_status = ViewHolder.get(convertView, R.id.msg_status);
                 TextView send_picture_tv_ack = ViewHolder.get(convertView, R.id.tv_ack);
@@ -374,36 +402,36 @@ public class ChatMsgAdapter extends BaseAdapter {
                 PImageLoaderUtils.displayuserHand(entity.getUser_avar(), send_picture_iv_userhead, context);
                 setMessageStatus(send_picture_status_progress_bar, send_picture_tv_delivered, send_picture_tv_ack, send_picture_status, entity.getStatus());
 
-                ImageLoader.getInstance().displayImage(entity.getImgurl(), new ImageViewAware(send_picture_image), null, new ImageLoadingListener() {
-                    @Override
-                    public void onLoadingStarted(String s, View view) {
-                        send_picture_progress_bar.setVisibility(View.VISIBLE);
-                        send_picture_percentage.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onLoadingFailed(String s, View view, FailReason failReason) {
-
-                    }
-
-                    @Override
-                    public void onLoadingComplete(String s, View view, Bitmap bitmap) {
-
-                    }
-
-                    @Override
-                    public void onLoadingCancelled(String s, View view) {
-                        send_picture_progress_bar.setVisibility(View.GONE);
-                        send_picture_percentage.setVisibility(View.GONE);
-                    }
-                }, new ImageLoadingProgressListener() {
-
-                    @Override
-                    public void onProgressUpdate(String s, View view, int i, int i1) {
-                        StrUtil.setText(send_picture_percentage, i + "/" + i1);
-                    }
-                });
-
+//                ImageLoader.getInstance().displayImage(entity.getImgurl(), new ImageViewAware(send_picture_image), null, new ImageLoadingListener() {
+//                    @Override
+//                    public void onLoadingStarted(String s, View view) {
+//                        send_picture_progress_bar.setVisibility(View.VISIBLE);
+//                        send_picture_percentage.setVisibility(View.VISIBLE);
+//                    }
+//
+//                    @Override
+//                    public void onLoadingFailed(String s, View view, FailReason failReason) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onLoadingCancelled(String s, View view) {
+//                        send_picture_progress_bar.setVisibility(View.GONE);
+//                        send_picture_percentage.setVisibility(View.GONE);
+//                    }
+//                }, new ImageLoadingProgressListener() {
+//
+//                    @Override
+//                    public void onProgressUpdate(String s, View view, int i, int i1) {
+//                        StrUtil.setText(send_picture_percentage, i + "/" + i1);
+//                    }
+//                });
+                PImageLoaderUtils.displaySmallpix(entity.getImgurl(), send_picture_image, context);
                 send_picture_bubble.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -423,7 +451,7 @@ public class ChatMsgAdapter extends BaseAdapter {
             case SEND_VOICE:
                 ImageView send_voice_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
                 RelativeLayout send_voice_bubble = ViewHolder.get(convertView, R.id.bubble);
-                ImageView send_voice_iv_voice = ViewHolder.get(convertView, R.id.bubble);
+                ImageView send_voice_iv_voice = ViewHolder.get(convertView, R.id.iv_voice);
 
                 PImageLoaderUtils.displayuserHand(entity.getUser_avar(), send_voice_iv_userhead, context);
                 ImageView send_voice_status = ViewHolder.get(convertView, R.id.msg_status);
@@ -436,29 +464,176 @@ public class ChatMsgAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View view) {
                         if (isPlaying) {
-                            stopPlayVoice(send_voice_iv_voice, true);
+                            stopPlayVoice(send_voice_iv_voice, true, position);
+                            if (selectPlay == position)
+                                return;
+                            selectPlay = position;
+                            upLoadVoiceFiles(send_voice_iv_voice, entity.getVoiceurl(), true, send_voice_progress_bar, position);
                         } else {
-                            upLoadVoiceFiles(send_voice_iv_voice, entity.getVoiceurl(), true);
+                            selectPlay = position;
+                            upLoadVoiceFiles(send_voice_iv_voice, entity.getVoiceurl(), true, send_voice_progress_bar, position);
                         }
                     }
                 });
-
+                if (!entity.isVoiceplay()) {
+                    send_voice_iv_voice.setImageResource(R.drawable.ease_chatto_voice_playing);
+                }
                 break;
             case RECEIVED_BEAN:
+                ImageView received_bean_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
+                TextView received_bean_userid = ViewHolder.get(convertView, R.id.tv_userid);
+                LinearLayout received_bean_bubble = ViewHolder.get(convertView, R.id.bubble);
+                TextView received_bean_tv_content = ViewHolder.get(convertView, R.id.tv_content);
+
+                if (blean) {
+                    received_bean_userid.setVisibility(View.VISIBLE);
+                } else {
+                    received_bean_userid.setVisibility(View.GONE);
+                }
+                received_bean_bubble.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                StrUtil.setText(received_bean_tv_content, entity.getMessage());
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), received_bean_iv_userhead, context);
                 break;
             case SEND_BEAN:
+                ImageView send_bean_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
+                LinearLayout send_bean_bubble = ViewHolder.get(convertView, R.id.bubble);
+                TextView received_bean_tv_file_name = ViewHolder.get(convertView, R.id.tv_file_name);
+
+                ImageView send_bean_status = ViewHolder.get(convertView, R.id.msg_status);
+                TextView send_bean_tv_ack = ViewHolder.get(convertView, R.id.tv_ack);
+                TextView send_bean_tv_delivered = ViewHolder.get(convertView, R.id.tv_delivered);
+                ProgressBar send_bean_progress_bar = ViewHolder.get(convertView, R.id.progress_bar);
+                send_bean_bubble.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), send_bean_iv_userhead, context);
+                StrUtil.setText(received_bean_tv_file_name, entity.getMessage());
+                setMessageStatus(send_bean_progress_bar, send_bean_tv_delivered, send_bean_tv_ack, send_bean_status, entity.getStatus());
                 break;
             case RECEIVED_TIP:
+                ImageView received_tip_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
+                TextView received_tip_userid = ViewHolder.get(convertView, R.id.tv_userid);
+                LinearLayout received_tip_bubble = ViewHolder.get(convertView, R.id.bubble);
+                TextView received_tip_tv_content = ViewHolder.get(convertView, R.id.tv_content);
+
+                if (blean) {
+                    received_tip_userid.setVisibility(View.VISIBLE);
+                } else {
+                    received_tip_userid.setVisibility(View.GONE);
+                }
+                received_tip_bubble.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                StrUtil.setText(received_tip_tv_content, entity.getMessage());
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), received_tip_iv_userhead, context);
                 break;
             case SEND_TIP:
+                ImageView send_tip_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
+                LinearLayout send_tip_bubble = ViewHolder.get(convertView, R.id.bubble);
+                TextView send_tip_tv_file_name = ViewHolder.get(convertView, R.id.tv_file_name);
+
+                ImageView send_tip_status = ViewHolder.get(convertView, R.id.msg_status);
+                TextView send_tip_tv_ack = ViewHolder.get(convertView, R.id.tv_ack);
+                TextView send_tip_tv_delivered = ViewHolder.get(convertView, R.id.tv_delivered);
+                ProgressBar send_tip_progress_bar = ViewHolder.get(convertView, R.id.progress_bar);
+                send_tip_bubble.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), send_tip_iv_userhead, context);
+                StrUtil.setText(send_tip_tv_file_name, entity.getMessage());
+                setMessageStatus(send_tip_progress_bar, send_tip_tv_delivered, send_tip_tv_ack, send_tip_status, entity.getStatus());
                 break;
             case RECEIVED_GIFT:
+                ImageView received_gift_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
+                TextView received_gift_userid = ViewHolder.get(convertView, R.id.tv_userid);
+                LinearLayout received_gift_bubble = ViewHolder.get(convertView, R.id.bubble);
+                TextView received_gift_tv_content = ViewHolder.get(convertView, R.id.tv_content);
+
+                if (blean) {
+                    received_gift_userid.setVisibility(View.VISIBLE);
+                } else {
+                    received_gift_userid.setVisibility(View.GONE);
+                }
+                received_gift_bubble.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                StrUtil.setText(received_gift_tv_content, entity.getMessage());
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), received_gift_iv_userhead, context);
                 break;
             case SEND_GIFT:
+                ImageView send_gift_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
+                LinearLayout send_gift_bubble = ViewHolder.get(convertView, R.id.bubble);
+                TextView send_gift_tv_file_name = ViewHolder.get(convertView, R.id.tv_file_name);
+
+                ImageView send_gift_status = ViewHolder.get(convertView, R.id.msg_status);
+                TextView send_gift_tv_ack = ViewHolder.get(convertView, R.id.tv_ack);
+                TextView send_gift_tv_delivered = ViewHolder.get(convertView, R.id.tv_delivered);
+                ProgressBar send_gift_progress_bar = ViewHolder.get(convertView, R.id.progress_bar);
+                send_gift_bubble.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), send_gift_iv_userhead, context);
+                StrUtil.setText(send_gift_tv_file_name, entity.getMessage());
+                setMessageStatus(send_gift_progress_bar, send_gift_tv_delivered, send_gift_tv_ack, send_gift_status, entity.getStatus());
                 break;
             case RECEIVED_DOUBLE_ROB:
+                ImageView received_double_rob_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
+                TextView received_double_rob_userid = ViewHolder.get(convertView, R.id.tv_userid);
+                LinearLayout received_double_rob_bubble = ViewHolder.get(convertView, R.id.bubble);
+                TextView received_double_rob_tv_content = ViewHolder.get(convertView, R.id.tv_content);
+
+                if (blean) {
+                    received_double_rob_userid.setVisibility(View.VISIBLE);
+                } else {
+                    received_double_rob_userid.setVisibility(View.GONE);
+                }
+                received_double_rob_bubble.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                StrUtil.setText(received_double_rob_tv_content, entity.getMessage());
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), received_double_rob_iv_userhead, context);
                 break;
             case SEND_DOUBLE_ROB:
+                ImageView send_double_rob_iv_userhead = ViewHolder.get(convertView, R.id.iv_userhead);
+                LinearLayout send_double_rob_bubble = ViewHolder.get(convertView, R.id.bubble);
+                TextView send_double_rob_tv_file_name = ViewHolder.get(convertView, R.id.tv_file_name);
+
+                ImageView send_double_rob_status = ViewHolder.get(convertView, R.id.msg_status);
+                TextView send_double_rob_tv_ack = ViewHolder.get(convertView, R.id.tv_ack);
+                TextView send_double_rob_tv_delivered = ViewHolder.get(convertView, R.id.tv_delivered);
+                ProgressBar send_double_rob_progress_bar = ViewHolder.get(convertView, R.id.progress_bar);
+                send_double_rob_bubble.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                PImageLoaderUtils.displayuserHand(entity.getUser_avar(), send_double_rob_iv_userhead, context);
+                StrUtil.setText(send_double_rob_tv_file_name, entity.getMessage());
+                setMessageStatus(send_double_rob_progress_bar, send_double_rob_tv_delivered, send_double_rob_tv_ack, send_double_rob_status, entity.getStatus());
                 break;
             default:
                 break;
@@ -521,7 +696,7 @@ public class ChatMsgAdapter extends BaseAdapter {
     MediaPlayer mediaPlayer = null;
     private AnimationDrawable voiceAnimation = null;
 
-    public void playVoice(String filePath, ImageView voiceIconView, boolean isTo) {
+    public void playVoice(String filePath, ImageView voiceIconView, boolean isTo, int position) {
         if (!(new File(filePath).exists())) {
             return;
         }
@@ -549,7 +724,7 @@ public class ChatMsgAdapter extends BaseAdapter {
                     // TODO Auto-generated method stub
                     mediaPlayer.release();
                     mediaPlayer = null;
-                    stopPlayVoice(voiceIconView, isTo);
+                    stopPlayVoice(voiceIconView, isTo, position);
                 }
 
             });
@@ -568,15 +743,24 @@ public class ChatMsgAdapter extends BaseAdapter {
         }
     }
 
-    public void upLoadVoiceFiles(ImageView voiceIconView, String httpurl, boolean isTo) {
+    public void upLoadVoiceFiles(ImageView voiceIconView, String httpurl, boolean isTo, ProgressBar voice_progress_bar, final int position) {
+        ChatMsgEntity chatMsgEntity = coll.get(position);
+        chatMsgEntity.setVoiceplay(true);
         File file = new File(MApplication.getVoicePath() + getUrlFileName(httpurl));
         if (file.exists()) {
-            playVoice(MApplication.getVoicePath() + getUrlFileName(httpurl), voiceIconView, isTo);
+            if (voice_progress_bar != null)
+                voice_progress_bar.setVisibility(View.GONE);
+            playVoice(MApplication.getVoicePath() + getUrlFileName(httpurl), voiceIconView, isTo, position);
+            return;
+        }
+        if(position!=selectPlay){
             return;
         }
         AsyncHttpGet asyncHttpGet = new AsyncHttpGet(httpurl, new FileCallBack(MApplication.getVoicePath(), getUrlFileName(httpurl)) {
             @Override
             public void onBefore(Request request, int id) {
+                if (voice_progress_bar != null)
+                    voice_progress_bar.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -591,12 +775,16 @@ public class ChatMsgAdapter extends BaseAdapter {
 
             @Override
             public void onResponse(File response, int id) {
-                playVoice(response.getAbsolutePath(), voiceIconView, isTo);
+                if (voice_progress_bar != null)
+                    voice_progress_bar.setVisibility(View.GONE);
+                if(position==selectPlay){
+                    playVoice(response.getAbsolutePath(), voiceIconView, isTo, position);
+                }
             }
         }, context, MYTaskID.UPLOADINGVOICEFILE);
     }
 
-    public void stopPlayVoice(ImageView voiceIconView, boolean isTo) {
+    public void stopPlayVoice(ImageView voiceIconView, boolean isTo, int position) {
         voiceAnimation.stop();
         if (!isTo) {
             voiceIconView.setImageResource(R.drawable.ease_chatfrom_voice_playing);
@@ -609,6 +797,9 @@ public class ChatMsgAdapter extends BaseAdapter {
             mediaPlayer.release();
         }
         isPlaying = false;
+        ChatMsgEntity chatMsgEntity = coll.get(selectPlay);
+        chatMsgEntity.setVoiceplay(false);
+
         notifyDataSetChanged();
     }
 
@@ -621,4 +812,21 @@ public class ChatMsgAdapter extends BaseAdapter {
         }
         return filename;
     }
+
+
+    public void stopThread() {
+        try {
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+                mediaPlayer.release();
+            }
+        } catch (Exception e) {
+
+        }
+        isPlaying = false;
+        mediaPlayer = null;
+    }
+
+
 }
+

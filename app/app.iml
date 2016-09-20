@@ -109,10 +109,10 @@
     <orderEntry type="library" exported="" name="ptr-lib-release-" level="project" />
     <orderEntry type="library" exported="" name="pickerview-release-" level="project" />
     <orderEntry type="library" exported="" name="play-services-appindexing-8.1.0" level="project" />
-    <orderEntry type="library" exported="" name="okio-1.8.0" level="project" />
     <orderEntry type="library" exported="" name="hamcrest-core-1.3" level="project" />
-    <orderEntry type="library" exported="" name="junit-4.12" level="project" />
+    <orderEntry type="library" exported="" name="okio-1.8.0" level="project" />
     <orderEntry type="library" exported="" name="okhttp-3.3.1" level="project" />
+    <orderEntry type="library" exported="" name="junit-4.12" level="project" />
     <orderEntry type="library" exported="" name="bolts-tasks-1.4.0" level="project" />
     <orderEntry type="library" exported="" name="hyphenatechat_3.1.4" level="project" />
     <orderEntry type="library" exported="" name="library-release-" level="project" />

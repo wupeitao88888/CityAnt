@@ -60,12 +60,12 @@ public class FragmentMessage extends FragmentSupport {
         for (int i = 0; i < 20; i++) {
             MessageList messageList = new MessageList();
             messageList.setFriend_id(i + "");
-            messageList.setUser_avar("");
+            messageList.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
             messageList.setCount(i + "");
             messageList.setTime("2016-09-16 11:30");
             messageList.setLastmsg("城市蚂蚁你用着怎么样？");
             messageList.setMsgid(i + "");
-            messageList.setUser_name("用户" + i);
+            messageList.setUser_name("唐嫣" + i);
             msgList.add(messageList);
         }
         fragmentMessageAdapter = new FragmentMessageAdapter(context, msgList);

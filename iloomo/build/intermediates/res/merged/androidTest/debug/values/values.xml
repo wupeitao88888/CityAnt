@@ -186,6 +186,7 @@
     <item name="webview" type="id"/>
     <string name="action_settings">Settings</string>
     <string name="app_name">iloomo</string>
+    <string name="createfrendsshopping">发起有情购</string>
     <string name="exit">再按一次退出程序</string>
     <string name="hello_world">Hello world!</string>
     <string name="load_fail">加载失败</string>
