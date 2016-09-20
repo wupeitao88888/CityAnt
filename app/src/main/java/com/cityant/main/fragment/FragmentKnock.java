@@ -8,25 +8,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.cityant.main.R;
 import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.cityant.main.adapter.ViewPagerAdapter;
-import com.cityant.main.utlis.ColorRandomizer;
 import com.cityant.main.utlis.ConfigurationFragmentCallbacks;
 import com.cityant.main.widget.TabsLayout;
 import com.iloomo.base.FragmentSupport;
-import com.umeng.analytics.MobclickAgent;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import ru.noties.scrollable.CanScrollVerticallyDelegate;
 import ru.noties.scrollable.OnFlingOverListener;
 import ru.noties.scrollable.OnScrollChangedListener;

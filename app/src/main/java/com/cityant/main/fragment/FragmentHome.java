@@ -61,6 +61,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
     private MyImgScroll banner_scroll;
     private LinearLayout vb;
     private List<HomeBean.HomeData.NeedList> needLists = new ArrayList<>();
+    private FragmentHomeAdapter adapter;
 
     @Override
     public View setTitleBar(View view) {
@@ -106,7 +107,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
         listView.addHeaderView(head_view);
         listView.addHeaderView(head_view_top);
-        FragmentHomeAdapter adapter = new FragmentHomeAdapter(context, needLists);
+        adapter = new FragmentHomeAdapter(context, needLists);
         listView.setAdapter(adapter);
         listView.setOnScrollListener(this);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -245,6 +246,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
             HomeBean homeBean = (HomeBean) modelClass;
             needLists.addAll(homeBean.getData().getNeed_list());
             setBanner_scroll(homeBean.data.banner_list);
+            adapter.notifyDataSetChanged();
         }
     }
 
