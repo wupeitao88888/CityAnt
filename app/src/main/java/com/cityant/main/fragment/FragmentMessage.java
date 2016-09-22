@@ -7,16 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.cityant.main.R;
 import com.cityant.main.activity.MYChatActivity;
 import com.cityant.main.activity.MyFrendActivity;
+import com.cityant.main.activity.RegisterActivity;
 import com.cityant.main.adapter.FragmentMessageAdapter;
+import com.cityant.main.bean.BusEventFragmentMessage;
 import com.cityant.main.bean.MessageList;
 import com.cityant.main.bean.MyFrends;
+import com.cityant.main.utlis.AppBus;
 import com.cityant.main.utlis.ColorRandomizer;
 import com.iloomo.base.FragmentSupport;
+import com.iloomo.utils.L;
 import com.iloomo.utils.ToastUtil;
+import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,6 +34,8 @@ public class FragmentMessage extends FragmentSupport {
 
     private ListView msglist;
     private FragmentMessageAdapter fragmentMessageAdapter;
+    private TextView error_content;
+    private RelativeLayout fl_error_item;
 
     @Override
     public View setTitleBar(View view) {
@@ -54,7 +63,8 @@ public class FragmentMessage extends FragmentSupport {
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_message, null);
         setTitle("消息");
         msglist = (ListView) view.findViewById(R.id.msglist);
-
+        error_content= (TextView) view.findViewById(R.id.error_content);
+        fl_error_item= (RelativeLayout) view.findViewById(R.id.fl_error_item);
 
         List<MessageList> msgList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
@@ -89,4 +99,46 @@ public class FragmentMessage extends FragmentSupport {
     }
 
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        //注册到bus事件总线中
+        AppBus.getInstance().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        AppBus.getInstance().unregister(this);
+    }
+
+    /**
+     * 定义订阅者，Activity中发布的消息，在此处会接收到，在此之前需要先在程序中register，看
+     * 上面的onStart和onStop函数
+     */
+    @Subscribe
+    public void setContent(BusEventFragmentMessage data) {
+        switch (data.getContent()) {
+            case 1://刷新列表
+                L.e("有新消息啦");
+                break;
+            case 2://是连接不到聊天服务器
+                fl_error_item.setVisibility(View.VISIBLE);
+                error_content.setText(context.getResources().getString(R.string.disconnectioned));
+                break;
+            case 3://当前网络不可用，请检查网络设置
+                fl_error_item.setVisibility(View.VISIBLE);
+                error_content.setText(context.getResources().getString(R.string.network_disconnectioned));
+                break;
+            case 4:
+                fl_error_item.setVisibility(View.GONE);
+                break;
+        }
+
+    }
+
+    @Subscribe
+    public void onDataChange(String sss) {
+        System.out.println("====" + sss);
+    }
 }

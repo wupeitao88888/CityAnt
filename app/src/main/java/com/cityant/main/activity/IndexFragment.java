@@ -1,8 +1,13 @@
 package com.cityant.main.activity;
 
+import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.LevelListDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,19 +22,26 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 import com.cityant.main.R;
+import com.cityant.main.bean.BusEventFragmentMessage;
 import com.cityant.main.fragment.FragmentAdd;
 import com.cityant.main.fragment.FragmentHome;
 import com.cityant.main.fragment.FragmentKnock;
 import com.cityant.main.fragment.FragmentMessage;
 import com.cityant.main.fragment.FragmentMy;
 import com.cityant.main.global.MyConnectionListener;
+import com.cityant.main.utlis.AppBus;
 import com.hyphenate.EMContactListener;
+import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMConversation;
+import com.hyphenate.chat.EMMessage;
 import com.iloomo.base.TabFragmentActivity;
+import com.iloomo.utils.L;
 import com.iloomo.widget.LCDialog;
 import com.iloomo.widget.MainTabHost;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -89,8 +101,49 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
         //注册一个监听连接状态的listener
         EMClient.getInstance().addConnectionListener(new MyConnectionListener(context));
         EMClient.getInstance().contactManager().setContactListener(emContactListener);
-
+        /***
+         * 接收消息监听
+         */
+        EMClient.getInstance().chatManager().addMessageListener(msgListener);
     }
+
+    EMMessageListener msgListener = new EMMessageListener() {
+
+        @Override
+        public void onMessageReceived(List<EMMessage> messages) {
+            //收到消息
+            for(int i=0;i<messages.size();i++){
+                EMMessage emMessage = messages.get(i);
+                L.e(emMessage.getType()+"/"+emMessage.getUserName()+"/"+emMessage.getFrom()+"/"+emMessage.getBody());
+                AppBus.getInstance().post(new BusEventFragmentMessage(1));
+            }
+            showNotifyMessage();
+        }
+
+        @Override
+        public void onCmdMessageReceived(List<EMMessage> messages) {
+            //收到透传消息
+        }
+
+        @Override
+        public void onMessageReadAckReceived(List<EMMessage> messages) {
+            //收到已读回执
+        }
+
+        @Override
+        public void onMessageDeliveryAckReceived(List<EMMessage> message) {
+            //收到已送达回执
+        }
+
+        @Override
+        public void onMessageChanged(EMMessage message, Object change) {
+            //消息状态变动
+        }
+    };
+
+//    记得在不需要的时候移除listener，如在activity的onDestroy()时
+//    EMClient.getInstance().chatManager().removeMessageListener(msgListener);
+
 
     EMContactListener emContactListener = new EMContactListener() {
         @Override
@@ -112,7 +165,6 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
         public void onContactDeleted(String username) {
             //被删除时回调此方法
         }
-
 
         @Override
         public void onContactAdded(String username) {
@@ -286,5 +338,26 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
         return true;
     }
 
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    public void showNotifyMessage() {
+
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        PendingIntent pendingIntent3 = PendingIntent.getActivity(context, 0,
+                new Intent(context, WelcomeActivity.class), 0);
+        // 通过Notification.Builder来创建通知，注意API Level
+        // API16之后才支持
+        String content="您收到"+"1"+"条短消息";
+
+        Notification notify3 = new Notification.Builder(context)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setTicker("城市蚂蚁:" + "您有新短消息，请注意查收！")
+                .setContentTitle("城市蚂蚁")
+                .setContentText(content)
+                .setContentIntent(pendingIntent3).setNumber(1).build(); // 需要注意build()是在API
+        // level16及之后增加的，API11可以使用getNotificatin()来替代
+        notify3.flags |= Notification.FLAG_AUTO_CANCEL; // FLAG_AUTO_CANCEL表明当通知被用户点击时，通知将被清除。
+        manager.notify(100998, notify3);//
+    }
 
 }

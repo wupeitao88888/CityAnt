@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -306,5 +307,18 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
             }
         }
     };
+
+    public boolean onKeyDown(int keyCode,KeyEvent event){
+        switch(keyCode){
+            case KeyEvent.KEYCODE_HOME:return true;
+            case KeyEvent.KEYCODE_BACK:return true;
+            case KeyEvent.KEYCODE_CALL:return true;
+            case KeyEvent.KEYCODE_SYM: return true;
+            case KeyEvent.KEYCODE_VOLUME_DOWN: return true;
+            case KeyEvent.KEYCODE_VOLUME_UP: return true;
+            case KeyEvent.KEYCODE_STAR: return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
 

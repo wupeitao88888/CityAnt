@@ -11,6 +11,7 @@ public class LoginUserInfoData extends BaseData {
     private String user_name;
     private String user_avar;
 
+
     public String getToken() {
         return token;
     }

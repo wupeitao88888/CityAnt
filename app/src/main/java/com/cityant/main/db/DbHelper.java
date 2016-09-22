@@ -26,6 +26,13 @@ public class DbHelper extends DbHelperBase {
     public static final String MYFRENDS = "create table " + DbHelper.MYFREDNS_NAME + "(" + FREND_ID + " varchar(30) primary key," + USER_NAME + " varchar(30)," + USER_AVAR + " varchar(150))";
     public static final String DELETE_MYFRENDS = "drop table if exists " + DbHelper.MYFREDNS_NAME;
 
+    public static final String CONVERSATIONLIST_NAME = "conversationlist";
+    public static final String LAST_MSG= "last_msg";
+    public static final String LAST_MSG_TIME= "last_msg_time";
+    public static final String UNREAD_MSG_COUNT= "last_msg_time";
+    public static final String CHAT_TYPE= "chat_type";
+    public static final String CREATE_CONVERSATIONLIST = "create table "+CONVERSATIONLIST_NAME+"("+ FREND_ID + " varchar(30) primary key,"+USER_NAME+" varchar(30)," + USER_AVAR +
+            " varchar(150),"+LAST_MSG+" varchar(120),"+LAST_MSG_TIME+" varchar(50),"+UNREAD_MSG_COUNT+" varchar(50),"+CHAT_TYPE+" varchar(50))";
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -33,6 +40,7 @@ public class DbHelper extends DbHelperBase {
         db.execSQL(LOGININFO);
         db.execSQL(LASTUSER);
         db.execSQL(MYFRENDS);
+        db.execSQL(CREATE_CONVERSATIONLIST);
     }
 
     @Override
@@ -41,6 +49,7 @@ public class DbHelper extends DbHelperBase {
         db.execSQL(DELETE_LOGININFO);
         db.execSQL(DELETE_LASTUSER);
         db.execSQL(DELETE_MYFRENDS);
+        db.execSQL(CREATE_CONVERSATIONLIST);
         onCreate(db);
     }
 }
