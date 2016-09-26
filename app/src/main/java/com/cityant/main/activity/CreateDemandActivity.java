@@ -61,23 +61,6 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
         commit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO 网络请求
-//                string   token   用户令牌
-//                int   latitude   当前用户纬度
-//                int   longitude   当前用户经度
-//                int   city_id   城市id
-//                int   pay_type   支付方式(0:支付宝,1:微信)
-//                int   need_way   形式(0:线上,1:线下)
-//                string   need_title   标题
-//                int   tag_id   标签id
-//                string   need_content   详情
-//                int   need_sex   性别要求(0:男，1：女，2：不限)
-//                string   address   地点
-//                string   need_time   时间格式(Y-m-d H:i:s)
-//                string   end_time   报名截止日期格式(Y-m-d H:i:s)
-//                string   pay_price   单价
-//                string   pay_unit   单位
-//                int   need_man   所需名额
                 DialogUtil.startDialogLoading(context);
                 Map<String, Object> parameter = new HashMap<>();
                 parameter.put("token", MYAppconfig.loginUserInfoData.getToken());

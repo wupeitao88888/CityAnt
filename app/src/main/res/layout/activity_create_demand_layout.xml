@@ -14,256 +14,516 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:orientation="horizontal" >
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:id="@+id/user_icon"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/ic_launcher"/>
 
                 <TextView
+                    android:id="@+id/title_tip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_toRightOf="@+id/user_icon"
+                    android:textColor="#333333"
+                    android:layout_alignTop="@+id/user_icon"
+                    android:layout_marginTop="5dp"
                     android:text="标题"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title_tip"
+                    android:layout_toRightOf="@+id/user_icon">
 
                     <EditText
                         android:id="@+id/demand_title_edit"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="需求标题"/>
+                        android:layout_height="30dp"
+                        android:hint="需求标题"
+                        android:textSize="14sp"
+                        android:paddingLeft="5dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/white"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/demand_title_edit"
+                        android:background="@color/divider_line"
+                        />
+
                     <TextView
                         android:id="@+id/title_num_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
+                        android:layout_marginRight="10dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"/>
 
                 </RelativeLayout>
-            </LinearLayout>
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
 
-                <LinearLayout
-                    android:id="@+id/demand_details_ll"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/demand_details_image"
+                    android:layout_width="55dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/jiaoyou"/>
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/ic_launcher"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="设计"/>
-
-                </LinearLayout>
                 <EditText
                     android:id="@+id/demand_details_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minLines="5"
-                    android:layout_toRightOf="@id/demand_details_ll"
+                    android:minLines="2"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="10dp"
+                    android:layout_toRightOf="@id/demand_details_image"
                     android:hint="详情描述"
+                    android:background="@color/white"
                     android:gravity="top"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toRightOf="@id/demand_details_image"
+                    android:layout_below="@+id/demand_details_edit"
+                    android:background="@color/divider_line"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
                     android:layout_alignBottom="@id/demand_details_edit"
-                    android:layout_marginBottom="20dp"
                     android:text="0/200"/>
             </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#333333"
                     android:text="时间"/>
                 <EditText
                     android:id="@+id/time_edit"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="38dp"
+                    android:hint="需求时间"
+                    android:textSize="14sp"
+                    android:paddingLeft="5dp"
+                    android:background="@color/white"/>
+
             </LinearLayout>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/divider_line"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="性别要求"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_line"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="男"
+                    android:layout_marginRight="25dp"
+                    android:gravity="center"
+                    android:background="@drawable/sex_btn_bg"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="女"
+                    android:gravity="center"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/sex_btn_bg"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="不限"
+                    android:gravity="center"
+                    android:background="@drawable/sex_btn_bg"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/divider_line"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="形式"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_line"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="106dp"
+                    android:layout_height="30dp"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="线上"
+                    android:layout_marginRight="25dp"
+                    android:gravity="center"
+                    android:background="@drawable/sex_btn_bg"/>
+
+                <TextView
+                    android:layout_width="106dp"
+                    android:layout_height="30dp"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="线下"
+                    android:gravity="center"
+                    android:background="@drawable/sex_btn_bg"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/divider_line"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="性别要求"/>
+                    android:text="地址"
+                    android:textColor="#333333"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    />
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/ic_launcher"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/ic_launcher"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/ic_launcher"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="形式"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="线上"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="线下"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="地点"/>
-
-                <EditText
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="输入见面/工作地点"/>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="38dp"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@color/white"
+                        android:hint="小区/写字楼/学校等"
+                        android:paddingLeft="5dp"
+                        android:textSize="14sp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider_line"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@color/white"
+                        android:hint="详细地址"
+                        android:paddingLeft="5dp"
+                        android:textSize="14sp"/>
+                </LinearLayout>
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/divider_line" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="报名时长"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_line"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="报名截止日期"/>
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="一天"
+                    android:layout_marginRight="25dp"
+                    android:gravity="center"
+                    android:background="@drawable/sex_btn_bg"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="二天"
+                    android:gravity="center"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/sex_btn_bg"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="三天"
+                    android:gravity="center"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/sex_btn_bg"/>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:text="四天"
+                    android:gravity="center"
+                    android:background="@drawable/sex_btn_bg"/>
+
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="提示：离截止时间剩余两个小时内禁止变更以确定的人员"
-                android:background="@color/gray"
-                android:textColor="@color/black"/>
+                android:layout_height="46dp"
+                android:text="提示：报名截止后禁止变更已确定的参与人员，如确实需要修改请及时联系客服。"
+                android:background="@color/divider_line"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="10sp"
+                android:textColor="#999999"/>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#333333"
+                    android:layout_marginLeft="8dp"
                     android:text="所需名额"/>
 
                 <EditText
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentRight="true"/>
-            </RelativeLayout>
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:hint="输入名额"
+                    android:layout_marginRight="10dp"
+                    android:maxLength="5"
+                    android:ellipsize="end"
+                    android:textSize="14sp"
+                    android:gravity="right|center_vertical"
+                    android:background="@color/white"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_line" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="45dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#333333"
+                    android:layout_marginLeft="8dp"
+                    android:layout_centerVertical="true"
                     android:text="报酬"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <EditText
                         android:layout_width="130dp"
-                        android:layout_height="50dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:textSize="14sp"
+                        android:layout_marginRight="5dp"
                         android:hint="￥输入金额"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#333333"
+                        android:textSize="14sp"
                         android:text="/"/>
                     <EditText
                         android:layout_width="130dp"
-                        android:layout_height="50dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="5dp"
+                        android:paddingRight="10dp"
                         android:hint="单位,如:天、次"/>
 
                 </LinearLayout>
             </RelativeLayout>
 
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="1dp"
+                android:background="@color/divider_line"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#333333"
+                    android:layout_marginLeft="8dp"
+                    android:layout_centerVertical="true"
                     android:text="合计"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100万" />
-            </LinearLayout>
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:text="￥100万"
+                    android:textSize="14sp"
+                    android:textColor="#333333"/>
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="提示：离截止时间剩余两个小时内禁止变更以确定的人员"
-                android:background="@color/gray"
-                android:textColor="@color/black"/>
+                android:layout_height="46dp"
+                android:text="提示：为保证需求真实性需先支付需求报酬，如需求有变更可删除需求，删除后系统会自动返还需求报酬，请放心使用 。"
+                android:background="@color/divider_line"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="10sp"
+                android:textColor="#999999"/>
 
-            <Button
-                android:id="@+id/commit_btn"
-                android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:background="@color/red"
-                android:textColor="@color/white"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:text="确认创建"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/divider_line">
+
+                <Button
+                    android:id="@+id/commit_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/button_login"
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:layout_centerHorizontal="true"
+                    android:text="确认创建"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发布既表示您同意《城市蚂蚁用户协议》"
+                    android:background="@color/divider_line"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/commit_btn"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:textSize="10sp"
+                    android:textColor="#999999"/>
+
+            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>
