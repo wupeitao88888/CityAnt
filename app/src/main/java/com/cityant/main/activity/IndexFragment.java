@@ -1,9 +1,17 @@
 package com.cityant.main.activity;
 
+import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.LevelListDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.SpannableString;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -17,19 +25,32 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 import com.cityant.main.R;
+import com.cityant.main.bean.BusEventFragmentMessage;
+import com.cityant.main.bean.MessageList;
+import com.cityant.main.db.DBControl;
 import com.cityant.main.fragment.FragmentAdd;
 import com.cityant.main.fragment.FragmentHome;
 import com.cityant.main.fragment.FragmentKnock;
 import com.cityant.main.fragment.FragmentMessage;
 import com.cityant.main.fragment.FragmentMy;
 import com.cityant.main.global.MyConnectionListener;
+import com.cityant.main.utlis.AppBus;
+import com.cityant.main.utlis.FaceConversionUtil;
 import com.hyphenate.EMContactListener;
+import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMConversation;
+import com.hyphenate.chat.EMMessage;
+import com.hyphenate.chat.EMMessageBody;
+import com.hyphenate.chat.EMTextMessageBody;
 import com.iloomo.base.TabFragmentActivity;
+import com.iloomo.threadpool.MyThreadPool;
+import com.iloomo.utils.L;
 import com.iloomo.widget.LCDialog;
 import com.iloomo.widget.MainTabHost;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -52,6 +73,24 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
     private Animation mButtonScaleLargeAnimation;
     private Animation mButtonScaleSmallAnimation;
     private Animation mCloseRotateAnimation;
+
+    private final int REFARESH = 1000;
+    private final int REFARESH_ALLCOUNT = 1001;
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case REFARESH:
+                    showNotifyMessage((EMMessage) msg.obj);
+                    AppBus.getInstance().post(new BusEventFragmentMessage(1));
+                    break;
+                case REFARESH_ALLCOUNT:
+                    mainTabSupport.unReadMsgCount((int)msg.obj);
+                    break;
+            }
+        }
+    };
 
     //布局
     private Integer[] imgTab = {R.layout.tab_main_home, R.layout.tab_main_knock, R.layout.tab_main_add,
@@ -83,14 +122,106 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
                 showPopup(view);
             }
         });
+        mainTabSupport.unReadMsgCountBackground(R.drawable.ease_unread_count_bg);
         setContentView(mainTabSupport);
 
 
         //注册一个监听连接状态的listener
         EMClient.getInstance().addConnectionListener(new MyConnectionListener(context));
         EMClient.getInstance().contactManager().setContactListener(emContactListener);
+        /***
+         * 接收消息监听
+         */
+        EMClient.getInstance().chatManager().addMessageListener(msgListener);
+    }
+
+    EMMessageListener msgListener = new EMMessageListener() {
+
+        @Override
+        public void onMessageReceived(List<EMMessage> messages) {
+            //收到消息
+            for (int i = 0; i < messages.size(); i++) {
+                EMMessage emMessage = messages.get(i);
+                L.e(emMessage.getType() + "/" + emMessage.getUserName() + "/" + emMessage.getFrom() + "/" + emMessage.getBody());
+                insertConversition(emMessage);
+            }
+
+        }
+
+        @Override
+        public void onCmdMessageReceived(List<EMMessage> messages) {
+            //收到透传消息
+        }
+
+        @Override
+        public void onMessageReadAckReceived(List<EMMessage> messages) {
+            //收到已读回执
+        }
+
+        @Override
+        public void onMessageDeliveryAckReceived(List<EMMessage> message) {
+            //收到已送达回执
+        }
+
+        @Override
+        public void onMessageChanged(EMMessage message, Object change) {
+            //消息状态变动
+        }
+    };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        MyThreadPool.getInstance().submit(new Runnable() {
+            @Override
+            public void run() {
+                int allCount = DBControl.getInstance(context).getALLCount();
+                Message message=new Message();
+                message.what=REFARESH_ALLCOUNT;
+                message.obj=allCount;
+                mHandler.sendMessage(message);
+            }
+        });
+
+
 
     }
+
+    /****
+     * TXT/wpt/wpt/txt:"gggh"
+     *
+     * @param emMessage
+     */
+    public void insertConversition(EMMessage emMessage) {
+        MyThreadPool.getInstance().submit(new Runnable() {
+            @Override
+            public void run() {
+                MessageList messageList = new MessageList();
+                messageList.setFriend_id(emMessage.getUserName());
+                EMTextMessageBody body = (EMTextMessageBody) emMessage.getBody();
+                messageList.setLastmsg(body.getMessage());
+                EMMessage.ChatType chatType = emMessage.getChatType();
+                messageList.setChat_type(chatType.name());
+                messageList.setMsgid(emMessage.getMsgId());
+                EMConversation conversation = EMClient.getInstance().chatManager().getConversation(emMessage.getFrom());
+                messageList.setCount(conversation.getUnreadMsgCount()+"");
+                long msgTime = emMessage.getMsgTime();
+                messageList.setTime(msgTime + "");
+                messageList.setUser_name(emMessage.getUserName());
+                messageList.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+                DBControl.getInstance(context).insertConversationlist(messageList);
+                Message message = new Message();
+                message.what = REFARESH;
+                message.obj = emMessage;
+                mHandler.sendMessage(message);
+            }
+        });
+
+    }
+
+//    记得在不需要的时候移除listener，如在activity的onDestroy()时
+//    EMClient.getInstance().chatManager().removeMessageListener(msgListener);
+
 
     EMContactListener emContactListener = new EMContactListener() {
         @Override
@@ -112,7 +243,6 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
         public void onContactDeleted(String username) {
             //被删除时回调此方法
         }
-
 
         @Override
         public void onContactAdded(String username) {
@@ -286,5 +416,32 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
         return true;
     }
 
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    public void showNotifyMessage(EMMessage emMessage) {
+        EMConversation conversation = EMClient.getInstance().chatManager().getConversation(emMessage.getFrom());
+
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        PendingIntent pendingIntent3 = PendingIntent.getActivity(context, 0,
+                new Intent(context, WelcomeActivity.class), 0);
+        EMTextMessageBody body = (EMTextMessageBody) emMessage.getBody();
+        // 通过Notification.Builder来创建通知，注意API Level
+        // API16之后才支持
+        String content = "["+conversation.getUnreadMsgCount()+"]"+emMessage.getFrom()+":"+body.getMessage();
+
+        SpannableString spannableString = FaceConversionUtil
+                .getInstace().getExpressionString(context,
+                        content);
+        Notification notify3 = new Notification.Builder(context)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setTicker("城市蚂蚁:" + "您有新短消息，请注意查收！")
+                .setContentTitle("城市蚂蚁")
+                .setContentText(spannableString)
+                .setDefaults(Notification.DEFAULT_SOUND)
+                .setContentIntent(pendingIntent3).setNumber(1).build(); // 需要注意build()是在API
+        // level16及之后增加的，API11可以使用getNotificatin()来替代
+        notify3.flags |= Notification.FLAG_AUTO_CANCEL; // FLAG_AUTO_CANCEL表明当通知被用户点击时，通知将被清除。
+        manager.notify((int) emMessage.getMsgTime(), notify3);//
+    }
 
 }

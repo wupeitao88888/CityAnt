@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 
 import com.iloomo.paysdk.R;
@@ -30,26 +31,28 @@ public class MainTabHost extends LinearLayout {
     private View inflate;
     private FragmentActivity fragmentActivity;
     private RelativeLayout center_menu;
+    private TextView unread_msg;
+
     public MainTabHost(Context context, FragmentActivity fragmentActivity) {
         super(context);
-        this.context=context;
-        this.fragmentActivity=fragmentActivity;
+        this.context = context;
+        this.fragmentActivity = fragmentActivity;
         init(context);
 
     }
 
     public MainTabHost(Context context, AttributeSet attrs, FragmentActivity fragmentActivity) {
         super(context, attrs);
-        this.context=context;
-        this.fragmentActivity=fragmentActivity;
+        this.context = context;
+        this.fragmentActivity = fragmentActivity;
         init(context);
     }
 
 
     protected void init(Context context) {
         inflate = LayoutInflater.from(context).inflate(R.layout.maintabs, null);
-
-        center_menu=(RelativeLayout)inflate.findViewById(R.id.center_menu);
+        unread_msg = (TextView) inflate.findViewById(R.id.unread_msg);
+        center_menu = (RelativeLayout) inflate.findViewById(R.id.center_menu);
         setupView();
         setLinstener();
         fillData();
@@ -57,8 +60,27 @@ public class MainTabHost extends LinearLayout {
     }
 
 
+    public void unReadMsgCountBackground(int unread) {
+        unread_msg.setBackgroundResource(unread);
+    }
 
-    public void  setCenter_menuOnClickLen(OnClickListener onClickListener){
+    public void unReadMsgCount(int unreadcount){
+        if(unreadcount>0){
+            if(unreadcount>100){
+                unread_msg.setText("99+");
+            }else{
+                unread_msg.setText(unreadcount+"");
+            }
+            unread_msg.setVisibility(View.VISIBLE);
+        }else{
+            unread_msg.setVisibility(View.GONE);
+        }
+
+
+    }
+
+
+    public void setCenter_menuOnClickLen(OnClickListener onClickListener) {
         center_menu.setOnClickListener(onClickListener);
     }
 
@@ -92,12 +114,11 @@ public class MainTabHost extends LinearLayout {
     public void setTabFragment(Class[] classTab) {
         this.classTab = classTab;
     }
+
     public void setTabBackground(Integer[] styleTab) {
         this.styleTab = styleTab;
         initValue();
     }
-
-
 
 
     private void setupView() {
@@ -143,7 +164,7 @@ public class MainTabHost extends LinearLayout {
     // 设置tab自定义样式:注意 每一个tab xml子布局的linearlayout 的id必须一样
     private View getIndicatorView(int i) {
         // 找到tabhost的子tab的布局视图
-        LinearLayout tv_lay= (LinearLayout) LayoutInflater.from(context).inflate(imgTab[i], null);
+        LinearLayout tv_lay = (LinearLayout) LayoutInflater.from(context).inflate(imgTab[i], null);
         tv_lay.setBackgroundResource(styleTab[i]);
         return tv_lay;
     }

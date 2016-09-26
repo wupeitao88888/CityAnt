@@ -24,12 +24,12 @@
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/bundles/debug/res/drawable/mswitch_button_noselect.xml"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/androidTest/debug/drawable/button_normal_l.xml",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/bundles/debug/res/drawable/button_normal_l.xml"
-    },
-    {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/androidTest/debug/drawable/indicator_bg_bottom.xml",
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/bundles/debug/res/drawable/indicator_bg_bottom.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/androidTest/debug/drawable/button_normal_l.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/bundles/debug/res/drawable/button_normal_l.xml"
     },
     {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/androidTest/debug/drawable/indicator_arrow.png",

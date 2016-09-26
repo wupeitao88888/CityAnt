@@ -10,6 +10,15 @@ public class MyFrends implements Serializable {
     private String user_name;
     private String user_avar;
     private String PinYinName;
+    private String isGroup;
+
+    public String getIsGroup() {
+        return isGroup;
+    }
+
+    public void setIsGroup(String isGroup) {
+        this.isGroup = isGroup;
+    }
 
     public String getPinYinName() {
         return PinYinName;

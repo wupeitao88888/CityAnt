@@ -22,11 +22,11 @@
 
                 <ImageView
                     android:id="@+id/voice_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/ease_chatting_setmode_voice_btn_normal" />
+                    android:background="@drawable/ease_chatting_setmode_voice_btn_normal" />
 
             </RelativeLayout>
 
@@ -39,6 +39,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_toLeftOf="@+id/oo"
                 android:layout_toRightOf="@+id/voice_re">
+
 
                 <!-- 文本框 -->
 
@@ -70,12 +71,22 @@
 
                 <ImageButton
                     android:id="@+id/btn_face"
-                    android:layout_width="27dip"
-                    android:layout_height="27dip"
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/chat_face" />
-
+                <Button
+                    android:id="@+id/btn_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/recordselector"
+                    android:gravity="center"
+                    android:text="@string/xml_custom_record"
+                    android:textColor="@color/black_6"
+                    android:textSize="15sp"
+                    android:visibility="gone"
+                    />
             </RelativeLayout>
 
             <RelativeLayout

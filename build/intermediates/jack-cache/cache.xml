@@ -4,200 +4,56 @@
     <item
         jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/umeng-analytics-v5.6.4.jar"
         revision="24.0.0"
-        sha1="6ea1bd03d0066b018977cb3de86eb28669f7fa4d">
+        sha1="307099e1350530524c80692a56e06a97f0e6de6c">
         <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/umeng-analytics-v5.6.4-b22e45884352069aa2de6c94d03993bc907c7cc4.jar" />
     </item>
     <item
         jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/universal-image-loader-1.9.4.jar"
         revision="24.0.0"
-        sha1="f0a6dc6e18c3f084a87d8bb800c8048adcd48273">
+        sha1="9e71cd69cb640c00170d86a5f01c3c2fbdbdd202">
         <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/universal-image-loader-1.9.4-95a9a6186ade4c7d335ee5a5d62bb852e02ea13c.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"
-        revision="24.0.0"
-        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/hamcrest-core-1.3-3948812642eda19c27d4b4dead4a4d49dfddb8f0.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/glide-3.6.1.jar"
-        revision="24.0.0"
-        sha1="3586217fa6fcfbd74b6a8ce5acacb076bd264167">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/glide-3.6.1-3d340b36a734951fedd5de3d38cd3c2ee631ea19.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
-        revision="24.0.0"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/bolts-tasks-1.4.0-ade22795ff3e1760f9644d8fc616af2dd59057d0.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.11.0/jars/classes.jar"
-        revision="24.0.0"
-        sha1="ca63c521b5745ae9a09629d7ca67ff6bc2a967fe">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-c8006bd7cabc1a9d1b68f44d833d4e72e1efdda8.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.11.0/jars/classes.jar"
-        revision="24.0.0"
-        sha1="98786c1770b531b9194fb6448b2a2692c64074b6">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-78a9c5d7ce4e006883e3790a52610065a73364fa.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/jars/classes.jar"
-        revision="24.0.0"
-        sha1="3341b66c54367e777a0647e2db96c045329bfeab">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-defb4abd62be168b82a8730f906bb9541f7154eb.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/libs/hyphenatechat_3.1.4.jar"
-        revision="24.0.0"
-        sha1="0f22ba6fd450d473e8b0c1654d05624b67e19451">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/hyphenatechat_3.1.4-b7dee5da51dfd81a11199a0336e45c5cd7a20f48.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/org.apache.http.legacy.jar"
-        revision="24.0.0"
-        sha1="839774470680590950d0d0a055954ebc4591de5f">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/org.apache.http.legacy-730cd5030c94515ed19df763319368e4683e0a20.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
-        revision="24.0.0"
-        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-fdb6a67cd3eb1076ad7f7417de076bee3654bb6c.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.11.0/jars/classes.jar"
-        revision="24.0.0"
-        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-1188cd3a14228865898a184a975d2b1aa970b7e3.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
-        revision="24.0.0"
-        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-0f1ed4182b23e2f457a210efe8ccb19366fdb6d3.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"
-        revision="24.0.0"
-        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/junit-4.12-5ddbd639975d2b0bad27cf447f3eeeca9c197489.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/json-simple-1.1.1.jar"
-        revision="24.0.0"
-        sha1="ea88b223054002a4e34cb091ac0b063f061b2b4c">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/json-simple-1.1.1-69ae5de38edd912a9a0b92b9ac95ab6739d31bff.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.11.0/jars/classes.jar"
-        revision="24.0.0"
-        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-474db4c9717ac51ee24a8e6ebeae21e52f29df88.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/.gradle/caches/modules-2/files-2.1/com.github.obiteaaron/pinyin4j-multi/1.0.0/c7d91d6abaf36f761d0b9cf211516819cdbff311/pinyin4j-multi-1.0.0.jar"
-        revision="24.0.0"
-        sha1="c7d91d6abaf36f761d0b9cf211516819cdbff311">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/pinyin4j-multi-1.0.0-932112f3e443e55ff659fbd4166eda492b2348b8.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.2.0/6f8a4b1435c9e0a6f9c5fe4a1be46627b848fd0c/okhttp-urlconnection-3.2.0.jar"
-        revision="24.0.0"
-        sha1="6f8a4b1435c9e0a6f9c5fe4a1be46627b848fd0c">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/okhttp-urlconnection-3.2.0-c1f6864b3d2e8befa672e1e64697e4bb4c8cc1ee.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/pickerview-release/jars/classes.jar"
-        revision="24.0.0"
-        sha1="fc3eddd770674dea891c72fa0664e2070331d709">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-e571ad78054a7846e68238278c5a23f8a5ec0bf4.jar" />
     </item>
     <item
         jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/locSDK_6.13.jar"
         revision="24.0.0"
-        sha1="01693fe868dc2f56e7afa1e6133a067e1ab922a5">
+        sha1="f8036b68be2cac4f3f61dc18f2a488c8c173c4e5">
         <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/locSDK_6.13-1a66a57bf03dafee1ab4ff4b5638f8dd406ef37b.jar" />
     </item>
     <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/ptr-lib-release/jars/classes.jar"
+        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/org.apache.http.legacy.jar"
         revision="24.0.0"
-        sha1="8f79952173fd793b596552315a8261517548998a">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-31e169e973b1f3cf58e0c4979dd7de1ae8c00142.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
-        revision="24.0.0"
-        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/internal_impl-23.2.1-86cf367074d8e83a8d37e95b9701d3ca9b0904f8.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
-        revision="24.0.0"
-        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/okio-1.8.0-c8d077f2f952236a08d648ae3ee87c23ed45eb10.jar" />
+        sha1="fda437e14a1de114e2e3c9c0bd7154c287b871bd">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/org.apache.http.legacy-730cd5030c94515ed19df763319368e4683e0a20.jar" />
     </item>
     <item
         jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/fastjson-1.1.40.jar"
         revision="24.0.0"
-        sha1="7d66314a47e88e0a3e89c6a4561a8149e2c28bde">
+        sha1="e5bb1e13b22f0380462e38b1e2ce5795d141b921">
         <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/fastjson-1.1.40-4b06a9849dd65eb0490a44726c30177ffe5f3c09.jar" />
+    </item>
+    <item
+        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/json-simple-1.1.1.jar"
+        revision="24.0.0"
+        sha1="37eafc7f7b1b6eb380008d1a1d836393c725aaf2">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/json-simple-1.1.1-69ae5de38edd912a9a0b92b9ac95ab6739d31bff.jar" />
     </item>
     <item
         jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/classes.jar"
         revision="24.0.0"
-        sha1="fdcdd297ec969c018721784f2592ea4c73a0baaf">
+        sha1="59784602c002e6588746aea8757fcd6118dd27bd">
         <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-20a3298546047f1b67b2d532c8a4dc344011d859.jar" />
     </item>
     <item
         jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/user_profile_mtj_1.4.jar"
         revision="24.0.0"
-        sha1="32e06ca95cfbe82ef98e34049e4f69e6fa763452">
+        sha1="f9a38d46df3c0bb7fa4e0adf1646652a333d0749">
         <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/user_profile_mtj_1.4-5b0eb47a503b90db5e1aa739ee74484a77dd575f.jar" />
     </item>
     <item
-        jar="/Users/wupeitao/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.1/19047bdb6a4fc00a44124f64ca98e88fc204e7e3/okhttp-3.3.1.jar"
+        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/glide-3.6.1.jar"
         revision="24.0.0"
-        sha1="19047bdb6a4fc00a44124f64ca98e88fc204e7e3">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/okhttp-3.3.1-76ff0d4f916dd6512ea46d848e19e0570eeb9347.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/okhttputils/unspecified/jars/classes.jar"
-        revision="24.0.0"
-        sha1="49e8e01be01842db569e17f0260358e4f3b37a99">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-b6507ae10eaab3809767857acc02d68c3333a8d7.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
-        revision="24.0.0"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/library-2.4.0-d662202ad06ef8b93093b9781c5fec838e8515b3.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/library-release/jars/classes.jar"
-        revision="24.0.0"
-        sha1="e1a66be2ab81f187461b80f7a09b5ee961172dde">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-cb24926626dccf745482f258b162472ac567bca2.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Downloads/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
-        revision="24.0.0"
-        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/support-annotations-23.2.1-f30acb679e85ddf15a56645ab35bef22fc7d3f56.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/okhttp3-persistent-cookiejar/unspecified/jars/classes.jar"
-        revision="24.0.0"
-        sha1="447d0ade140ab040a64b9c6007646fad9dc57437">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-1acb648d258c82ac9b1e411ec50febddf603330b.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/jars/classes.jar"
-        revision="24.0.0"
-        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-139cb13af57e559408c2c80ed2fa6a8d12624151.jar" />
+        sha1="57bb2fc424447878b36ca0b7ced4e9e5e58c9592">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/glide-3.6.1-3d340b36a734951fedd5de3d38cd3c2ee631ea19.jar" />
     </item>
 
 </items>

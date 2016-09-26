@@ -3484,8 +3484,27 @@
                     "startLine": 188,
                     "startColumn": 4,
                     "startOffset": 12528,
+                    "endColumn": 54,
+                    "endOffset": 12578
+                },
+                "from": {
+                    "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 790,
+                        "endColumn": 54,
+                        "endOffset": 840
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 189,
+                    "startColumn": 4,
+                    "startOffset": 12583,
                     "endColumn": 41,
-                    "endOffset": 12565
+                    "endOffset": 12620
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3500,11 +3519,11 @@
             },
             {
                 "to": {
-                    "startLine": 189,
+                    "startLine": 190,
                     "startColumn": 4,
-                    "startOffset": 12570,
+                    "startOffset": 12625,
                     "endColumn": 52,
-                    "endOffset": 12618
+                    "endOffset": 12673
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3519,11 +3538,11 @@
             },
             {
                 "to": {
-                    "startLine": 190,
+                    "startLine": 191,
                     "startColumn": 4,
-                    "startOffset": 12623,
+                    "startOffset": 12678,
                     "endColumn": 42,
-                    "endOffset": 12661
+                    "endOffset": 12716
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3538,11 +3557,11 @@
             },
             {
                 "to": {
-                    "startLine": 191,
+                    "startLine": 192,
                     "startColumn": 4,
-                    "startOffset": 12666,
+                    "startOffset": 12721,
                     "endColumn": 45,
-                    "endOffset": 12707
+                    "endOffset": 12762
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3557,11 +3576,11 @@
             },
             {
                 "to": {
-                    "startLine": 192,
+                    "startLine": 193,
                     "startColumn": 4,
-                    "startOffset": 12712,
+                    "startOffset": 12767,
                     "endColumn": 43,
-                    "endOffset": 12751
+                    "endOffset": 12806
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3576,11 +3595,11 @@
             },
             {
                 "to": {
-                    "startLine": 193,
+                    "startLine": 194,
                     "startColumn": 4,
-                    "startOffset": 12756,
+                    "startOffset": 12811,
                     "endColumn": 48,
-                    "endOffset": 12800
+                    "endOffset": 12855
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3595,11 +3614,11 @@
             },
             {
                 "to": {
-                    "startLine": 194,
+                    "startLine": 195,
                     "startColumn": 4,
-                    "startOffset": 12805,
+                    "startOffset": 12860,
                     "endColumn": 101,
-                    "endOffset": 12902
+                    "endOffset": 12957
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/pull_refresh_strings.xml",
@@ -3614,11 +3633,11 @@
             },
             {
                 "to": {
-                    "startLine": 195,
+                    "startLine": 196,
                     "startColumn": 4,
-                    "startOffset": 12907,
+                    "startOffset": 12962,
                     "endColumn": 113,
-                    "endOffset": 13016
+                    "endOffset": 13071
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/pull_refresh_strings.xml",
@@ -3633,11 +3652,11 @@
             },
             {
                 "to": {
-                    "startLine": 196,
+                    "startLine": 197,
                     "startColumn": 4,
-                    "startOffset": 13021,
+                    "startOffset": 13076,
                     "endColumn": 107,
-                    "endOffset": 13124
+                    "endOffset": 13179
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/pull_refresh_strings.xml",
@@ -3652,11 +3671,11 @@
             },
             {
                 "to": {
-                    "startLine": 197,
+                    "startLine": 198,
                     "startColumn": 4,
-                    "startOffset": 13129,
+                    "startOffset": 13184,
                     "endColumn": 71,
-                    "endOffset": 13196
+                    "endOffset": 13251
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/pull_refresh_strings.xml",
@@ -3671,11 +3690,11 @@
             },
             {
                 "to": {
-                    "startLine": 198,
+                    "startLine": 199,
                     "startColumn": 4,
-                    "startOffset": 13201,
+                    "startOffset": 13256,
                     "endColumn": 69,
-                    "endOffset": 13266
+                    "endOffset": 13321
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/pull_refresh_strings.xml",
@@ -3690,11 +3709,11 @@
             },
             {
                 "to": {
-                    "startLine": 199,
+                    "startLine": 200,
                     "startColumn": 4,
-                    "startOffset": 13271,
+                    "startOffset": 13326,
                     "endColumn": 77,
-                    "endOffset": 13344
+                    "endOffset": 13399
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/pull_refresh_strings.xml",
@@ -3709,11 +3728,11 @@
             },
             {
                 "to": {
-                    "startLine": 200,
+                    "startLine": 201,
                     "startColumn": 4,
-                    "startOffset": 13349,
+                    "startOffset": 13404,
                     "endColumn": 49,
-                    "endOffset": 13394
+                    "endOffset": 13449
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3728,11 +3747,11 @@
             },
             {
                 "to": {
-                    "startLine": 201,
+                    "startLine": 202,
                     "startColumn": 4,
-                    "startOffset": 13399,
+                    "startOffset": 13454,
                     "endColumn": 45,
-                    "endOffset": 13440
+                    "endOffset": 13495
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3747,11 +3766,11 @@
             },
             {
                 "to": {
-                    "startLine": 202,
+                    "startLine": 203,
                     "startColumn": 4,
-                    "startOffset": 13445,
+                    "startOffset": 13500,
                     "endColumn": 48,
-                    "endOffset": 13489
+                    "endOffset": 13544
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3766,11 +3785,11 @@
             },
             {
                 "to": {
-                    "startLine": 203,
+                    "startLine": 204,
                     "startColumn": 4,
-                    "startOffset": 13494,
+                    "startOffset": 13549,
                     "endColumn": 46,
-                    "endOffset": 13536
+                    "endOffset": 13591
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3785,11 +3804,11 @@
             },
             {
                 "to": {
-                    "startLine": 204,
+                    "startLine": 205,
                     "startColumn": 4,
-                    "startOffset": 13541,
+                    "startOffset": 13596,
                     "endColumn": 50,
-                    "endOffset": 13587
+                    "endOffset": 13642
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3804,11 +3823,11 @@
             },
             {
                 "to": {
-                    "startLine": 205,
+                    "startLine": 206,
                     "startColumn": 4,
-                    "startOffset": 13592,
+                    "startOffset": 13647,
                     "endColumn": 53,
-                    "endOffset": 13641
+                    "endOffset": 13696
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/strings.xml",
@@ -3823,12 +3842,12 @@
             },
             {
                 "to": {
-                    "startLine": 206,
+                    "startLine": 207,
                     "startColumn": 4,
-                    "startOffset": 13646,
-                    "endLine": 208,
+                    "startOffset": 13701,
+                    "endLine": 209,
                     "endColumn": 12,
-                    "endOffset": 13816
+                    "endOffset": 13871
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/styles.xml",
@@ -3844,12 +3863,12 @@
             },
             {
                 "to": {
-                    "startLine": 209,
+                    "startLine": 210,
                     "startColumn": 4,
-                    "startOffset": 13821,
-                    "endLine": 217,
+                    "startOffset": 13876,
+                    "endLine": 218,
                     "endColumn": 12,
-                    "endOffset": 14262
+                    "endOffset": 14317
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/styles.xml",
@@ -3865,12 +3884,12 @@
             },
             {
                 "to": {
-                    "startLine": 218,
+                    "startLine": 219,
                     "startColumn": 4,
-                    "startOffset": 14267,
-                    "endLine": 224,
+                    "startOffset": 14322,
+                    "endLine": 225,
                     "endColumn": 12,
-                    "endOffset": 14640
+                    "endOffset": 14695
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/styles.xml",
@@ -3886,12 +3905,12 @@
             },
             {
                 "to": {
-                    "startLine": 225,
+                    "startLine": 226,
                     "startColumn": 4,
-                    "startOffset": 14645,
-                    "endLine": 229,
+                    "startOffset": 14700,
+                    "endLine": 230,
                     "endColumn": 12,
-                    "endOffset": 14880
+                    "endOffset": 14935
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/styles.xml",
@@ -3907,12 +3926,12 @@
             },
             {
                 "to": {
-                    "startLine": 230,
+                    "startLine": 231,
                     "startColumn": 4,
-                    "startOffset": 14885,
-                    "endLine": 233,
+                    "startOffset": 14940,
+                    "endLine": 234,
                     "endColumn": 12,
-                    "endOffset": 15071
+                    "endOffset": 15126
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/styles.xml",
@@ -3928,12 +3947,12 @@
             },
             {
                 "to": {
-                    "startLine": 234,
+                    "startLine": 235,
                     "startColumn": 4,
-                    "startOffset": 15076,
-                    "endLine": 239,
+                    "startOffset": 15131,
+                    "endLine": 240,
                     "endColumn": 12,
-                    "endOffset": 15398
+                    "endOffset": 15453
                 },
                 "from": {
                     "file": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/values/styles.xml",

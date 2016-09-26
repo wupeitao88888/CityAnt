@@ -1,5 +1,6 @@
 package com.iloomo.utils;
 
+import android.text.SpannableString;
 import android.text.TextUtils;
 import android.widget.TextView;
 
@@ -22,6 +23,14 @@ import java.util.regex.Pattern;
 public class StrUtil {
 
 	public static void setText(TextView lc_class_title, String videoclassname) {
+		// TODO Auto-generated method stub
+		if (!TextUtils.isEmpty(videoclassname)) {
+			lc_class_title.setText(videoclassname);
+		} else {
+			lc_class_title.setText("");
+		}
+	}
+	public static void setText(TextView lc_class_title, SpannableString videoclassname) {
 		// TODO Auto-generated method stub
 		if (!TextUtils.isEmpty(videoclassname)) {
 			lc_class_title.setText(videoclassname);

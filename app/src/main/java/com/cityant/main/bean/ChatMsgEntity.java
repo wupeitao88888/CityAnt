@@ -3,17 +3,113 @@ package com.cityant.main.bean;
 import com.hyphenate.chat.EMMessage;
 
 public class ChatMsgEntity {
+    /*类型 0：时间，
+     *1：接收地址，
+     * 2：接收消息，
+     * 3：接收图片，
+     * 4：接收语音电话，
+     * 5：接收语音，
+     * 6：发送地址，
+     * 7：发送消息，
+     * 8，发送图片，
+     * 9：发起语音电话，10：发送语音，11：接收蚂蚁豆，
+     * 12：发送蚂蚁豆，13：接收小费，14：发送小费，
+     * 15：接收礼物，16：发送礼物，17：接收双人抢，
+     * 18：发送双人抢
+     *
+     */
     private int type;
     private String token;
-    private String mobile;
-    private String user_name;
-    private String user_avar;
-    private String message;
-    private String messageid;
-    private String time;
-    private String street;
-    private String longitude;
-    private String latitude;
+    private String mobile;//手机号
+    private String user_name;//名字
+    private String user_avar;//头像
+    private String message;//消息内容
+    private String messageid;//消息id
+    private String time;//时间
+    private String street;//街道
+    private String longitude;//经度
+    private String latitude;//纬度
+    private String duration;//聊天的时间长度
+    private String imgurl;//图片的URL
+    private int status;//消息状态 -1://未发送0://发送失败1://发送中2://已送达3://已发送
+    private int voicestatus;//是否播放过
+    private String voiceurl;//语音URL
+    private String voicelenth;//语音的长度
+    private boolean voiceplay;//是否增长播放
+    private String chat_type;
+    private String groupid;
+
+    public String getChat_type() {
+        return chat_type;
+    }
+
+    public void setChat_type(String chat_type) {
+        this.chat_type = chat_type;
+    }
+
+    public String getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(String groupid) {
+        this.groupid = groupid;
+    }
+
+    public boolean isVoiceplay() {
+        return voiceplay;
+    }
+
+    public void setVoiceplay(boolean voiceplay) {
+        this.voiceplay = voiceplay;
+    }
+
+    public String getVoicelenth() {
+        return voicelenth;
+    }
+
+    public void setVoicelenth(String voicelenth) {
+        this.voicelenth = voicelenth;
+    }
+
+    public int getVoicestatus() {
+        return voicestatus;
+    }
+
+    public void setVoicestatus(int voicestatus) {
+        this.voicestatus = voicestatus;
+    }
+
+    public String getVoiceurl() {
+        return voiceurl;
+    }
+
+    public void setVoiceurl(String voiceurl) {
+        this.voiceurl = voiceurl;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
 
     public String getStreet() {
         return street;

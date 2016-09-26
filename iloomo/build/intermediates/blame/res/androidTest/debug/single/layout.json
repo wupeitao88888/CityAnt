@@ -56,12 +56,12 @@
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/bundles/debug/res/layout/pull_to_refresh_header_vertical.xml"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/androidTest/debug/layout/progress_dialog.xml",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/bundles/debug/res/layout/progress_dialog.xml"
-    },
-    {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/androidTest/debug/layout/pactivity_camera.xml",
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/bundles/debug/res/layout/pactivity_camera.xml"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/androidTest/debug/layout/progress_dialog.xml",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/bundles/debug/res/layout/progress_dialog.xml"
     },
     {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/androidTest/debug/layout/lc_layout_userregister.xml",

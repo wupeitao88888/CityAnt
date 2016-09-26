@@ -1,36 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.iloomo.widget.TabFragmentHost xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/tabhost"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical" >
- 
-        <!-- 这里是tab选项卡的内容 ，宽度要填满，高度自动适应 -->
-        <FrameLayout
-            android:id="@android:id/tabcontent"
+    <com.iloomo.widget.TabFragmentHost xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1" >
-        </FrameLayout>
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
 
-        <!-- tabhost上面一条黑色分割 @drawable/line_shop -->
-        <View
-            android:id="@+id/view_2"
-            android:layout_width="fill_parent"
-            android:layout_height="0.1dip"
-            android:background="#D1D1D1" >
-        </View>
+            <!-- 这里是tab选项卡的内容 ，宽度要填满，高度自动适应 -->
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"></FrameLayout>
 
-        <!-- 调换framelayout和tabwidget的前后顺序可以分别实现tab的top和在底下的效果 -->
-        <TabWidget
-            android:id="@android:id/tabs"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
-        </TabWidget>
-    </LinearLayout>
+            <!-- tabhost上面一条黑色分割 @drawable/line_shop -->
+            <View
+                android:id="@+id/view_2"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#D1D1D1"></View>
 
-</com.iloomo.widget.TabFragmentHost>
+
+            <!-- 调换framelayout和tabwidget的前后顺序可以分别实现tab的top和在底下的效果 -->
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="49dp"></TabWidget>
+
+        </LinearLayout>
+
+    </com.iloomo.widget.TabFragmentHost>
+
+    <RelativeLayout
+        android:id="@+id/center_menu"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/menu">
+
+        <ImageView
+            android:id="@+id/center_menu_add"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_add_n" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -21,6 +21,7 @@ import com.cityant.main.activity.LocationChoiceActivity;
 import com.cityant.main.activity.SearchActivity;
 import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.cityant.main.bean.HomeBean;
+import com.cityant.main.bean.MessageList;
 import com.cityant.main.db.DBControl;
 import com.cityant.main.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
@@ -31,6 +32,7 @@ import com.iloomo.model.ApplicationLocationListener;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.DialogUtil;
+import com.iloomo.utils.L;
 import com.iloomo.widget.imgscroll.MyImgScroll;
 
 
@@ -116,7 +118,11 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
                 HomeDetailsActivity.startActivity(context);
             }
         });
-        token = MYAppconfig.loginUserInfoData.getToken();
+        try {
+            token = MYAppconfig.loginUserInfoData.getToken();
+        } catch (Exception e) {
+
+        }
         sendInternet();
         return view;
     }
@@ -241,7 +247,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
     @Override
     public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
         Log.e("---成功--", resultJson);
-        if(MYTaskID.HOME_INDEX == resultCode){
+        if (MYTaskID.HOME_INDEX == resultCode) {
             DialogUtil.stopDialogLoading(context);
             HomeBean homeBean = (HomeBean) modelClass;
             needLists.addAll(homeBean.getData().getNeed_list());
@@ -281,4 +287,8 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
                 R.layout.ad_bottom_item, R.id.ad_item_v,
                 R.mipmap.ic_launcher, R.mipmap.icon_1_d);
     }
+
+
+
+
 }

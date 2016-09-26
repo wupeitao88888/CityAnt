@@ -8,7 +8,7 @@ import com.iloomo.global.AppConfig;
  */
 public class MYAppconfig extends AppConfig {
     public static LoginUserInfoData loginUserInfoData;
-
+    public static boolean isSpeakerOpened = true;//是否使用扬声器 true:是使用扬声器 false:使用听筒
     public static final String USERLOGIN = BASEURL + API + "/user/login";
     public static final String HOME_INDEX = BASEURL + API + "/home/index";
     public static final String HOME_SEARCH = BASEURL + API + "/home/search";

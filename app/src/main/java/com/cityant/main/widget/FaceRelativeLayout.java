@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.Editable;
@@ -38,7 +39,11 @@ import com.cityant.main.adapter.FaceAdapter;
 import com.cityant.main.adapter.FacePagerAdapter;
 import com.cityant.main.adapter.MessagePlusAdapter;
 import com.cityant.main.adapter.MessagePlusEndity;
+import com.cityant.main.model.OnSendMsg;
 import com.cityant.main.utlis.FaceConversionUtil;
+import com.iloomo.threadpool.MyThreadPool;
+import com.iloomo.utils.L;
+import com.iloomo.utils.ToastUtil;
 
 
 @SuppressLint("NewApi")
@@ -135,6 +140,7 @@ public class FaceRelativeLayout extends RelativeLayout implements
             }
         }
     };
+    private InputMethodManager mInputMethodManager;
 
     public void setmListener(OnCorpusSelectedListener mListener) {
         this.mListener = mListener;
@@ -143,113 +149,127 @@ public class FaceRelativeLayout extends RelativeLayout implements
     public FaceRelativeLayout(Context context) {
         super(context);
         this.context = context;
+        mInputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        boolean isOpen = mInputMethodManager.isActive();
+//        if(!isOpen)
+        mInputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     public FaceRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+        mInputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        boolean isOpen = mInputMethodManager.isActive();
+//        if(!isOpen)
+        mInputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     public FaceRelativeLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         this.context = context;
+        mInputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        boolean isOpen = mInputMethodManager.isActive();
+//        if(!isOpen)
+        mInputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     public void setOnCorpusSelectedListener(OnCorpusSelectedListener listener) {
         mListener = listener;
     }
 
+    private OnSendMsg onSendMsg;
+
+    public void closeInput() {
+        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+//                if (inputMethodManager != null && this.getCurrentFocus() != null) {
+        inputMethodManager.hideSoftInputFromWindow(et_sendmessage.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+//                }
+    }
+
     @Override
     public void onClick(View v) {
-        // if (view.getVisibility() == 0) {
-        // view.setVisibility(View.GONE);
-        // Chat.mInputMethodManager.hideSoftInputFromWindow(
-        // et_sendmessage.getWindowToken(), 0);
-        // } else if (view.getVisibility() == 0) {
-        // view.setVisibility(View.GONE);
-        // Chat.mInputMethodManager.hideSoftInputFromWindow(
-        // et_sendmessage.getWindowToken(), 0);
-        // }
+        switch (v.getId()) {
+            case R.id.btn_face:
+                Init_viewPager();
+                Init_Point();
+                Init_Data();
+                view.findViewById(R.id.btn_face);
 
-        if (R.id.btn_face == v.getId()) {
-            Init_viewPager();
-            Init_Point();
-            Init_Data();
-            view.findViewById(R.id.btn_face);
-            if (myCtrl2 == 0) {
+                // 隐藏表情选择框
+                if (view.getVisibility() == View.VISIBLE) {
+                    view.setVisibility(View.GONE);
 
-                if (myCtrl == 1) {
-
-                    // 隐藏表情选择框
-                    if (view.getVisibility() == View.VISIBLE) {
-                        view.setVisibility(View.GONE);
-                        // 显示键盘
-                        MYChatActivity.mInputMethodManager.toggleSoftInput(0,
-                                InputMethodManager.HIDE_NOT_ALWAYS);
-                    } else {
-                        myCtrl = 1;
-                        view.setVisibility(View.VISIBLE);
-                        // 关闭输入法
-                        MYChatActivity.mInputMethodManager.hideSoftInputFromWindow(
-                                et_sendmessage.getWindowToken(), 0);
-                    }
+                    mInputMethodManager.toggleSoftInput(0,
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                    btn_face.setBackgroundResource(R.drawable.chat_face);
                 } else {
-                    myCtrl = 1;
                     view.setVisibility(View.VISIBLE);
-                    // 关闭输入法
-                    MYChatActivity.mInputMethodManager.hideSoftInputFromWindow(
+                    btn_face.setBackgroundResource(R.drawable.ease_chatting_setmode_keyboard_btn);
+                    mInputMethodManager.hideSoftInputFromWindow(
                             et_sendmessage.getWindowToken(), 0);
-                }
-            } else {
-                myCtrl2 = 0;
-                view.setVisibility(View.VISIBLE);
-                // 关闭输入法
-                MYChatActivity.mInputMethodManager.hideSoftInputFromWindow(
-                        et_sendmessage.getWindowToken(), 0);
 
-            }
-
-        } else if (R.id.et_sendmessage == v.getId()) {
-            // 隐藏表情选择框
-            if (view.getVisibility() == View.VISIBLE) {
-                view.setVisibility(View.GONE);
-            }
-
-        } else if (R.id.btn_plus == v.getId()) {
-            Init_functionViewPager();
-            Init_Point();
-            Init_functionData();
-            if (myCtrl == 0) {
-
-                if (myCtrl2 == 1) {
-
-                    if (view.getVisibility() == View.GONE) {
-                        myCtrl2 = 1;
-                        view.setVisibility(View.VISIBLE);
-                        MYChatActivity.mInputMethodManager.hideSoftInputFromWindow(
-                                et_sendmessage.getWindowToken(), 0);
-                    } else {
-                        view.setVisibility(View.GONE);
-                        MYChatActivity.mInputMethodManager.toggleSoftInput(0,
-                                InputMethodManager.HIDE_NOT_ALWAYS);
-                    }
-                } else {
-                    myCtrl2 = 1;
-                    view.setVisibility(View.VISIBLE);
-                    MYChatActivity.mInputMethodManager.hideSoftInputFromWindow(
-                            et_sendmessage.getWindowToken(), 0);
                 }
 
-            } else {
-                myCtrl = 0;
-                view.setVisibility(View.VISIBLE);
-                MYChatActivity.mInputMethodManager.hideSoftInputFromWindow(
-                        et_sendmessage.getWindowToken(), 0);
+                break;
+            case R.id.et_sendmessage:
+                // 隐藏表情选择框
+                if (view.getVisibility() == View.VISIBLE) {
+                    view.setVisibility(View.GONE);
+                }
+                break;
+            case R.id.btn_send:
+                if (!TextUtils.isEmpty(et_sendmessage.getText().toString())) {
+                    if (onSendMsg != null) {
+                        onSendMsg.OnSccessCallBack(et_sendmessage.getText().toString());
+                    }
+                } else {
+                    ToastUtil.showShort(context, "内容不能为空");
+                }
+                break;
+            case R.id.btn_plus:
+                Init_functionViewPager();
+                Init_Point();
+                Init_functionData();
+                // 隐藏表情选择框
+                if (view.getVisibility() == View.VISIBLE) {
+                    view.setVisibility(View.GONE);
 
-            }
+                    mInputMethodManager.toggleSoftInput(0,
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                    btn_face.setBackgroundResource(R.drawable.chat_face);
+                } else {
+                    view.setVisibility(View.VISIBLE);
+                    mInputMethodManager.hideSoftInputFromWindow(
+                            et_sendmessage.getWindowToken(), 0);
 
+                }
+                break;
+            case R.id.voice_re:
+                if (btn_record.getVisibility() == View.GONE) {
+                    view.setVisibility(View.GONE);
+                    mInputMethodManager.hideSoftInputFromWindow(
+                            et_sendmessage.getWindowToken(), 0);
+                    btn_face.setBackgroundResource(R.drawable.chat_face);
+                    voice_button.setBackgroundResource(R.drawable.ease_chatting_setmode_keyboard_btn);
+                    btn_record.setVisibility(View.VISIBLE);
+                } else {
+                    view.setVisibility(View.GONE);
+
+                    mInputMethodManager.toggleSoftInput(0,
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+
+                    btn_record.setVisibility(View.GONE);
+                    voice_button.setBackgroundResource(R.drawable.ease_chatting_setmode_voice_btn_normal);
+                }
+                break;
         }
+    }
 
+
+
+
+    public void setOnSendMsgListener(OnSendMsg onSendMsg) {
+        this.onSendMsg = onSendMsg;
     }
 
     /**
@@ -313,6 +333,11 @@ public class FaceRelativeLayout extends RelativeLayout implements
         return false;
     }
 
+    private ImageButton btn_face;
+    private RelativeLayout voice_re;
+    private ImageView voice_button;
+    private Button btn_record;
+
     /**
      * 初始化控件
      */
@@ -322,13 +347,19 @@ public class FaceRelativeLayout extends RelativeLayout implements
 
         layout_point = (LinearLayout) findViewById(R.id.iv_image);
         et_sendmessage.setOnClickListener(this);
-        findViewById(R.id.btn_face).setOnClickListener(this);
+        btn_face = (ImageButton) findViewById(R.id.btn_face);
+        btn_face.setOnClickListener(this);
         faceBtn = (ImageButton) findViewById(R.id.btn_face);
         faceBtn.setOnClickListener(this);
         view = findViewById(R.id.ll_facechoose);
         addBtn = (ImageButton) findViewById(R.id.btn_plus);
-        addBtn.setOnClickListener(this);
+        voice_button = (ImageView) findViewById(R.id.voice_button);
+        voice_re = (RelativeLayout) findViewById(R.id.voice_re);
+        btn_record = (Button) findViewById(R.id.btn_record);
 
+        voice_re.setOnClickListener(this);
+        addBtn.setOnClickListener(this);
+        btn_record.setOnClickListener(this);
         et_sendmessage.addTextChangedListener(watcher);
         send = (Button) findViewById(R.id.btn_send);
         et_sendmessage.setOnFocusChangeListener(new OnFocusChangeListener() {
