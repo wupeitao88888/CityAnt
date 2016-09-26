@@ -1,5 +1,7 @@
 package com.cityant.main.bean;
 
+import com.hyphenate.chat.EMMessageBody;
+
 import java.io.Serializable;
 
 /**
@@ -13,6 +15,16 @@ public class MessageList implements Serializable {
     private String lastmsg;
     private String time;
     private String msgid;
+    private String chat_type;
+
+
+    public String getChat_type() {
+        return chat_type;
+    }
+
+    public void setChat_type(String chat_type) {
+        this.chat_type = chat_type;
+    }
 
     public String getFriend_id() {
         return friend_id;
@@ -69,4 +81,5 @@ public class MessageList implements Serializable {
     public void setMsgid(String msgid) {
         this.msgid = msgid;
     }
+
 }

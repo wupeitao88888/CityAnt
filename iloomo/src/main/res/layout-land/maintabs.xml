@@ -42,13 +42,15 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
+        android:background="@color/black"
         android:orientation="horizontal">
 
         <RelativeLayout
             android:id="@+id/shouye"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:visibility="invisible">
 
 
         </RelativeLayout>
@@ -58,34 +60,24 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_weight="1"
-
-            >
+            android:visibility="invisible">
 
 
         </RelativeLayout>
 
         <RelativeLayout
-
-            android:layout_width="match_parent"
+            android:id="@+id/center_menu"
+            android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/menu">
 
-            <RelativeLayout
-                android:id="@+id/center_menu"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+            <ImageView
+                android:id="@+id/center_menu_add"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
                 android:layout_centerInParent="true"
-                android:background="@drawable/menu">
-
-                <ImageView
-                    android:id="@+id/center_menu_add"
-                    android:layout_width="23dp"
-                    android:layout_height="23dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/icon_add_n" />
-            </RelativeLayout>
-
-
+                android:src="@drawable/icon_add_n" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -93,11 +85,9 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_weight="1">
-
+            <!--android:background="@drawable/ease_unread_count_bg"-->
             <TextView
                 android:id="@+id/unread_msg"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -113,7 +103,8 @@
             android:id="@+id/me"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:visibility="invisible">
 
 
         </RelativeLayout>

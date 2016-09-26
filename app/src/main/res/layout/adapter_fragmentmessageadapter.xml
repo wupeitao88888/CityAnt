@@ -32,11 +32,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="5dp"
                 android:background="@drawable/ease_unread_count_bg"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="12sp" />
+                android:textSize="8sp" />
 
         </RelativeLayout>
 
@@ -47,6 +46,8 @@
             android:layout_marginLeft="7dp"
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@id/avatar_container"
+            android:ellipsize="end"
+            android:maxLength="10"
             android:text=""
             android:textColor="@color/gray"
             android:textSize="16sp" />
@@ -61,7 +62,7 @@
             android:layout_marginLeft="7dp"
             android:layout_toRightOf="@+id/avatar_container"
             android:ellipsize="end"
-            android:singleLine="true"
+            android:maxLines="1"
             android:text=""
             android:textColor="@color/gray"
             android:textSize="14sp" />

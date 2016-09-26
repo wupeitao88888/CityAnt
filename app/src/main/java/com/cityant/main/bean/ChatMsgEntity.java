@@ -36,6 +36,24 @@ public class ChatMsgEntity {
     private String voiceurl;//语音URL
     private String voicelenth;//语音的长度
     private boolean voiceplay;//是否增长播放
+    private String chat_type;
+    private String groupid;
+
+    public String getChat_type() {
+        return chat_type;
+    }
+
+    public void setChat_type(String chat_type) {
+        this.chat_type = chat_type;
+    }
+
+    public String getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(String groupid) {
+        this.groupid = groupid;
+    }
 
     public boolean isVoiceplay() {
         return voiceplay;

@@ -1,6 +1,7 @@
 package com.cityant.main.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import com.cityant.main.R;
 import com.cityant.main.bean.MeCrows;
 import com.cityant.main.bean.MessageList;
 import com.iloomo.base.CommonAdapter;
+import com.iloomo.utils.DateUtil;
 import com.iloomo.utils.PImageLoaderUtils;
 import com.iloomo.utils.StrUtil;
 import com.iloomo.utils.ViewHolder;
@@ -38,10 +40,32 @@ public class FragmentMessageAdapter extends CommonAdapter {
         TextView time = (TextView) ViewHolder.get(convertView, R.id.time);
         ImageView avatar = (ImageView) ViewHolder.get(convertView, R.id.avatar);
 
-        StrUtil.setText(unread_msg, meCrows.getCount());
-        StrUtil.setText(name, meCrows.getUser_name());
+
         StrUtil.setText(departname, meCrows.getLastmsg());
-        StrUtil.setText(time, meCrows.getTime());
+        StrUtil.setText(name, meCrows.getUser_name());
+
+        if (!TextUtils.isEmpty(meCrows.getCount())) {
+            int count = Integer.parseInt(meCrows.getCount());
+            if (count > 0) {
+                if (count > 100) {
+                    StrUtil.setText(unread_msg, "99+");
+                }else{
+                    StrUtil.setText(unread_msg, meCrows.getCount());
+                }
+                unread_msg.setVisibility(View.VISIBLE);
+            } else {
+                unread_msg.setVisibility(View.GONE);
+            }
+        } else {
+            unread_msg.setVisibility(View.GONE);
+        }
+
+        try {
+            StrUtil.setText(time, DateUtil.getDateToString(Long.parseLong(meCrows.getTime())));
+        } catch (Exception e) {
+            StrUtil.setText(time, meCrows.getTime());
+        }
+
         PImageLoaderUtils.displayuserHand(meCrows.getUser_avar(), avatar, context);
         return convertView;
     }

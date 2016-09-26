@@ -11,7 +11,10 @@ import android.text.TextUtils;
 //import com.iloomo.brush.bean.MpData;
 //import com.iloomo.brush.bean.PackageData;
 //import com.iloomo.brush.bean.VpnData;
+import com.cityant.main.bean.ChatMsgEntity;
 import com.cityant.main.bean.LoginUserInfoData;
+import com.cityant.main.bean.MessageList;
+import com.cityant.main.global.MYAppconfig;
 import com.iloomo.db.DBbase;
 import com.iloomo.db.DatabaseManager;
 import com.iloomo.db.DbHelperBase;
@@ -21,12 +24,14 @@ import com.iloomo.utils.L;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.cityant.main.db.DbHelper.CREATE_CONVERSATIONLIST;
+
 /**
  * Created by wupeitao on 16/3/17.
  */
 public class DBControl extends DBbase {
 
-    public static String DB_VERSION = "2";
+    public static String DB_VERSION = "5";
 
     public DBControl(Context context, DbHelperBase DbHelperBase) {
         super(context, DbHelperBase);
@@ -44,21 +49,25 @@ public class DBControl extends DBbase {
 
 
     private String enCode(String str) {
-        String string = "";
-        try {
-            string = DesUtils.getInstance().encrypt(str);
-        } catch (Exception e) {
-        }
-        return string;
+//        String string = "";
+//        try {
+//            string = DesUtils.getInstance().encrypt(str);
+//        } catch (Exception e) {
+//        }
+//        return string;
+        L.e("插入数据：" + str);
+        return str;
     }
 
     private String deCode(String str) {
-        String string = "";
-        try {
-            string = DesUtils.getInstance().decrypt(str);
-        } catch (Exception e) {
-        }
-        return string;
+//        String string = "";
+//        try {
+//            string = DesUtils.getInstance().decrypt(str);
+//        } catch (Exception e) {
+//        }
+//        return string;
+        L.e("得到数据：" + str);
+        return str;
     }
 
     /***
@@ -234,6 +243,384 @@ public class DBControl extends DBbase {
     /************
      * +++++++++++++++++end+++++++++++++++++++++++
      */
+    /***
+     * *******************我的好友start******************
+     *
+     * @param messageList 会话列表
+     */
+    public synchronized void insertConversationlist(MessageList messageList) {
+        try {
+            SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
+                    .openDatabase();
+            writableDatabase
+                    .execSQL(
+                            "insert into " + DbHelper.CONVERSATIONLIST_NAME +
+                                    "(" + DbHelper.FREND_ID + "," +
+                                    DbHelper.USER_NAME + "," +
+                                    DbHelper.USER_AVAR + "," +
+                                    DbHelper.LAST_MSG + "," +
+                                    DbHelper.LAST_MSG_TIME + "," +
+                                    DbHelper.UNREAD_MSG_COUNT + "," +
+                                    DbHelper.CHAT_TYPE + "," +
+                                    DbHelper.M_USER_TOKEN + "," +
+                                    DbHelper.LAST_MSG_ID +
+                                    ")values (?,?,?,?,?,?,?,?,?)",
+                            new Object[]{enCode(messageList.getFriend_id()),
+                                    enCode(messageList.getUser_name()),
+                                    enCode(messageList.getUser_avar()),
+                                    enCode(messageList.getLastmsg()),
+                                    enCode(messageList.getTime()),
+                                    enCode(messageList.getCount()),
+                                    enCode(messageList.getChat_type()),
+                                    enCode(MYAppconfig.loginUserInfoData.getToken()),
+                                    enCode(messageList.getMsgid())});
+            DatabaseManager.getInstance().closeDatabase();
+        } catch (Exception e) {
+            updateConversationlist(messageList);
+        }
+    }
+
+    /*****
+     * @param messageList
+     */
+    public synchronized void updateConversationlist(MessageList messageList) {
+
+//        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+//                .readDatabase();
+//        Cursor cursor = readableDatabase.rawQuery(
+//                "select * from " + DbHelper.CONVERSATIONLIST_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.FREND_ID + "=?",
+//                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(messageList.getFriend_id())});
+//        int count = 0;
+//        while (cursor.moveToNext()) {
+//
+//            try {
+//                count = Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.UNREAD_MSG_COUNT))));
+//            } catch (Exception e) {
+//                count = 0;
+//            }
+//
+//        }
+//
+//        cursor.close();
+//        DatabaseManager.getInstance().closeDatabase();
+
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DbHelper.USER_NAME, enCode(messageList.getUser_name()));
+        values.put(DbHelper.USER_AVAR, enCode(messageList.getUser_avar()));
+        values.put(DbHelper.LAST_MSG, enCode(messageList.getLastmsg()));
+        values.put(DbHelper.LAST_MSG_TIME, enCode(messageList.getTime()));
+        values.put(DbHelper.UNREAD_MSG_COUNT, enCode(messageList.getCount() + ""));
+        values.put(DbHelper.CHAT_TYPE, enCode(messageList.getChat_type()));
+        values.put(DbHelper.LAST_MSG_ID, enCode(messageList.getMsgid()));
+        db.update(DbHelper.CONVERSATIONLIST_NAME, values, DbHelper.FREND_ID + "=? and " + DbHelper.M_USER_TOKEN + "=?",
+                new String[]{enCode(messageList.getFriend_id()), enCode(MYAppconfig.loginUserInfoData.getToken())});
+        DatabaseManager.getInstance().closeDatabase();
+    }
+
+    /****
+     * 获取会话列表
+     *
+     * @return
+     */
+    public synchronized List<MessageList> selectConversationlist() {
+        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                .readDatabase();
+        Cursor cursor = readableDatabase.rawQuery(
+                "select * from " + DbHelper.CONVERSATIONLIST_NAME + " where " + DbHelper.M_USER_TOKEN + "=? Order By " + DbHelper.LAST_MSG_TIME + " Desc",
+                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken())});
+        List<MessageList> messageLists = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            MessageList messageList = new MessageList();
+            messageList.setFriend_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.FREND_ID))));
+            messageList.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
+            messageList.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
+            messageList.setLastmsg(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LAST_MSG))));
+            messageList.setTime(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LAST_MSG_TIME))));
+            messageList.setCount(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.UNREAD_MSG_COUNT))));
+            messageList.setChat_type(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.CHAT_TYPE))));
+            messageList.setMsgid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LAST_MSG_ID))));
+            messageLists.add(messageList);
+        }
+
+
+        cursor.close();
+        DatabaseManager.getInstance().closeDatabase();
+        return messageLists;
+    }
+
+    /****
+     * 归零
+     *
+     * @param messageList
+     */
+    public synchronized void updateMessageCountRset(MessageList messageList) {
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DbHelper.UNREAD_MSG_COUNT, enCode("0"));
+
+        db.update(DbHelper.CONVERSATIONLIST_NAME, values, DbHelper.FREND_ID + "=? and " + DbHelper.M_USER_TOKEN + "=?",
+                new String[]{enCode(messageList.getFriend_id()), enCode(MYAppconfig.loginUserInfoData.getToken())});
+        DatabaseManager.getInstance().closeDatabase();
+    }
+
+
+    public synchronized int getALLCount() {
+        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                .readDatabase();
+        Cursor cursor = readableDatabase.rawQuery(
+                "select * from " + DbHelper.CONVERSATIONLIST_NAME + " where " + DbHelper.M_USER_TOKEN + "=?",
+                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken())});
+        int count = 0;
+        while (cursor.moveToNext()) {
+            try {
+                count = count + Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.UNREAD_MSG_COUNT))));
+            } catch (Exception e) {
+
+            }
+        }
+
+
+        cursor.close();
+        DatabaseManager.getInstance().closeDatabase();
+        return count;
+    }
+    /************
+     * +++++++++++++++++end+++++++++++++++++++++++
+     */
+    /************
+     * ++++++++++++聊天信息+++++start+++++++++++++++++++++++
+     */
+    public synchronized void insertChat(ChatMsgEntity chatMsgEntity) {
+        try {
+            SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
+                    .openDatabase();
+            writableDatabase
+                    .execSQL(
+                            "insert into " + DbHelper.CHAT_NAME +
+                                    "(" + DbHelper.FREND_ID + "," +
+                                    DbHelper.USER_NAME + "," +
+                                    DbHelper.USER_AVAR + "," +
+                                    DbHelper.MOBILE + "," +
+                                    DbHelper.MESSAGE + "," +
+                                    DbHelper.MESSAGEID + "," +
+                                    DbHelper.TYPE + "," +
+                                    DbHelper.TIME + "," +
+                                    DbHelper.STREET + "," +
+                                    DbHelper.LONGITUDE + "," +
+                                    DbHelper.LATITUDE + "," +
+                                    DbHelper.DURATION + "," +
+                                    DbHelper.IMGURL + "," +
+                                    DbHelper.STATUS + "," +
+                                    DbHelper.VOICESTATUS + "," +
+                                    DbHelper.VOICEURL + "," +
+                                    DbHelper.VOICELENTH + "," +
+                                    DbHelper.VOICEPLAY + "," +
+                                    DbHelper.M_USER_TOKEN + "," +
+                                    DbHelper.GROUPID + "," +
+                                    DbHelper.CHAT_TYPE + "," +
+                                    ")values (?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?," +
+                                    "?)",
+                            new Object[]{enCode(chatMsgEntity.getToken()),
+                                    enCode(chatMsgEntity.getUser_name()),
+                                    enCode(chatMsgEntity.getUser_avar()),
+                                    enCode(chatMsgEntity.getMobile()),
+                                    enCode(chatMsgEntity.getMessage()),
+                                    enCode(chatMsgEntity.getMessageid()),
+                                    enCode(chatMsgEntity.getType() + ""),
+                                    enCode(chatMsgEntity.getTime()),
+                                    enCode(chatMsgEntity.getStreet()),
+                                    enCode(chatMsgEntity.getLongitude()),
+                                    enCode(chatMsgEntity.getLatitude()),
+                                    enCode(chatMsgEntity.getDuration()),
+                                    enCode(chatMsgEntity.getImgurl()),
+                                    enCode(chatMsgEntity.getStatus() + ""),
+                                    enCode(chatMsgEntity.getVoicestatus() + ""),
+                                    enCode(chatMsgEntity.getVoiceurl()),
+                                    enCode(chatMsgEntity.getVoicelenth()),
+                                    enCode(chatMsgEntity.isVoiceplay() + ""),
+                                    enCode(MYAppconfig.loginUserInfoData.getToken()),
+                                    enCode(chatMsgEntity.getGroupid()),
+                                    enCode(chatMsgEntity.getChat_type())
+                            });
+            DatabaseManager.getInstance().closeDatabase();
+        } catch (Exception e) {
+        }
+    }
+
+    /****
+     * 获取聊天内容
+     *
+     * @param token
+     * @return
+     */
+    public synchronized List<ChatMsgEntity> getChat(String token,int pager) {
+        pager=pager*20;
+        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                .readDatabase();
+        Cursor cursor = readableDatabase.rawQuery(
+                "select * from " + DbHelper.CHAT_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.FREND_ID + "=?  Order By " + DbHelper.TIME + " ASC limit 20 offset ?",
+                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(token),pager+""});
+        List<ChatMsgEntity> chatMsgEntities = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
+            chatMsgEntity.setToken(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.FREND_ID))));
+            chatMsgEntity.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
+            chatMsgEntity.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
+            chatMsgEntity.setMobile(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MOBILE))));
+            chatMsgEntity.setMessage(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGE))));
+            chatMsgEntity.setMessageid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGEID))));
+            try {
+                chatMsgEntity.setType(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TYPE)))));
+            } catch (Exception e) {
+            }
+            chatMsgEntity.setTime(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TIME))));
+            chatMsgEntity.setStreet(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STREET))));
+            chatMsgEntity.setLongitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LONGITUDE))));
+            chatMsgEntity.setLatitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LASTUSER))));
+            chatMsgEntity.setDuration(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.DURATION))));
+            chatMsgEntity.setImgurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.IMGURL))));
+            try {
+                chatMsgEntity.setStatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STATUS)))));
+            } catch (Exception e) {
+            }
+            chatMsgEntity.setVoicestatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICESTATUS)))));
+            chatMsgEntity.setVoiceurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEURL))));
+            chatMsgEntity.setVoicelenth(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICELENTH))));
+            try {
+                chatMsgEntity.setVoiceplay(Boolean.parseBoolean(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEPLAY)))));
+            } catch (Exception e) {
+            }
+            chatMsgEntity.setGroupid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.GROUPID))));
+            chatMsgEntity.setChat_type(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.CHAT_TYPE))));
+            chatMsgEntities.add(chatMsgEntity);
+        }
+        cursor.close();
+        DatabaseManager.getInstance().closeDatabase();
+        return chatMsgEntities;
+    }
+
+    /****
+     * 获取聊天组内容
+     *
+     * @param groupid
+     * @return
+     */
+    public synchronized List<ChatMsgEntity> getChatGroup(String groupid,int pager) {
+        pager=pager*20;
+        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                .readDatabase();
+        Cursor cursor = readableDatabase.rawQuery(
+                "select * from " + DbHelper.CHAT_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.GROUPID + "=?  Order By " + DbHelper.TIME + " ASC limit 20 offset ?",
+                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(groupid),pager+""});
+        List<ChatMsgEntity> chatMsgEntities = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
+            chatMsgEntity.setToken(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.FREND_ID))));
+            chatMsgEntity.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
+            chatMsgEntity.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
+            chatMsgEntity.setMobile(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MOBILE))));
+            chatMsgEntity.setMessage(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGE))));
+            chatMsgEntity.setMessageid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGEID))));
+            try {
+                chatMsgEntity.setType(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TYPE)))));
+            } catch (Exception e) {
+            }
+            chatMsgEntity.setTime(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TIME))));
+            chatMsgEntity.setStreet(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STREET))));
+            chatMsgEntity.setLongitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LONGITUDE))));
+            chatMsgEntity.setLatitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LASTUSER))));
+            chatMsgEntity.setDuration(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.DURATION))));
+            chatMsgEntity.setImgurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.IMGURL))));
+            try {
+                chatMsgEntity.setStatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STATUS)))));
+            } catch (Exception e) {
+            }
+            chatMsgEntity.setVoicestatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICESTATUS)))));
+            chatMsgEntity.setVoiceurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEURL))));
+            chatMsgEntity.setVoicelenth(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICELENTH))));
+            try {
+                chatMsgEntity.setVoiceplay(Boolean.parseBoolean(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEPLAY)))));
+            } catch (Exception e) {
+            }
+            chatMsgEntity.setGroupid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.GROUPID))));
+            chatMsgEntity.setChat_type(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.CHAT_TYPE))));
+            chatMsgEntities.add(chatMsgEntity);
+        }
+        cursor.close();
+        DatabaseManager.getInstance().closeDatabase();
+        return chatMsgEntities;
+    }
+
+    /****
+     *
+     * 修改消息状态
+     * @param message_id
+     * @param status
+     */
+    public synchronized void updateChatMessageStatus(String message_id,String status) {
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DbHelper.STATUS, enCode(status));
+
+        db.update(DbHelper.CHAT_NAME, values, DbHelper.MESSAGEID + "=? and " + DbHelper.M_USER_TOKEN + "=?",
+                new String[]{enCode(message_id), enCode(MYAppconfig.loginUserInfoData.getToken())});
+        DatabaseManager.getInstance().closeDatabase();
+    }
+
+    /****
+     *
+     * 修改消息状态
+     * @param message_id
+     * @param voiceplay
+     */
+    public synchronized void updateChatMessageVoicePlay(String message_id,String voiceplay) {
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DbHelper.VOICEPLAY, enCode(voiceplay));
+
+        db.update(DbHelper.CHAT_NAME, values, DbHelper.MESSAGEID + "=? and " + DbHelper.M_USER_TOKEN + "=?",
+                new String[]{enCode(message_id), enCode(MYAppconfig.loginUserInfoData.getToken())});
+        DatabaseManager.getInstance().closeDatabase();
+    }
+
+    /****
+     *
+     * 修改消息状态
+     * @param message_id
+     * @param voicestatus
+     */
+    public synchronized void updateChatMessageVoiceStatus(String message_id,String voicestatus) {
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DbHelper.VOICESTATUS, enCode(voicestatus));
+
+        db.update(DbHelper.CHAT_NAME, values, DbHelper.MESSAGEID + "=? and " + DbHelper.M_USER_TOKEN + "=?",
+                new String[]{enCode(message_id), enCode(MYAppconfig.loginUserInfoData.getToken())});
+        DatabaseManager.getInstance().closeDatabase();
+    }
+
+
+
 //        public synchronized void insertExec(ExeTime exeTime) {
 //        try {
 //            SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
@@ -288,7 +675,7 @@ public class DBControl extends DBbase {
 //
 //
 
-//
+    //
 //    public synchronized boolean isTodayTask(String time) {
 //        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
 //                .readDatabase();
@@ -664,6 +1051,8 @@ public class DBControl extends DBbase {
         db.execSQL(DbHelper.DELETE_LOGININFO);
         db.execSQL(DbHelper.DELETE_LASTUSER);
         db.execSQL(DbHelper.DELETE_MYFRENDS);
+        db.execSQL(DbHelper.DELETE_CONVERSATIONLIST);
+
         DatabaseManager.getInstance().closeDatabase();
         createAllTab();
     }
@@ -675,6 +1064,7 @@ public class DBControl extends DBbase {
         db.execSQL(DbHelper.LOGININFO);
         db.execSQL(DbHelper.LASTUSER);
         db.execSQL(DbHelper.MYFRENDS);
+        db.execSQL(DbHelper.CREATE_CONVERSATIONLIST);
 
         DatabaseManager.getInstance().closeDatabase();
     }

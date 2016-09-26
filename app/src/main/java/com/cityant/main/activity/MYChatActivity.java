@@ -26,6 +26,9 @@ import com.cityant.main.bean.MyFrends;
 import com.cityant.main.utlis.AudioRecorder;
 import com.cityant.main.utlis.FaceConversionUtil;
 import com.cityant.main.utlis.UploadVoice;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMConversation;
+import com.hyphenate.chat.EMMessage;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.threadpool.MyThreadPool;
 
@@ -37,6 +40,8 @@ import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
+
+import static com.cityant.main.R.id.username;
 
 /**
  * Created by wupeitao on 16/8/20.
@@ -66,12 +71,12 @@ public class MYChatActivity extends ActivitySupport {
     private Toast toast;
     int j = 0;
     private int[] bitm = new int[]{R.drawable.ll9,R.drawable.ll8,R.drawable.ll7,R.drawable.ll6,R.drawable.ll5,R.drawable.ll4,R.drawable.ll3,R.drawable.ll2,R.drawable.ll1,R.drawable.ll0};
-
+    private MyFrends myFrends;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mychat);
-        MyFrends myFrends = (MyFrends) getIntent().getSerializableExtra("MyFrend");
+        myFrends= (MyFrends) getIntent().getSerializableExtra("MyFrend");
         setCtenterTitle(myFrends.getUser_name());
         mInputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         setScreen();
@@ -362,6 +367,11 @@ public class MYChatActivity extends ActivitySupport {
         chatMsgEntityToDoubleRob.setMessageid("123");
         
         list.add(chatMsgEntityToGift);
+
+        EMConversation conversation = EMClient.getInstance().chatManager().getConversation(myFrends.getUser_name());
+//获取此会话的所有消息
+        List<EMMessage> messages = conversation.getAllMessages();
+
         chatMsgAdapter = new ChatMsgAdapter(context, list);
         chatListView.setAdapter(chatMsgAdapter);
 
