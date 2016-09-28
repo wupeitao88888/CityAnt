@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import com.cityant.main.bean.ChatMsgEntity;
 import com.cityant.main.bean.LoginUserInfoData;
 import com.cityant.main.bean.MessageList;
+import com.cityant.main.bean.MyFrends;
 import com.cityant.main.global.MYAppconfig;
 import com.iloomo.db.DBbase;
 import com.iloomo.db.DatabaseManager;
@@ -31,7 +32,7 @@ import static com.cityant.main.db.DbHelper.CREATE_CONVERSATIONLIST;
  */
 public class DBControl extends DBbase {
 
-    public static String DB_VERSION = "5";
+    public static String DB_VERSION = "14";
 
     public DBControl(Context context, DbHelperBase DbHelperBase) {
         super(context, DbHelperBase);
@@ -102,8 +103,8 @@ public class DBControl extends DBbase {
                     .openDatabase();
             writableDatabase
                     .execSQL(
-                            "insert into logininfo(token,mobile,user_name,user_avar) values (?,?,?,?)",
-                            new Object[]{enCode(loginUserInfoData.getToken()),
+                            "insert into logininfo(" + DbHelper.USER_ID + ",token,mobile,user_name,user_avar) values (?,?,?,?,?)",
+                            new Object[]{enCode(loginUserInfoData.getUser_id()), enCode(loginUserInfoData.getToken()),
                                     enCode(loginUserInfoData.getMobile()),
                                     enCode(loginUserInfoData.getUser_name()),
                                     enCode(loginUserInfoData.getUser_avar())});
@@ -116,6 +117,7 @@ public class DBControl extends DBbase {
     public synchronized void updateLoginInfo(LoginUserInfoData loginUserInfoData) {
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
         ContentValues values = new ContentValues();
+        values.put(DbHelper.USER_ID, enCode(loginUserInfoData.getUser_id()));
         values.put("mobile", enCode(loginUserInfoData.getMobile()));
         values.put("user_name", enCode(loginUserInfoData.getUser_name()));
         values.put("user_avar", enCode(loginUserInfoData.getUser_avar()));
@@ -137,6 +139,7 @@ public class DBControl extends DBbase {
             loginUserInfoData.setMobile(deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
             loginUserInfoData.setUser_name(deCode(cursor.getString(cursor.getColumnIndex("user_name"))));
             loginUserInfoData.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex("user_avar"))));
+            loginUserInfoData.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
         }
 
 
@@ -157,6 +160,7 @@ public class DBControl extends DBbase {
             loginUserInfoData.setMobile(deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
             loginUserInfoData.setUser_name(deCode(cursor.getString(cursor.getColumnIndex("user_name"))));
             loginUserInfoData.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex("user_avar"))));
+            loginUserInfoData.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
         }
         cursor.close();
         DatabaseManager.getInstance().closeDatabase();
@@ -245,6 +249,80 @@ public class DBControl extends DBbase {
      */
     /***
      * *******************我的好友start******************
+     */
+    /***
+     * @param myFrends 会话列表
+     */
+    public synchronized void insertFrends(MyFrends myFrends) {
+
+        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                .readDatabase();
+        Cursor cursor = readableDatabase.rawQuery(
+                "select * from " + DbHelper.MYFREDNS_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.USER_ID + "=?",
+                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(myFrends.getUser_id())});
+        String token = "";
+        while (cursor.moveToNext()) {
+            token = deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID)));
+        }
+
+        cursor.close();
+        DatabaseManager.getInstance().closeDatabase();
+
+        if (TextUtils.isEmpty(token)) {
+            try {
+                SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
+                        .openDatabase();
+                writableDatabase
+                        .execSQL(
+                                "insert into " + DbHelper.MYFREDNS_NAME +
+                                        "(" +
+                                        DbHelper.USER_ID + "," +
+                                        DbHelper.USER_NAME + "," +
+                                        DbHelper.USER_AVAR + "," +
+                                        DbHelper.M_USER_TOKEN +
+                                        ")values (?,?,?,?)",
+                                new Object[]{
+                                        enCode(myFrends.getUser_id()),
+                                        enCode(myFrends.getUser_name()),
+                                        enCode(myFrends.getUser_avar()),
+                                        enCode(MYAppconfig.loginUserInfoData.getToken())});
+                DatabaseManager.getInstance().closeDatabase();
+            } catch (Exception e) {
+            }
+        } else {
+            SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+            ContentValues values = new ContentValues();
+            values.put(DbHelper.USER_NAME, enCode(myFrends.getUser_name()));
+            values.put(DbHelper.USER_AVAR, enCode(myFrends.getUser_avar()));
+            db.update(DbHelper.MYFREDNS_NAME, values, DbHelper.USER_ID + "=? and " + DbHelper.M_USER_TOKEN + "=?",
+                    new String[]{enCode(myFrends.getUser_id()), enCode(MYAppconfig.loginUserInfoData.getToken())});
+            DatabaseManager.getInstance().closeDatabase();
+        }
+    }
+
+    public synchronized MyFrends selectMyFrends(String userid) {
+        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                .readDatabase();
+        Cursor cursor = readableDatabase.rawQuery(
+                "select * from " + DbHelper.MYFREDNS_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.USER_ID + "=?",
+                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(userid)});
+        MyFrends messageLists = new MyFrends();
+        while (cursor.moveToNext()) {
+            MessageList messageList = new MessageList();
+            messageList.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
+            messageList.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
+            messageList.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
+        }
+        cursor.close();
+        DatabaseManager.getInstance().closeDatabase();
+        return messageLists;
+    }
+
+/************
+ * +++++++++++++++++end+++++++++++++++++++++++
+ */
+    /***
+     * *******************我的会话start******************
      *
      * @param messageList 会话列表
      */
@@ -255,7 +333,8 @@ public class DBControl extends DBbase {
             writableDatabase
                     .execSQL(
                             "insert into " + DbHelper.CONVERSATIONLIST_NAME +
-                                    "(" + DbHelper.FREND_ID + "," +
+                                    "(" +
+                                    DbHelper.USER_ID + "," +
                                     DbHelper.USER_NAME + "," +
                                     DbHelper.USER_AVAR + "," +
                                     DbHelper.LAST_MSG + "," +
@@ -265,7 +344,8 @@ public class DBControl extends DBbase {
                                     DbHelper.M_USER_TOKEN + "," +
                                     DbHelper.LAST_MSG_ID +
                                     ")values (?,?,?,?,?,?,?,?,?)",
-                            new Object[]{enCode(messageList.getFriend_id()),
+                            new Object[]{
+                                    enCode(messageList.getUser_id()),
                                     enCode(messageList.getUser_name()),
                                     enCode(messageList.getUser_avar()),
                                     enCode(messageList.getLastmsg()),
@@ -307,14 +387,15 @@ public class DBControl extends DBbase {
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
         ContentValues values = new ContentValues();
         values.put(DbHelper.USER_NAME, enCode(messageList.getUser_name()));
+        values.put(DbHelper.USER_ID, enCode(messageList.getUser_id()));
         values.put(DbHelper.USER_AVAR, enCode(messageList.getUser_avar()));
         values.put(DbHelper.LAST_MSG, enCode(messageList.getLastmsg()));
         values.put(DbHelper.LAST_MSG_TIME, enCode(messageList.getTime()));
         values.put(DbHelper.UNREAD_MSG_COUNT, enCode(messageList.getCount() + ""));
         values.put(DbHelper.CHAT_TYPE, enCode(messageList.getChat_type()));
         values.put(DbHelper.LAST_MSG_ID, enCode(messageList.getMsgid()));
-        db.update(DbHelper.CONVERSATIONLIST_NAME, values, DbHelper.FREND_ID + "=? and " + DbHelper.M_USER_TOKEN + "=?",
-                new String[]{enCode(messageList.getFriend_id()), enCode(MYAppconfig.loginUserInfoData.getToken())});
+        db.update(DbHelper.CONVERSATIONLIST_NAME, values, DbHelper.USER_ID + "=? and " + DbHelper.M_USER_TOKEN + "=?",
+                new String[]{enCode(messageList.getUser_id()), enCode(MYAppconfig.loginUserInfoData.getToken())});
         DatabaseManager.getInstance().closeDatabase();
     }
 
@@ -332,7 +413,7 @@ public class DBControl extends DBbase {
         List<MessageList> messageLists = new ArrayList<>();
         while (cursor.moveToNext()) {
             MessageList messageList = new MessageList();
-            messageList.setFriend_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.FREND_ID))));
+            messageList.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
             messageList.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
             messageList.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
             messageList.setLastmsg(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LAST_MSG))));
@@ -359,30 +440,37 @@ public class DBControl extends DBbase {
         ContentValues values = new ContentValues();
         values.put(DbHelper.UNREAD_MSG_COUNT, enCode("0"));
 
-        db.update(DbHelper.CONVERSATIONLIST_NAME, values, DbHelper.FREND_ID + "=? and " + DbHelper.M_USER_TOKEN + "=?",
-                new String[]{enCode(messageList.getFriend_id()), enCode(MYAppconfig.loginUserInfoData.getToken())});
+        db.update(DbHelper.CONVERSATIONLIST_NAME, values, DbHelper.USER_ID + "=? and " + DbHelper.M_USER_TOKEN + "=?",
+                new String[]{enCode(messageList.getUser_id()), enCode(MYAppconfig.loginUserInfoData.getToken())});
         DatabaseManager.getInstance().closeDatabase();
     }
 
 
     public synchronized int getALLCount() {
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery(
-                "select * from " + DbHelper.CONVERSATIONLIST_NAME + " where " + DbHelper.M_USER_TOKEN + "=?",
-                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken())});
         int count = 0;
-        while (cursor.moveToNext()) {
-            try {
-                count = count + Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.UNREAD_MSG_COUNT))));
-            } catch (Exception e) {
+        try {
 
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery(
+                    "select * from " + DbHelper.CONVERSATIONLIST_NAME + " where " + DbHelper.M_USER_TOKEN + "=?",
+                    new String[]{enCode(MYAppconfig.loginUserInfoData.getToken())});
+
+            while (cursor.moveToNext()) {
+                try {
+                    count = count + Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.UNREAD_MSG_COUNT))));
+                } catch (Exception e) {
+
+                }
             }
+
+
+            cursor.close();
+            DatabaseManager.getInstance().closeDatabase();
+
+        } catch (Exception e) {
+
         }
-
-
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
         return count;
     }
     /************
@@ -398,7 +486,8 @@ public class DBControl extends DBbase {
             writableDatabase
                     .execSQL(
                             "insert into " + DbHelper.CHAT_NAME +
-                                    "(" + DbHelper.FREND_ID + "," +
+                                    "(" +
+                                    DbHelper.USER_ID + "," +
                                     DbHelper.USER_NAME + "," +
                                     DbHelper.USER_AVAR + "," +
                                     DbHelper.MOBILE + "," +
@@ -440,7 +529,8 @@ public class DBControl extends DBbase {
                                     "?," +
                                     "?," +
                                     "?)",
-                            new Object[]{enCode(chatMsgEntity.getToken()),
+                            new Object[]{
+                                    enCode(chatMsgEntity.getUser_id()),
                                     enCode(chatMsgEntity.getUser_name()),
                                     enCode(chatMsgEntity.getUser_avar()),
                                     enCode(chatMsgEntity.getMobile()),
@@ -470,20 +560,20 @@ public class DBControl extends DBbase {
     /****
      * 获取聊天内容
      *
-     * @param token
+     * @param userid
      * @return
      */
-    public synchronized List<ChatMsgEntity> getChat(String token,int pager) {
-        pager=pager*20;
+    public synchronized List<ChatMsgEntity> getChat(String userid, int pager) {
+        pager = pager * 20;
         SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
                 .readDatabase();
         Cursor cursor = readableDatabase.rawQuery(
-                "select * from " + DbHelper.CHAT_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.FREND_ID + "=?  Order By " + DbHelper.TIME + " ASC limit 20 offset ?",
-                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(token),pager+""});
+                "select * from " + DbHelper.CHAT_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.USER_ID + "=?  Order By " + DbHelper.TIME + " ASC limit 20 offset ?",
+                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(userid), pager + ""});
         List<ChatMsgEntity> chatMsgEntities = new ArrayList<>();
         while (cursor.moveToNext()) {
             ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
-            chatMsgEntity.setToken(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.FREND_ID))));
+            chatMsgEntity.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
             chatMsgEntity.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
             chatMsgEntity.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
             chatMsgEntity.setMobile(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MOBILE))));
@@ -525,17 +615,17 @@ public class DBControl extends DBbase {
      * @param groupid
      * @return
      */
-    public synchronized List<ChatMsgEntity> getChatGroup(String groupid,int pager) {
-        pager=pager*20;
+    public synchronized List<ChatMsgEntity> getChatGroup(String groupid, int pager) {
+        pager = pager * 20;
         SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
                 .readDatabase();
         Cursor cursor = readableDatabase.rawQuery(
                 "select * from " + DbHelper.CHAT_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.GROUPID + "=?  Order By " + DbHelper.TIME + " ASC limit 20 offset ?",
-                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(groupid),pager+""});
+                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(groupid), pager + ""});
         List<ChatMsgEntity> chatMsgEntities = new ArrayList<>();
         while (cursor.moveToNext()) {
             ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
-            chatMsgEntity.setToken(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.FREND_ID))));
+            chatMsgEntity.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
             chatMsgEntity.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
             chatMsgEntity.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
             chatMsgEntity.setMobile(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MOBILE))));
@@ -572,12 +662,12 @@ public class DBControl extends DBbase {
     }
 
     /****
-     *
      * 修改消息状态
+     *
      * @param message_id
      * @param status
      */
-    public synchronized void updateChatMessageStatus(String message_id,String status) {
+    public synchronized void updateChatMessageStatus(String message_id, String status) {
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
         ContentValues values = new ContentValues();
         values.put(DbHelper.STATUS, enCode(status));
@@ -588,12 +678,12 @@ public class DBControl extends DBbase {
     }
 
     /****
-     *
      * 修改消息状态
+     *
      * @param message_id
      * @param voiceplay
      */
-    public synchronized void updateChatMessageVoicePlay(String message_id,String voiceplay) {
+    public synchronized void updateChatMessageVoicePlay(String message_id, String voiceplay) {
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
         ContentValues values = new ContentValues();
         values.put(DbHelper.VOICEPLAY, enCode(voiceplay));
@@ -604,12 +694,12 @@ public class DBControl extends DBbase {
     }
 
     /****
-     *
      * 修改消息状态
+     *
      * @param message_id
      * @param voicestatus
      */
-    public synchronized void updateChatMessageVoiceStatus(String message_id,String voicestatus) {
+    public synchronized void updateChatMessageVoiceStatus(String message_id, String voicestatus) {
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
         ContentValues values = new ContentValues();
         values.put(DbHelper.VOICESTATUS, enCode(voicestatus));
@@ -618,7 +708,6 @@ public class DBControl extends DBbase {
                 new String[]{enCode(message_id), enCode(MYAppconfig.loginUserInfoData.getToken())});
         DatabaseManager.getInstance().closeDatabase();
     }
-
 
 
 //        public synchronized void insertExec(ExeTime exeTime) {

@@ -29,8 +29,10 @@ import com.cityant.main.utlis.UploadVoice;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
+import com.hyphenate.chat.EMTextMessageBody;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.threadpool.MyThreadPool;
+import com.iloomo.utils.L;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +44,7 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 
 import static com.cityant.main.R.id.username;
+import static com.hyphenate.chat.EMMessage.Type.TXT;
 
 /**
  * Created by wupeitao on 16/8/20.
@@ -70,13 +73,14 @@ public class MYChatActivity extends ActivitySupport {
     private ImageView dialog_img, dialog_img2;
     private Toast toast;
     int j = 0;
-    private int[] bitm = new int[]{R.drawable.ll9,R.drawable.ll8,R.drawable.ll7,R.drawable.ll6,R.drawable.ll5,R.drawable.ll4,R.drawable.ll3,R.drawable.ll2,R.drawable.ll1,R.drawable.ll0};
+    private int[] bitm = new int[]{R.drawable.ll9, R.drawable.ll8, R.drawable.ll7, R.drawable.ll6, R.drawable.ll5, R.drawable.ll4, R.drawable.ll3, R.drawable.ll2, R.drawable.ll1, R.drawable.ll0};
     private MyFrends myFrends;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mychat);
-        myFrends= (MyFrends) getIntent().getSerializableExtra("MyFrend");
+        myFrends = (MyFrends) getIntent().getSerializableExtra("MyFrend");
         setCtenterTitle(myFrends.getUser_name());
         mInputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         setScreen();
@@ -112,7 +116,7 @@ public class MYChatActivity extends ActivitySupport {
                     case MotionEvent.ACTION_DOWN:
                         // 录音方法:按住录音
                         if (recordState != RECORD_ING) {
-                            if(toast != null){
+                            if (toast != null) {
                                 toast.cancel();
                             }
                             voiceName = System.currentTimeMillis() + "voice";
@@ -195,7 +199,7 @@ public class MYChatActivity extends ActivitySupport {
             }
 
         });
-
+        getChatList();
 
         List<ChatMsgEntity> list = new ArrayList<>();
 
@@ -365,7 +369,7 @@ public class MYChatActivity extends ActivitySupport {
         chatMsgEntityToDoubleRob.setStatus(3);
         chatMsgEntityToDoubleRob.setMessage("礼物");
         chatMsgEntityToDoubleRob.setMessageid("123");
-        
+
         list.add(chatMsgEntityToGift);
 
         EMConversation conversation = EMClient.getInstance().chatManager().getConversation(myFrends.getUser_name());
@@ -468,9 +472,9 @@ public class MYChatActivity extends ActivitySupport {
 
     // 录音时间太短时Toast显示
     void showWarnToast() {
-        if(toast != null){
+        if (toast != null) {
             toast.cancel();
-        }else{
+        } else {
             toast = new Toast(this);
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setOrientation(LinearLayout.VERTICAL);
@@ -529,6 +533,7 @@ public class MYChatActivity extends ActivitySupport {
 
         Handler imgHandle = new Handler() {
             int count = 0;
+
             @Override
             public void handleMessage(Message msg) {
 
@@ -572,7 +577,7 @@ public class MYChatActivity extends ActivitySupport {
                         count++;
 
                         if (count % 5 == 0) {
-                            if(j < 10){
+                            if (j < 10) {
                                 dialog_img.setImageResource(bitm[j++ % 10]);
                             }
                         }
@@ -585,6 +590,7 @@ public class MYChatActivity extends ActivitySupport {
             }
         };
     };
+
     // 录音线程
     void mythread() {
         MyThreadPool.getInstance().submit(ImgThread);
@@ -599,18 +605,62 @@ public class MYChatActivity extends ActivitySupport {
             dialog_img.setImageResource(R.drawable.sy6);
         } else if (voiceValue > 3200.0 && voiceValue < 5000) {
             dialog_img.setImageResource(R.drawable.sy5);
-        }else if (voiceValue > 5000.0 && voiceValue < 8000.0) {
+        } else if (voiceValue > 5000.0 && voiceValue < 8000.0) {
             dialog_img.setImageResource(R.drawable.sy4);
         } else if (voiceValue > 8000.0 && voiceValue < 14000.0) {
             dialog_img.setImageResource(R.drawable.sy3);
         } else if (voiceValue > 14000.0 && voiceValue < 20000) {
             dialog_img.setImageResource(R.drawable.sy2);
-        }else if (voiceValue > 20000.0) {
+        } else if (voiceValue > 20000.0) {
             dialog_img.setImageResource(R.drawable.sy1);
         }
     }
+
     public String getAmrPath(String path) {
         String amrPaht = mRecorder.sanitizePath(path);
         return amrPaht;
     }
+
+    /****
+     * 消息:TXT/wpt/wpt/txt:"你会后悔的"
+     */
+    public void getChatList() {
+        MyThreadPool.getInstance().submit(new Runnable() {
+            @Override
+            public void run() {
+                EMConversation conversation = EMClient.getInstance().chatManager().getConversation(myFrends.getUser_id());
+                //获取此会话的所有消息
+                List<EMMessage> messages = conversation.getAllMessages();
+                for (int i = 0; i < messages.size(); i++) {
+                    EMMessage emMessage = messages.get(i);
+                    L.e("消息:" + emMessage.getType() + "/" + emMessage.getUserName() + "/" + emMessage.getFrom() + "/" + emMessage.getBody());
+                    ChatMsgEntity chatMsgEntityfrom = new ChatMsgEntity();
+                    chatMsgEntityfrom.setType(Integer.parseInt(getMsgType(emMessage.getType(), emMessage)));
+                    EMTextMessageBody body = (EMTextMessageBody) emMessage.getBody();
+                    chatMsgEntityfrom.setMessage(body.getMessage());
+                    chatMsgEntityfrom.setUser_name("唐嫣");
+                    chatMsgEntityfrom.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+
+                }
+            }
+        });
+    }
+
+
+    public String getMsgType(EMMessage.Type type, EMMessage emMessage) {
+
+        String action = "0";
+        switch (type) {
+            case TXT:
+                if (myFrends.getUser_id() == emMessage.getFrom()) {
+                    action = "7";
+                } else {
+                    action = "2";
+                }
+                break;
+        }
+        return action;
+    }
+
+
 }

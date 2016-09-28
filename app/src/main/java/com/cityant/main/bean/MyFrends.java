@@ -6,11 +6,19 @@ import java.io.Serializable;
  * Created by wupeitao on 16/8/19.
  */
 public class MyFrends implements Serializable {
-    private String friend_id;
+    private String user_id;//环信id
     private String user_name;
     private String user_avar;
     private String PinYinName;
     private String isGroup;
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
 
     public String getIsGroup() {
         return isGroup;
@@ -26,14 +34,6 @@ public class MyFrends implements Serializable {
 
     public void setPinYinName(String pinYinName) {
         PinYinName = pinYinName;
-    }
-
-    public String getFriend_id() {
-        return friend_id;
-    }
-
-    public void setFriend_id(String friend_id) {
-        this.friend_id = friend_id;
     }
 
     public String getUser_name() {

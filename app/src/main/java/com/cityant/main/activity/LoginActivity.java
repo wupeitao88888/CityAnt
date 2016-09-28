@@ -219,7 +219,8 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
     private boolean isopen = false;
 
     private void hxLogin(Object modelClass) {
-        EMClient.getInstance().login(phone_number.getText().toString(), password_number.getText().toString(), new EMCallBack() {//回调
+        LoginUserInfo loginUserInfo = (LoginUserInfo) modelClass;
+        EMClient.getInstance().login(loginUserInfo.getData().getUser_id(), password_number.getText().toString(), new EMCallBack() {//回调
             @Override
             public void onSuccess() {
                 EMClient.getInstance().groupManager().loadAllGroups();
@@ -227,7 +228,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
 
                 L.e("登录聊天服务器成功！");
                 try {
-                    EMClient.getInstance().contactManager().addContact("wpt", "没理由");
+                    EMClient.getInstance().contactManager().addContact("17", "没理由");
                 } catch (HyphenateException e) {
                 }
 
@@ -256,7 +257,7 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                 if (!isopen) {
                     isopen = true;
                     try {
-                        EMClient.getInstance().createAccount(phone_number.getText().toString(), password_number.getText().toString());//同步方法
+                        EMClient.getInstance().createAccount(loginUserInfo.getData().getUser_id(), password_number.getText().toString());//同步方法
                         hxLogin(modelClass);
                     } catch (HyphenateException e) {
                     }

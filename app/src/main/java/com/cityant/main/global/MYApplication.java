@@ -4,15 +4,18 @@ import android.app.ActivityManager;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 
 import com.cityant.main.bean.LoginUserInfoData;
 import com.cityant.main.db.DBControl;
+import com.cityant.main.db.DbHelper;
 import com.cityant.main.utlis.FaceConversionUtil;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.iloomo.global.MApplication;
 import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.L;
+import com.iloomo.utils.LCSharedPreferencesHelper;
 
 import java.util.Iterator;
 import java.util.List;
@@ -23,6 +26,7 @@ import java.util.List;
  */
 public class MYApplication extends MApplication {
     private final int GETLOGINFO = 100;
+    private LCSharedPreferencesHelper lcSharedPreferencesHelper;
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -38,7 +42,7 @@ public class MYApplication extends MApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-//
+        checkDb();
         initDate();
         EMOptions options = new EMOptions();
         // 默认添加好友时，是不需要验证的，改成需要验证
@@ -95,5 +99,24 @@ public class MYApplication extends MApplication {
             }
         }
         return processName;
+    }
+    private void checkDb() {
+        lcSharedPreferencesHelper = LCSharedPreferencesHelper.instance(context, LCSharedPreferencesHelper.ILOOMO);
+        DbHelper dbHelper = new DbHelper(context);
+        DBControl dbControl = new DBControl(context, dbHelper);
+        try {
+            if (TextUtils.isEmpty(lcSharedPreferencesHelper.getValue(LCSharedPreferencesHelper.UPDATE_DB))) {
+                lcSharedPreferencesHelper.putValue(LCSharedPreferencesHelper.UPDATE_DB, DBControl.DB_VERSION);
+                dbControl.deleteAllTab();
+                dbControl.createAllTab();
+            } else {
+                if (!DBControl.DB_VERSION.equals(lcSharedPreferencesHelper.getValue(LCSharedPreferencesHelper.UPDATE_DB))) {
+                    lcSharedPreferencesHelper.putValue(LCSharedPreferencesHelper.UPDATE_DB, DBControl.DB_VERSION);
+                    dbControl.deleteAllTab();
+                    dbControl.createAllTab();
+                }
+            }
+        } catch (Exception e) {
+        }
     }
 }

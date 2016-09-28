@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,14 +28,39 @@ public class NewFrendsAdapter extends CommonAdapter {
 
     @Override
     public View getView(int i, View convertView, ViewGroup viewGroup) {
-        NewFrends meCrows=(NewFrends)mDatas.get(i);
+        NewFrends meCrows = (NewFrends) mDatas.get(i);
         if (convertView == null) {
-            convertView= LayoutInflater.from(context).inflate(R.layout.adapter_newfrends,null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.adapter_newfrends, null);
         }
-        ImageView newfrendshead=(ImageView) ViewHolder.get(convertView,R.id.newfrendshead);
-        TextView newfrendsname=(TextView) ViewHolder.get(convertView,R.id.newfrendsname);
-        StrUtil.setText(newfrendsname,meCrows.getUser_name());
-        PImageLoaderUtils.displayuserHand(meCrows.getUser_avar(),newfrendshead,context);
+        ImageView newfrendshead = (ImageView) ViewHolder.get(convertView, R.id.newfrendshead);
+        TextView newfrendsname = (TextView) ViewHolder.get(convertView, R.id.newfrendsname);
+        TextView status = (TextView) ViewHolder.get(convertView, R.id.status);
+        Button agree = (Button) ViewHolder.get(convertView, R.id.agree);
+        Button refuse = (Button) ViewHolder.get(convertView, R.id.refuse);
+        StrUtil.setText(newfrendsname, meCrows.getUser_name());
+        PImageLoaderUtils.displayuserHand(meCrows.getUser_avar(), newfrendshead, context);
+        if ("2".equals(meCrows.getState())) {
+            StrUtil.setText(status, "验证中");
+            status.setVisibility(View.VISIBLE);
+            agree.setVisibility(View.GONE);
+            refuse.setVisibility(View.GONE);
+        } else {
+            status.setVisibility(View.GONE);
+            agree.setVisibility(View.VISIBLE);
+            refuse.setVisibility(View.VISIBLE);
+            agree.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+            refuse.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+        }
         return convertView;
     }
 }

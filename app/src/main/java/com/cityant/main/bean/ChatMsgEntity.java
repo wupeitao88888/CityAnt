@@ -19,6 +19,7 @@ public class ChatMsgEntity {
      *
      */
     private int type;
+    private String user_id;
     private String token;
     private String mobile;//手机号
     private String user_name;//名字
@@ -38,6 +39,14 @@ public class ChatMsgEntity {
     private boolean voiceplay;//是否增长播放
     private String chat_type;
     private String groupid;
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
 
     public String getChat_type() {
         return chat_type;

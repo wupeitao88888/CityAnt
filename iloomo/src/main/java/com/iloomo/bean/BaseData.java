@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class BaseData implements Serializable {
     private String code_message;
+    private String userid;
 
     public String getCode_message() {
         return code_message;
@@ -26,5 +27,11 @@ public class BaseData implements Serializable {
         this.token = token;
     }
 
+    public String getUserid() {
+        return userid;
+    }
 
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
 }

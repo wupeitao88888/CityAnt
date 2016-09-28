@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cityant.main.R;
+import com.cityant.main.activity.AddFrendsActivity;
 import com.cityant.main.activity.MYChatActivity;
 import com.cityant.main.activity.MyFrendActivity;
 import com.cityant.main.activity.RegisterActivity;
@@ -73,8 +74,8 @@ public class FragmentMessage extends FragmentSupport {
         titleBar.setRightSecondMenuimgListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtil.showShort(context, "右边第一个");
 
+                context.startActivity(new Intent(context, AddFrendsActivity.class));
             }
         });
         return super.setTitleBar(view);
@@ -105,7 +106,7 @@ public class FragmentMessage extends FragmentSupport {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 MyFrends myFrends = new MyFrends();
-                myFrends.setFriend_id(messageLists.get(i).getFriend_id());
+                myFrends.setUser_id(messageLists.get(i).getUser_id());
                 myFrends.setUser_name(messageLists.get(i).getUser_name());
                 myFrends.setUser_avar(messageLists.get(i).getUser_avar());
                 startActivity(new Intent(context, MYChatActivity.class).putExtra("MyFrend", myFrends));

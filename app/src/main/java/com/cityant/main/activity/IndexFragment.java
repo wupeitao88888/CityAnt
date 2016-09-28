@@ -86,7 +86,7 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
                     AppBus.getInstance().post(new BusEventFragmentMessage(1));
                     break;
                 case REFARESH_ALLCOUNT:
-                    mainTabSupport.unReadMsgCount((int)msg.obj);
+                    mainTabSupport.unReadMsgCount((int) msg.obj);
                     break;
             }
         }
@@ -176,13 +176,12 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
             @Override
             public void run() {
                 int allCount = DBControl.getInstance(context).getALLCount();
-                Message message=new Message();
-                message.what=REFARESH_ALLCOUNT;
-                message.obj=allCount;
+                Message message = new Message();
+                message.what = REFARESH_ALLCOUNT;
+                message.obj = allCount;
                 mHandler.sendMessage(message);
             }
         });
-
 
 
     }
@@ -197,14 +196,14 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
             @Override
             public void run() {
                 MessageList messageList = new MessageList();
-                messageList.setFriend_id(emMessage.getUserName());
+                messageList.setUser_id(emMessage.getUserName());
                 EMTextMessageBody body = (EMTextMessageBody) emMessage.getBody();
                 messageList.setLastmsg(body.getMessage());
                 EMMessage.ChatType chatType = emMessage.getChatType();
                 messageList.setChat_type(chatType.name());
                 messageList.setMsgid(emMessage.getMsgId());
                 EMConversation conversation = EMClient.getInstance().chatManager().getConversation(emMessage.getFrom());
-                messageList.setCount(conversation.getUnreadMsgCount()+"");
+                messageList.setCount(conversation.getUnreadMsgCount() + "");
                 long msgTime = emMessage.getMsgTime();
                 messageList.setTime(msgTime + "");
                 messageList.setUser_name(emMessage.getUserName());
@@ -427,7 +426,7 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
         EMTextMessageBody body = (EMTextMessageBody) emMessage.getBody();
         // 通过Notification.Builder来创建通知，注意API Level
         // API16之后才支持
-        String content = "["+conversation.getUnreadMsgCount()+"]"+emMessage.getFrom()+":"+body.getMessage();
+        String content = "[" + conversation.getUnreadMsgCount() + "]" + emMessage.getFrom() + ":" + body.getMessage();
 
         SpannableString spannableString = FaceConversionUtil
                 .getInstace().getExpressionString(context,

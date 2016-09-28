@@ -8,7 +8,7 @@ import java.io.Serializable;
  * Created by wupeitao on 16/9/16.
  */
 public class MessageList implements Serializable {
-    private String friend_id;
+    private String user_id;//userid
     private String user_name;
     private String user_avar;
     private String count;
@@ -17,6 +17,13 @@ public class MessageList implements Serializable {
     private String msgid;
     private String chat_type;
 
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
 
     public String getChat_type() {
         return chat_type;
@@ -26,13 +33,6 @@ public class MessageList implements Serializable {
         this.chat_type = chat_type;
     }
 
-    public String getFriend_id() {
-        return friend_id;
-    }
-
-    public void setFriend_id(String friend_id) {
-        this.friend_id = friend_id;
-    }
 
     public String getUser_name() {
         return user_name;

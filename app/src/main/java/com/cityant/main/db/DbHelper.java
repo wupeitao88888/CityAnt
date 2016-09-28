@@ -13,19 +13,21 @@ public class DbHelper extends DbHelperBase {
         super(context);
     }
 
-    public static final String LOGININFO = "CREATE TABLE IF NOT EXISTS logininfo(token varchar(50),mobile varchar(30) primary key,user_name varchar(30),user_avar varchar(50))";
+    public static final String LOGININFO = "CREATE TABLE IF NOT EXISTS logininfo(user_id varchar(50),token varchar(50),mobile varchar(30) primary key,user_name varchar(30),user_avar varchar(50))";
     public static final String LASTUSER = "CREATE TABLE IF NOT EXISTS lastuser(mobile varchar(30) primary key,password varchar(30))";
 
     public static final String DELETE_LOGININFO = "drop table if exists logininfo";
     public static final String DELETE_LASTUSER = "drop table if exists lastuser";
 
     public static final String MYFREDNS_NAME = "myfends";
-    public static final String FREND_ID = "friend_id";
+    public static final String TOKEN = "token";//token
     public static final String USER_NAME = "user_name";
     public static final String USER_AVAR = "user_avar";
+    public static final String USER_ID = "user_id";//环信id
     public static final String M_USER_TOKEN = "m_user_token";
     public static final String MYFRENDS = "CREATE TABLE IF NOT EXISTS " + DbHelper.MYFREDNS_NAME + "(" +
-            FREND_ID + " varchar(30) primary key," +
+            "id INTEGER primary key AUTOINCREMENT," +
+            USER_ID+" varchar(30)," +
             USER_NAME + " varchar(30)," +
             USER_AVAR + " varchar(150)," +
             M_USER_TOKEN + " varchar(80))";
@@ -38,7 +40,7 @@ public class DbHelper extends DbHelperBase {
     public static final String LAST_MSG_ID = "last_msg_id";
     public static final String CHAT_TYPE = "chat_type";
     public static final String CREATE_CONVERSATIONLIST = "CREATE TABLE IF NOT EXISTS " + CONVERSATIONLIST_NAME + "(" +
-            FREND_ID + " varchar(30) primary key," +
+            USER_ID+" varchar(30) primary key," +
             USER_NAME + " varchar(30)," +
             USER_AVAR + " varchar(150)," +
             LAST_MSG + " varchar(120)," +
@@ -69,10 +71,9 @@ public class DbHelper extends DbHelperBase {
     public static final String GROUPID = "groupid";
 
     public static final String CREATE_CHAT = "CREATE TABLE IF NOT EXISTS " + CHAT_NAME + "(" +
-            "id integer AUTOINCREMENT," +
-            FREND_ID + "varchar(50)," +
-            USER_NAME + "varchar(50)," +
-            USER_AVAR + "varchar(50)," +
+            USER_ID+" varchar(30)," +
+            USER_NAME + " varchar(50)," +
+            USER_AVAR + " varchar(50)," +
             MOBILE + " varchar(10)," +
             MESSAGE + " varchar(300)," +
             MESSAGEID + " varchar(50) primary key," +
@@ -90,7 +91,7 @@ public class DbHelper extends DbHelperBase {
             VOICEPLAY + " varchar(50)," +
             M_USER_TOKEN + " varchar(80)," +
             GROUPID + " varchar(80)," +
-            CHAT_TYPE + " varchar(50)";
+            CHAT_TYPE + " varchar(50))";
     public static final String DELETE_CHAT = "drop table if exists " + DbHelper.CHAT_NAME;
 
     @Override

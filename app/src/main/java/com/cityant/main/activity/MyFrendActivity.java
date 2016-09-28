@@ -116,7 +116,7 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
                         MyFrends p = new MyFrends();
                         p.setUser_name(myFrends.get(j).getUser_name());
                         p.setUser_avar(myFrends.get(j).getUser_avar());
-                        p.setFriend_id(myFrends.get(j).getFriend_id());
+                        p.setUser_id(myFrends.get(j).getUser_id());
                         p.setPinYinName(myFrends.get(j).getPinYinName());
                         newmyFrends.add(p);
                     }
