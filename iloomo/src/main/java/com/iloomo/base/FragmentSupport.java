@@ -28,6 +28,7 @@ public class FragmentSupport extends Fragment implements IFragmentSupport {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater,container,savedInstanceState);
         context = this.getActivity();
         if (rootView == null) {
 
@@ -139,7 +140,6 @@ public class FragmentSupport extends Fragment implements IFragmentSupport {
     /**
      * 设置titleb中间
      *
-     * @param title
      */
     protected void setRemoveTitle() {
         linearLayout.removeViewAt(0);
