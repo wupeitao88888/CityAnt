@@ -161,15 +161,15 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
         parameter.put("page_size", "20");
 
         startHttpRequst(MYAppconfig.FREND_LIST, parameter, MYTaskID.FRENDS_LIST);
-//        MyFrends myFrends = new MyFrends();
-//        myFrends.setFriend_id("36");
-//        myFrends.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-//        myFrends.setUser_name("唐嫣");
-
         MyFrends myFrends = new MyFrends();
-        myFrends.setFriend_id("17");
-        myFrends.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
-        myFrends.setUser_name("陈乔恩");
+        myFrends.setFriend_id("36");
+        myFrends.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+        myFrends.setUser_name("唐嫣");
+
+//        MyFrends myFrends = new MyFrends();
+//        myFrends.setFriend_id("17");
+//        myFrends.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+//        myFrends.setUser_name("陈乔恩");
 
         DBControl.getInstance(context).insertFrends(myFrends);
     }
@@ -262,7 +262,7 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
     @Override
     protected void onStart() {
         super.onStart();
-
+        refreshUIWithMessage();
 
     }
 

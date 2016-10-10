@@ -156,7 +156,65 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
             switch (msg.what) {
                 case 100:
                     MyFrends myFrends = (MyFrends) msg.obj;
+
+
+                    titleBar.setTitle(toChatUsername);
                     chat_title.setCenterTitle(myFrends.getUser_name());
+//        chat_title.setCenterTitle(toChatUsername);
+                    if (chatType == EaseConstant.CHATTYPE_SINGLE) {
+                        // set title
+                        if (EaseUserUtils.getUserInfo(toChatUsername) != null) {
+                            titleBar.setTitle(EaseUserUtils.getUserInfo(toChatUsername).getNick());
+                            chat_title.setCenterTitle(myFrends.getUser_name());
+                        }
+                        titleBar.setRightImageResource(R.drawable.ease_mm_title_remove);
+                    } else {
+                        titleBar.setRightImageResource(R.drawable.ease_to_group_details_normal);
+                        if (chatType == EaseConstant.CHATTYPE_GROUP) {
+                            //group chat
+                            EMGroup group = EMClient.getInstance().groupManager().getGroup(toChatUsername);
+                            if (group != null)
+                                titleBar.setTitle(group.getGroupName());
+                            chat_title.setCenterTitle(group.getGroupName());
+                            // listen the event that user moved out group or group is dismissed
+                            groupListener = new GroupListener();
+                            EMClient.getInstance().groupManager().addGroupChangeListener(groupListener);
+                        } else {
+                            onChatRoomViewCreation();
+                        }
+
+                    }
+                    if (chatType != EaseConstant.CHATTYPE_CHATROOM) {
+                        onConversationInit();
+                        onMessageListInit();
+                    }
+
+                    titleBar.setLeftLayoutClickListener(new OnClickListener() {
+
+                        @Override
+                        public void onClick(View v) {
+                            onBackPressed();
+                        }
+                    });
+                    titleBar.setRightLayoutClickListener(new OnClickListener() {
+
+                        @Override
+                        public void onClick(View v) {
+                            if (chatType == EaseConstant.CHATTYPE_SINGLE) {
+                                emptyHistory();
+                            } else {
+                                toGroupDetails();
+                            }
+                        }
+                    });
+
+                    setRefreshLayoutListener();
+
+                    // show forward message if the message is not null
+                    String forward_msg_id = getArguments().getString("forward_msg_id");
+                    if (forward_msg_id != null) {
+                        forwardMessage(forward_msg_id);
+                    }
                     break;
             }
         }
@@ -215,62 +273,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
 
     protected void setUpView() {
         getUserInfo();
-        titleBar.setTitle(toChatUsername);
-//        chat_title.setCenterTitle(toChatUsername);
-        if (chatType == EaseConstant.CHATTYPE_SINGLE) {
-            // set title
-            if (EaseUserUtils.getUserInfo(toChatUsername) != null) {
-                titleBar.setTitle(EaseUserUtils.getUserInfo(toChatUsername).getNick());
-//                chat_title.setCenterTitle(EaseUserUtils.getUserInfo(toChatUsername).getNick());
-            }
-            titleBar.setRightImageResource(R.drawable.ease_mm_title_remove);
-        } else {
-            titleBar.setRightImageResource(R.drawable.ease_to_group_details_normal);
-            if (chatType == EaseConstant.CHATTYPE_GROUP) {
-                //group chat
-                EMGroup group = EMClient.getInstance().groupManager().getGroup(toChatUsername);
-                if (group != null)
-                    titleBar.setTitle(group.getGroupName());
-//                chat_title.setCenterTitle(group.getGroupName());
-                // listen the event that user moved out group or group is dismissed
-                groupListener = new GroupListener();
-                EMClient.getInstance().groupManager().addGroupChangeListener(groupListener);
-            } else {
-                onChatRoomViewCreation();
-            }
 
-        }
-        if (chatType != EaseConstant.CHATTYPE_CHATROOM) {
-            onConversationInit();
-            onMessageListInit();
-        }
-
-        titleBar.setLeftLayoutClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-        titleBar.setRightLayoutClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (chatType == EaseConstant.CHATTYPE_SINGLE) {
-                    emptyHistory();
-                } else {
-                    toGroupDetails();
-                }
-            }
-        });
-
-        setRefreshLayoutListener();
-
-        // show forward message if the message is not null
-        String forward_msg_id = getArguments().getString("forward_msg_id");
-        if (forward_msg_id != null) {
-            forwardMessage(forward_msg_id);
-        }
     }
 
     /**
