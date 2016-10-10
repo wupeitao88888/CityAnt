@@ -4,61 +4,66 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
-    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/rotate_header_list_view_frame"
-        xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg"
-        cube_ptr:ptr_duration_to_close="200"
-        cube_ptr:ptr_duration_to_close_header="1000"
+        android:layout_above="@+id/b"
+        cube_ptr:ptr_duration_to_close_either="1000"
         cube_ptr:ptr_keep_header_when_refresh="true"
         cube_ptr:ptr_pull_to_fresh="false"
-        android:layout_above="@+id/b"
         cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
         cube_ptr:ptr_resistance="1.7">
 
-        <ListView
-            android:id="@+id/chatListView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:cacheColorHint="#00000000"
-            android:divider="@null"
-            android:stackFromBottom="true"
-            android:transcriptMode="alwaysScroll"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/chatListView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:stackFromBottom="true"
+                android:transcriptMode="alwaysScroll" />
+        </FrameLayout>
     </in.srain.cube.views.ptr.PtrClassicFrameLayout>
-        <FrameLayout
-            android:id="@+id/b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
 
-            <!-- 聊天输入框 -->
+    <FrameLayout
+        android:id="@+id/b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
 
-            <include
-                layout="@layout/custom_facerelativelayout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
-        </FrameLayout>
+        <!-- 聊天输入框 -->
 
-        <FrameLayout
-            android:id="@+id/leave_sf"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="#FAF9DE"
-            android:visibility="invisible">
+        <include
+            layout="@layout/custom_facerelativelayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+    <FrameLayout
+        android:id="@+id/leave_sf"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FAF9DE"
+        android:visibility="gone">
 
-                <TextView
-                    android:id="@+id/fk_s"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:textColor="@color/red" />
-            </RelativeLayout>
-        </FrameLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/fk_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/red" />
+        </RelativeLayout>
+    </FrameLayout>
 
 </RelativeLayout>

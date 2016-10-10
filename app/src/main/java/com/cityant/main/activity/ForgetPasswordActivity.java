@@ -10,9 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.cityant.main.R;
-import com.cityant.main.bean.LoginUserInfoData;
-
-import com.cityant.main.db.DBControl;
+import com.hyphenate.easeui.bean.LoginUserInfoData;
+import com.hyphenate.easeui.db.DBControl;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.bean.BaseData;
 import com.iloomo.global.AppConfig;

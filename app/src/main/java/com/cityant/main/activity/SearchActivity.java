@@ -15,15 +15,12 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.cityant.main.R;
-import com.cityant.main.bean.HomeBean;
 import com.cityant.main.bean.HomeSearch;
-import com.cityant.main.global.MYAppconfig;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.ActivitySupport;
-import com.iloomo.global.MApplication;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
-import com.iloomo.securitycode.SecurityCodeUtils;
 import com.iloomo.utils.DialogUtil;
 import com.iloomo.utils.ViewHolder;
 

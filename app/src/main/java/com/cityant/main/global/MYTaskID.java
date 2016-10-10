@@ -19,4 +19,5 @@ public class MYTaskID {
     public static final int CLASSLIST = 2001;
     public static final int GOODSLIST = 2002;
     public static final int UPLOADINGVOICEFILE = 2003;
+    public static final int ADDFRENDS = 2004;
 }

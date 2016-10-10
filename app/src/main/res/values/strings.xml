@@ -34,10 +34,10 @@
     <string name="center">认证中心</string>
     <string name="idea">意见反馈</string>
     <string name="service">联系客服</string>
-    <string name="setting">设置</string>
+    <!--<string name="setting">设置</string>-->
     <string name="userinfo">个人中心</string>
     <string name="head">头像</string>
-    <string name="nickname">昵称</string>
+    <!--<string name="nickname">昵称</string>-->
     <string name="metwocode">我的二维码</string>
     <string name="reseiveadress">收货地址</string>
     <string name="sex">性别</string>
@@ -70,7 +70,7 @@
     <string name="notifymsg">接收新消息通知</string>
     <string name="motifyshow">通知显示详情</string>
     <string name="sound">声音</string>
-    <string name="shake">震动</string>
+    <!--<string name="shake">震动</string>-->
     <string name="Relieve">解除</string>
     <!---环信错误码对应的信息-->
     <string name="CHATROOM_ALREADY_JOINED">已经在此聊天室里</string>
@@ -124,18 +124,18 @@
     <string name="newfrend">新的朋友</string>
 
     <string name="xml_custom_send">发送</string>
-    <string name="location_recv">[%1$s的位置]</string>
-    <string name="location_prefix">[我的位置]</string>
+    <!--<string name="location_recv">[%1$s的位置]</string>-->
+    <!--<string name="location_prefix">[我的位置]</string>-->
     <string name="picture">[图片]</string>
     <string name="video">[视频]</string>
-    <string name="file">[文件]</string>
+    <!--<string name="file">[文件]</string>-->
     <string name="voice_prefix">[语音]</string>
-    <string name="voice_call">[语音通话]</string>
-    <string name="video_call">[视频通话]</string>
+    <!--<string name="voice_call">[语音通话]</string>-->
+    <!--<string name="video_call">[视频通话]</string>-->
     <string name="dynamic_expression">[动态表情]</string>
-    <string name="not_download">未下载:</string>
-    <string name="text_ack_msg">已读</string>
-    <string name="text_delivered_msg">送达</string>
+    <!--<string name="not_download">未下载:</string>-->
+    <!--<string name="text_ack_msg">已读</string>-->
+    <!--<string name="text_delivered_msg">送达</string>-->
     <string name="pictures">图片</string>
     <string name="tip">小费</string>
     <string name="videos">地理位置</string>
@@ -147,7 +147,7 @@
     <string name="negotiate">《城市蚂蚁用户协议》</string>
 
 
-    <string name="prompt">温馨提示：请先选择参与对象后再点击发起类型</string>
+    <!--<string name="prompt">温馨提示：请先选择参与对象后再点击发起类型</string>-->
     <string name="mecreatek">我要发起</string>
     <string name="choose">相关选择</string>
 

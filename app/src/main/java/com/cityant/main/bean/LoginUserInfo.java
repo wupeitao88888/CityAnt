@@ -1,7 +1,7 @@
 package com.cityant.main.bean;
 
+import com.hyphenate.easeui.bean.LoginUserInfoData;
 import com.iloomo.bean.BaseModel;
-import com.iloomo.bean.SMSBaseModel;
 
 /**
  * Created by wupeitao on 16/8/14.

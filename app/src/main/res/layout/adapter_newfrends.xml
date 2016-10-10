@@ -6,7 +6,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/newfrendshead"
@@ -20,8 +22,39 @@
             android:id="@+id/newfrendsname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/newfrendshead"
             android:textColor="@color/black"
-            android:textSize="14dp"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="同意"
+            android:layout_toLeftOf="@+id/refuse"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            />
+        <Button
+            android:id="@+id/refuse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拒绝"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
             />
     </RelativeLayout>
 </LinearLayout>

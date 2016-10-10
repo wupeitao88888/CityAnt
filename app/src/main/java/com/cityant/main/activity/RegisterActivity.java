@@ -13,9 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.cityant.main.R;
-import com.cityant.main.bean.LoginUserInfoData;
-import com.cityant.main.db.DBControl;
+import com.hyphenate.easeui.bean.LoginUserInfoData;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.easeui.db.DBControl;
 import com.hyphenate.exceptions.HyphenateException;
 import com.iloomo.base.ActivitySupport;
 
@@ -183,7 +183,7 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
                 @Override
                 public void run() {
                     try {
-                        EMClient.getInstance().createAccount(phone_number.getText().toString(), pwnumber.getText().toString());//同步方法
+                        EMClient.getInstance().createAccount(((BaseData) userRegister).getUserid(), pwnumber.getText().toString());//同步方法
                     } catch (HyphenateException e) {
 //                            ToastUtil.showShort(context, mString(R.string.USER_REG_FAILED));
                         Message message = new Message();
@@ -195,6 +195,7 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
                     LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
                     loginUserInfoData.setToken(((BaseData) userRegister).getToken());
                     loginUserInfoData.setMobile(phone_number.getText().toString());
+                    loginUserInfoData.setUser_id(((BaseData) userRegister).getUserid());
                     DBControl.getInstance(context).insertLoginInfo(loginUserInfoData);
                     DBControl.getInstance(context).insertLastUser(phone_number.getText().toString(), pwnumber.getText().toString());
                     Message message = new Message();
@@ -254,8 +255,7 @@ public class RegisterActivity extends ActivitySupport implements SecurityCodeCal
                     sendcode.setEnabled(false);
                     login_button.setEnabled(false);
                 }
-            } else
-            {
+            } else {
                 sendcode.setEnabled(false);
             }
         }

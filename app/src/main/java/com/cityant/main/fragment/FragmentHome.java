@@ -12,27 +12,19 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.baidu.location.BDLocation;
 import com.bumptech.glide.Glide;
 import com.cityant.main.R;
-import com.cityant.main.activity.DoTaskActivity;
 import com.cityant.main.activity.HomeDetailsActivity;
-import com.cityant.main.activity.LocationChoiceActivity;
 import com.cityant.main.activity.SearchActivity;
 import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.cityant.main.bean.HomeBean;
-import com.cityant.main.bean.MessageList;
-import com.cityant.main.db.DBControl;
-import com.cityant.main.global.MYAppconfig;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.FragmentSupport;
-import com.iloomo.bean.BaseModel;
 import com.iloomo.global.MApplication;
-import com.iloomo.model.ApplicationLocationListener;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.DialogUtil;
-import com.iloomo.utils.L;
 import com.iloomo.widget.imgscroll.MyImgScroll;
 
 
@@ -131,15 +123,15 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
      * 获取定位结果
      */
     private void getLocationResult() {
-        MApplication.getInstance().setOnReceiveLocation(new ApplicationLocationListener() {
-            @Override
-            public void onReceiveLocation(BDLocation var1) {
-            }
-
-            @Override
-            public void fild() {
-            }
-        });
+//        MApplication.getInstance().setOnReceiveLocation(new ApplicationLocationListener() {
+//            @Override
+//            public void onReceiveLocation(BDLocation var1) {
+//            }
+//
+//            @Override
+//            public void fild() {
+//            }
+//        });
     }
 
     private void sendInternet() {

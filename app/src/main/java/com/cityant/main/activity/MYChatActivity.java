@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -21,16 +23,22 @@ import android.widget.Toast;
 
 import com.cityant.main.R;
 import com.cityant.main.adapter.ChatMsgAdapter;
-import com.cityant.main.bean.ChatMsgEntity;
-import com.cityant.main.bean.MyFrends;
+import com.hyphenate.easeui.bean.ChatMsgEntity;
+import com.hyphenate.easeui.bean.MyFrends;
+
+import com.hyphenate.easeui.db.DBControl;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.utlis.AudioRecorder;
-import com.cityant.main.utlis.FaceConversionUtil;
+import com.cityant.main.utlis.MessageUtlis;
 import com.cityant.main.utlis.UploadVoice;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
+import com.hyphenate.chat.EMTextMessageBody;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.threadpool.MyThreadPool;
+import com.iloomo.utils.L;
+import com.iloomo.utils.ToastUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,8 +48,6 @@ import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
-
-import static com.cityant.main.R.id.username;
 
 /**
  * Created by wupeitao on 16/8/20.
@@ -70,14 +76,35 @@ public class MYChatActivity extends ActivitySupport {
     private ImageView dialog_img, dialog_img2;
     private Toast toast;
     int j = 0;
-    private int[] bitm = new int[]{R.drawable.ll9,R.drawable.ll8,R.drawable.ll7,R.drawable.ll6,R.drawable.ll5,R.drawable.ll4,R.drawable.ll3,R.drawable.ll2,R.drawable.ll1,R.drawable.ll0};
+    private int[] bitm = new int[]{R.drawable.ll9, R.drawable.ll8, R.drawable.ll7, R.drawable.ll6, R.drawable.ll5, R.drawable.ll4, R.drawable.ll3, R.drawable.ll2, R.drawable.ll1, R.drawable.ll0};
     private MyFrends myFrends;
+    private List<ChatMsgEntity> listarray = null;
+    private int page = 0;
+    private Button btn_send;
+    private EditText et_sendmessage;
+
+    private final int REFARESH = 1100;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case REFARESH:
+                    listarray.clear();
+                    listarray.addAll((List<ChatMsgEntity>) msg.obj);
+                    chatMsgAdapter.notifyDataSetChanged();
+                    break;
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mychat);
-        myFrends= (MyFrends) getIntent().getSerializableExtra("MyFrend");
+        myFrends = (MyFrends) getIntent().getSerializableExtra("MyFrend");
         setCtenterTitle(myFrends.getUser_name());
+        listarray = new ArrayList<>();
         mInputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         setScreen();
         calculateEmojiSize();
@@ -87,20 +114,57 @@ public class MYChatActivity extends ActivitySupport {
     private void initView() {
         mPtrFrame = (PtrClassicFrameLayout) findViewById(R.id.rotate_header_list_view_frame);
         chatListView = (ListView) findViewById(R.id.chatListView);
+        et_sendmessage = (EditText) findViewById(R.id.et_sendmessage);
         btnRecord = (Button) findViewById(R.id.btn_record);
-        mPtrFrame.setLastUpdateTimeRelateObject(this);
-        mPtrFrame.setPtrHandler(new PtrHandler() {
-            @Override
-            public void onRefreshBegin(PtrFrameLayout frame) {
-                updateData();
-            }
+        btn_send = (Button) findViewById(R.id.btn_send);
 
+        EMConversation conversation = EMClient.getInstance().chatManager().getConversation(myFrends.getFriend_id());
+//获取此会话的所有消息
+        List<EMMessage> messages = conversation.getAllMessages();
+        for (int i = 0; i < messages.size(); i++) {
+            EMTextMessageBody body = (EMTextMessageBody) messages.get(i).getBody();
+            L.e(messages.get(i)+"/"+body.getMessage()+"/"+messages.get(i).getMsgId()+"/"+messages.get(i).getMsgTime());
+        }
+
+        btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
-                return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
+            public void onClick(View view) {
+                if (TextUtils.isEmpty(et_sendmessage.getText().toString())) {
+                    ToastUtil.showShort(context, "发送内容不能为空");
+                    return;
+                }
+
+                EMMessage message = EMMessage.createTxtSendMessage(et_sendmessage.getText().toString(), myFrends.getFriend_id());
+                message.setMsgId(System.currentTimeMillis() + "");
+                ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
+                if ("Chat".equals(myFrends.getIsGroup())) {
+                    chatMsgEntity.setChat_type("Chat");
+                } else {
+                    chatMsgEntity.setChat_type("GroupChat");
+                    message.setChatType(EMMessage.ChatType.GroupChat);
+                }
+                chatMsgEntity.setMessage(et_sendmessage.getText().toString());
+                chatMsgEntity.setType(7);
+                chatMsgEntity.setMessageid(message.getMsgTime()+"");
+                chatMsgEntity.setUser_name("陈乔恩");
+                chatMsgEntity.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+                chatMsgEntity.setStatus(-1);
+                chatMsgEntity.setUser_id(myFrends.getFriend_id());
+                chatMsgEntity.setGroupid(myFrends.getFriend_id() + "_" + MYAppconfig.loginUserInfoData.getUser_id());
+                L.e("消息id" + message.getMsgId());
+                chatMsgEntity.setEmMessage(message);
+                MyThreadPool.getInstance().submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        DBControl.getInstance(context).insertChat(chatMsgEntity);
+                    }
+                });
+                MessageUtlis.getInstance(context).sendMessage(chatMsgEntity, chatMsgAdapter);
+                listarray.add(chatMsgEntity);
+                chatMsgAdapter.notifyDataSetChanged();
+                et_sendmessage.setText("");
             }
         });
-
         // 录音模块
         btnRecord.setOnTouchListener(new View.OnTouchListener() {
 
@@ -112,7 +176,7 @@ public class MYChatActivity extends ActivitySupport {
                     case MotionEvent.ACTION_DOWN:
                         // 录音方法:按住录音
                         if (recordState != RECORD_ING) {
-                            if(toast != null){
+                            if (toast != null) {
                                 toast.cancel();
                             }
                             voiceName = System.currentTimeMillis() + "voice";
@@ -195,187 +259,201 @@ public class MYChatActivity extends ActivitySupport {
             }
 
         });
+        getChatList();
+
+//        List<ChatMsgEntity> list = new ArrayList<>();
+
+//        ChatMsgEntity chatMsgEntitytime = new ChatMsgEntity();
+//        chatMsgEntitytime.setTime("2016-9-19 16:58");
+//        list.add(chatMsgEntitytime);
+//
+//        ChatMsgEntity chatMsgEntityfrom = new ChatMsgEntity();
+//        chatMsgEntityfrom.setMessage("哈哈哈");
+//        chatMsgEntityfrom.setType(2);
+//        chatMsgEntityfrom.setUser_name("唐嫣");
+//        chatMsgEntityfrom.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+//        list.add(chatMsgEntityfrom);
+//
+//        ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
+//        chatMsgEntity.setMessage("笑个屁啊！");
+//        chatMsgEntity.setType(7);
+//        chatMsgEntity.setUser_name("陈乔恩");
+//        chatMsgEntity.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+//        chatMsgEntity.setStatus(3);
+//        list.add(chatMsgEntity);
+//
+//        ChatMsgEntity chatMsgEntityFromLocaltion = new ChatMsgEntity();
+//        chatMsgEntityFromLocaltion.setStreet("玉桥街道");
+//        chatMsgEntityFromLocaltion.setType(1);
+//        chatMsgEntityFromLocaltion.setUser_name("唐嫣");
+//        chatMsgEntityFromLocaltion.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+//        list.add(chatMsgEntityFromLocaltion);
+//
+//        ChatMsgEntity chatMsgEntityToLocaltion = new ChatMsgEntity();
+//        chatMsgEntityToLocaltion.setStreet("玉桥街道");
+//        chatMsgEntityToLocaltion.setType(6);
+//        chatMsgEntityToLocaltion.setUser_name("陈乔恩");
+//        chatMsgEntityToLocaltion.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+//        chatMsgEntityToLocaltion.setStatus(3);
+//        list.add(chatMsgEntityToLocaltion);
+//
+//        ChatMsgEntity chatMsgEntityFromPicture = new ChatMsgEntity();
+//        chatMsgEntityFromPicture.setImgurl("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201509%2F08%2F20150908043153_d3aFK.jpeg&thumburl=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D3140580295%2C3685944628%26fm%3D21%26gp%3D0.jpg");
+//        chatMsgEntityFromPicture.setType(3);
+//        chatMsgEntityFromPicture.setUser_name("唐嫣");
+//        chatMsgEntityFromPicture.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+//        list.add(chatMsgEntityFromPicture);
+//
+//
+//        ChatMsgEntity chatMsgEntityToPicture = new ChatMsgEntity();
+//        chatMsgEntityToPicture.setImgurl("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fimgsrc.baidu.com%2Fbaike%2Fpic%2Fitem%2F500fd9f9d72a6059c8788ac42d34349b023bba80.jpg&thumburl=http%3A%2F%2Fimgsrc.baidu.com%2Fbaike%2Fpic%2Fitem%2F500fd9f9d72a6059c8788ac42d34349b023bba80.jpg");
+//        chatMsgEntityToPicture.setType(8);
+//        chatMsgEntityToPicture.setUser_name("陈乔恩");
+//        chatMsgEntityToPicture.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+//        chatMsgEntityToPicture.setStatus(3);
+//        list.add(chatMsgEntityToPicture);
+//
+//        ChatMsgEntity chatMsgEntityFromVideoCall = new ChatMsgEntity();
+//        chatMsgEntityFromVideoCall.setDuration("通话两分钟");
+//        chatMsgEntityFromVideoCall.setType(4);
+//        chatMsgEntityFromVideoCall.setUser_name("唐嫣");
+//        chatMsgEntityFromVideoCall.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+//        list.add(chatMsgEntityFromVideoCall);
+//
+//
+//        ChatMsgEntity chatMsgEntityToVideoCall = new ChatMsgEntity();
+//        chatMsgEntityToVideoCall.setDuration("通话两分钟");
+//        chatMsgEntityToVideoCall.setType(9);
+//        chatMsgEntityToVideoCall.setUser_name("陈乔恩");
+//        chatMsgEntityToVideoCall.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+//        chatMsgEntityToVideoCall.setStatus(3);
+//        list.add(chatMsgEntityToVideoCall);
+//
+//        ChatMsgEntity chatMsgEntityFromVoice = new ChatMsgEntity();
+//        chatMsgEntityFromVoice.setVoiceurl("http://hao.1015600.com/upload/ring/000/970/ea4ae3e95bd52588b4f033a940adfdbf.mp3");
+//        chatMsgEntityFromVoice.setVoicestatus(0);
+//        chatMsgEntityFromVoice.setVoicelenth("35");
+//        chatMsgEntityFromVoice.setType(5);
+//        chatMsgEntityFromVoice.setUser_name("唐嫣");
+//        chatMsgEntityFromVoice.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+//        chatMsgEntityFromVoice.setVoiceplay(false);
+//        list.add(chatMsgEntityFromVoice);
+//
+//        ChatMsgEntity chatMsgEntityFromVoice2 = new ChatMsgEntity();
+//        chatMsgEntityFromVoice2.setVoiceurl("http://hao.1015600.com/upload/ring/000/970/ea4ae3e95bd52588b4f033a940adfdbf.mp3");
+//        chatMsgEntityFromVoice2.setVoicestatus(1);
+//        chatMsgEntityFromVoice2.setVoicelenth("35");
+//        chatMsgEntityFromVoice2.setType(5);
+//        chatMsgEntityFromVoice2.setUser_name("唐嫣");
+//        chatMsgEntityFromVoice2.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+//        chatMsgEntityFromVoice2.setVoiceplay(false);
+//        list.add(chatMsgEntityFromVoice2);
+//
+//
+//        ChatMsgEntity chatMsgEntityToVoice = new ChatMsgEntity();
+//        chatMsgEntityToVoice.setVoiceurl("http://5.1015600.com/download/ring/000/028/1d6a1769fdcc97e332d6ef3e8b06d1b0.mp3");
+//        chatMsgEntityToVoice.setVoicestatus(0);
+//        chatMsgEntityToVoice.setVoicelenth("20");
+//        chatMsgEntityToVoice.setType(10);
+//        chatMsgEntityToVoice.setUser_name("陈乔恩");
+//        chatMsgEntityToVoice.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+//        chatMsgEntityToVoice.setVoiceplay(false);
+//        chatMsgEntityToVoice.setStatus(3);
+//        list.add(chatMsgEntityToVoice);
+//
+//        ChatMsgEntity chatMsgEntityFromBean = new ChatMsgEntity();
+//        chatMsgEntityFromBean.setType(11);
+//        chatMsgEntityFromBean.setUser_name("唐嫣");
+//        chatMsgEntityFromBean.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+//        chatMsgEntityFromBean.setMessage("蚂蚁豆");
+//        chatMsgEntityFromBean.setMessageid("123");
+//        list.add(chatMsgEntityFromBean);
+//
+//
+//        ChatMsgEntity chatMsgEntityToBean = new ChatMsgEntity();
+//        chatMsgEntityToBean.setType(12);
+//        chatMsgEntityToBean.setUser_name("陈乔恩");
+//        chatMsgEntityToBean.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+//        chatMsgEntityToBean.setStatus(3);
+//        chatMsgEntityToBean.setMessage("蚂蚁豆");
+//        chatMsgEntityToBean.setMessageid("123");
+//        list.add(chatMsgEntityToBean);
+//
+//        ChatMsgEntity chatMsgEntityFromTip = new ChatMsgEntity();
+//        chatMsgEntityFromTip.setType(13);
+//        chatMsgEntityFromTip.setUser_name("唐嫣");
+//        chatMsgEntityFromTip.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+//        chatMsgEntityFromTip.setMessage("小费");
+//        chatMsgEntityFromTip.setMessageid("123");
+//        list.add(chatMsgEntityFromTip);
+//
+//        ChatMsgEntity chatMsgEntityToTip = new ChatMsgEntity();
+//        chatMsgEntityToTip.setType(14);
+//        chatMsgEntityToTip.setUser_name("陈乔恩");
+//        chatMsgEntityToTip.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+//        chatMsgEntityToTip.setStatus(3);
+//        chatMsgEntityToTip.setMessage("小费");
+//        chatMsgEntityToTip.setMessageid("123");
+//        list.add(chatMsgEntityToTip);
+//
+//        ChatMsgEntity chatMsgEntityFromGift = new ChatMsgEntity();
+//        chatMsgEntityFromGift.setType(15);
+//        chatMsgEntityFromGift.setUser_name("唐嫣");
+//        chatMsgEntityFromGift.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+//        chatMsgEntityFromGift.setMessage("礼物");
+//        chatMsgEntityFromGift.setMessageid("123");
+//        list.add(chatMsgEntityFromGift);
+//
+//        ChatMsgEntity chatMsgEntityToGift = new ChatMsgEntity();
+//        chatMsgEntityToGift.setType(16);
+//        chatMsgEntityToGift.setUser_name("陈乔恩");
+//        chatMsgEntityToGift.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+//        chatMsgEntityToGift.setStatus(3);
+//        chatMsgEntityToGift.setMessage("礼物");
+//        chatMsgEntityToGift.setMessageid("123");
+//        list.add(chatMsgEntityToGift);
+//
+//        ChatMsgEntity chatMsgEntityFromDoubleRob = new ChatMsgEntity();
+//        chatMsgEntityFromDoubleRob.setType(17);
+//        chatMsgEntityFromDoubleRob.setUser_name("唐嫣");
+//        chatMsgEntityFromDoubleRob.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
+//        chatMsgEntityFromDoubleRob.setMessage("双人抢");
+//        chatMsgEntityFromDoubleRob.setMessageid("123");
+//        list.add(chatMsgEntityFromDoubleRob);
+//
+//
+//        ChatMsgEntity chatMsgEntityToDoubleRob = new ChatMsgEntity();
+//        chatMsgEntityToDoubleRob.setType(16);
+//        chatMsgEntityToDoubleRob.setUser_name("陈乔恩");
+//        chatMsgEntityToDoubleRob.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
+//        chatMsgEntityToDoubleRob.setStatus(3);
+//        chatMsgEntityToDoubleRob.setMessage("礼物");
+//        chatMsgEntityToDoubleRob.setMessageid("123");
+
+//        list.add(chatMsgEntityToGift);
 
 
-        List<ChatMsgEntity> list = new ArrayList<>();
-
-        ChatMsgEntity chatMsgEntitytime = new ChatMsgEntity();
-        chatMsgEntitytime.setTime("2016-9-19 16:58");
-        list.add(chatMsgEntitytime);
-
-        ChatMsgEntity chatMsgEntityfrom = new ChatMsgEntity();
-        chatMsgEntityfrom.setMessage("哈哈哈");
-        chatMsgEntityfrom.setType(2);
-        chatMsgEntityfrom.setUser_name("唐嫣");
-        chatMsgEntityfrom.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-        list.add(chatMsgEntityfrom);
-
-        ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
-        chatMsgEntity.setMessage("笑个屁啊！");
-        chatMsgEntity.setType(7);
-        chatMsgEntity.setUser_name("陈乔恩");
-        chatMsgEntity.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
-        chatMsgEntity.setStatus(3);
-        list.add(chatMsgEntity);
-
-        ChatMsgEntity chatMsgEntityFromLocaltion = new ChatMsgEntity();
-        chatMsgEntityFromLocaltion.setStreet("玉桥街道");
-        chatMsgEntityFromLocaltion.setType(1);
-        chatMsgEntityFromLocaltion.setUser_name("唐嫣");
-        chatMsgEntityFromLocaltion.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-        list.add(chatMsgEntityFromLocaltion);
-
-        ChatMsgEntity chatMsgEntityToLocaltion = new ChatMsgEntity();
-        chatMsgEntityToLocaltion.setStreet("玉桥街道");
-        chatMsgEntityToLocaltion.setType(6);
-        chatMsgEntityToLocaltion.setUser_name("陈乔恩");
-        chatMsgEntityToLocaltion.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
-        chatMsgEntityToLocaltion.setStatus(3);
-        list.add(chatMsgEntityToLocaltion);
-
-        ChatMsgEntity chatMsgEntityFromPicture = new ChatMsgEntity();
-        chatMsgEntityFromPicture.setImgurl("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201509%2F08%2F20150908043153_d3aFK.jpeg&thumburl=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D3140580295%2C3685944628%26fm%3D21%26gp%3D0.jpg");
-        chatMsgEntityFromPicture.setType(3);
-        chatMsgEntityFromPicture.setUser_name("唐嫣");
-        chatMsgEntityFromPicture.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-        list.add(chatMsgEntityFromPicture);
-
-
-        ChatMsgEntity chatMsgEntityToPicture = new ChatMsgEntity();
-        chatMsgEntityToPicture.setImgurl("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fimgsrc.baidu.com%2Fbaike%2Fpic%2Fitem%2F500fd9f9d72a6059c8788ac42d34349b023bba80.jpg&thumburl=http%3A%2F%2Fimgsrc.baidu.com%2Fbaike%2Fpic%2Fitem%2F500fd9f9d72a6059c8788ac42d34349b023bba80.jpg");
-        chatMsgEntityToPicture.setType(8);
-        chatMsgEntityToPicture.setUser_name("陈乔恩");
-        chatMsgEntityToPicture.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
-        chatMsgEntityToPicture.setStatus(3);
-        list.add(chatMsgEntityToPicture);
-
-        ChatMsgEntity chatMsgEntityFromVideoCall = new ChatMsgEntity();
-        chatMsgEntityFromVideoCall.setDuration("通话两分钟");
-        chatMsgEntityFromVideoCall.setType(4);
-        chatMsgEntityFromVideoCall.setUser_name("唐嫣");
-        chatMsgEntityFromVideoCall.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-        list.add(chatMsgEntityFromVideoCall);
-
-
-        ChatMsgEntity chatMsgEntityToVideoCall = new ChatMsgEntity();
-        chatMsgEntityToVideoCall.setDuration("通话两分钟");
-        chatMsgEntityToVideoCall.setType(9);
-        chatMsgEntityToVideoCall.setUser_name("陈乔恩");
-        chatMsgEntityToVideoCall.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
-        chatMsgEntityToVideoCall.setStatus(3);
-        list.add(chatMsgEntityToVideoCall);
-
-        ChatMsgEntity chatMsgEntityFromVoice = new ChatMsgEntity();
-        chatMsgEntityFromVoice.setVoiceurl("http://hao.1015600.com/upload/ring/000/970/ea4ae3e95bd52588b4f033a940adfdbf.mp3");
-        chatMsgEntityFromVoice.setVoicestatus(0);
-        chatMsgEntityFromVoice.setVoicelenth("35");
-        chatMsgEntityFromVoice.setType(5);
-        chatMsgEntityFromVoice.setUser_name("唐嫣");
-        chatMsgEntityFromVoice.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-        chatMsgEntityFromVoice.setVoiceplay(false);
-        list.add(chatMsgEntityFromVoice);
-
-        ChatMsgEntity chatMsgEntityFromVoice2 = new ChatMsgEntity();
-        chatMsgEntityFromVoice2.setVoiceurl("http://hao.1015600.com/upload/ring/000/970/ea4ae3e95bd52588b4f033a940adfdbf.mp3");
-        chatMsgEntityFromVoice2.setVoicestatus(1);
-        chatMsgEntityFromVoice2.setVoicelenth("35");
-        chatMsgEntityFromVoice2.setType(5);
-        chatMsgEntityFromVoice2.setUser_name("唐嫣");
-        chatMsgEntityFromVoice2.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-        chatMsgEntityFromVoice2.setVoiceplay(false);
-        list.add(chatMsgEntityFromVoice2);
-
-
-        ChatMsgEntity chatMsgEntityToVoice = new ChatMsgEntity();
-        chatMsgEntityToVoice.setVoiceurl("http://5.1015600.com/download/ring/000/028/1d6a1769fdcc97e332d6ef3e8b06d1b0.mp3");
-        chatMsgEntityToVoice.setVoicestatus(0);
-        chatMsgEntityToVoice.setVoicelenth("20");
-        chatMsgEntityToVoice.setType(10);
-        chatMsgEntityToVoice.setUser_name("陈乔恩");
-        chatMsgEntityToVoice.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
-        chatMsgEntityToVoice.setVoiceplay(false);
-        chatMsgEntityToVoice.setStatus(3);
-        list.add(chatMsgEntityToVoice);
-
-        ChatMsgEntity chatMsgEntityFromBean = new ChatMsgEntity();
-        chatMsgEntityFromBean.setType(11);
-        chatMsgEntityFromBean.setUser_name("唐嫣");
-        chatMsgEntityFromBean.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-        chatMsgEntityFromBean.setMessage("蚂蚁豆");
-        chatMsgEntityFromBean.setMessageid("123");
-        list.add(chatMsgEntityFromBean);
-
-
-        ChatMsgEntity chatMsgEntityToBean = new ChatMsgEntity();
-        chatMsgEntityToBean.setType(12);
-        chatMsgEntityToBean.setUser_name("陈乔恩");
-        chatMsgEntityToBean.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
-        chatMsgEntityToBean.setStatus(3);
-        chatMsgEntityToBean.setMessage("蚂蚁豆");
-        chatMsgEntityToBean.setMessageid("123");
-        list.add(chatMsgEntityToBean);
-
-        ChatMsgEntity chatMsgEntityFromTip = new ChatMsgEntity();
-        chatMsgEntityFromTip.setType(13);
-        chatMsgEntityFromTip.setUser_name("唐嫣");
-        chatMsgEntityFromTip.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-        chatMsgEntityFromTip.setMessage("小费");
-        chatMsgEntityFromTip.setMessageid("123");
-        list.add(chatMsgEntityFromTip);
-
-        ChatMsgEntity chatMsgEntityToTip = new ChatMsgEntity();
-        chatMsgEntityToTip.setType(14);
-        chatMsgEntityToTip.setUser_name("陈乔恩");
-        chatMsgEntityToTip.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
-        chatMsgEntityToTip.setStatus(3);
-        chatMsgEntityToTip.setMessage("小费");
-        chatMsgEntityToTip.setMessageid("123");
-        list.add(chatMsgEntityToTip);
-
-        ChatMsgEntity chatMsgEntityFromGift = new ChatMsgEntity();
-        chatMsgEntityFromGift.setType(15);
-        chatMsgEntityFromGift.setUser_name("唐嫣");
-        chatMsgEntityFromGift.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-        chatMsgEntityFromGift.setMessage("礼物");
-        chatMsgEntityFromGift.setMessageid("123");
-        list.add(chatMsgEntityFromGift);
-
-        ChatMsgEntity chatMsgEntityToGift = new ChatMsgEntity();
-        chatMsgEntityToGift.setType(16);
-        chatMsgEntityToGift.setUser_name("陈乔恩");
-        chatMsgEntityToGift.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
-        chatMsgEntityToGift.setStatus(3);
-        chatMsgEntityToGift.setMessage("礼物");
-        chatMsgEntityToGift.setMessageid("123");
-        list.add(chatMsgEntityToGift);
-
-        ChatMsgEntity chatMsgEntityFromDoubleRob = new ChatMsgEntity();
-        chatMsgEntityFromDoubleRob.setType(17);
-        chatMsgEntityFromDoubleRob.setUser_name("唐嫣");
-        chatMsgEntityFromDoubleRob.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fupload.cbg.cn%2F2015%2F0311%2F1426053651305.jpg&thumburl=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2574381543%2C3066317494%26fm%3D21%26gp%3D0.jpg");
-        chatMsgEntityFromDoubleRob.setMessage("双人抢");
-        chatMsgEntityFromDoubleRob.setMessageid("123");
-        list.add(chatMsgEntityFromDoubleRob);
-
-
-        ChatMsgEntity chatMsgEntityToDoubleRob = new ChatMsgEntity();
-        chatMsgEntityToDoubleRob.setType(16);
-        chatMsgEntityToDoubleRob.setUser_name("陈乔恩");
-        chatMsgEntityToDoubleRob.setUser_avar("http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=http%3A%2F%2Fpic1.hebei.com.cn%2F003%2F007%2F300%2F00300730022_8bacabd8.jpg&thumburl=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3896723671%2C287425269%26fm%3D11%26gp%3D0.jpg");
-        chatMsgEntityToDoubleRob.setStatus(3);
-        chatMsgEntityToDoubleRob.setMessage("礼物");
-        chatMsgEntityToDoubleRob.setMessageid("123");
-        
-        list.add(chatMsgEntityToGift);
-
-        EMConversation conversation = EMClient.getInstance().chatManager().getConversation(myFrends.getUser_name());
-//获取此会话的所有消息
-        List<EMMessage> messages = conversation.getAllMessages();
-
-        chatMsgAdapter = new ChatMsgAdapter(context, list);
+        chatMsgAdapter = new ChatMsgAdapter(context, listarray);
         chatListView.setAdapter(chatMsgAdapter);
+        if ("Chat".equals(myFrends.getIsGroup())) {
+            chatMsgAdapter.IsGroup(false);
+        } else {
+            chatMsgAdapter.IsGroup(true);
+        }
 
+        mPtrFrame.setLastUpdateTimeRelateObject(this);
+        mPtrFrame.setPtrHandler(new PtrHandler() {
+            @Override
+            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
+                // here check $mListView instead of $content
+                return PtrDefaultHandler.checkContentCanBePulledDown(frame, chatListView, header);
+            }
 
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                updateData();
+            }
+        });
         // the following are default settings
         mPtrFrame.setResistance(1.7f);
         mPtrFrame.setRatioOfHeaderHeightToRefresh(1.2f);
@@ -385,12 +463,6 @@ public class MYChatActivity extends ActivitySupport {
         mPtrFrame.setPullToRefresh(false);
         // default is true
         mPtrFrame.setKeepHeaderWhenRefresh(true);
-//        mPtrFrame.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                mPtrFrame.autoRefresh();
-//            }
-//        }, 100);
         scrollMyListViewToBottom();
     }
 
@@ -468,9 +540,9 @@ public class MYChatActivity extends ActivitySupport {
 
     // 录音时间太短时Toast显示
     void showWarnToast() {
-        if(toast != null){
+        if (toast != null) {
             toast.cancel();
-        }else{
+        } else {
             toast = new Toast(this);
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setOrientation(LinearLayout.VERTICAL);
@@ -529,6 +601,7 @@ public class MYChatActivity extends ActivitySupport {
 
         Handler imgHandle = new Handler() {
             int count = 0;
+
             @Override
             public void handleMessage(Message msg) {
 
@@ -572,7 +645,7 @@ public class MYChatActivity extends ActivitySupport {
                         count++;
 
                         if (count % 5 == 0) {
-                            if(j < 10){
+                            if (j < 10) {
                                 dialog_img.setImageResource(bitm[j++ % 10]);
                             }
                         }
@@ -585,6 +658,7 @@ public class MYChatActivity extends ActivitySupport {
             }
         };
     };
+
     // 录音线程
     void mythread() {
         MyThreadPool.getInstance().submit(ImgThread);
@@ -599,18 +673,45 @@ public class MYChatActivity extends ActivitySupport {
             dialog_img.setImageResource(R.drawable.sy6);
         } else if (voiceValue > 3200.0 && voiceValue < 5000) {
             dialog_img.setImageResource(R.drawable.sy5);
-        }else if (voiceValue > 5000.0 && voiceValue < 8000.0) {
+        } else if (voiceValue > 5000.0 && voiceValue < 8000.0) {
             dialog_img.setImageResource(R.drawable.sy4);
         } else if (voiceValue > 8000.0 && voiceValue < 14000.0) {
             dialog_img.setImageResource(R.drawable.sy3);
         } else if (voiceValue > 14000.0 && voiceValue < 20000) {
             dialog_img.setImageResource(R.drawable.sy2);
-        }else if (voiceValue > 20000.0) {
+        } else if (voiceValue > 20000.0) {
             dialog_img.setImageResource(R.drawable.sy1);
         }
     }
+
     public String getAmrPath(String path) {
         String amrPaht = mRecorder.sanitizePath(path);
         return amrPaht;
     }
+
+    /****
+     * 消息:TXT/wpt/wpt/txt:"你会后悔的"
+     */
+    public void getChatList() {
+        MyThreadPool.getInstance().submit(new Runnable() {
+            @Override
+            public void run() {
+                if ("Chat".equals(myFrends.getIsGroup())) {
+
+                    Message message = new Message();
+                    message.what = REFARESH;
+                    message.obj = DBControl.getInstance(context).getChat(myFrends.getFriend_id(), page);
+                    handler.sendMessage(message);
+                } else {
+                    DBControl.getInstance(context).getChatGroup(myFrends.getGroup_id(), page);
+                    Message message = new Message();
+                    message.what = REFARESH;
+                    message.obj = DBControl.getInstance(context).getChat(myFrends.getFriend_id(), page);
+                    handler.sendMessage(message);
+                }
+            }
+        });
+    }
+
+
 }

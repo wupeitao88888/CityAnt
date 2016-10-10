@@ -4,15 +4,18 @@ import android.app.ActivityManager;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 
-import com.cityant.main.bean.LoginUserInfoData;
-import com.cityant.main.db.DBControl;
+import com.hyphenate.easeui.bean.LoginUserInfoData;
+
 import com.cityant.main.utlis.FaceConversionUtil;
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.chat.EMOptions;
-import com.iloomo.global.MApplication;
+import com.hyphenate.chatuidemo.DemoApplication;
+import com.hyphenate.easeui.db.DBControl;
+import com.hyphenate.easeui.db.DbHelper;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.L;
+import com.iloomo.utils.LCSharedPreferencesHelper;
 
 import java.util.Iterator;
 import java.util.List;
@@ -21,8 +24,9 @@ import java.util.List;
 /**
  * Created by wupeitao on 16/8/18.
  */
-public class MYApplication extends MApplication {
+public class MYApplication extends DemoApplication {
     private final int GETLOGINFO = 100;
+    private LCSharedPreferencesHelper lcSharedPreferencesHelper;
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -38,15 +42,15 @@ public class MYApplication extends MApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-//
+        checkDb();
         initDate();
-        EMOptions options = new EMOptions();
+//        EMOptions options = new EMOptions();
         // 默认添加好友时，是不需要验证的，改成需要验证
 //        options.setAcceptInvitationAlways(false);
         //初始化
-        EMClient.getInstance().init(context, options);
-        //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
-        EMClient.getInstance().setDebugMode(true);
+//        EMClient.getInstance().init(context, options);
+//        //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
+//        EMClient.getInstance().setDebugMode(true);
 
         int pid = android.os.Process.myPid();
         String processAppName = getAppName(pid);
@@ -60,6 +64,9 @@ public class MYApplication extends MApplication {
             return;
         }
         FaceConversionUtil.getInstace().getFileText(context);
+
+//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        crashHandler.init(getApplicationContext());
 
     }
 
@@ -95,5 +102,24 @@ public class MYApplication extends MApplication {
             }
         }
         return processName;
+    }
+    private void checkDb() {
+        lcSharedPreferencesHelper = LCSharedPreferencesHelper.instance(context, LCSharedPreferencesHelper.ILOOMO);
+        DbHelper dbHelper = new DbHelper(context);
+        DBControl dbControl = new DBControl(context, dbHelper);
+        try {
+            if (TextUtils.isEmpty(lcSharedPreferencesHelper.getValue(LCSharedPreferencesHelper.UPDATE_DB))) {
+                lcSharedPreferencesHelper.putValue(LCSharedPreferencesHelper.UPDATE_DB, DBControl.DB_VERSION);
+                dbControl.deleteAllTab();
+                dbControl.createAllTab();
+            } else {
+                if (!DBControl.DB_VERSION.equals(lcSharedPreferencesHelper.getValue(LCSharedPreferencesHelper.UPDATE_DB))) {
+                    lcSharedPreferencesHelper.putValue(LCSharedPreferencesHelper.UPDATE_DB, DBControl.DB_VERSION);
+                    dbControl.deleteAllTab();
+                    dbControl.createAllTab();
+                }
+            }
+        } catch (Exception e) {
+        }
     }
 }

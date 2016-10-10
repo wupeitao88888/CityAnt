@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/userid"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:hint="请输入用户id"
+            android:textColor="@color/black"
+            android:textSize="13dp" />
+
+        <Button
+            android:id="@+id/addFrend"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="onAddFrends"
+            android:text="添加" />
+
+        <RelativeLayout
+            style="@style/addfrend"
+            android:onClick="onNearby">
+
+            <ImageView
+                android:id="@+id/icon"
+                style="@style/addfrend_icon"
+
+                />
+
+            <TextView
+                style="@style/addfrend_text"
+                android:layout_toRightOf="@+id/icon"
+                android:text="附近" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/addfrend"
+            android:layout_marginTop="1dp"
+            android:onClick="onScan"
+            >
+
+            <ImageView
+                android:id="@+id/sao"
+                style="@style/addfrend_icon" />
+
+            <TextView
+                style="@style/addfrend_text"
+                android:layout_toRightOf="@+id/sao"
+                android:text="扫一扫" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/addfrend"
+            android:layout_marginTop="1dp"
+            android:onClick="onAddressBookContact"
+            >
+
+            <ImageView
+                android:id="@+id/con"
+                style="@style/addfrend_icon" />
+
+            <TextView
+                style="@style/addfrend_text"
+                android:layout_toRightOf="@+id/con"
+                android:text="通讯录匹配" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

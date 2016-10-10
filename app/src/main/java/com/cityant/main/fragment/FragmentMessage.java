@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,24 +12,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cityant.main.R;
+import com.cityant.main.activity.AddFrendsActivity;
 import com.cityant.main.activity.MYChatActivity;
 import com.cityant.main.activity.MyFrendActivity;
-import com.cityant.main.activity.RegisterActivity;
 import com.cityant.main.adapter.FragmentMessageAdapter;
 import com.cityant.main.bean.BusEventFragmentMessage;
-import com.cityant.main.bean.MessageList;
-import com.cityant.main.bean.MyFrends;
-import com.cityant.main.db.DBControl;
+import com.hyphenate.easeui.bean.MessageList;
+import com.hyphenate.easeui.bean.MyFrends;
+
 import com.cityant.main.utlis.AppBus;
-import com.cityant.main.utlis.ColorRandomizer;
+import com.hyphenate.easeui.db.DBControl;
 import com.iloomo.base.FragmentSupport;
 import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.L;
-import com.iloomo.utils.ToastUtil;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -73,8 +70,8 @@ public class FragmentMessage extends FragmentSupport {
         titleBar.setRightSecondMenuimgListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtil.showShort(context, "右边第一个");
 
+                context.startActivity(new Intent(context, AddFrendsActivity.class));
             }
         });
         return super.setTitleBar(view);
@@ -105,7 +102,7 @@ public class FragmentMessage extends FragmentSupport {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 MyFrends myFrends = new MyFrends();
-                myFrends.setFriend_id(messageLists.get(i).getFriend_id());
+                myFrends.setFriend_id(messageLists.get(i).getUser_id());
                 myFrends.setUser_name(messageLists.get(i).getUser_name());
                 myFrends.setUser_avar(messageLists.get(i).getUser_avar());
                 startActivity(new Intent(context, MYChatActivity.class).putExtra("MyFrend", myFrends));

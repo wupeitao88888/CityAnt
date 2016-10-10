@@ -24,7 +24,7 @@
             <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/switch1"
+
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
                 android:layout_centerVertical="true"
@@ -42,7 +42,7 @@
             <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/switch1"
+
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
                 android:layout_centerVertical="true"
@@ -61,7 +61,7 @@
             <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/switch1"
+
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
                 android:layout_centerVertical="true"

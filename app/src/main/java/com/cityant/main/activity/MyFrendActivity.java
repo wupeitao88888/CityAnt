@@ -2,13 +2,9 @@ package com.cityant.main.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.PersistableBundle;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,21 +13,18 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cityant.main.R;
 import com.cityant.main.adapter.MyFrendsAdapter;
-import com.cityant.main.bean.LoginUserInfo;
-import com.cityant.main.bean.MyFrends;
+import com.hyphenate.easeui.bean.MyFrends;
 import com.cityant.main.bean.MyFrendsModel;
-import com.cityant.main.global.MYAppconfig;
+import com.hyphenate.easeui.db.DBControl;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.ActivitySupport;
-import com.iloomo.bean.BaseModel;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.threadpool.MyThreadPool;
-import com.iloomo.utils.L;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,7 +32,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
-import java.util.zip.Inflater;
 
 import com.cityant.main.utlis.*;
 import com.iloomo.utils.ToastUtil;
@@ -58,11 +50,40 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
     private boolean flag = false;
     private LinearLayout layoutIndex;
     private TextView tv_show;
-    private List<MyFrends> myFrends;
+    private List<MyFrends> myFrendses;
     private List<MyFrends> newmyFrends = new ArrayList<>();
     private RelativeLayout mequn_chatlist;
     private RelativeLayout mebrand;
     private RelativeLayout addNewFrend;
+
+    private final int F_REFARESH = 1001;
+    private final int F_NETWORKFINISH = 1002;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case F_REFARESH:
+                    myFrendses = (List<MyFrends>) msg.obj;
+                    String[] allNames = sortIndex(myFrendses);
+                    sortList(allNames);
+                    selector = new HashMap<String, Integer>();
+
+                    for (int j = 0; j < indexStr.length; j++) {// 循环字母表，找出newPersons中对应字母的位置
+                        for (int i = 0; i < newmyFrends.size(); i++) {
+                            if (newmyFrends.get(i).getUser_name().equals(indexStr[j])) {
+                                selector.put(indexStr[j], i);
+                            }
+                        }
+                    }
+                    myFrendsAdapter.notifyDataSetChanged();
+                    break;
+                case F_NETWORKFINISH:
+                    refareshDate();
+                    break;
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -93,7 +114,29 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
         parameter.put("page_size", "1000");
 
         startHttpRequst(MYAppconfig.FREND_LIST, parameter, MYTaskID.FRENDS_LIST);
+
+        myFrendsAdapter = new MyFrendsAdapter(context, newmyFrends);
+        myfrendslist.setAdapter(myFrendsAdapter);
+        myfrendslist.setOnItemClickListener(this);
+        refareshDate();
     }
+
+    /***
+     * 刷新数据
+     */
+    public void refareshDate() {
+        MyThreadPool.getInstance().submit(new Runnable() {
+            @Override
+            public void run() {
+                List<MyFrends> myFren = DBControl.getInstance(context).selectMyFrends();
+                Message message = new Message();
+                message.what = F_REFARESH;
+                message.obj = myFren;
+                handler.sendMessage(message);
+            }
+        });
+    }
+
 
     public void startHttpRequst(String url,
                                 Map<String, Object> parameter, int resultCode) {
@@ -109,15 +152,17 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
      * @param allNames
      */
     private void sortList(String[] allNames) {
+        newmyFrends.clear();
         for (int i = 0; i < allNames.length; i++) {
             if (allNames[i].length() != 1) {
-                for (int j = 0; j < myFrends.size(); j++) {
-                    if (allNames[i].equals(myFrends.get(j).getPinYinName())) {
+                for (int j = 0; j < myFrendses.size(); j++) {
+                    if (allNames[i].equals(myFrendses.get(j).getPinYinName())) {
                         MyFrends p = new MyFrends();
-                        p.setUser_name(myFrends.get(j).getUser_name());
-                        p.setUser_avar(myFrends.get(j).getUser_avar());
-                        p.setFriend_id(myFrends.get(j).getFriend_id());
-                        p.setPinYinName(myFrends.get(j).getPinYinName());
+                        p.setUser_name(myFrendses.get(j).getUser_name());
+                        p.setUser_avar(myFrendses.get(j).getUser_avar());
+                        p.setFriend_id(myFrendses.get(j).getFriend_id());
+                        p.setPinYinName(myFrendses.get(j).getPinYinName());
+                        p.setIsGroup("Chat");
                         newmyFrends.add(p);
                     }
                 }
@@ -249,21 +294,20 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
         switch (resultCode) {
             case MYTaskID.FRENDS_LIST:
                 MyFrendsModel baseModel = (MyFrendsModel) modelClass;
-                myFrends = baseModel.getData().getFriend_list();
-                String[] allNames = sortIndex(myFrends);
-                sortList(allNames);
-                selector = new HashMap<String, Integer>();
+                List<MyFrends> myFrends = baseModel.getData().getFriend_list();
 
-                for (int j = 0; j < indexStr.length; j++) {// 循环字母表，找出newPersons中对应字母的位置
-                    for (int i = 0; i < newmyFrends.size(); i++) {
-                        if (newmyFrends.get(i).getUser_name().equals(indexStr[j])) {
-                            selector.put(indexStr[j], i);
+                MyThreadPool.getInstance().submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < baseModel.getData().getFriend_list().size(); i++) {
+                            DBControl.getInstance(context).insertFrends(baseModel.getData().getFriend_list().get(i));
                         }
+                        Message message = new Message();
+                        message.obj = "";
+                        message.what = F_NETWORKFINISH;
+                        handler.sendMessage(message);
                     }
-                }
-                myFrendsAdapter = new MyFrendsAdapter(context, newmyFrends);
-                myfrendslist.setAdapter(myFrendsAdapter);
-                myfrendslist.setOnItemClickListener(this);
+                });
                 break;
         }
     }
