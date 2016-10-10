@@ -10,20 +10,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/easeui" />
             <option value="$PROJECT_DIR$/iloomo" />
             <option value="$PROJECT_DIR$/okhttp3-persistent-cookiejar" />
             <option value="$PROJECT_DIR$/okhttputils" />
           </set>
         </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/iloomo" />
-            <option value="$PROJECT_DIR$/okhttp3-persistent-cookiejar" />
-            <option value="$PROJECT_DIR$/okhttputils" />
-          </set>
-        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

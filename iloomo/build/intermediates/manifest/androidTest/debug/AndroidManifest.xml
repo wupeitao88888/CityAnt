@@ -13,8 +13,6 @@
         android:label="Tests for com.iloomo.paysdk.test"
         android:targetPackage="com.iloomo.paysdk.test" />
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
     <application>
         <uses-library android:name="android.test.runner" />
     </application>

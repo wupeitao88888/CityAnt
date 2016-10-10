@@ -76,12 +76,12 @@
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/dir_choose.png"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/release/drawable-hdpi-v4/lc_more.png",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/lc_more.png"
-    },
-    {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/release/drawable-hdpi-v4/loadingview.gif",
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/loadingview.gif"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/release/drawable-hdpi-v4/lc_more.png",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/lc_more.png"
     },
     {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/release/drawable-hdpi-v4/camera_flash_on.png",

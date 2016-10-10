@@ -16,12 +16,12 @@
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/pic_dir.png"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/picture_unselected.png",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/picture_unselected.png"
-    },
-    {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/pcamera_back.png",
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/pcamera_back.png"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/picture_unselected.png",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/picture_unselected.png"
     },
     {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/camera_flash_auto.png",
@@ -40,12 +40,12 @@
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/loadingview.gif"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/start_ban.png",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/start_ban.png"
-    },
-    {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/loading_fild.png",
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/loading_fild.png"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/start_ban.png",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/start_ban.png"
     },
     {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/camera_flash_off.png",
@@ -108,12 +108,12 @@
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/menu.png"
     },
     {
-        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/loading.png",
-        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/loading.png"
-    },
-    {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/check_select.png",
         "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/check_select.png"
+    },
+    {
+        "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/loading.png",
+        "source": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/src/main/res/drawable-hdpi/loading.png"
     },
     {
         "merged": "/Users/wupeitao/Desktop/androidworkspase/cityant/iloomo/build/intermediates/res/merged/debug/drawable-hdpi-v4/pc_back.png",
