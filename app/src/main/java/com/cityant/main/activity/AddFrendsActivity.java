@@ -3,13 +3,11 @@ package com.cityant.main.activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.cityant.main.R;
 import com.cityant.main.bean.AddFrend;
-import com.cityant.main.bean.MyFrendsModel;
-import com.cityant.main.global.MYAppconfig;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.net.AsyncHttpPost;

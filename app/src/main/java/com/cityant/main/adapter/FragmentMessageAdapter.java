@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cityant.main.R;
-import com.cityant.main.bean.MeCrows;
-import com.cityant.main.bean.MessageList;
+import com.hyphenate.easeui.bean.MessageList;
 import com.iloomo.base.CommonAdapter;
 import com.iloomo.utils.DateUtil;
 import com.iloomo.utils.PImageLoaderUtils;

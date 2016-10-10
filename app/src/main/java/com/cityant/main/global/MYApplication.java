@@ -6,13 +6,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 
-import com.cityant.main.bean.LoginUserInfoData;
-import com.cityant.main.db.DBControl;
-import com.cityant.main.db.DbHelper;
+import com.hyphenate.easeui.bean.LoginUserInfoData;
+
 import com.cityant.main.utlis.FaceConversionUtil;
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.chat.EMOptions;
-import com.iloomo.global.MApplication;
+import com.hyphenate.chatuidemo.DemoApplication;
+import com.hyphenate.easeui.db.DBControl;
+import com.hyphenate.easeui.db.DbHelper;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.L;
 import com.iloomo.utils.LCSharedPreferencesHelper;
@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * Created by wupeitao on 16/8/18.
  */
-public class MYApplication extends MApplication {
+public class MYApplication extends DemoApplication {
     private final int GETLOGINFO = 100;
     private LCSharedPreferencesHelper lcSharedPreferencesHelper;
     Handler handler = new Handler() {
@@ -44,13 +44,13 @@ public class MYApplication extends MApplication {
         super.onCreate();
         checkDb();
         initDate();
-        EMOptions options = new EMOptions();
+//        EMOptions options = new EMOptions();
         // 默认添加好友时，是不需要验证的，改成需要验证
 //        options.setAcceptInvitationAlways(false);
         //初始化
-        EMClient.getInstance().init(context, options);
-        //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
-        EMClient.getInstance().setDebugMode(true);
+//        EMClient.getInstance().init(context, options);
+//        //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
+//        EMClient.getInstance().setDebugMode(true);
 
         int pid = android.os.Process.myPid();
         String processAppName = getAppName(pid);
@@ -64,6 +64,9 @@ public class MYApplication extends MApplication {
             return;
         }
         FaceConversionUtil.getInstace().getFileText(context);
+
+//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        crashHandler.init(getApplicationContext());
 
     }
 

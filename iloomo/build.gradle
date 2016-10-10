@@ -19,7 +19,6 @@ android {
 
 dependencies {
     compile files('libs/fastjson-1.1.40.jar')
-    compile files('libs/umeng-analytics-v5.6.4.jar')
     compile files('libs/user_profile_mtj_1.4.jar')
     compile files('libs/universal-image-loader-1.9.4.jar')
     compile 'com.facebook.fresco:fresco:0.11.0'
@@ -31,5 +30,8 @@ dependencies {
     compile project(':okhttputils')
     compile 'com.squareup.okhttp3:okhttp-urlconnection:3.2.0'
     compile project(':okhttp3-persistent-cookiejar')
-    compile files('libs/locSDK_6.13.jar')
+    //    compile files('libs/locSDK_6.13.jar')
+    compile files('libs/parse-android-1.13.0.jar')
+    compile files('libs/umeng-analytics-v5.2.4.jar')
+    compile files('libs/umeng-update-v2.6.0.1.jar')
 }

@@ -13,9 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.cityant.main.R;
-import com.cityant.main.bean.LoginUserInfoData;
-import com.cityant.main.db.DBControl;
+import com.hyphenate.easeui.bean.LoginUserInfoData;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.easeui.db.DBControl;
 import com.hyphenate.exceptions.HyphenateException;
 import com.iloomo.base.ActivitySupport;
 

@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cityant.main.R;
-import com.cityant.main.global.MYAppconfig;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.utils.PImageLoaderUtils;
 import com.iloomo.utils.StrUtil;

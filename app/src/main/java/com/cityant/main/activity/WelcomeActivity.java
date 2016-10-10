@@ -2,19 +2,14 @@ package com.cityant.main.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 
 import com.cityant.main.R;
-import com.cityant.main.db.DBControl;
-import com.cityant.main.db.DbHelper;
-import com.cityant.main.global.MYAppconfig;
+
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.threadpool.MyThreadPool;
-import com.iloomo.utils.L;
-import com.iloomo.utils.LCSharedPreferencesHelper;
 import com.iloomo.widget.StartPic;
 import com.nineoldandroids.animation.Animator;
 

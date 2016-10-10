@@ -11,7 +11,7 @@ import com.bigkoo.pickerview.TimePickerView;
 import com.cityant.main.R;
 
 import com.cityant.main.bean.TagList;
-import com.cityant.main.global.MYAppconfig;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.global.MYApplication;
 import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.ActivitySupport;

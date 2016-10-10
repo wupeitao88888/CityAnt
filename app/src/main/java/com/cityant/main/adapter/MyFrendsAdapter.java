@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cityant.main.R;
-import com.cityant.main.bean.MyFrends;
+import com.hyphenate.easeui.bean.MyFrends;
 import com.iloomo.base.CommonAdapter;
 import com.iloomo.utils.PImageLoaderUtils;
 import com.iloomo.utils.StrUtil;

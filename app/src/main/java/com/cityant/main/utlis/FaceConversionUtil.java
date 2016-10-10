@@ -73,7 +73,7 @@ public class FaceConversionUtil {
         try {
             dealExpression(context, spannableString, sinaPatten, 0);
         } catch (Exception e) {
-            Log.e("dealExpression", e.getMessage());
+            L.e("表情加载出错:"+e.getMessage());
         }
         return spannableString;
     }

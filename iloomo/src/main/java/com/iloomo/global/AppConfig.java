@@ -22,7 +22,8 @@ public class AppConfig {
     //忘记密码
     public static final String FORGETPASSWOD = BASEURL + API + "user/forgetPassword";
 
-
+    /** 开发者联系方式 **/
+    public static String developEmail = "2859912441@qq.com";
     /**
      * UI设计的基准宽度.
      */

@@ -1,10 +1,12 @@
 package com.cityant.main.bean;
 
+import com.hyphenate.easeui.bean.MyFrends;
 import com.iloomo.bean.BaseData;
 
 import java.util.List;
 
 /**
+ *
  * Created by wupeitao on 16/8/26.
  */
 public class MyFrendsData extends BaseData {

@@ -2,17 +2,14 @@ package com.cityant.main.activity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.cityant.main.R;
 import com.cityant.main.adapter.NewFrendsAdapter;
 import com.cityant.main.bean.HandleModel;
-import com.cityant.main.bean.MyFrendsModel;
 import com.cityant.main.bean.NewFrends;
-import com.cityant.main.bean.NewFrendsData;
 import com.cityant.main.bean.NewFrendsModel;
-import com.cityant.main.global.MYAppconfig;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.net.AsyncHttpPost;
@@ -26,9 +23,8 @@ import java.util.List;
 import java.util.Map;
 
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
-import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.PtrHandler;
 
 /**
  * Created by wupeitao on 16/8/26.
@@ -49,36 +45,46 @@ public class NewFrendsActivity extends ActivitySupport implements ThreadCallBack
     }
 
     private void initView() {
-        mPtrFrame = (PtrClassicFrameLayout) findViewById(R.id.rotate_header_list_view_frame);
+        mPtrFrame = (PtrClassicFrameLayout) findViewById(R.id.rotate_header_grid_view_frame);
         newfrendslist = (ListView) findViewById(R.id.newfrendslist);
         newFrends = new ArrayList<>();
 
         mPtrFrame.setLastUpdateTimeRelateObject(this);
-        mPtrFrame.setPtrHandler(new PtrHandler() {
+        mPtrFrame.setPtrHandler(new PtrDefaultHandler2() {
+
+            @Override
+            public void onLoadMoreBegin(PtrFrameLayout frame) {
+                updateData();
+            }
+
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
                 updateData();
             }
 
             @Override
+            public boolean checkCanDoLoadMore(PtrFrameLayout frame, View content, View footer) {
+                return super.checkCanDoLoadMore(frame, newfrendslist, footer);
+            }
+
+            @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
-                return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
+                return super.checkCanDoRefresh(frame, newfrendslist, header);
             }
         });
-
         // the following are default settings
-        mPtrFrame.setResistance(1.7f);
+        mPtrFrame.setResistance(1.7f); // you can also set foot and header separately
         mPtrFrame.setRatioOfHeaderHeightToRefresh(1.2f);
-        mPtrFrame.setDurationToClose(200);
-        mPtrFrame.setDurationToCloseHeader(1000);
+        mPtrFrame.setDurationToClose(1000);  // you can also set foot and header separately
         // default is false
         mPtrFrame.setPullToRefresh(false);
+
         // default is true
         mPtrFrame.setKeepHeaderWhenRefresh(true);
 //        mPtrFrame.postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
-//                mPtrFrame.autoRefresh();
+//                // mPtrFrame.autoRefresh();
 //            }
 //        }, 100);
         newFrendsAdapter = new NewFrendsAdapter(context, newFrends);
@@ -108,8 +114,8 @@ public class NewFrendsActivity extends ActivitySupport implements ThreadCallBack
     public void netHttp() {
         Map<String, Object> parameter = new HashMap<>();
         parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
-        parameter.put("page", page+"");
-        parameter.put("page_size", 20+"");
+        parameter.put("page", page + "");
+        parameter.put("page_size", 20 + "");
 
         startHttpRequst(MYAppconfig.NEWFRENDS, parameter, MYTaskID.NEWFRENDS);
     }
@@ -118,8 +124,8 @@ public class NewFrendsActivity extends ActivitySupport implements ThreadCallBack
     public void startHttpRequst(String url,
                                 Map<String, Object> parameter, int resultCode) {
 
-        L.e(url+"______"+resultCode);
-        new AsyncHttpPost(this, url, parameter, resultCode,NewFrendsModel.class, context);
+        L.e(url + "______" + resultCode);
+        new AsyncHttpPost(this, url, parameter, resultCode, NewFrendsModel.class, context);
     }
 
     @Override
@@ -135,12 +141,19 @@ public class NewFrendsActivity extends ActivitySupport implements ThreadCallBack
                 if (page == 1) {
                     mPtrFrame.refreshComplete();
                     newFrends.clear();
+                    if(baseModel.getData().getFriend_list().size()==20){
+                        page=2;
+                    }
                     newFrends.addAll(baseModel.getData().getFriend_list());
-                    newFrendsAdapter.notifyDataSetChanged();
                 } else {
-                    newFrends.addAll(baseModel.getData().getFriend_list());
-                    newFrendsAdapter.notifyDataSetChanged();
+                    if(baseModel.getData().getFriend_list().size()==20){
+                        page++;
+                        newFrends.addAll(baseModel.getData().getFriend_list());
+                    }else{
+                        newFrends.addAll(baseModel.getData().getFriend_list());
+                    }
                 }
+                newFrendsAdapter.notifyDataSetChanged();
                 break;
             case MYTaskID.HANDLERFRENDS:
                 HandleModel handleModel = (HandleModel) modelClass;
@@ -170,19 +183,6 @@ public class NewFrendsActivity extends ActivitySupport implements ThreadCallBack
     }
 
 
-    /***
-     * 处理好友请求
-     *
-     * @param process   处理 (1:同意,2:拒绝)
-     * @param friend_id 好友id
-     */
-    public void HandleFrends(int process, int friend_id) {
-        Map<String, Object> parameter = new HashMap<>();
-        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
-        parameter.put("process", process);
-        parameter.put("friend_id", friend_id);
-        new AsyncHttpPost(this, MYAppconfig.HANDLEFRENDS, parameter, MYTaskID.HANDLERFRENDS,
-                HandleModel.class, context);
-    }
+
 
 }

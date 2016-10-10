@@ -7,14 +7,13 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.cityant.main.activity.LoginActivity;
-import com.cityant.main.activity.UserinfoActivity;
 import com.cityant.main.bean.BusEventFragmentMessage;
-import com.cityant.main.db.DBControl;
 import com.cityant.main.utlis.AppBus;
 import com.hyphenate.EMConnectionListener;
 import com.hyphenate.EMError;
+import com.hyphenate.easeui.db.DBControl;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.hyphenate.util.NetUtils;
-import com.iloomo.utils.L;
 import com.iloomo.utils.ToastUtil;
 
 /**

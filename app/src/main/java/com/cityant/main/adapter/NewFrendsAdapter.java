@@ -9,14 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cityant.main.R;
-import com.cityant.main.bean.MeCrows;
+import com.cityant.main.bean.HandleModel;
 import com.cityant.main.bean.NewFrends;
+import com.hyphenate.easeui.global.MYAppconfig;
+import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.CommonAdapter;
+import com.iloomo.net.AsyncHttpPost;
+import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.PImageLoaderUtils;
 import com.iloomo.utils.StrUtil;
+import com.iloomo.utils.ToastUtil;
 import com.iloomo.utils.ViewHolder;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by wupeitao on 16/8/26.
@@ -51,16 +58,66 @@ public class NewFrendsAdapter extends CommonAdapter {
             agree.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    HandleFrends('1', meCrows.getFriend_id(),i);
                 }
             });
             refuse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    HandleFrends('2', meCrows.getFriend_id(),i);
                 }
             });
         }
         return convertView;
     }
+
+
+    /***
+     * 处理好友请求
+     *
+     * @param process   处理 (1:同意,2:拒绝)
+     * @param friend_id 好友id
+     */
+    public void HandleFrends(int process, String friend_id,int position) {
+        Map<String, Object> parameter = new HashMap<>();
+        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
+        parameter.put("process", process+"");
+        parameter.put("friend_id", friend_id);
+        new AsyncHttpPost(new ThreadCallBack() {
+            @Override
+            public void onCallbackFromThread(String resultJson, Object modelClass) {
+
+            }
+
+            @Override
+            public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+                switch (resultCode) {
+                    case MYTaskID.HANDLERFRENDS:
+                        HandleModel handleModel = (HandleModel) modelClass;
+                        ToastUtil.showShort(context, handleModel.getData().getCode_message());
+                        mDatas.remove(position);
+                        notifyDataSetChanged();
+                        break;
+                }
+            }
+
+            @Override
+            public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+
+            }
+
+            @Override
+            public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+                switch (resultCode) {
+                    case MYTaskID.HANDLERFRENDS:
+                        HandleModel handleModel = (HandleModel) modelClass;
+                        ToastUtil.showShort(context, handleModel.getData().getCode_message());
+                        break;
+                }
+            }
+        }, MYAppconfig.HANDLEFRENDS, parameter, MYTaskID.HANDLERFRENDS,
+                HandleModel.class, context);
+    }
+
+
 }

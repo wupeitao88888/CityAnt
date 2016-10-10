@@ -222,6 +222,7 @@ public class FaceRelativeLayout extends RelativeLayout implements
                     if (onSendMsg != null) {
                         onSendMsg.OnSccessCallBack(et_sendmessage.getText().toString());
                     }
+
                 } else {
                     ToastUtil.showShort(context, "内容不能为空");
                 }

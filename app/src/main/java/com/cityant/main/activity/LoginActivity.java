@@ -17,8 +17,8 @@ import android.widget.TextView;
 
 import com.cityant.main.R;
 import com.cityant.main.bean.LoginUserInfo;
-import com.cityant.main.db.DBControl;
-import com.cityant.main.global.MYAppconfig;
+import com.hyphenate.easeui.db.DBControl;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
