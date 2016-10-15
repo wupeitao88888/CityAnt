@@ -3,8 +3,8 @@ package com.cityant.main.fragment;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,13 +25,31 @@ import com.cityant.main.activity.StorehouseActivity;
 import com.cityant.main.activity.TodayReseiveActivity;
 import com.cityant.main.activity.UserinfoActivity;
 import com.cityant.main.activity.WalletActivity;
+import com.cityant.main.bean.EvaluateListModel;
+import com.cityant.main.bean.LoginUserInfo;
+import com.cityant.main.bean.TodayIncomeModel;
+import com.cityant.main.global.MYTaskID;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.base.FragmentSupport;
-public class FragmentMy extends FragmentSupport implements View.OnClickListener {
+import com.iloomo.net.AsyncHttpPost;
+import com.iloomo.net.ThreadCallBack;
+import com.iloomo.utils.DialogUtil;
+import com.iloomo.utils.PImageLoader;
+import com.iloomo.utils.PImageLoaderUtils;
+import com.iloomo.utils.StrUtil;
+import com.iloomo.utils.ToastUtil;
+import com.iloomo.widget.CostomRatingBar;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class FragmentMy extends FragmentSupport implements View.OnClickListener, ThreadCallBack {
 
     private ImageView userhead;//头像
+    private TextView username;
     private TextView income;//收益
     private RelativeLayout reseive_re;
-    private RelativeLayout wallet_re;
+    private LinearLayout wallet_re;
     private RelativeLayout Warehouse;
     private RelativeLayout bean;
     private RelativeLayout created;
@@ -46,15 +64,18 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener 
     private RelativeLayout idea;
     private RelativeLayout service;
     private RelativeLayout setting;
+    private CostomRatingBar rating_bar_five;
+    private RelativeLayout income_re;
 
     @Override
     public View initView() {
         setTitle("我的");
         View inflate = LayoutInflater.from(context).inflate(R.layout.fragment_my, null);
         userhead = (ImageView) findViewById(inflate, R.id.userhead);
+        username = (TextView) findViewById(inflate, R.id.username);
         income = (TextView) findViewById(inflate, R.id.income);
         reseive_re = (RelativeLayout) findViewById(inflate, R.id.reseive_re);
-        wallet_re = (RelativeLayout) findViewById(inflate, R.id.wallet_re);
+        wallet_re = (LinearLayout) findViewById(inflate, R.id.wallet_re);
         Warehouse = (RelativeLayout) findViewById(inflate, R.id.Warehouse);
         bean = (RelativeLayout) findViewById(inflate, R.id.bean);
         created = (RelativeLayout) findViewById(inflate, R.id.created);
@@ -68,10 +89,12 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener 
         rank = (RelativeLayout) findViewById(inflate, R.id.rank);
         idea = (RelativeLayout) findViewById(inflate, R.id.idea);
         service = (RelativeLayout) findViewById(inflate, R.id.service);
-        setting= (RelativeLayout) findViewById(inflate, R.id.setting);
+        setting = (RelativeLayout) findViewById(inflate, R.id.setting);
+        rating_bar_five = (CostomRatingBar) findViewById(inflate, R.id.rating_bar_five);
+        income_re= (RelativeLayout) findViewById(inflate, R.id.income_re);
 
-        userhead.setOnClickListener(this);
         reseive_re.setOnClickListener(this);
+        income_re.setOnClickListener(this);
         wallet_re.setOnClickListener(this);
         Warehouse.setOnClickListener(this);
         bean.setOnClickListener(this);
@@ -87,7 +110,16 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener 
         idea.setOnClickListener(this);
         service.setOnClickListener(this);
         setting.setOnClickListener(this);
+        getIncome();
+        getRank();
         return inflate;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        PImageLoaderUtils.setImageHead(userhead, MYAppconfig.loginUserInfoData.getUser_avar(), context);
+        StrUtil.setText(username, MYAppconfig.loginUserInfoData.getUser_name());
     }
 
     @Override
@@ -114,10 +146,10 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.userhead://头像
+            case R.id.reseive_re://头像
                 context.startActivity(new Intent(context, UserinfoActivity.class));
                 break;
-            case R.id.reseive_re://收益详情
+            case R.id.income_re://收益详情
                 context.startActivity(new Intent(context, TodayReseiveActivity.class));
                 break;
             case R.id.wallet_re://钱包
@@ -169,4 +201,61 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener 
     }
 
 
+    public void getIncome() {
+        Map<String, Object> parameter = new HashMap<>();
+        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
+        AsyncHttpPost httpRequest;
+        httpRequest = new AsyncHttpPost(this, MYAppconfig.TODAYINCOME, parameter, MYTaskID.TODAYINCOME,
+                TodayIncomeModel.class, context);
+    }
+
+    public void getRank() {
+        Map<String, Object> parameter = new HashMap<>();
+        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
+
+        AsyncHttpPost httpRequest;
+        httpRequest = new AsyncHttpPost(this, MYAppconfig.EVALUATELIST, parameter, MYTaskID.EVALUATELIST,
+                EvaluateListModel.class, context);
+    }
+
+
+    @Override
+    public void onCallbackFromThread(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+        switch (resultCode) {
+            case MYTaskID.TODAYINCOME:
+                TodayIncomeModel todayIncomeModel = (TodayIncomeModel) modelClass;
+                String total_price = todayIncomeModel.getData().getTotal_price();
+                StrUtil.setText(income, total_price);
+                break;
+            case MYTaskID.EVALUATELIST:
+                EvaluateListModel evaluateListModel = (EvaluateListModel) modelClass;
+                //评分
+                rating_bar_five.setMark(Float.parseFloat(evaluateListModel.getData().getTotal_score()));
+                break;
+        }
+    }
+
+    @Override
+    public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+        switch (resultCode) {
+            case MYTaskID.TODAYINCOME:
+                TodayIncomeModel todayIncomeModel = (TodayIncomeModel) modelClass;
+                ToastUtil.showShort(context, todayIncomeModel.getData().getCode_message());
+                break;
+            case MYTaskID.EVALUATELIST:
+                EvaluateListModel evaluateListModel = (EvaluateListModel) modelClass;
+                ToastUtil.showShort(context, evaluateListModel.getData().getCode_message());
+                break;
+        }
+    }
 }

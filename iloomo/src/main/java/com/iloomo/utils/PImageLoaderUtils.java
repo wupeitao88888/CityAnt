@@ -44,7 +44,11 @@ public class PImageLoaderUtils {
                 .override(100, 100)
                 .error(R.drawable.gray).crossFade().into(imageView);
     }
+    public static void setImageHead(ImageView iview, String url, Context context) {
+        Glide.with(context).load(url).placeholder(R.drawable.gray)
+                .error(R.drawable.gray).transform(new GlideRoundTransform(context, 100)).crossFade().into(iview);
 
+    }
 
     public static  void displaySmallpix(String uri, ImageView imageView, Context context) {
         Glide.with(context)

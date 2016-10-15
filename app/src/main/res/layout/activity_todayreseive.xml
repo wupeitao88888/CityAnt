@@ -4,85 +4,78 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.handmark.pulltorefresh.library.PullToRefreshScrollView xmlns:ptr="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/pull_refresh_scrollview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        ptr:ptrAnimationStyle="flip"
-        ptr:ptrMode="both">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/income"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="70dp"
-                    android:text="103.00"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:textSize="50dp" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/income"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <ImageView
-                    android:id="@+id/userhead_img"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@color/gray" />
-
-                <TextView
-                    android:id="@+id/today_income"
-                    style="@style/forget_new"
-                    android:layout_below="@+id/userhead_img"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/todayincome" />
-            </RelativeLayout>
-
-            <!--<RelativeLayout-->
-            <!--style="@style/me_reseive_re"-->
-            <!--android:layout_marginTop="10dp">-->
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="70dp"
+                android:text="103.00"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="50dp" />
 
 
-            <!--<TextView-->
-            <!--style="@style/me_reseive_text"-->
-            <!--android:layout_toRightOf="@+id/center_icon"-->
-            <!--android:text="@string/center" />-->
+        </RelativeLayout>
 
-            <!--<TextView-->
-            <!--android:id="@+id/certify"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:text="+80.00"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textSize="15dp" />-->
-            <!--</RelativeLayout>-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
 
-            <com.iloomo.widget.NoScrollListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/userhead_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/gray" />
 
-            </com.iloomo.widget.NoScrollListView>
-        </LinearLayout>
-    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+            <TextView
+                android:id="@+id/today_income"
+                style="@style/forget_new"
+                android:layout_below="@+id/userhead_img"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/todayincome" />
+        </RelativeLayout>
+
+        <!--<RelativeLayout-->
+        <!--style="@style/me_reseive_re"-->
+        <!--android:layout_marginTop="10dp">-->
+
+
+        <!--<TextView-->
+        <!--style="@style/me_reseive_text"-->
+        <!--android:layout_toRightOf="@+id/center_icon"-->
+        <!--android:text="@string/center" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/certify"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:text="+80.00"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="15dp" />-->
+        <!--</RelativeLayout>-->
+
+        <com.iloomo.widget.NoScrollListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.iloomo.widget.NoScrollListView>
+    </LinearLayout>
 </LinearLayout>
