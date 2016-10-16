@@ -21,8 +21,8 @@
 
                 <ImageView
                     android:id="@+id/user_icon"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="10dp"
@@ -53,6 +53,7 @@
                         android:textSize="14sp"
                         android:paddingLeft="5dp"
                         android:layout_marginTop="3dp"
+                        android:textColor="@color/black_3"
                         android:background="@color/white"/>
 
                     <View
@@ -81,12 +82,12 @@
 
                 <ImageView
                     android:id="@+id/demand_details_image"
-                    android:layout_width="55dp"
+                    android:layout_width="58dp"
                     android:layout_height="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/jiaoyou"/>
+                    android:background="@drawable/biaoqian"/>
 
                 <EditText
                     android:id="@+id/demand_details_edit"
@@ -95,6 +96,7 @@
                     android:minLines="2"
                     android:layout_marginTop="10dp"
                     android:textSize="14sp"
+                    android:textColor="@color/black_3"
                     android:paddingLeft="5dp"
                     android:paddingBottom="10dp"
                     android:layout_toRightOf="@id/demand_details_image"
@@ -132,12 +134,14 @@
                     android:layout_marginLeft="8dp"
                     android:textColor="#333333"
                     android:text="时间"/>
-                <EditText
+                <TextView
                     android:id="@+id/time_edit"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="38dp"
                     android:hint="需求时间"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black_3"
                     android:textSize="14sp"
                     android:paddingLeft="5dp"
                     android:background="@color/white"/>
@@ -171,6 +175,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/man_text"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
@@ -181,6 +186,7 @@
                     android:gravity="center"
                     android:background="@drawable/sex_btn_bg"/>
                 <TextView
+                    android:id="@+id/woman_text"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
@@ -191,6 +197,7 @@
                     android:layout_marginRight="25dp"
                     android:background="@drawable/sex_btn_bg"/>
                 <TextView
+                    android:id="@+id/ry_text"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
@@ -228,6 +235,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/online_text"
                     android:layout_width="106dp"
                     android:layout_height="30dp"
                     android:textColor="#333333"
@@ -238,6 +246,7 @@
                     android:background="@drawable/sex_btn_bg"/>
 
                 <TextView
+                    android:id="@+id/line_text"
                     android:layout_width="106dp"
                     android:layout_height="30dp"
                     android:textColor="#333333"
@@ -275,10 +284,13 @@
                     android:orientation="vertical">
 
                     <EditText
+                        android:id="@+id/address_text"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="@color/white"
+                        android:gravity="center_vertical"
                         android:hint="小区/写字楼/学校等"
+                        android:textColor="@color/black_3"
                         android:paddingLeft="5dp"
                         android:textSize="14sp"/>
 
@@ -288,10 +300,12 @@
                         android:background="@color/divider_line"/>
 
                     <EditText
+                        android:id="@+id/address_details_edit"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="@color/white"
                         android:hint="详细地址"
+                        android:textColor="@color/black_3"
                         android:paddingLeft="5dp"
                         android:textSize="14sp"/>
                 </LinearLayout>
@@ -324,6 +338,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/one_day_text"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
@@ -334,6 +349,7 @@
                     android:gravity="center"
                     android:background="@drawable/sex_btn_bg"/>
                 <TextView
+                    android:id="@+id/two_day_text"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
@@ -344,6 +360,7 @@
                     android:layout_marginRight="25dp"
                     android:background="@drawable/sex_btn_bg"/>
                 <TextView
+                    android:id="@+id/three_day_text"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
@@ -355,6 +372,7 @@
                     android:background="@drawable/sex_btn_bg"/>
 
                 <TextView
+                    android:id="@+id/four_day_text"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
@@ -392,10 +410,12 @@
                     android:text="所需名额"/>
 
                 <EditText
+                    android:id="@+id/places_edit"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:hint="输入名额"
                     android:layout_marginRight="10dp"
+                    android:textColor="@color/black_3"
                     android:maxLength="5"
                     android:ellipsize="end"
                     android:textSize="14sp"
@@ -429,10 +449,12 @@
                     android:orientation="horizontal">
 
                     <EditText
+                        android:id="@+id/money_edit"
                         android:layout_width="130dp"
                         android:layout_height="match_parent"
                         android:background="@color/white"
                         android:textSize="14sp"
+                        android:textColor="@color/black_3"
                         android:layout_marginRight="5dp"
                         android:hint="￥输入金额"/>
                     <TextView
@@ -442,10 +464,12 @@
                         android:textSize="14sp"
                         android:text="/"/>
                     <EditText
+                        android:id="@+id/company_edit"
                         android:layout_width="130dp"
                         android:layout_height="match_parent"
                         android:background="@color/white"
                         android:textSize="14sp"
+                        android:textColor="@color/black_3"
                         android:layout_marginLeft="5dp"
                         android:paddingRight="10dp"
                         android:hint="单位,如:天、次"/>
@@ -473,12 +497,12 @@
                     android:text="合计"/>
 
                 <TextView
+                    android:id="@+id/total_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:text="￥100万"
                     android:textSize="14sp"
                     android:textColor="#333333"/>
             </RelativeLayout>
