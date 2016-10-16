@@ -17,7 +17,7 @@
     <drawable name="gray">#c1c1c1</drawable>
     <drawable name="white">#FFFFFF</drawable>
     <color name="light_blue">#6593cb</color>
-    <color name="sdk_chat_ll_facechoose_color">#f6f5f5</color>
+    <color name="sdk_chat_ll_facechoose_bgcolor">#f6f5f5</color>
     <color name="sdk_chat_ll_pluschoose_color">#f6f5f5</color>
     <color name="sdk_face_textitem_color">#BFBFBF</color>
     <color name="white_e1">#80FFFFFF</color>

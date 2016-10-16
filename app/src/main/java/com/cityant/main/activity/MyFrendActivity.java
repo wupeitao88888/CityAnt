@@ -13,9 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cityant.main.R;
 import com.cityant.main.adapter.MyFrendsAdapter;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMConversation;
+import com.hyphenate.chatuidemo.Constant;
+import com.hyphenate.chatuidemo.ui.ChatActivity;
 import com.hyphenate.easeui.bean.MyFrends;
 import com.cityant.main.bean.MyFrendsModel;
 import com.hyphenate.easeui.db.DBControl;
@@ -280,7 +285,26 @@ public class MyFrendActivity extends ActivitySupport implements AdapterView.OnIt
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         if (i - 1 > -1 && i - 1 < newmyFrends.size()) {
-            startActivity(new Intent(context, MYChatActivity.class).putExtra("MyFrend", newmyFrends.get(i - 1)));
+            MyFrends myFrends = newmyFrends.get(i - 1);
+            if (myFrends.getFriend_id().equals(EMClient.getInstance().getCurrentUser()))
+                ToastUtil.showShort(context, R.string.Cant_chat_with_yourself);
+            else {
+                // start chat acitivity
+                Intent intent = new Intent(context, ChatActivity.class);
+//                if(conversation.isGroup()){
+//                    if(conversation.getType() == EMConversation.EMConversationType.ChatRoom){
+//                        // it's group chat
+//                        intent.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_CHATROOM);
+//                    }else{
+//                        intent.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_GROUP);
+//                    }
+
+//                }
+                // it's single chat
+                intent.putExtra(Constant.EXTRA_USER_ID, myFrends.getFriend_id());
+                startActivity(intent);
+            }
+//            startActivity(new Intent(context, MYChatActivity.class).putExtra("MyFrend", newmyFrends.get(i - 1)));
         }
     }
 

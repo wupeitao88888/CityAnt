@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cityant.main.activity.AddFrendsActivity;
+import com.cityant.main.activity.MyFrendActivity;
 import com.cityant.main.bean.BusEventFragmentMessage;
 import com.cityant.main.utlis.AppBus;
 import com.hyphenate.chat.EMClient;
@@ -37,6 +39,21 @@ public class ConversationListFragment extends EaseConversationListFragment{
     protected void initView() {
         super.initView();
         View errorView = (LinearLayout) View.inflate(getActivity(),R.layout.em_chat_neterror_item, null);
+        titleBar.setFristMenuimgIsVisbility(View.VISIBLE);
+        titleBar.setSecondMenuimgIsVisbility(View.VISIBLE);
+        titleBar.setRightFristMenuimgListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().startActivity(new Intent(getActivity(), MyFrendActivity.class));
+            }
+        });
+        titleBar.setRightSecondMenuimgListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                getActivity().startActivity(new Intent(getActivity(), AddFrendsActivity.class));
+            }
+        });
         errorItemContainer.addView(errorView);
         errorText = (TextView) errorView.findViewById(R.id.tv_connect_errormsg);
     }

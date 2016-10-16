@@ -11,6 +11,9 @@ import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.easeui.R;
 import com.hyphenate.easeui.adapter.EaseConversationAdapater;
+import com.hyphenate.easeui.bean.MyFrends;
+import com.hyphenate.easeui.db.DBControl;
+import com.iloomo.threadpool.MyThreadPool;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -21,34 +24,34 @@ import android.util.Pair;
 import android.widget.ListView;
 
 public class EaseConversationList extends ListView {
-    
+
     protected int primaryColor;
     protected int secondaryColor;
     protected int timeColor;
     protected int primarySize;
     protected int secondarySize;
     protected float timeSize;
-    
+
 
     protected final int MSG_REFRESH_ADAPTER_DATA = 0;
-    
+
     protected Context context;
     protected EaseConversationAdapater adapter;
     protected List<EMConversation> conversations = new ArrayList<EMConversation>();
     protected List<EMConversation> passedListRef = null;
-    
-    
+
+
     public EaseConversationList(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
-    
+
     public EaseConversationList(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context, attrs);
     }
 
-    
+
     private void init(Context context, AttributeSet attrs) {
         this.context = context;
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.EaseConversationList);
@@ -58,52 +61,69 @@ public class EaseConversationList extends ListView {
         primarySize = ta.getDimensionPixelSize(R.styleable.EaseConversationList_cvsListPrimaryTextSize, 0);
         secondarySize = ta.getDimensionPixelSize(R.styleable.EaseConversationList_cvsListSecondaryTextSize, 0);
         timeSize = ta.getDimension(R.styleable.EaseConversationList_cvsListTimeTextSize, 0);
-        
+
         ta.recycle();
     }
 
-    public void init(List<EMConversation> conversationList){
+    public void init(List<EMConversation> conversationList) {
         this.init(conversationList, null);
     }
 
-    public void init(List<EMConversation> conversationList, EaseConversationListHelper helper){
+    public void init(List<EMConversation> conversationList, EaseConversationListHelper helper) {
         conversations = conversationList;
-        if(helper != null){
+        if (helper != null) {
             this.conversationListHelper = helper;
         }
-        adapter = new EaseConversationAdapater(context, 0, conversationList);
-        adapter.setCvsListHelper(conversationListHelper);
-        adapter.setPrimaryColor(primaryColor);
-        adapter.setPrimarySize(primarySize);
-        adapter.setSecondaryColor(secondaryColor);
-        adapter.setSecondarySize(secondarySize);
-        adapter.setTimeColor(timeColor);
-        adapter.setTimeSize(timeSize);
-        setAdapter(adapter);
+        uploading();
     }
-    
+
+
+    private void uploading() {
+        MyThreadPool.getInstance().submit(new Runnable() {
+            @Override
+            public void run() {
+                List<MyFrends> myFrendses = DBControl.getInstance(context).selectMyFrends();
+                Message message = new Message();
+                message.what = 100;
+                message.obj = myFrendses;
+                handler.sendMessage(message);
+            }
+        });
+    }
+
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message message) {
             switch (message.what) {
-            case MSG_REFRESH_ADAPTER_DATA:
-                if (adapter != null) {
-                    adapter.notifyDataSetChanged();
-                }
-                break;
-            default:
-                break;
+                case MSG_REFRESH_ADAPTER_DATA:
+                    if (adapter != null) {
+                        adapter.notifyDataSetChanged();
+                    }
+                    break;
+                case 100:
+                    adapter = new EaseConversationAdapater(context, 0, conversations,(List<MyFrends>) message.obj);
+                    adapter.setCvsListHelper(conversationListHelper);
+                    adapter.setPrimaryColor(primaryColor);
+                    adapter.setPrimarySize(primarySize);
+                    adapter.setSecondaryColor(secondaryColor);
+                    adapter.setSecondarySize(secondarySize);
+                    adapter.setTimeColor(timeColor);
+                    adapter.setTimeSize(timeSize);
+                    setAdapter(adapter);
+                    break;
+                default:
+                    break;
             }
         }
     };
-    
+
 
     /**
      * load conversations
-     * 
+     *
      * @param context
-     * @return
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        +    */
+     * @return +
+     */
     private List<EMConversation> loadConversationsWithRecentChat() {
         Map<String, EMConversation> conversations = EMClient.getInstance().chatManager().getAllConversations();
         List<Pair<Long, EMConversation>> sortList = new ArrayList<Pair<Long, EMConversation>>();
@@ -133,7 +153,7 @@ public class EaseConversationList extends ListView {
 
     /**
      * sorting according timestamp of last message
-     * 
+     *
      * @param usernames
      */
     private void sortConversationByLastChatTime(List<Pair<Long, EMConversation>> conversationList) {
@@ -152,17 +172,17 @@ public class EaseConversationList extends ListView {
 
         });
     }
-    
+
     public EMConversation getItem(int position) {
-        return (EMConversation)adapter.getItem(position);
+        return (EMConversation) adapter.getItem(position);
     }
-    
+
     public void refresh() {
-    	if(!handler.hasMessages(MSG_REFRESH_ADAPTER_DATA)){
-    		handler.sendEmptyMessage(MSG_REFRESH_ADAPTER_DATA);
-    	}
+        if (!handler.hasMessages(MSG_REFRESH_ADAPTER_DATA)) {
+            handler.sendEmptyMessage(MSG_REFRESH_ADAPTER_DATA);
+        }
     }
-    
+
     public void filter(CharSequence str) {
         adapter.getFilter().filter(str);
     }
@@ -170,15 +190,17 @@ public class EaseConversationList extends ListView {
 
     private EaseConversationListHelper conversationListHelper;
 
-    public interface EaseConversationListHelper{
+    public interface EaseConversationListHelper {
         /**
          * set content of second line
+         *
          * @param lastMessage
          * @return
          */
         String onSetItemSecondaryText(EMMessage lastMessage);
     }
-    public void setConversationListHelper(EaseConversationListHelper helper){
+
+    public void setConversationListHelper(EaseConversationListHelper helper) {
         conversationListHelper = helper;
     }
 }

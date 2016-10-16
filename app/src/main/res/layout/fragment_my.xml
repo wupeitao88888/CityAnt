@@ -2,20 +2,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="#F4F4F4"
     android:orientation="vertical">
 
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-       >
+        android:background="#F4F4F4">
         <!--ptr:ptrAnimationStyle="flip"-->
         <!--ptr:ptrMode="both"-->
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/bg">
+            android:background="#F4F4F4">
 
             <LinearLayout
                 android:id="@+id/imagesLayout"
@@ -27,8 +27,136 @@
                 <RelativeLayout
                     android:id="@+id/reseive_re"
                     android:layout_width="fill_parent"
-                    android:layout_height="100dp"
-                    android:background="#FFFFCC">
+                    android:layout_height="72dp"
+                    android:background="@android:color/white">
+
+
+                    <ImageView
+                        android:id="@+id/userhead"
+                        android:layout_width="53dp"
+                        android:layout_height="53dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/userhead"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_toRightOf="@+id/userhead"
+                        android:text=""
+                        android:textColor="#333333"
+                        android:textSize="17dp" />
+
+                    <TextView
+                        android:id="@+id/userinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/username"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_toRightOf="@+id/userhead"
+                        android:text="查看个人主页"
+                        android:textColor="#666666"
+                        android:textSize="11dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="#F4F4F4" />
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/wallet_re"
+                    android:layout_width="fill_parent"
+                    android:layout_height="38dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/wallet"
+                        style="@style/me_wallet">
+
+                        <ImageView
+                            android:id="@+id/income_icon"
+                            style="@style/me_wallet_icon"
+                            android:src="@drawable/wallet_icon" />
+
+                        <TextView
+                            style="@style/forget_new_black"
+                            android:layout_toRightOf="@+id/income_icon"
+                            android:text="@string/wallet" />
+
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:background="#F4F4F4" />
+
+                    <RelativeLayout
+                        android:id="@+id/Warehouse"
+                        style="@style/me_wallet"
+                        android:layout_centerHorizontal="true">
+
+                        <TextView
+                            style="@style/forget_new_black"
+                            android:layout_toRightOf="@+id/warehouse_icon"
+                            android:text="@string/warehouse" />
+
+                        <ImageView
+                            android:id="@+id/warehouse_icon"
+                            style="@style/me_wallet_icon"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="27dp"
+                            android:layout_marginStart="27dp"
+                            android:src="@drawable/warehouse" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+
+                        android:background="#F4F4F4" />
+
+                    <RelativeLayout
+                        android:id="@+id/bean"
+                        style="@style/me_wallet"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp">
+
+                        <ImageView
+                            android:id="@+id/bean_icon"
+                            style="@style/me_wallet_icon"
+                            android:src="@drawable/bean_icon" />
+
+                        <TextView
+                            style="@style/forget_new_black"
+                            android:layout_toRightOf="@+id/bean_icon"
+                            android:text="@string/bean" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#F4F4F4" />
+
+                <RelativeLayout
+                        android:id="@+id/income_re"
+                    android:layout_width="fill_parent"
+                    android:layout_height="43dp"
+                    android:background="@color/white">
 
                     <TextView
                         android:id="@+id/today_income"
@@ -41,132 +169,57 @@
                         android:id="@+id/income"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:layout_toRightOf="@+id/today_income"
-                        android:text="103.00"
-                        android:textColor="@android:color/holo_red_dark"
-                        android:textSize="30dp"
+                        android:layout_marginRight="10dp"
+                        android:text=""
+                        android:textColor="#202020"
+                        android:textSize="19dp"
                         android:textStyle="bold" />
 
-
-                    <ImageView
-                        android:id="@+id/userhead"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginRight="30dp"
-                        android:background="@color/gray"
-                         />
-
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:id="@+id/wallet_re"
-                    android:layout_width="fill_parent"
-                    android:layout_height="80dp"
-                    android:background="@color/white">
-
-                    <RelativeLayout
-                        android:id="@+id/wallet"
-                        style="@style/me_wallet"
-                        android:layout_marginLeft="20dp">
-
-                        <ImageView
-                            android:id="@+id/income_icon"
-                            style="@style/me_wallet_icon"
-                            android:background="@color/gray" />
-
-                        <TextView
-                            style="@style/forget_new_black"
-                            android:layout_below="@+id/income_icon"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/wallet" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/Warehouse"
-                        style="@style/me_wallet"
-                        android:layout_centerHorizontal="true">
-
-                        <ImageView
-                            android:id="@+id/warehouse_icon"
-                            style="@style/me_wallet_icon"
-                            android:background="@color/gray" />
-
-                        <TextView
-                            style="@style/forget_new_black"
-                            android:layout_below="@+id/warehouse_icon"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/warehouse" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/bean"
-                        style="@style/me_wallet"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp">
-
-                        <ImageView
-                            android:id="@+id/bean_icon"
-                            style="@style/me_wallet_icon"
-                            android:background="@color/gray" />
-
-                        <TextView
-                            style="@style/forget_new_black"
-                            android:layout_below="@+id/bean_icon"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/bean" />
-
-                    </RelativeLayout>
-                </RelativeLayout>
-
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#F4F4F4" />
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="115dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="91dp"
                     android:background="@color/white">
-
-                    <TextView
-                        android:id="@+id/title"
-                        style="@style/forget_new_black"
-                        android:layout_marginBottom="3dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="3dp"
-                        android:text="@string/parttimejob" />
 
                     <View
                         android:id="@+id/line"
                         style="@style/line"
-                        android:layout_below="@+id/title"></View>
+                        android:layout_below="@+id/title"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"></View>
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_below="@+id/line"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <RelativeLayout
                             android:id="@+id/created"
                             style="@style/me_need">
 
-                            <ImageView
-                                android:id="@+id/created_icon"
-                                style="@style/me_need_icon"
-                                android:background="@color/gray" />
-
                             <TextView
                                 style="@style/forget_new_black"
                                 android:layout_below="@+id/created_icon"
                                 android:layout_centerHorizontal="true"
                                 android:text="@string/created" />
+
+                            <ImageView
+                                android:id="@+id/created_icon"
+                                style="@style/me_need_icon"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:background="@drawable/created_icon" />
 
                         </RelativeLayout>
 
@@ -177,7 +230,7 @@
                             <ImageView
                                 android:id="@+id/signup_icon"
                                 style="@style/me_need_icon"
-                                android:background="@color/gray" />
+                                android:background="@drawable/signup_icon" />
 
                             <TextView
                                 style="@style/forget_new_black"
@@ -194,7 +247,7 @@
                             <ImageView
                                 android:id="@+id/finished_icon"
                                 style="@style/me_need_icon"
-                                android:background="@color/gray" />
+                                android:background="@drawable/finished_icon" />
 
                             <TextView
                                 style="@style/forget_new_black"
@@ -211,7 +264,7 @@
                             <ImageView
                                 android:id="@+id/judge_icon"
                                 style="@style/me_need_icon"
-                                android:background="@color/gray" />
+                                android:background="@drawable/judge_icon" />
 
                             <TextView
                                 style="@style/forget_new_black"
@@ -224,18 +277,30 @@
 
                     </LinearLayout>
 
+                    <TextView
+                        android:id="@+id/title"
+                        style="@style/forget_black"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/parttimejob" />
+
 
                 </RelativeLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#F4F4F4" />
 
                 <RelativeLayout
                     android:id="@+id/me_guess_re"
-                    style="@style/me_guess_re"
-                    android:layout_marginTop="10dp">
+                    style="@style/me_guess_re">
 
                     <ImageView
                         android:id="@+id/guess_icon"
-                        style="@style/me_guess_icon" />
+                        style="@style/me_guess_icon"
+                        android:background="@drawable/guess_icon" />
 
                     <TextView
                         style="@style/me_guess_text"
@@ -243,14 +308,20 @@
                         android:text="@string/guess" />
                 </RelativeLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#F4F4F4" />
+
                 <RelativeLayout
                     android:id="@+id/shopping"
-                    style="@style/me_guess_re"
-                    android:layout_marginTop="1dp">
+                    style="@style/me_guess_re">
 
                     <ImageView
                         android:id="@+id/shopping_icon"
-                        style="@style/me_guess_icon" />
+                        style="@style/me_guess_icon"
+                        android:background="@drawable/shopping_icon" />
 
                     <TextView
                         style="@style/me_guess_text"
@@ -258,10 +329,17 @@
                         android:text="@string/shopping" />
                 </RelativeLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#F4F4F4" />
+
                 <RelativeLayout
                     android:id="@+id/shports"
                     style="@style/me_guess_re"
-                    android:layout_marginTop="1dp">
+                    android:layout_marginTop="1dp"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/activity_icon"
@@ -275,12 +353,12 @@
 
                 <RelativeLayout
                     android:id="@+id/center"
-                    style="@style/me_guess_re"
-                    android:layout_marginTop="10dp">
+                    style="@style/me_guess_re">
 
                     <ImageView
                         android:id="@+id/center_icon"
-                        style="@style/me_guess_icon" />
+                        style="@style/me_guess_icon"
+                        android:background="@drawable/center_icon" />
 
                     <TextView
                         style="@style/me_guess_text"
@@ -301,94 +379,105 @@
 
                 </RelativeLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#F4F4F4" />
+
                 <RelativeLayout
                     android:id="@+id/rank"
-                    style="@style/me_guess_re"
-                    android:layout_marginTop="1dp">
+                    style="@style/me_guess_re">
 
                     <ImageView
                         android:id="@+id/rank_icon"
-                        style="@style/me_guess_icon" />
+                        style="@style/me_guess_icon"
+                        android:background="@drawable/rank_icon" />
 
                     <TextView
                         style="@style/me_guess_text"
                         android:layout_toRightOf="@+id/rank_icon"
                         android:text="@string/rank" />
 
-                    <TextView
-                        android:id="@+id/rankstar"
+
+                    <com.iloomo.widget.CostomRatingBar
+                        android:id="@+id/rating_bar_five"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:text="@string/certify"
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/textsize13" />
+                        android:layout_marginRight="10dp" />
 
 
                 </RelativeLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#F4F4F4" />
+
                 <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="130dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/white">
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
                         android:background="@color/white"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <RelativeLayout
                             android:id="@+id/idea"
-                            style="@style/me_need">
+                            style="@style/me_guess_re">
 
                             <ImageView
                                 android:id="@+id/idea_icon"
-                                style="@style/me_need_icon"
-                                android:background="@color/gray" />
+                                style="@style/me_guess_icon"
+                                android:background="@drawable/idea" />
 
                             <TextView
-                                style="@style/forget_new_black"
-                                android:layout_below="@+id/idea_icon"
-                                android:layout_centerHorizontal="true"
-                                android:text="@string/created" />
+                                style="@style/me_guess_text"
+                                android:layout_toRightOf="@+id/idea_icon"
+                                android:text="@string/idea" />
 
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/service"
-                            style="@style/me_need">
+                            style="@style/me_guess_re"
+                            android:visibility="gone">
 
                             <ImageView
                                 android:id="@+id/service_icon"
-                                style="@style/me_need_icon"
+                                style="@style/me_guess_icon"
                                 android:background="@color/gray" />
 
                             <TextView
                                 style="@style/forget_new_black"
-                                android:layout_below="@+id/service_icon"
-                                android:layout_centerHorizontal="true"
+                                android:layout_toRightOf="@+id/service_icon"
                                 android:text="@string/service" />
 
                         </RelativeLayout>
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="#F4F4F4" />
+
                         <RelativeLayout
                             android:id="@+id/setting"
-                            style="@style/me_need">
+                            style="@style/me_guess_re">
 
                             <ImageView
                                 android:id="@+id/setting_icon"
-                                style="@style/me_need_icon"
-                                android:background="@color/gray" />
+                                style="@style/me_guess_icon"
+                                android:background="@drawable/setting_icon" />
 
                             <TextView
-                                style="@style/forget_new_black"
-                                android:layout_below="@+id/setting_icon"
-                                android:layout_centerHorizontal="true"
+                                style="@style/me_guess_text"
+                                android:layout_toRightOf="@+id/setting_icon"
                                 android:text="@string/setting" />
 
                         </RelativeLayout>

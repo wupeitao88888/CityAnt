@@ -2,58 +2,40 @@
 <items version="2" >
 
     <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/umeng-analytics-v5.6.4.jar"
+        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/easeui/unspecified/jars/libs/google-play-services.jar"
         revision="24.0.0"
-        sha1="307099e1350530524c80692a56e06a97f0e6de6c">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/umeng-analytics-v5.6.4-b22e45884352069aa2de6c94d03993bc907c7cc4.jar" />
+        sha1="456a1c235afbfa6c06aab5aad44843df6e4c9ac0">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/google-play-services-bd2c671ad59ebd6d5ec69d22bdd2c7fa27c1503e.jar" />
     </item>
     <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/universal-image-loader-1.9.4.jar"
+        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/easeui/unspecified/jars/libs/HwPush_SDK_V2705_nomap.jar"
         revision="24.0.0"
-        sha1="9e71cd69cb640c00170d86a5f01c3c2fbdbdd202">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/universal-image-loader-1.9.4-95a9a6186ade4c7d335ee5a5d62bb852e02ea13c.jar" />
+        sha1="57617db8c0dc30f34b21e6c3726b06d5659450c1">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/HwPush_SDK_V2705_nomap-13f15104547042e466293f3ae480f46de3fc9f6a.jar" />
     </item>
     <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/locSDK_6.13.jar"
+        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/easeui/unspecified/jars/libs/MiPush_SDK_Client_2_2_19.jar"
         revision="24.0.0"
-        sha1="f8036b68be2cac4f3f61dc18f2a488c8c173c4e5">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/locSDK_6.13-1a66a57bf03dafee1ab4ff4b5638f8dd406ef37b.jar" />
+        sha1="a84f2017bf025ff1318cb901c142d4a99f6975ee">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/MiPush_SDK_Client_2_2_19-43853d8b6bd49a7f9aee2a6645d98340d22c7f3d.jar" />
     </item>
     <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/org.apache.http.legacy.jar"
+        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/easeui/unspecified/jars/classes.jar"
         revision="24.0.0"
-        sha1="fda437e14a1de114e2e3c9c0bd7154c287b871bd">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/org.apache.http.legacy-730cd5030c94515ed19df763319368e4683e0a20.jar" />
+        sha1="7083f27a99d3e97f7d0753eeade452cb386685cc">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-6138d29ff179c1af26bea65632c0e968086df3a0.jar" />
     </item>
     <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/fastjson-1.1.40.jar"
+        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/easeui/unspecified/jars/libs/hyphenatechat_3.1.4.jar"
         revision="24.0.0"
-        sha1="e5bb1e13b22f0380462e38b1e2ce5795d141b921">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/fastjson-1.1.40-4b06a9849dd65eb0490a44726c30177ffe5f3c09.jar" />
+        sha1="c32c437ac138fde831c6eea0c4979c3d8021f2f5">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/hyphenatechat_3.1.4-269dcefab53607da02d0de6e9f6d976a5732e767.jar" />
     </item>
     <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/json-simple-1.1.1.jar"
+        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/easeui/unspecified/jars/libs/BaiduLBS_Android.jar"
         revision="24.0.0"
-        sha1="37eafc7f7b1b6eb380008d1a1d836393c725aaf2">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/json-simple-1.1.1-69ae5de38edd912a9a0b92b9ac95ab6739d31bff.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/classes.jar"
-        revision="24.0.0"
-        sha1="59784602c002e6588746aea8757fcd6118dd27bd">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/classes-20a3298546047f1b67b2d532c8a4dc344011d859.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/user_profile_mtj_1.4.jar"
-        revision="24.0.0"
-        sha1="f9a38d46df3c0bb7fa4e0adf1646652a333d0749">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/user_profile_mtj_1.4-5b0eb47a503b90db5e1aa739ee74484a77dd575f.jar" />
-    </item>
-    <item
-        jar="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/exploded-aar/cityant/iloomo/unspecified/jars/libs/glide-3.6.1.jar"
-        revision="24.0.0"
-        sha1="57bb2fc424447878b36ca0b7ced4e9e5e58c9592">
-        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/glide-3.6.1-3d340b36a734951fedd5de3d38cd3c2ee631ea19.jar" />
+        sha1="eeadffeabac0de828a4eb694b93330e5226d8fe5">
+        <dex dex="/Users/wupeitao/Desktop/androidworkspase/cityant/app/build/intermediates/jill/debug/packaged/BaiduLBS_Android-c98e8447770c47ac5f5272a7b2b906723ba73cb0.jar" />
     </item>
 
 </items>

@@ -262,7 +262,7 @@ public class IndexFragment extends TabFragmentActivity implements View.OnTouchLi
     @Override
     protected void onStart() {
         super.onStart();
-
+        refreshUIWithMessage();
 
     }
 

@@ -1,6 +1,7 @@
 package com.hyphenate.easeui.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -82,6 +83,7 @@ public class EaseConversationListFragment extends EaseBaseFragment {
         errorItemContainer = (FrameLayout) getView().findViewById(R.id.fl_error_item);
         titleBar.isLeftVisibility(false);
         titleBar.setCenterTitle("会话");
+
     }
 
     @Override
