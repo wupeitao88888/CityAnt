@@ -27,7 +27,7 @@ public class DbHelper extends DbHelperBase {
     public static final String M_USER_TOKEN = "m_user_token";
     public static final String MYFRENDS = "CREATE TABLE IF NOT EXISTS " + DbHelper.MYFREDNS_NAME + "(" +
             "id INTEGER primary key AUTOINCREMENT," +
-            USER_ID+" varchar(30)," +
+            USER_ID + " varchar(30)," +
             USER_NAME + " varchar(30)," +
             USER_AVAR + " varchar(150)," +
             M_USER_TOKEN + " varchar(80))";
@@ -40,7 +40,7 @@ public class DbHelper extends DbHelperBase {
     public static final String LAST_MSG_ID = "last_msg_id";
     public static final String CHAT_TYPE = "chat_type";
     public static final String CREATE_CONVERSATIONLIST = "CREATE TABLE IF NOT EXISTS " + CONVERSATIONLIST_NAME + "(" +
-            USER_ID+" varchar(30) primary key," +
+            USER_ID + " varchar(30) primary key," +
             USER_NAME + " varchar(30)," +
             USER_AVAR + " varchar(150)," +
             LAST_MSG + " varchar(120)," +
@@ -71,7 +71,7 @@ public class DbHelper extends DbHelperBase {
     public static final String GROUPID = "groupid";
 
     public static final String CREATE_CHAT = "CREATE TABLE IF NOT EXISTS " + CHAT_NAME + "(" +
-            USER_ID+" varchar(30)," +
+            USER_ID + " varchar(30)," +
             USER_NAME + " varchar(50)," +
             USER_AVAR + " varchar(50)," +
             MOBILE + " varchar(10)," +
@@ -93,7 +93,18 @@ public class DbHelper extends DbHelperBase {
             GROUPID + " varchar(80)," +
             CHAT_TYPE + " varchar(50))";
     public static final String DELETE_CHAT = "drop table if exists " + DbHelper.CHAT_NAME;
-
+    private static final String USERINFO = "userinfo";
+    private static final String QRCODE = "qrcode";
+    private static final String SEX = "sex";
+    private static final String BOTHDAY = "birthday";
+    private static final String ARWA = "area";
+    public static final String CREATE_USERINFO = "CREATE TABLE IF NOT EXISTS " + DbHelper.USERINFO + "(" +
+            DbHelper.TOKEN + " varchar(50) primary key," +
+            DbHelper.QRCODE + " varchar(50)," +
+            DbHelper.SEX + " varchar(30)," +
+            DbHelper.BOTHDAY + " varchar(30)," +
+            DbHelper.ARWA+" varchar(50))";
+    public static final String DELETE_USERINFO  = "drop table if exists " + DbHelper.USERINFO;
     @Override
     public void onCreate(SQLiteDatabase db) {
         super.onCreate(db);
@@ -102,6 +113,8 @@ public class DbHelper extends DbHelperBase {
         db.execSQL(MYFRENDS);
         db.execSQL(CREATE_CONVERSATIONLIST);
         db.execSQL(CREATE_CHAT);
+        db.execSQL(CREATE_USERINFO);
+
 
     }
 
@@ -113,6 +126,7 @@ public class DbHelper extends DbHelperBase {
         db.execSQL(DELETE_MYFRENDS);
         db.execSQL(DELETE_CONVERSATIONLIST);
         db.execSQL(DELETE_CHAT);
+        db.execSQL(DELETE_USERINFO);
         onCreate(db);
     }
 }

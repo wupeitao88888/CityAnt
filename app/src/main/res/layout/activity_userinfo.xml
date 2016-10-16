@@ -8,14 +8,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg"
-        android:orientation="vertical"
-        >
+        android:background="#F4f4f4"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="58dp"
             android:background="@color/white"
+            android:drawableRight="@drawable/drawableright"
             android:onClick="onUserheadChangeClick">
 
             <TextView
@@ -24,15 +24,19 @@
 
             <ImageView
                 android:id="@+id/userhead_img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="30dp"
                 android:background="@color/gray"
                 android:onClick="onUserheadClick" />
 
+
+            <ImageView
+                android:id="@+id/right_img"
+                style="@style/right_img_style" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -51,12 +55,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="小明"
-                android:textColor="@color/gray"
+                android:layout_marginRight="30dp"
+                android:text=""
+                android:textColor="#999999"
                 android:textSize="@dimen/textsize13" />
 
-
+            <ImageView style="@style/right_img_style" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -71,14 +75,15 @@
 
             <ImageView
                 android:id="@+id/codeImg"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="30dp"
                 android:background="@color/gray" />
 
-
+            <ImageView style="@style/right_img_style" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -91,6 +96,7 @@
                 android:layout_toRightOf="@+id/center_icon"
                 android:text="@string/reseiveadress" />
 
+            <ImageView style="@style/right_img_style" />
         </RelativeLayout>
 
 
@@ -105,14 +111,16 @@
                 android:text="@string/sex" />
 
 
-            <ImageView
+            <TextView
                 android:id="@+id/sex"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:background="@color/gray" />
+                android:text=""
+                android:textColor="#999999"
+                android:textSize="@dimen/textsize13" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -125,6 +133,16 @@
                 android:layout_toRightOf="@+id/center_icon"
                 android:text="@string/bothday" />
 
+            <TextView
+                android:id="@+id/bothday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text=""
+                android:textColor="#999999"
+                android:textSize="@dimen/textsize13" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -143,12 +161,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="北京 朝阳"
-                android:textColor="@color/gray"
+                android:layout_marginRight="30dp"
+                android:text=""
+                android:textColor="#999999"
                 android:textSize="@dimen/textsize13" />
 
-
+            <ImageView style="@style/right_img_style" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

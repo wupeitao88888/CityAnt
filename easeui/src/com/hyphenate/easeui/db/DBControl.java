@@ -1160,7 +1160,7 @@ public class DBControl extends DBbase {
         db.execSQL(DbHelper.DELETE_LASTUSER);
         db.execSQL(DbHelper.DELETE_MYFRENDS);
         db.execSQL(DbHelper.DELETE_CONVERSATIONLIST);
-
+        db.execSQL(DbHelper.CREATE_USERINFO);
         DatabaseManager.getInstance().closeDatabase();
         createAllTab();
     }
@@ -1173,7 +1173,7 @@ public class DBControl extends DBbase {
         db.execSQL(DbHelper.LASTUSER);
         db.execSQL(DbHelper.MYFRENDS);
         db.execSQL(DbHelper.CREATE_CONVERSATIONLIST);
-
+        db.execSQL(DbHelper.DELETE_USERINFO);
         DatabaseManager.getInstance().closeDatabase();
     }
 }

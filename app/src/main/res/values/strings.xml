@@ -58,7 +58,7 @@
     <string name="profit">收益</string>
     <string name="now">现有</string>s
     <string name="nowsell">卖出</string>
-    <string name="surplus">还可以输入200字</string>
+    <string name="surplus">0/150</string>
     <string name="confirm">确认</string>
     <string name="message">消息通知</string>
     <string name="blacklist">黑名单</string>

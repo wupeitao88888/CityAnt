@@ -26,4 +26,6 @@ public class MYAppconfig extends AppConfig {
     public static final String ADDFRENDS = BASEURL + API + "friend/addFriend";
     public static final String TODAYINCOME = BASEURL + API + "userPrice/todayIncome";
     public static final String EVALUATELIST = BASEURL + API + "setting/evaluateList";
+    public static final String FEEDBACK = BASEURL + API + "setting/feedback";
+    public static final String USERINFO = BASEURL + API + "user/index";
 }
