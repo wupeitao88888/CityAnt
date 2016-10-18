@@ -44,6 +44,7 @@ dependencies {
     compile project(':easeui')
     //    compile fileTree(dir: 'libs', exclude: 'android-support-multidex.jar', include: '*.jar')
     compile files('libs/android-support-multidex.jar')
+    compile files('libs/libammsdk.jar')
 }
 //    compile project(':pickerview')
 //repositories {
