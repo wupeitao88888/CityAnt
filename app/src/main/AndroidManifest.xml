@@ -1,10 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.cityant.main">
-
 
 
     <!-- 统计所用到的权限 start -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <!-- 环信用到的权限start-->
@@ -33,8 +34,7 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <permission
         android:name="com.hyphenate.chatuidemo.permission.C2D_MESSAGE"
-        android:protectionLevel="signature"
-        />
+        android:protectionLevel="signature" />
     <uses-permission android:name="com.hyphenate.chatuidemo.permission.C2D_MESSAGE" />
 
     <permission
@@ -45,14 +45,15 @@
     <!-- 环信用到的权限end-->
 
 
-
     <application
         android:name="com.cityant.main.global.MYApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        tools:replace="name"
+        >
         <!-- 欢迎页面 -->
         <activity
             android:name=".activity.WelcomeActivity"
@@ -78,39 +79,39 @@
 
         <!--&lt;!&ndash;&lt;!&ndash; baidu 统计 start &ndash;&gt;&ndash;&gt;-->
         <!--&lt;!&ndash;<meta-data&ndash;&gt;-->
-            <!--&lt;!&ndash;android:name="BaiduMobAd_STAT_ID"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:value="7c18b16376" />&ndash;&gt;-->
+        <!--&lt;!&ndash;android:name="BaiduMobAd_STAT_ID"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:value="7c18b16376" />&ndash;&gt;-->
         <!--&lt;!&ndash; 渠道商编号 &ndash;&gt;-->
         <!--<meta-data-->
-            <!--android:name="BaiduMobAd_CHANNEL"-->
-            <!--android:value="Umeng" />-->
+        <!--android:name="BaiduMobAd_CHANNEL"-->
+        <!--android:value="Umeng" />-->
 
         <!--&lt;!&ndash; 是否开启错误日志统计，默认为false &ndash;&gt;-->
         <!--<meta-data-->
-            <!--android:name="BaiduMobAd_EXCEPTION_LOG"-->
-            <!--android:value="true" />-->
+        <!--android:name="BaiduMobAd_EXCEPTION_LOG"-->
+        <!--android:value="true" />-->
         <!--&lt;!&ndash; 日志发送策略，可选值：APP_START、ONCE_A_DAY、SET_TIME_INTERVAL，默认为APP_START &ndash;&gt;-->
         <!--<meta-data-->
-            <!--android:name="BaiduMobAd_SEND_STRATEGY"-->
-            <!--android:value="APP_START" />-->
+        <!--android:name="BaiduMobAd_SEND_STRATEGY"-->
+        <!--android:value="APP_START" />-->
         <!--&lt;!&ndash; 日志发送策略 为SET_TIME_INTERVAL时，需设定时间间隔(取消下行注释)。取值为1-24的整数，默认为1 &ndash;&gt;-->
         <!--&lt;!&ndash; <meta-data android:name="BaiduMobAd_TIME_INTERVAL" android:value="2" />  &ndash;&gt;-->
         <!--&lt;!&ndash; 日志仅在wifi网络下发送，默认为false &ndash;&gt;-->
         <!--<meta-data-->
-            <!--android:name="BaiduMobAd_ONLY_WIFI"-->
-            <!--android:value="false" />-->
+        <!--android:name="BaiduMobAd_ONLY_WIFI"-->
+        <!--android:value="false" />-->
         <!--&lt;!&ndash; 是否获取基站位置信息 ,默认为true&ndash;&gt;-->
         <!--<meta-data-->
-            <!--android:name="BaiduMobAd_CELL_LOCATION"-->
-            <!--android:value="true" />-->
+        <!--android:name="BaiduMobAd_CELL_LOCATION"-->
+        <!--android:value="true" />-->
         <!--&lt;!&ndash; 是否获取GPS位置信息，默认为true &ndash;&gt;-->
         <!--<meta-data-->
-            <!--android:name="BaiduMobAd_GPS_LOCATION"-->
-            <!--android:value="true" />-->
+        <!--android:name="BaiduMobAd_GPS_LOCATION"-->
+        <!--android:value="true" />-->
         <!--&lt;!&ndash; 是否获取WIFI位置信息，默认为true &ndash;&gt;-->
         <!--<meta-data-->
-            <!--android:name="BaiduMobAd_WIFI_LOCATION"-->
-            <!--android:value="true" />-->
+        <!--android:name="BaiduMobAd_WIFI_LOCATION"-->
+        <!--android:value="true" />-->
         <!--&lt;!&ndash; baidu 统计 end &ndash;&gt;-->
 
         <!-- tabhost -->
@@ -343,24 +344,22 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
 
 
-
         <activity
             android:name="com.hyphenate.chatuidemo.ui.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
 
         <!-- 开屏页 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
+            android:theme="@style/horizontal_slide">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
 
@@ -369,16 +368,14 @@
             android:name="com.hyphenate.chatuidemo.ui.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustResize|stateVisible">
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateVisible"></activity>
 
         <!-- 注册 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.RegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustResize|stateVisible">
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateVisible"></activity>
         <!-- 聊天页面 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.ChatActivity"
@@ -389,207 +386,177 @@
         <activity
             android:name="com.hyphenate.chatuidemo.ui.AddContactActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"
+            android:windowSoftInputMode="stateVisible"></activity>
         <!-- 群组详情 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.GroupDetailsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"></activity>
         <!-- 群组列表 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.GroupsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
 
         <!-- 聊天室详情 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.ChatRoomDetailsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"></activity>
 
         <!-- 新建群组 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.NewGroupActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
         <!-- 退出群组提示框 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.ExitGroupDialog"
             android:screenOrientation="portrait"
-            android:theme="@style/MyDialogStyleBottom" >
-        </activity>
+            android:theme="@style/MyDialogStyleBottom"></activity>
         <!-- 群组选人 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.GroupPickContactsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
 
-        <activity android:name="com.hyphenate.chatuidemo.ui.PickAtUserActivity"
+        <activity
+            android:name="com.hyphenate.chatuidemo.ui.PickAtUserActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide"
-            ></activity>
+            android:theme="@style/horizontal_slide"></activity>
         <!-- 地图 -->
         <activity
             android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"></activity>
 
         <!-- 新的朋友邀请消息页面 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.NewFriendsMsgActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"></activity>
         <!-- 转发消息用户列表页面 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.ForwardMessageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
         <!-- 自定义的contextmenu -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.ContextMenuActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/MyDialogStyle" >
-        </activity>
+            android:theme="@style/MyDialogStyle"></activity>
         <!-- 显示下载大图页面 -->
         <activity
             android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"></activity>
         <!-- 下载文件 -->
         <activity
             android:name="com.hyphenate.easeui.ui.EaseShowNormalFileActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"></activity>
         <!-- 黑名单 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.BlacklistActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"></activity>
 
         <!-- 公开的群聊列表 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.PublicGroupsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
             android:name="com.hyphenate.chatuidemo.ui.PublicChatRoomsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
 
         <!-- 语音通话 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.VoiceCallActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTask"
-            android:theme="@style/nornal_style" >
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/nornal_style"></activity>
         <!-- 视频通话 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.VideoCallActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
             android:launchMode="singleTask"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"></activity>
         <!-- 群聊简单信息 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.GroupSimpleDetailActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"></activity>
         <!-- 群组黑名单用户列表 -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.GroupBlacklistActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"></activity>
         <activity
             android:name="com.hyphenate.chatuidemo.ui.GroupSearchMessageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="stateVisible"
-            ></activity>
+            android:windowSoftInputMode="stateVisible"></activity>
 
         <activity
             android:name="com.hyphenate.chatuidemo.ui.PublicGroupsSeachActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" >
-        </activity>
+            android:theme="@style/horizontal_slide"></activity>
         <activity
             android:name="com.hyphenate.chatuidemo.ui.EditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="stateVisible" >
-        </activity>
+            android:windowSoftInputMode="stateVisible"></activity>
         <activity
             android:name="com.hyphenate.easeui.ui.EaseShowVideoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
         <!-- choose video -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.ImageGridActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
         <activity
             android:name="com.hyphenate.chatuidemo.ui.RecorderVideoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
         <!-- upload error log -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.DiagnoseActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
 
         <!-- iOS offline push nick -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.OfflinePushNickActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
         <!-- robots list -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.RobotsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            ></activity>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
         <!-- user profile -->
         <activity
             android:name="com.hyphenate.chatuidemo.ui.UserProfileActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide"
-            ></activity>
+            android:theme="@style/horizontal_slide"></activity>
 
         <!--红包相关Activity start-->
         <!--&lt;!&ndash;发红包&ndash;&gt;-->
@@ -653,8 +620,8 @@
 
 
         <!-- 开机自启动服务 -->
-        <receiver android:name="com.hyphenate.chatuidemo.receiver.StartServiceReceiver" >
-            <intent-filter android:priority="1000" >
+        <receiver android:name="com.hyphenate.chatuidemo.receiver.StartServiceReceiver">
+            <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
 
@@ -666,23 +633,23 @@
         <receiver
             android:name="com.hyphenate.chat.EMGCMBroadcastReceiver"
             android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND" >
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <category android:name="com.hyphenate.chatuidemo" />
             </intent-filter>
         </receiver>
 
-        <service android:name="com.hyphenate.chat.EMGCMListenerService"
-            android:exported="false" >
-        </service>
+        <service
+            android:name="com.hyphenate.chat.EMGCMListenerService"
+            android:exported="false"></service>
 
         <receiver
             android:name="com.hyphenate.chatuidemo.receiver.GCMPushBroadCast"
             android:exported="false">
-            <intent-filter >
-                <action android:name="com.hyphenate.sdk.push"/>
-                <category android:name="com.hyphenate.chatuidemo"/>
+            <intent-filter>
+                <action android:name="com.hyphenate.sdk.push" />
+                <category android:name="com.hyphenate.chatuidemo" />
             </intent-filter>
         </receiver>
         <!-- gcm end -->
@@ -698,7 +665,7 @@
 
         <receiver
             android:name="com.hyphenate.chat.EMMipushReceiver"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
             </intent-filter>
@@ -712,7 +679,7 @@
         <!-- mi push end -->
 
         <!-- huawei push 第三方相关 :接收Push消息（注册、Push消息、Push连接状态、标签，LBS上报结果）广播  -->
-        <receiver android:name="com.hyphenate.chat.EMHuaweiPushReceiver" >
+        <receiver android:name="com.hyphenate.chat.EMHuaweiPushReceiver">
             <intent-filter>
                 <!-- 必须,用于接收token -->
                 <action android:name="com.huawei.android.push.intent.REGISTRATION" />
@@ -720,13 +687,15 @@
                 <action android:name="com.huawei.android.push.intent.RECEIVE" />
             </intent-filter>
             />
-            <meta-data android:name="CS_cloud_ablitity" android:value="successRateAnalytics"/>
+            <meta-data
+                android:name="CS_cloud_ablitity"
+                android:value="successRateAnalytics" />
         </receiver>
 
         <!-- PushSDK:PushSDK接收外部请求事件入口-->
         <receiver
             android:name="com.huawei.android.pushagent.PushEventReceiver"
-            android:process=":pushservice" >
+            android:process=":pushservice">
             <intent-filter>
                 <action android:name="com.huawei.android.push.intent.REFRESH_PUSH_CHANNEL" />
                 <action android:name="com.huawei.intent.action.PUSH" />
@@ -738,18 +707,17 @@
         <!-- PushSDK:Push服务-->
         <service
             android:name="com.huawei.android.pushagent.PushService"
-            android:process=":pushservice" >
-        </service>
+            android:process=":pushservice"></service>
 
         <!-- huawei push end -->
 
         <!--<service-->
-            <!--android:name="com.umeng.update.net.DownloadingService"-->
-            <!--android:process=":DownloadingService" >-->
+        <!--android:name="com.umeng.update.net.DownloadingService"-->
+        <!--android:process=":DownloadingService" >-->
         <!--</service>-->
         <!--<activity-->
-            <!--android:name="com.umeng.update.UpdateDialogActivity"-->
-            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar" >-->
+        <!--android:name="com.umeng.update.UpdateDialogActivity"-->
+        <!--android:theme="@android:style/Theme.Translucent.NoTitleBar" >-->
         <!--</activity>-->
 
         <!-- 设置环信应用的appkey -->
@@ -757,18 +725,18 @@
             android:name="EASEMOB_APPKEY"
             android:value="30000000#cityant" />
         <!-- 声明sdk所需的service -->
-        <service android:name="com.hyphenate.chat.EMChatService"
-            android:exported="true"
-            />
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
         <!-- 声明sdk所需的receiver -->
         <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
-                <data android:scheme="package"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
             </intent-filter>
             <!-- 可选filter -->
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
@@ -786,25 +754,57 @@
 
         <!--&lt;!&ndash; 设置环信应用的AppKey &ndash;&gt;-->
         <!--<meta-data-->
-            <!--android:name="EASEMOB_APPKEY"-->
-            <!--android:value="30000000#cityant" />-->
+        <!--android:name="EASEMOB_APPKEY"-->
+        <!--android:value="30000000#cityant" />-->
         <!--&lt;!&ndash; 声明SDK所需的service SDK核心功能&ndash;&gt;-->
         <!--<service-->
-            <!--android:name="com.hyphenate.chat.EMChatService"-->
-            <!--android:exported="true" />-->
+        <!--android:name="com.hyphenate.chat.EMChatService"-->
+        <!--android:exported="true" />-->
         <!--&lt;!&ndash; 声明SDK所需的receiver &ndash;&gt;-->
         <!--<receiver android:name="com.hyphenate.chat.EMMonitorReceiver">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.PACKAGE_REMOVED" />-->
-                <!--<data android:scheme="package" />-->
-            <!--</intent-filter>-->
-            <!--&lt;!&ndash; 可选filter &ndash;&gt;-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
-                <!--<action android:name="android.intent.action.USER_PRESENT" />-->
-            <!--</intent-filter>-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.PACKAGE_REMOVED" />-->
+        <!--<data android:scheme="package" />-->
+        <!--</intent-filter>-->
+        <!--&lt;!&ndash; 可选filter &ndash;&gt;-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+        <!--<action android:name="android.intent.action.USER_PRESENT" />-->
+        <!--</intent-filter>-->
         <!--</receiver>-->
+        <!--查看大图-->
+        <activity
+            android:name="com.iloomo.ui.PViewPagerPActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden">
 
+        </activity>
+        <!--相机-->
+        <activity
+            android:name="com.iloomo.ui.PCameraActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!--相册-->
+        <activity
+            android:name="com.iloomo.ui.PMyPhoto"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!--修改用户名-->
+        <activity
+            android:name=".activity.UpdateUserName"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!--我的二维码-->
+        <activity
+            android:name=".activity.UserCodeInfo"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!--我的地址-->
+        <activity
+            android:name=".activity.UserAddressInfo"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
     </application>
 
 </manifest>

@@ -16,45 +16,56 @@ import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
  */
 public class PImageLoaderUtils {
 
+
+    public static PImageLoaderUtils pImageLoaderUtils;
+
+    public static PImageLoaderUtils getInstance() {
+        if (pImageLoaderUtils == null) {
+            pImageLoaderUtils = new PImageLoaderUtils();
+        }
+        return pImageLoaderUtils;
+    }
+
     /**
      * display local image
+     *
      * @param uri
      * @param imageView
      * @param options
      */
-    public static void displayLocalImage(String uri, ImageView imageView, DisplayImageOptions options) {
+    public void displayLocalImage(String uri, ImageView imageView, DisplayImageOptions options) {
         ImageLoader.getInstance().displayImage("file://" + uri, new ImageViewAware(imageView), options, null, null);
     }
 
     /**
      * display Drawable image
+     *
      * @param uri
      * @param imageView
      * @param options
      */
-    public static void displayDrawableImage(String uri, ImageView imageView, DisplayImageOptions options) {
+    public void displayDrawableImage(String uri, ImageView imageView, DisplayImageOptions options) {
         ImageLoader.getInstance().displayImage("drawable://" + uri, new ImageViewAware(imageView), options, null, null);
     }
 
 
-    public static void displayuserHand(String uri, ImageView imageView, Context context) {
+    public void displayuserHand(String uri, ImageView imageView, Context context) {
         Glide.with(context)
                 .load(uri)
-                .placeholder(R.drawable.gray)
+                .placeholder(R.drawable.default_head)
                 .override(100, 100)
-                .error(R.drawable.gray).crossFade().into(imageView);
-    }
-    public static void setImageHead(ImageView iview, String url, Context context) {
-        Glide.with(context).load(url).placeholder(R.drawable.gray)
-                .error(R.drawable.gray).transform(new GlideRoundTransform(context, 100)).crossFade().into(iview);
-
+                .error(R.drawable.default_head).crossFade().into(imageView);
     }
 
-    public static  void displaySmallpix(String uri, ImageView imageView, Context context) {
+    public void setImageHead(ImageView iview, String url, Context context) {
+        Glide.with(context).load(url).placeholder(R.drawable.default_head)
+                .error(R.drawable.default_head).transform(new GlideRoundTransform(context, 100)).crossFade().into(iview);
+    }
+
+    public void displaySmallpix(String uri, ImageView imageView, Context context) {
         Glide.with(context)
                 .load(uri)
                 .placeholder(R.drawable.loadingview)
-                .override(100, 100)
                 .error(R.drawable.gray).crossFade().into(imageView);
     }
 

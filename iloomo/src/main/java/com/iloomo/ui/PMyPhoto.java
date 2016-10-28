@@ -34,6 +34,7 @@ import com.iloomo.adapter.PMyAdapter;
 import com.iloomo.bean.PImageFloder;
 import com.iloomo.paysdk.R;
 import com.iloomo.utils.PActivitySupport;
+import com.iloomo.utils.ToastUtil;
 
 
 public class PMyPhoto extends PActivitySupport implements PListImageDirPopupWindowP.OnImageDirSelected {
@@ -50,7 +51,7 @@ public class PMyPhoto extends PActivitySupport implements PListImageDirPopupWind
     /**
      * 所有的图片
      */
-    private List<String> mImgs=new ArrayList<>();
+    private List<String> mImgs = new ArrayList<>();
 
     private GridView mGirdView;
     private PMyAdapter mAdapter;
@@ -72,7 +73,7 @@ public class PMyPhoto extends PActivitySupport implements PListImageDirPopupWind
     int totalCount = 0;
 
     private int mScreenHeight;
-    public static boolean SINGLE=true;//是否选择单张
+    public static boolean SINGLE = true;//是否选择单张
 
     private PListImageDirPopupWindowP mPListImageDirPopupWindow;
 
@@ -122,8 +123,6 @@ public class PMyPhoto extends PActivitySupport implements PListImageDirPopupWind
     }
 
 
-
-
     /**
      * 初始化展示文件夹的popupWindw
      */
@@ -152,7 +151,13 @@ public class PMyPhoto extends PActivitySupport implements PListImageDirPopupWind
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pactivity_main);
         setCtenterTitle("图片");
-
+        setRightTitle("确定");
+        setRightTitleListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         DisplayMetrics outMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(outMetrics);
         mScreenHeight = outMetrics.heightPixels;
@@ -167,20 +172,20 @@ public class PMyPhoto extends PActivitySupport implements PListImageDirPopupWind
     @Override
     protected void onResume() {
         super.onResume();
-        if (mAdapter!=null){
+        if (mAdapter != null) {
             mAdapter.notifyDataSetChanged();
         }
-        if(choose_photo!=null){
+        if (choose_photo != null) {
             choose_photo.setText("预览(" + PMyAdapter.mSelectedImage.size() + "/张)");
         }
     }
 
     public void openChoosePhoto(View view) {
-        if(PMyAdapter.mSelectedImage.size()<=0)
+        if (PMyAdapter.mSelectedImage.size() <= 0)
             return;
         Intent intent = new Intent(this, PViewPagerPActivity.class);
         intent.putStringArrayListExtra("photos", PMyAdapter.mSelectedImage);
-        intent.putExtra("index",0);
+        intent.putExtra("index", 0);
         startActivity(intent);
     }
 
@@ -245,12 +250,12 @@ public class PMyPhoto extends PActivitySupport implements PListImageDirPopupWind
                         public boolean accept(File dir, String filename) {
                             if (filename.endsWith(".jpg") || filename.endsWith(".png")
                                     || filename.endsWith(".jpeg")) {
-                                if(dir.exists()){
+                                if (dir.exists()) {
                                     return true;
-                                }else{
+                                } else {
                                     return false;
                                 }
-                            }else{
+                            } else {
                                 return false;
                             }
 
@@ -332,7 +337,6 @@ public class PMyPhoto extends PActivitySupport implements PListImageDirPopupWind
 
             }
         })));
-
 
 
         /**

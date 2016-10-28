@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#55000000">
+
+        <RelativeLayout
+            android:id="@+id/re_choose_open"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <Button
+                android:id="@+id/creame"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/button_login"
+                android:text="相机"
+                android:textColor="@color/title_text"
+                android:textSize="16.6dp" />
+
+            <Button
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/creame"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_login"
+                android:text="相册"
+                android:textColor="@color/title_text"
+                android:textSize="16.6dp"></Button>
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/photo"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/button_login"
+                android:text="取消"
+                android:textColor="@color/title_text"
+                android:textSize="16.6dp"></Button>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

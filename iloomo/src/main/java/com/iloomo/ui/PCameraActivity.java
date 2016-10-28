@@ -141,7 +141,7 @@ public class PCameraActivity extends CameraBaseActivity {
     private void addPhoto(final PhotoItem photoItem) {
         ImageView photo = new ImageView(this);
         if (PStringUtils.isNotBlank(photoItem.getImageUri())) {
-            PImageLoaderUtils.displayLocalImage(photoItem.getImageUri(), photo, null);
+            PImageLoaderUtils.getInstance().displayLocalImage(photoItem.getImageUri(), photo, null);
         } else {
             photo.setImageResource(R.drawable.default_img);
         }
@@ -439,12 +439,12 @@ public class PCameraActivity extends CameraBaseActivity {
             super.onPostExecute(result);
 
             if (PStringUtils.isNotEmpty(result)) {
-                PImageLoaderUtils.displayDrawableImage(result, galaryBtn, null);
+                PImageLoaderUtils.getInstance().displayDrawableImage(result, galaryBtn, null);
 //                Glide.with(CameraActivity.this)
 //                        .load(result)
 //                        .crossFade()
 //                        .into(galaryBtn);
-                PImageLoaderUtils.displayLocalImage(result, galaryBtn, null);
+                PImageLoaderUtils.getInstance().displayLocalImage(result, galaryBtn, null);
                 List<String> strings = new ArrayList<>();
                 strings.add(result);
                 Intent intent = new Intent(PCameraActivity.this, PViewPagerPActivity.class);
@@ -793,6 +793,7 @@ public class PCameraActivity extends CameraBaseActivity {
     }
 
 
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD_MR1)
     private Bitmap decodeRegionCrop(byte[] data, Rect rect) {
 
         InputStream is = null;

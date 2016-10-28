@@ -49,7 +49,6 @@ public class MApplication extends App {
 //    private LocationClient mLocationClient = null;
 //    private BDLocationListener myListener = new MyLocationListener();
     private ApplicationLocationListener applicationLocationListener;
-
     @Override
     public void onCreate() {
         // TODO Auto-generated method stub

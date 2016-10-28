@@ -32,7 +32,7 @@ public class PActivitySupport extends FragmentActivity  {
 
     protected Context context = null;
 
-    private com.iloomo.widget.PTitleBar PTitleBar;
+    public com.iloomo.widget.PTitleBar PTitleBar;
     private LinearLayout linearLayout;
 
 

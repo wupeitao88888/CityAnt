@@ -1,9 +1,11 @@
 package com.cityant.main.global;
 
 import android.app.ActivityManager;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Message;
+import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
 import com.hyphenate.easeui.bean.LoginUserInfoData;
@@ -38,7 +40,11 @@ public class MYApplication extends DemoApplication {
             }
         }
     };
-
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
     @Override
     public void onCreate() {
         super.onCreate();
@@ -74,10 +80,15 @@ public class MYApplication extends DemoApplication {
         MyThreadPool.getInstance().submit(new Runnable() {
             @Override
             public void run() {
-                Message message = new Message();
-                message.what = GETLOGINFO;
-                message.obj = DBControl.getInstance(context).selectLoginInfo();
-                handler.sendMessage(message);
+                try {
+                    Message message = new Message();
+                    message.what = GETLOGINFO;
+                    message.obj = DBControl.getInstance(context).selectLoginInfo();
+                    handler.sendMessage(message);
+                } catch (Exception e) {
+
+                }
+
             }
         });
 
@@ -103,6 +114,7 @@ public class MYApplication extends DemoApplication {
         }
         return processName;
     }
+
     private void checkDb() {
         lcSharedPreferencesHelper = LCSharedPreferencesHelper.instance(context, LCSharedPreferencesHelper.ILOOMO);
         DbHelper dbHelper = new DbHelper(context);

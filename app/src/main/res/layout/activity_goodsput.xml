@@ -1,6 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f4f4f4"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/address_re"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:onClick="onAddressClick"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:id="@+id/name_re"
+                android:layout_width="match_parent"
+                android:layout_height="44dp">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="51dp"
+                    android:text="小名"
+                    android:textColor="#333333"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/name"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/name_re">
+
+                <RelativeLayout
+                    android:id="@+id/add_img"
+                    android:layout_width="51dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="9dp"
+                        android:layout_height="11dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/shouhuodizhi" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/add_img"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@drawable/drawableright"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="2"
+                    android:paddingRight="10dp"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textSize="14dp" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#f4f4f4">
+
+
+            <LinearLayout
+                android:id="@+id/goodsmenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/price_re"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_toLeftOf="@+id/allpace"
+                        android:text="总价值："
+                        android:textColor="#f24e4e"
+                        android:textSize="13dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/allpace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text="元"
+                        android:textColor="#f24e4e"
+                        android:textSize="13dp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/freightClick"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:onClick="onFreightClick">
+
+                        <TextView
+                            android:id="@+id/freight"
+                            style="@style/me_logistics_text"
+                            android:layout_centerInParent="true"
+                            android:text="运费"
+                            android:textColor="@color/black" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/GoodsClick"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/yellow"
+                        android:onClick="onGoodsClick">
+
+                        <TextView
+                            style="@style/me_logistics_text"
+                            android:layout_centerInParent="true"
+                            android:text="@string/goodsput"
+                            android:textColor="@color/black" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/GoodssellClick"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#322A25"
+                        android:onClick="onGoodssellClick">
+
+
+                        <TextView
+                            style="@style/me_logistics_text"
+                            android:layout_centerInParent="true"
+                            android:text="@string/goodssell"
+                            android:textColor="@color/yellow" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/goods"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/goodsmenu"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"></ListView>
+
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

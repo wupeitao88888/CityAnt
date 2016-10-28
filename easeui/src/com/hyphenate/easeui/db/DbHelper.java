@@ -93,18 +93,21 @@ public class DbHelper extends DbHelperBase {
             GROUPID + " varchar(80)," +
             CHAT_TYPE + " varchar(50))";
     public static final String DELETE_CHAT = "drop table if exists " + DbHelper.CHAT_NAME;
-    private static final String USERINFO = "userinfo";
-    private static final String QRCODE = "qrcode";
-    private static final String SEX = "sex";
-    private static final String BOTHDAY = "birthday";
-    private static final String ARWA = "area";
+    public static final String USERINFO = "userinfo";
+    public static final String QRCODE = "qrcode";
+    public static final String SEX = "sex";
+    public static final String BOTHDAY = "birthday";
+    public static final String ARWA = "area";
     public static final String CREATE_USERINFO = "CREATE TABLE IF NOT EXISTS " + DbHelper.USERINFO + "(" +
             DbHelper.TOKEN + " varchar(50) primary key," +
             DbHelper.QRCODE + " varchar(50)," +
             DbHelper.SEX + " varchar(30)," +
             DbHelper.BOTHDAY + " varchar(30)," +
-            DbHelper.ARWA+" varchar(50))";
-    public static final String DELETE_USERINFO  = "drop table if exists " + DbHelper.USERINFO;
+            DbHelper.ARWA + " varchar(50))";
+
+//    public static final String CREATE_test = "CREATE TABLE IF NOT EXISTS test(id varchar(50) primary key)";
+    public static final String DELETE_USERINFO = "drop table if exists " + DbHelper.USERINFO;
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         super.onCreate(db);
@@ -114,7 +117,6 @@ public class DbHelper extends DbHelperBase {
         db.execSQL(CREATE_CONVERSATIONLIST);
         db.execSQL(CREATE_CHAT);
         db.execSQL(CREATE_USERINFO);
-
 
     }
 

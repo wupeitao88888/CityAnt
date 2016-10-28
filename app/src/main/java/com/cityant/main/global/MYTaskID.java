@@ -24,4 +24,6 @@ public class MYTaskID {
     public static final int EVALUATELIST = 2006;
     public static final int FEEDBACK = 2007;
     public static final int USERINFO = 2008;
+    public static final int UPDATEUSERNAME = 2009;
+    public static final int UPDATEUSERBOTHDAY = 2010;
 }

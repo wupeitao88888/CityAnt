@@ -28,4 +28,10 @@ public class MYAppconfig extends AppConfig {
     public static final String EVALUATELIST = BASEURL + API + "setting/evaluateList";
     public static final String FEEDBACK = BASEURL + API + "setting/feedback";
     public static final String USERINFO = BASEURL + API + "user/index";
+    public static final String USERUPDATE = BASEURL + API + "user/update";
+    public static final String STORE = BASEURL + API + "bank/index";
+    public static final String SALE = BASEURL + API + "bank/sale";
+    public static final String beanList = BASEURL + API + "bean/beanList";
+    public static final String BEANSALE = BASEURL + API + "bean/sale";
+    public static final String INCOME =BASEURL + API +  "userPrice/todayIncome";
 }

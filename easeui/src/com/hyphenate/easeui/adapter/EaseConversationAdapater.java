@@ -126,7 +126,7 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
             holder.name.setText(room != null && !TextUtils.isEmpty(room.getName()) ? room.getName() : username);
             holder.motioned.setVisibility(View.GONE);
         } else {
-            PImageLoaderUtils.displayuserHand( myFrends.getUser_avar(),holder.avatar,getContext());
+            PImageLoaderUtils.getInstance().displayuserHand( myFrends.getUser_avar(),holder.avatar,getContext());
 //            EaseUserUtils.setUserAvatar(getContext(), username, holder.avatar);
 //            EaseUserUtils.setUserNick(username, holder.name);
             StrUtil.setText(holder.name, username);

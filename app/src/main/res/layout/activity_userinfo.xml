@@ -30,7 +30,6 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
-                android:background="@color/gray"
                 android:onClick="onUserheadClick" />
 
 
@@ -81,7 +80,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
-                android:background="@color/gray" />
+                android:background="@drawable/twocode" />
 
             <ImageView style="@style/right_img_style" />
         </RelativeLayout>
@@ -103,7 +102,7 @@
         <RelativeLayout
             style="@style/me_guess_re"
             android:layout_marginTop="5dp"
-            android:onClick="onReseiveAdressClick">
+            android:onClick="onReseiveSexClick">
 
             <TextView
                 style="@style/me_guess_text"

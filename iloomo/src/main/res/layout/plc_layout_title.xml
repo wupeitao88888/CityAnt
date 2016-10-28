@@ -69,16 +69,16 @@
 
                 <ImageView
                     android:id="@+id/frist_menu"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="21dp"
+                    android:layout_height="22dp"
                     android:layout_centerVertical="true"
                     android:background="@color/white"
                     android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/second_menu"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="21dp"
+                    android:layout_height="22dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/frist_menu"

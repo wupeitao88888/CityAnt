@@ -12,6 +12,7 @@ android {
         jackOptions {
             enabled true
         }
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -34,6 +35,20 @@ android {
         }
     }
 }
+afterEvaluate {
+    tasks.matching {
+        it.name.startsWith('dex')
+    }.each { dx ->
+        if (dx.additionalParameters == null) {
+            dx.additionalParameters = []
+        }
+        dx.additionalParameters += '--multi-dex'
+        // 设置multidex.keep文件中class为第一个dex文件中包含的class，如果没有下一项设置此项无作用
+        dx.additionalParameters += "--main-dex-list=$projectDir/multidex.keep".toString()
+        //此项添加后第一个classes.dex文件只能包含-main-dex-list列表中class
+        dx.additionalParameters += '--minimal-main-dex'
+    }
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.github.obiteaaron:pinyin4j-multi:1.0.0'
@@ -42,12 +57,8 @@ dependencies {
     compile(name: 'library-release', ext: 'aar')
     compile files('libs/otto-1.3.5.jar')
     compile project(':easeui')
-    //    compile fileTree(dir: 'libs', exclude: 'android-support-multidex.jar', include: '*.jar')
-    compile files('libs/android-support-multidex.jar')
+    //    compile files('libs/android-support-multidex.jar')
     compile files('libs/libammsdk.jar')
+    //    compile files('libs/android-support-multidex.jar')
+//    compile files('libs/android-support-multidex.jar')
 }
-//    compile project(':pickerview')
-//repositories {
-//    maven { url 'https://jitpack.io' }
-//    mavenCentral()
-//}

@@ -1,6 +1,289 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="5dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="姓名"
+                    android:textColor="#333333"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/name"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:layout_width="158dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:hint="填写真实姓名"
+                    android:textColor="#999999"
+                    android:textColorHint="#999999"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="0.5dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/shool"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="在读院校"
+                    android:textColor="#333333"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@drawable/drawableright"
+                    android:gravity="center_vertical"
+                    android:hint="选择院校"
+                    android:paddingRight="10dp"
+                    android:textColor="#999999"
+                    android:textColorHint="#999999"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="0.5dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/emaill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="邮箱"
+                    android:textColor="#333333"
+                    android:textSize="14dp" />
+
+
+                <EditText
+                    android:layout_width="158dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:hint="填写常用邮箱"
+                    android:textColor="#999999"
+                    android:textColorHint="#999999"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="0.5dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="手机号"
+                    android:textColor="#333333"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/phone"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:layout_width="158dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:hint="填写常用手机号"
+                    android:textColor="#999999"
+                    android:textColorHint="#999999"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="5dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/sfz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="身份证"
+                    android:textColor="#333333"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/sfz"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:layout_width="158dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:hint="填写本人身份证"
+                    android:textColor="#999999"
+                    android:textColorHint="#999999"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="证件上传"
+                    android:textColor="#333333"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="115dp"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:id="@+id/biyezheng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp">
+
+                    <ImageView
+                        android:id="@+id/biye"
+                        android:layout_width="73dp"
+                        android:layout_height="73dp"
+                        android:background="@drawable/add_pic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/biye"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="学生/毕业证主页"
+                        android:textColor="#666666"
+                        android:textSize="9dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/biyezheng">
+
+                    <ImageView
+                        android:id="@+id/shenfenzheng"
+                        android:layout_width="73dp"
+                        android:layout_height="73dp"
+                        android:background="@drawable/add_pic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/shenfenzheng"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="身份证正面"
+                        android:textColor="#666666"
+                        android:textSize="9dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shenfenzheng"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:text="*注：我们承诺对您的隐私进行保护，请放心使用。"
+                android:textColor="#666666"
+                android:textSize="9dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/button_login"
+                android:text="提交"
+                android:textColor="#333333"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

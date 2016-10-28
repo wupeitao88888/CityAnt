@@ -118,7 +118,7 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
     @Override
     public void onStart() {
         super.onStart();
-        PImageLoaderUtils.setImageHead(userhead, MYAppconfig.loginUserInfoData.getUser_avar(), context);
+        PImageLoaderUtils.getInstance().setImageHead(userhead, MYAppconfig.loginUserInfoData.getUser_avar(), context);
         StrUtil.setText(username, MYAppconfig.loginUserInfoData.getUser_name());
     }
 

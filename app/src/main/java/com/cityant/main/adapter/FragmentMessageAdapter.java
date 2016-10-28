@@ -65,7 +65,7 @@ public class FragmentMessageAdapter extends CommonAdapter {
             StrUtil.setText(time, meCrows.getTime());
         }
 
-        PImageLoaderUtils.displayuserHand(meCrows.getUser_avar(), avatar, context);
+        PImageLoaderUtils.getInstance().displayuserHand(meCrows.getUser_avar(), avatar, context);
         return convertView;
     }
 }

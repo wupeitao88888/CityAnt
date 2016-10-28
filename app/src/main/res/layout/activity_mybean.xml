@@ -2,75 +2,83 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/red">
+        android:layout_height="match_parent"
+        android:background="#f4f4f4"
+        android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/created"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp">
-
-            <ImageView
-                android:id="@+id/created_icon"
-                style="@style/wallet_icon"
-                android:background="@color/gray" />
-
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:background="@color/yellow"
+            android:paddingLeft="15dp">
 
             <TextView
-                android:id="@+id/bean"
+                android:id="@+id/title_bean_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/created_icon"
-                android:layout_centerHorizontal="true"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold" />
+                android:layout_marginTop="15dp"
+                android:text="总蚂蚁豆"
+                android:textColor="#4a2701"
+                android:textSize="13dp" />
 
             <TextView
-                style="@style/wallet_t"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/bean"
-                android:text="@string/bean" />
+                android:id="@+id/bean_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_bean_all"
+                android:layout_marginTop="5dp"
+                android:text="0"
+                android:textColor="#4a2701"
+                android:textSize="38dp" />
 
+            <TextView
+                android:id="@+id/title_sell_bean_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bean_all"
+                android:layout_marginTop="10dp"
+                android:text="可卖出蚂蚁豆"
+                android:textColor="#794711"
+                android:textSize="12dp" />
 
+            <TextView
+                android:id="@+id/bean_sell_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_sell_bean_all"
+                android:layout_marginTop="5dp"
+                android:text="0"
+                android:textColor="#4a2701"
+                android:textSize="24dp" />
         </RelativeLayout>
 
-    </RelativeLayout>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/button_normal_l"
+            android:onClick="onTopUpClick"
+            android:text="@string/topup"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/topup"
-        android:textSize="15dp"
-        android:textColor="@color/black"
-        android:onClick="onTopUpClick"
-        android:background="@drawable/button_normal_l"
-        />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/sellbean"
-        android:textSize="15dp"
-        android:onClick="onSellBeanClick"
-        android:textColor="@color/black"
-        android:background="@drawable/button_normal_l"
-        />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_white"
+            android:onClick="onSellBeanClick"
+            android:text="@string/sellbean"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+    </LinearLayout>
 </LinearLayout>

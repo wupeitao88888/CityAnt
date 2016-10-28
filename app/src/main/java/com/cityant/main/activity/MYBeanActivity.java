@@ -15,6 +15,13 @@ public class MYBeanActivity extends ActivitySupport {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mybean);
         setCtenterTitle(R.string.bean);
+        setRightTitle("明细");
+        setRightTitleListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
     }
 
     /***

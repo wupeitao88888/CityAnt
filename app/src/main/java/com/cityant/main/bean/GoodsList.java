@@ -12,6 +12,33 @@ public class GoodsList implements Serializable {
     private String goods_img;
     private String need_man;
     private String state;
+    private String goods_price;//商品价格(蚂蚁厂库专用)
+    private String number;//数量(蚂蚁厂库专用)
+    private int outnumber;//卖出或者提出的数量(蚂蚁厂库专用)
+
+    public int getOutnumber() {
+        return outnumber;
+    }
+
+    public void setOutnumber(int outnumber) {
+        this.outnumber = outnumber;
+    }
+
+    public String getGoods_price() {
+        return goods_price;
+    }
+
+    public void setGoods_price(String goods_price) {
+        this.goods_price = goods_price;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
     public String getGoods_id() {
         return goods_id;

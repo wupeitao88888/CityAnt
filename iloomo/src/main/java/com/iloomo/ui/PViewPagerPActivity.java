@@ -7,9 +7,12 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.iloomo.adapter.PMyAdapter;
+import com.iloomo.mphoto.CameraManager;
 import com.iloomo.paysdk.R;
 import com.iloomo.photoview.PPhotoView;
 import com.iloomo.utils.PActivitySupport;
@@ -27,6 +30,8 @@ public class PViewPagerPActivity extends PActivitySupport {
     private ArrayList<String> photoStrings;
     private int index;
     private ImageView lc_right_menu;
+    private Button commit;
+    private TextView content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +41,14 @@ public class PViewPagerPActivity extends PActivitySupport {
         mPager = (ViewPager) findViewById(R.id.pager);
         mPager.setPageMargin((int) (getResources().getDisplayMetrics().density * 15));
         lc_right_menu = (ImageView) findViewById(R.id.lc_right_menu);
+        commit = (Button) findViewById(R.id.commit);
+        content = (TextView) findViewById(R.id.content);
+
+
         photoStrings = getIntent().getStringArrayListExtra("photos");
         index = getIntent().getIntExtra("index", 0);
+
+        content.setText("已选中(" + PMyAdapter.mSelectedImage.size() + ")张");
         mPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
@@ -60,23 +71,39 @@ public class PViewPagerPActivity extends PActivitySupport {
 //                        .error(R.drawable.loading_fild)
 //                        .crossFade()
 //                        .into(view);
-                PImageLoaderUtils.displayLocalImage(photoStrings.get(position), view, null);
+                PImageLoaderUtils.getInstance().displayLocalImage(photoStrings.get(position), view, null);
                 container.addView(view);
                 lc_right_menu.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // 已经选择过该图片
-                        if (PMyAdapter.mSelectedImage.contains(photoStrings.get(position - 1))) {
-                            PMyAdapter.mSelectedImage.remove(photoStrings.get(position - 1));
-                            lc_right_menu.setImageResource(R.drawable.picture_unselected);
-                        } else
-                        // 未选择该图片
-                        {
-                            if (PMyPhoto.SINGLE)
-                                PMyAdapter.mSelectedImage.clear();
-                            PMyAdapter.mSelectedImage.add(photoStrings.get(position - 1));
-                            lc_right_menu.setImageResource(R.drawable.pictures_selected);
+                        if (photoStrings.size() > 1) {
+                            // 已经选择过该图片
+                            if (PMyAdapter.mSelectedImage.contains(photoStrings.get(position - 1))) {
+                                PMyAdapter.mSelectedImage.remove(photoStrings.get(position - 1));
+                                lc_right_menu.setImageResource(R.drawable.picture_unselected);
+                            } else
+                            // 未选择该图片
+                            {
+                                if (PMyPhoto.SINGLE) {
+                                    PMyAdapter.mSelectedImage.clear();
+                                }
+                                PMyAdapter.mSelectedImage.add(photoStrings.get(position - 1));
+                                lc_right_menu.setImageResource(R.drawable.pictures_selected);
+                            }
+
+                        } else {
+                            if (PMyAdapter.mSelectedImage.contains(photoStrings.get(position))) {
+                                PMyAdapter.mSelectedImage.remove(photoStrings.get(position));
+                                lc_right_menu.setImageResource(R.drawable.picture_unselected);
+                            } else {
+                                if (PMyPhoto.SINGLE) {
+                                    PMyAdapter.mSelectedImage.clear();
+                                }
+                                PMyAdapter.mSelectedImage.add(photoStrings.get(position));
+                                lc_right_menu.setImageResource(R.drawable.pictures_selected);
+                            }
                         }
+                        content.setText("已选中(" + PMyAdapter.mSelectedImage.size() + ")张");
                     }
                 });
                 /**
@@ -101,6 +128,14 @@ public class PViewPagerPActivity extends PActivitySupport {
             }
         });
         mPager.setCurrentItem(index);
+
+        commit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CameraManager.getInst().close();
+                finish();
+            }
+        });
     }
 
     private void unbindDrawables(View view) {

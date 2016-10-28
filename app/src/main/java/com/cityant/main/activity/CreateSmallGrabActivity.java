@@ -88,7 +88,7 @@ public class CreateSmallGrabActivity extends ActivitySupport implements View.OnC
         unlimited_day.setEnabled(true);
 
         StrUtil.setText(username, MYAppconfig.loginUserInfoData.getUser_name());
-        PImageLoaderUtils.displayuserHand(MYAppconfig.loginUserInfoData.getUser_avar(), userhead, context);
+        PImageLoaderUtils.getInstance().displayuserHand(MYAppconfig.loginUserInfoData.getUser_avar(), userhead, context);
 
         choose_create_type.setOnClickListener(this);
 

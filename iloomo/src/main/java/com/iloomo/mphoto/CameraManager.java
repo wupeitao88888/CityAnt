@@ -55,6 +55,7 @@ public class CameraManager {
 //            activity.startActivityForResult(i, Crop.REQUEST_CROP);
         }
     }
+
     public void close() {
         for (Activity act : cameras) {
             try {
@@ -73,7 +74,6 @@ public class CameraManager {
     public void removeActivity(Activity act) {
         cameras.remove(act);
     }
-
 
 
 }

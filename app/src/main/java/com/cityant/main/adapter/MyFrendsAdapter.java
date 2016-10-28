@@ -44,7 +44,7 @@ public class MyFrendsAdapter extends CommonAdapter {
             view = LayoutInflater.from(context).inflate(
                     R.layout.adapter_myfrends, null);
             ImageView hand = ViewHolder.get(view, R.id.hand);
-            PImageLoaderUtils.displayuserHand(classList.getUser_avar(), hand, context);
+            PImageLoaderUtils.getInstance().displayuserHand(classList.getUser_avar(), hand, context);
             TextView username = ViewHolder.get(view, R.id.username);
             StrUtil.setText(username,classList.getUser_name());
         }

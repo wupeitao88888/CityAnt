@@ -126,10 +126,10 @@ public abstract class EaseChatRow extends LinearLayout {
         //set nickname and avatar
         if (message.direct() == Direct.SEND) {
 //            EaseUserUtils.setUserAvatar(context, EMClient.getInstance().getCurrentUser(), userAvatarView);
-            PImageLoaderUtils.displayuserHand(MYAppconfig.loginUserInfoData.getUser_avar(), userAvatarView, context);
+            PImageLoaderUtils.getInstance().displayuserHand(MYAppconfig.loginUserInfoData.getUser_avar(), userAvatarView, context);
         } else {
             MyFrends myFrends = getMyFrends(message.getFrom());
-            PImageLoaderUtils.displayuserHand(myFrends.getUser_avar(), userAvatarView, context);
+            PImageLoaderUtils.getInstance().displayuserHand(myFrends.getUser_avar(), userAvatarView, context);
             StrUtil.setText(usernickView, myFrends.getUser_name());
 
 //            EaseUserUtils.setUserAvatar(context, message.getFrom(), userAvatarView);

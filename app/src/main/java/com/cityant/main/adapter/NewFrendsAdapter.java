@@ -45,7 +45,7 @@ public class NewFrendsAdapter extends CommonAdapter {
         Button agree = (Button) ViewHolder.get(convertView, R.id.agree);
         Button refuse = (Button) ViewHolder.get(convertView, R.id.refuse);
         StrUtil.setText(newfrendsname, meCrows.getUser_name());
-        PImageLoaderUtils.displayuserHand(meCrows.getUser_avar(), newfrendshead, context);
+        PImageLoaderUtils.getInstance().displayuserHand(meCrows.getUser_avar(), newfrendshead, context);
         if ("2".equals(meCrows.getState())) {
             StrUtil.setText(status, "验证中");
             status.setVisibility(View.VISIBLE);

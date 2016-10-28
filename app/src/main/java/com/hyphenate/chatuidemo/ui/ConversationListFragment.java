@@ -41,6 +41,7 @@ public class ConversationListFragment extends EaseConversationListFragment{
         View errorView = (LinearLayout) View.inflate(getActivity(),R.layout.em_chat_neterror_item, null);
         titleBar.setFristMenuimgIsVisbility(View.VISIBLE);
         titleBar.setSecondMenuimgIsVisbility(View.VISIBLE);
+        titleBar.setRightSecondMenuimg(R.drawable.jiahaoyou);
         titleBar.setRightFristMenuimgListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

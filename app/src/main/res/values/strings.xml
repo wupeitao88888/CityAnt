@@ -44,10 +44,11 @@
     <string name="adress">地址</string>
     <string name="income">今日收益</string>
     <string name="bundlebankcard">关联银行卡</string>
-    <string name="balance">余额</string>
+    <string name="balance">账户余额</string>
     <string name="mebalance">我的余额</string>
     <string name="topup">充值</string>
     <string name="withdrawcash">提现</string>
+    <string name="bundleingzhifubao">支付宝绑定</string>
     <string name="bothday">生日</string>
     <string name="logistics">查看物流</string>
     <string name="goodsput">商品提出</string>
@@ -56,7 +57,7 @@
     <string name="beantopup">蚂蚁豆充值</string>
     <string name="beansell">蚂蚁豆卖出</string>
     <string name="profit">收益</string>
-    <string name="now">现有</string>s
+    <string name="now">可卖出的蚂蚁豆</string>s
     <string name="nowsell">卖出</string>
     <string name="surplus">0/150</string>
     <string name="confirm">确认</string>

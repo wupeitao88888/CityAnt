@@ -80,4 +80,13 @@ public class SettingActivity extends ActivitySupport {
     public void onAboutMeClick(View view) {
 
     }
+
+    /**
+     * 退出登录
+     * @param view
+     */
+    public void onLogOutClick(View view) {
+
+    }
+
 }

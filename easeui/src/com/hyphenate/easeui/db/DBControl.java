@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class DBControl extends DBbase {
 
-    public static String DB_VERSION = "14";
+    public static String DB_VERSION = "16";
 
     public DBControl(Context context, DbHelperBase DbHelperBase) {
         super(context, DbHelperBase);
@@ -48,7 +48,7 @@ public class DBControl extends DBbase {
     }
 
 
-    private String enCode(String str) {
+    public String enCode(String str) {
 //        String string = "";
 //        try {
 //            string = DesUtils.getInstance().encrypt(str);
@@ -59,7 +59,7 @@ public class DBControl extends DBbase {
         return str;
     }
 
-    private String deCode(String str) {
+    public String deCode(String str) {
 //        String string = "";
 //        try {
 //            string = DesUtils.getInstance().decrypt(str);
@@ -125,6 +125,17 @@ public class DBControl extends DBbase {
         DatabaseManager.getInstance().closeDatabase();
     }
 
+    public synchronized void updateLoginInfo(String token, String user_name, String user_avar) {
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        ContentValues values = new ContentValues();
+//        values.put(DbHelper.USER_ID, enCode(loginUserInfoData.getUser_id()));
+//        values.put("mobile", enCode(loginUserInfoData.getMobile()));
+        values.put("user_name", enCode(user_name));
+        values.put("user_avar", enCode(user_avar));
+        db.update("logininfo", values, "token=?",
+                new String[]{enCode(token)});
+        DatabaseManager.getInstance().closeDatabase();
+    }
 
     public synchronized LoginUserInfoData selectLoginInfo(String token) {
         SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
@@ -728,6 +739,36 @@ public class DBControl extends DBbase {
         DatabaseManager.getInstance().closeDatabase();
     }
 
+//    public void insertUserInfo() {
+//        try {
+//            SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
+//                    .openDatabase();
+//            writableDatabase
+//                    .execSQL(
+//                            "insert into " + DbHelper.USERINFO +
+//                                    "(" +
+//                                    DbHelper.TOKEN + "," +
+//                                    DbHelper.QRCODE + "," +
+//                                    DbHelper.SEX + "," +
+//                                    DbHelper.BOTHDAY + "," +
+//                                    DbHelper.ARWA +
+//                                    ")values (?,?,?,?,?)",
+//                            new Object[]{
+//                                    enCode(),
+//                                    enCode(messageList.getUser_name()),
+//                                    enCode(messageList.getUser_avar()),
+//                                    enCode(messageList.getLastmsg()),
+//                                    enCode(messageList.getTime()),
+//                                    enCode(messageList.getCount()),
+//                                    enCode(messageList.getChat_type()),
+//                                    enCode(MYAppconfig.loginUserInfoData.getToken()),
+//                                    enCode(messageList.getMsgid())});
+//            DatabaseManager.getInstance().closeDatabase();
+//        } catch (Exception e) {
+//            updateConversationlist(messageList);
+//        }
+//    }
+//
 
 //        public synchronized void insertExec(ExeTime exeTime) {
 //        try {
@@ -1160,7 +1201,7 @@ public class DBControl extends DBbase {
         db.execSQL(DbHelper.DELETE_LASTUSER);
         db.execSQL(DbHelper.DELETE_MYFRENDS);
         db.execSQL(DbHelper.DELETE_CONVERSATIONLIST);
-        db.execSQL(DbHelper.CREATE_USERINFO);
+        db.execSQL(DbHelper.DELETE_USERINFO);
         DatabaseManager.getInstance().closeDatabase();
         createAllTab();
     }
@@ -1173,7 +1214,8 @@ public class DBControl extends DBbase {
         db.execSQL(DbHelper.LASTUSER);
         db.execSQL(DbHelper.MYFRENDS);
         db.execSQL(DbHelper.CREATE_CONVERSATIONLIST);
-        db.execSQL(DbHelper.DELETE_USERINFO);
+
+        db.execSQL(DbHelper.CREATE_USERINFO);
         DatabaseManager.getInstance().closeDatabase();
     }
 }
