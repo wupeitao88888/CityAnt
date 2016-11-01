@@ -1,7 +1,6 @@
 package com.iloomo.alipay.util;
 
-//import com.ruthout.mapp.alipay.SignUtils;
-
+import com.iloomo.alipay.SignUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
@@ -158,7 +157,7 @@ public class OrderInfoUtil2_0 {
         String tailKey = keys.get(keys.size() - 1);
         String tailValue = map.get(tailKey);
         authInfo.append(buildKeyValue(tailKey, tailValue, false));
-//		SignUtils.sign(authInfo.toString(), rsaKey);
+		SignUtils.sign(authInfo.toString(), rsaKey);
         String oriSign = "";
         String encodedSign = "";
 
