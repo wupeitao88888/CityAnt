@@ -156,4 +156,5 @@
 
     <string name="disconnectioned">会话服务器已断开，正在尝试链接...</string>
     <string name="network_disconnectioned">当前网络不可用，请检查网络设置</string>
+    <string name="pay_string">支付</string>
 </resources>
