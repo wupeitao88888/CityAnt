@@ -13,7 +13,7 @@ import ru.noties.scrollable.OnFlingOverListener;
  */
 public abstract class BaseFragment extends Fragment implements CanScrollVerticallyDelegate, OnFlingOverListener {
 
-    static final String ARG_COLOR = "arg.Color";
+    public static final String ARG_COLOR = "arg.Color";
 
     protected <V> V findView(View view, int id) {
         //noinspection unchecked

@@ -86,7 +86,7 @@ public class HomeBean extends BaseModel {
                 this.ad_image = ad_image;
             }
         }
-        class ADList{
+        public class ADList{
             public String ad_title;
             public String ad_url;
             public String ad_image;

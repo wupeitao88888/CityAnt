@@ -26,6 +26,7 @@
                 android:id="@+id/logo_image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:scaleType="centerCrop"
                 android:background="@drawable/ic_launcher"
                 android:layout_marginTop="7.5dp"
                 android:layout_marginLeft="10dp"
@@ -184,7 +185,7 @@
                 android:id="@+id/demand_sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="性别要求：那女不限"
+                android:text="性别要求：男女不限"
                 android:layout_marginTop="7.5dp"
                 android:layout_below="@+id/demand_adr"
                 android:layout_marginLeft="10dp"
@@ -207,7 +208,7 @@
                 android:layout_marginTop="7.5dp"
                 android:layout_marginBottom="10dp"
                 android:layout_toRightOf="@+id/introduction_image"
-                android:maxLines="2"
+                android:singleLine="true"
                 android:layout_marginLeft="10dp"
                 android:textSize="13sp"
                 android:textColor="#666666"
@@ -348,6 +349,7 @@
         android:background="@color/divider_line"/>
 
     <TextView
+        android:id="@+id/content_comment_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -358,6 +360,7 @@
         android:textColor="#666666"/>
 
     <TextView
+        android:id="@+id/post_comment_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"

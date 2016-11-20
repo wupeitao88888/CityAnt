@@ -7,12 +7,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="34dp">
         
         <ImageView
             android:id="@+id/user_image"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:background="@drawable/ic_launcher"
             android:layout_centerVertical="true"
             android:layout_marginLeft="12dp"/>
@@ -34,28 +34,17 @@
             android:text="十人抢"
             android:layout_alignParentRight="true"
             android:gravity="center"
-            android:textColor="#333333"
-            android:background="@drawable/glay_text_bg"
-            android:textSize="11sp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="11dp"/>
-
-        <TextView
-            android:id="@+id/distance_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/rob_nub"
             android:textSize="10sp"
             android:textColor="@color/black_6"
-            android:text="距离10km"
-            android:layout_marginRight="30dp"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:layout_marginRight="11dp"/>
+        <!--android:background="@drawable/glay_text_bg"-->
 
         <TextView
             android:id="@+id/relationship_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/distance_text"
+            android:layout_toLeftOf="@+id/rob_nub"
             android:textSize="10sp"
             android:textColor="@color/black_6"
             android:text="好友"
@@ -66,6 +55,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:visibility="gone"
         android:background="@color/divider_line"/>
 
     <RelativeLayout
@@ -103,7 +93,7 @@
             android:textSize="13sp"
             android:layout_marginTop="11dp"
             android:layout_marginLeft="13dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:layout_toRightOf="@+id/goods_image"/>
 
         <TextView
@@ -132,7 +122,7 @@
 
         <TextView
             android:id="@+id/rob_btn"
-            android:layout_width="88dp"
+            android:layout_width="67dp"
             android:layout_height="20dp"
             android:gravity="center"
             android:textSize="10sp"

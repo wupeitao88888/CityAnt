@@ -69,7 +69,7 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
 
     @Override
     public View initView() {
-        setTitle("我的");
+        setTitle("我");
         View inflate = LayoutInflater.from(context).inflate(R.layout.fragment_my, null);
         userhead = (ImageView) findViewById(inflate, R.id.userhead);
         username = (TextView) findViewById(inflate, R.id.username);
@@ -235,6 +235,7 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
             case MYTaskID.EVALUATELIST:
                 EvaluateListModel evaluateListModel = (EvaluateListModel) modelClass;
                 //评分
+                rating_bar_five.setSmail(true);
                 rating_bar_five.setMark(Float.parseFloat(evaluateListModel.getData().getTotal_score()));
                 break;
         }

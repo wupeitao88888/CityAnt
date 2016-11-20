@@ -10,14 +10,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.cityant.main.R;
 import com.cityant.main.activity.HomeDetailsActivity;
 import com.cityant.main.activity.SearchActivity;
 import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.cityant.main.bean.HomeBean;
+import com.cityant.main.widget.RoundTransform;
 import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.FragmentSupport;
@@ -25,6 +29,7 @@ import com.iloomo.global.MApplication;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.DialogUtil;
+import com.iloomo.utils.ToastUtil;
 import com.iloomo.widget.imgscroll.MyImgScroll;
 
 
@@ -36,7 +41,7 @@ import java.util.Map;
 public class FragmentHome extends FragmentSupport implements AbsListView.OnScrollListener, View.OnClickListener, ThreadCallBack {
 
     private TextView position_text;
-    private EditText search_edit;
+    private RelativeLayout search_edit;
     private LinearLayout sing_ll;
     private LinearLayout sing_display_ll;
     private ListView listView;
@@ -56,6 +61,8 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
     private LinearLayout vb;
     private List<HomeBean.HomeData.NeedList> needLists = new ArrayList<>();
     private FragmentHomeAdapter adapter;
+    private LinearLayout linear_layout;
+    private String types = "0";
 
     @Override
     public View setTitleBar(View view) {
@@ -66,7 +73,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
     @Override
     public View initView() {
         final View view = LayoutInflater.from(context).inflate(R.layout.fragment_home, null);
-        setTitle("主页");
+        titleBar.setVisibility(View.GONE);
         listView = (ListView) view.findViewById(R.id.listView);
         home_top_ll = (LinearLayout) view.findViewById(R.id.home_top_ll);
         recommend_text = (TextView) view.findViewById(R.id.recommend_text);
@@ -78,8 +85,8 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         banner_scroll = (MyImgScroll) head_view.findViewById(R.id.banner_scroll);
         vb = (LinearLayout) head_view.findViewById(R.id.vb);
         position_text = (TextView) head_view.findViewById(R.id.position_text);
-        search_edit = (EditText) head_view.findViewById(R.id.search_edit);
-//        position_text.setOnClickListener(v -> LocationChoiceActivity.startActivity(context));
+        search_edit = (RelativeLayout) head_view.findViewById(R.id.search_edit);
+        linear_layout = (LinearLayout) head_view.findViewById(R.id.linear_layout);
         search_edit.setOnClickListener(v -> SearchActivity.startActivity(context));
 //        sing_ll.setOnClickListener(v -> DoTaskActivity.startActivity(context));
 //        sing_display_ll.setOnClickListener(v -> DoTaskActivity.startActivity(context));
@@ -106,8 +113,12 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         listView.setOnScrollListener(this);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                HomeDetailsActivity.startActivity(context);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(0 == position || 1 == position){
+                    return;
+                }
+                HomeDetailsActivity.startActivity(context,needLists.get(position-2).getNeed_id());
+
             }
         });
         try {
@@ -116,6 +127,8 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
 
         }
         sendInternet();
+        recommend_text_head.setSelected(true);
+        recommend_text.setSelected(true);
         return view;
     }
 
@@ -143,7 +156,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         parameter.put("latitude", MApplication.getInstance().latitude + "");
         parameter.put("longitude", MApplication.getInstance().longitude + "");
         parameter.put("token", token);
-        parameter.put("type", "0"); // type   类别(0:推荐,1:附近,2:同城,3:好友)
+        parameter.put("type", types); // type   类别(0:推荐,1:附近,2:同城,3:好友)
 
         startHttpRequst("POST", MYAppconfig.HOME_INDEX, parameter
                 , MYTaskID.HOME_INDEX);
@@ -183,24 +196,32 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
                 setSelectTool();
                 recommend_text_head.setSelected(true);
                 recommend_text.setSelected(true);
+                types = "0";
+                sendInternet();
                 break;
             case R.id.nearby_text_head:
             case R.id.nearby_text:
                 setSelectTool();
                 nearby_text_head.setSelected(true);
                 nearby_text.setSelected(true);
+                types = "1";
+                sendInternet();
                 break;
             case R.id.city_text_head:
             case R.id.city_text:
                 setSelectTool();
                 city_text_head.setSelected(true);
                 city_text.setSelected(true);
+                types = "2";
+                sendInternet();
                 break;
             case R.id.friends_text_head:
             case R.id.friends_text:
                 setSelectTool();
                 friends_text_head.setSelected(true);
                 friends_text.setSelected(true);
+                types = "3";
+                sendInternet();
                 break;
         }
     }
@@ -242,10 +263,29 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         if (MYTaskID.HOME_INDEX == resultCode) {
             DialogUtil.stopDialogLoading(context);
             HomeBean homeBean = (HomeBean) modelClass;
+            needLists.clear();
             needLists.addAll(homeBean.getData().getNeed_list());
             setBanner_scroll(homeBean.data.banner_list);
+            linear_layout.removeAllViews();
+            for (int i = 0; i < homeBean.data.ad_list.size(); i++) {
+                linear_layout.addView(AddView(homeBean.data.ad_list.get(i)));
+            }
             adapter.notifyDataSetChanged();
         }
+    }
+
+    private View AddView(HomeBean.HomeData.ADList adList) {
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.home_add_view_layout,null);
+        ImageView imageView = (ImageView) view.findViewById(R.id.recommend_image);
+        Glide.with(view.getContext())
+                .load(adList.ad_image)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .bitmapTransform(new RoundTransform(view.getContext(), 64))
+                .into(imageView);
+        view.setOnClickListener(v -> {
+            ToastUtil.show(getContext(),"跳转H5页面",ToastUtil.SHOW_TOAST);
+        });
+        return view;
     }
 
     @Override
@@ -265,7 +305,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
             ImageView imageView = new ImageView(context);
             imageView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {// 设置图片点击事件
-
+                    ToastUtil.show(getContext(),"点击图片",ToastUtil.SHOW_TOAST);
                 }
             });
             Glide.with(context).load(banner_list.get(i).getAd_image()).into(imageView);

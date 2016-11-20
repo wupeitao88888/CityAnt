@@ -48,6 +48,8 @@ public class FragmentHomeAdapter extends CommonAdapter {
         TextView title_text = ViewHolder.get(convertView, R.id.title_text);
         TextView introduction_text = ViewHolder.get(convertView, R.id.introduction_text);
         TextView source_text = ViewHolder.get(convertView, R.id.source_text);
+        TextView position_text = ViewHolder.get(convertView, R.id.position_text);
+        TextView time_text = ViewHolder.get(convertView, R.id.time_text);
 
 
         Glide.with(context).load(needList.getUser_avar()).centerCrop().into(logo_image);
@@ -63,6 +65,8 @@ public class FragmentHomeAdapter extends CommonAdapter {
         title_text.setText(needList.getNeed_title());
         introduction_text.setText(needList.getNeed_content());
         source_text.setText("0".equals(needList.getNeed_way()) ? "线上" : "线下");
+        position_text.setText(needList.getAddress());
+        time_text.setText(needList.getAdd_time());
         return convertView;
     }
 }

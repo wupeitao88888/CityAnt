@@ -13,6 +13,11 @@ import android.widget.ListView;
 import com.cityant.main.R;
 import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.cityant.main.adapter.ViewPagerAdapter;
+import com.cityant.main.fragment.konck.DoublePeopleFragment;
+import com.cityant.main.fragment.konck.FivePeopleFragment;
+import com.cityant.main.fragment.konck.HundredPeopleFragment;
+import com.cityant.main.fragment.konck.ManyPeopleFragment;
+import com.cityant.main.fragment.konck.TenPeopleFragment;
 import com.cityant.main.utlis.ConfigurationFragmentCallbacks;
 import com.cityant.main.widget.TabsLayout;
 import com.iloomo.base.FragmentSupport;
@@ -28,10 +33,10 @@ import ru.noties.scrollable.ScrollableLayout;
 public class FragmentKnock extends FragmentSupport implements ConfigurationFragmentCallbacks {
 
     private ListView mlist;
-    private FragmentHomeAdapter fragmentHomeAdapter = null;
     private ViewPager viewPager;
     private ArrayList<Fragment> fragmentList;
     private static final String ARG_LAST_SCROLL_Y = "arg.LastScrollY";
+    private LinearLayout rob_linear_ll;
 
     private ScrollableLayout mScrollableLayout;
 
@@ -44,10 +49,20 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
     @Override
     public View initView() {
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_knock, null);
-        setTitle("抢");
+        setTitle("小额抢");
+//        setRightTitleRes(R.drawable.qiang_ding);
+//        setRightTitleImageListener(v -> {
+//            if(rob_linear_ll.getVisibility() == View.VISIBLE){
+//                rob_linear_ll.setVisibility(View.GONE);
+//            }else{
+//                rob_linear_ll.setVisibility(View.VISIBLE);
+//            }
+//        });
         final View header = view.findViewById(R.id.header);
         final LinearLayout brand_array_ll = (LinearLayout) view.findViewById(R.id.brand_array_ll);
         final TabsLayout tabs = (TabsLayout) view.findViewById(R.id.tabs);
+
+        rob_linear_ll = (LinearLayout) view.findViewById(R.id.rob_linear_ll);
 
         mScrollableLayout = (ScrollableLayout) view.findViewById(R.id.scrollable_layout);
         mScrollableLayout.setDraggableView(tabs);
@@ -134,25 +149,32 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
         if (listViewFragment == null) {
             listViewFragment = ListViewFragment.newInstance(R.color.white);
         }
-        ListViewFragment listViewFragment2
-                = (ListViewFragment) manager.findFragmentByTag(ListViewFragment.TAG);
-        if (listViewFragment2 == null) {
-            listViewFragment2 = ListViewFragment.newInstance(R.color.white);
+        ManyPeopleFragment manyPeopleFragment
+                = (ManyPeopleFragment) manager.findFragmentByTag(ManyPeopleFragment.TAG);
+        if (manyPeopleFragment == null) {
+            manyPeopleFragment = ManyPeopleFragment.newInstance(R.color.white);
         }
-
-//        ScrollViewFragment scrollViewFragment
-//                = (ScrollViewFragment) manager.findFragmentByTag(ScrollViewFragment.TAG);
-//        if (scrollViewFragment == null) {
-//            scrollViewFragment = ScrollViewFragment.newInstance(colorRandomizer.next());
-//        }
-//
-//        RecyclerViewFragment recyclerViewFragment
-//                = (RecyclerViewFragment) manager.findFragmentByTag(RecyclerViewFragment.TAG);
-//        if (recyclerViewFragment == null) {
-//            recyclerViewFragment = RecyclerViewFragment.newInstance(colorRandomizer.next());
-//        }
-//
-        Collections.addAll(list, listViewFragment, listViewFragment2);
+        HundredPeopleFragment hundredPeopleFragment
+                = (HundredPeopleFragment) manager.findFragmentByTag(HundredPeopleFragment.TAG);
+        if (hundredPeopleFragment == null) {
+            hundredPeopleFragment = HundredPeopleFragment.newInstance(R.color.white);
+        }
+        TenPeopleFragment tenPeopleFragment
+                = (TenPeopleFragment) manager.findFragmentByTag(TenPeopleFragment.TAG);
+        if (tenPeopleFragment == null) {
+            tenPeopleFragment = TenPeopleFragment.newInstance(R.color.white);
+        }
+        FivePeopleFragment fivePeopleFragment
+                = (FivePeopleFragment) manager.findFragmentByTag(FivePeopleFragment.TAG);
+        if (fivePeopleFragment == null) {
+            fivePeopleFragment = FivePeopleFragment.newInstance(R.color.white);
+        }
+        DoublePeopleFragment doublePeopleFragment
+                = (DoublePeopleFragment) manager.findFragmentByTag(DoublePeopleFragment.TAG);
+        if (doublePeopleFragment == null) {
+            doublePeopleFragment = DoublePeopleFragment.newInstance(R.color.white);
+        }
+        Collections.addAll(list, listViewFragment, manyPeopleFragment,hundredPeopleFragment,tenPeopleFragment,fivePeopleFragment,doublePeopleFragment);
 
         return list;
     }

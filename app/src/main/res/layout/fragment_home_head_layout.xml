@@ -6,6 +6,11 @@
     android:orientation="vertical"
     >
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/title_bar"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -30,22 +35,37 @@
             android:background="@drawable/saomiao"
             android:layout_marginRight="5dp"
             android:layout_alignParentRight="true"/>
-
-        <EditText
+        
+        <RelativeLayout
             android:id="@+id/search_edit"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_centerVertical="true"
-            android:background="#F9E683"
-            android:focusable="false"
-            android:paddingLeft="5dp"
-            android:hint="搜索你感兴趣的内容"
-            android:gravity="center"
-            android:drawableLeft="@drawable/home_search"
-            android:layout_marginRight="10dp"
-            android:imeOptions="actionSearch"
             android:layout_toRightOf="@+id/position_text"
-            android:layout_toLeftOf="@+id/scan_image"/>
+            android:layout_toLeftOf="@+id/scan_image"
+            android:background="@drawable/home_search_bg"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/serch_image"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/home_search"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"
+                android:text="搜索你感兴趣的内容"
+                android:layout_toRightOf="@+id/serch_image"
+                android:layout_marginLeft="5dp"/>
+
+        </RelativeLayout>
+
 
 
     </RelativeLayout>
@@ -78,37 +98,24 @@
         android:textColor="#333333"
         android:textSize="14sp"/>
 
-    <LinearLayout
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp">
+        android:scrollbars="none" >
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="78dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:background="@color/gray"/>
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"/>
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="78dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:background="@color/gray"/>
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="78dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/gray"/>
-
-    </LinearLayout>
+    </HorizontalScrollView>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2.5dp"
+        android:layout_height="5dp"
         android:background="@color/app_bg"/>
 </LinearLayout>
