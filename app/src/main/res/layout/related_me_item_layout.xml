@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="34dp">
+
+        <ImageView
+            android:id="@+id/user_image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/ic_launcher"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"/>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_toRightOf="@+id/user_image"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="马小丽"/>
+
+        <TextView
+            android:id="@+id/rob_nub"
+            android:layout_width="45dp"
+            android:layout_height="16dp"
+            android:text="十人抢"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:textColor="@color/black_6"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="11dp"/>
+        <!--android:background="@drawable/glay_text_bg"-->
+
+        <TextView
+            android:id="@+id/relationship_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/rob_nub"
+            android:textSize="10sp"
+            android:textColor="@color/black_6"
+            android:text="好友"
+            android:layout_marginRight="25dp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:visibility="gone"
+        android:background="@color/divider_line"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/goods_image"
+            android:layout_width="87dp"
+            android:layout_height="87dp"
+            android:background="@drawable/ic_launcher"
+            android:layout_marginLeft="12dp"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="11dp"
+            android:textSize="13sp"
+            android:layout_marginRight="11dp"
+            android:textColor="#f24e4e"
+            android:text="￥3.00"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="屈臣氏经典组合套装，日用夜用，不刺激，最懂我的好朋友"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="#333333"
+            android:layout_toLeftOf="@+id/price_text"
+            android:textSize="13sp"
+            android:layout_marginTop="11dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/goods_image"/>
+
+        <TextView
+            android:id="@+id/need_num_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/goods_image"
+            android:text="还需人数: 5"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="13dp"
+            android:layout_marginBottom="11dp"
+            android:textColor="#bcbcbc"
+            android:textSize="9sp"/>
+
+        <TextView
+            android:id="@+id/total_num_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/goods_image"
+            android:text="总需人数: 10"
+            android:layout_above="@+id/need_num_text"
+            android:layout_marginLeft="13dp"
+            android:layout_marginBottom="3dp"
+            android:textColor="#bcbcbc"
+            android:textSize="9sp"/>
+
+        <TextView
+            android:id="@+id/rob_btn"
+            android:layout_width="67dp"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="11dp"
+            android:text="立刻抢 >"
+            android:background="@drawable/origin_text_bg"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/divider_line"/>
+
+    <TextView
+        android:id="@+id/time_end"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:textColor="@color/black_3"
+        android:visibility="gone"
+        android:text="报名截止时间       2016-09-05"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开奖倒计时"
+            android:textColor="@color/black_3"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="19dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="00"
+            android:textColor="@color/white"
+            android:background="@drawable/black_text_bg"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_3"
+            android:text=":"
+            android:textSize="17sp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"/>
+
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="48"
+            android:textColor="@color/white"
+            android:background="@drawable/black_text_bg"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="24dp"
+            android:background="@drawable/zhongjiang"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:text="本次您没有抢到该商品"
+            android:layout_marginLeft="13dp"
+            android:textColor="@color/black_3"/>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import com.cityant.main.R;
 import com.cityant.main.adapter.MyFragmentPagerAdapter;
 import com.cityant.main.fragment.FragmentKnock;
+import com.cityant.main.fragment.konck.RelatedMeFragment;
 import com.cityant.main.widget.TabsLayout;
 import com.iloomo.base.ActivitySupport;
 
@@ -52,7 +53,7 @@ public class RelatedMeActivity extends ActivitySupport {
         titleList.add("待退款");
         titleList.add("已退款");
         for (int i = 0; i < titleList.size(); i++) {
-            fragmentList.add(new FragmentKnock());
+            fragmentList.add(RelatedMeFragment.newInstance(R.color.none_color));
         }
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), fragmentList, titleList));
         pagerSlidingTabStrip.setViewPager(viewPager);
