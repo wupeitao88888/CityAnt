@@ -6,13 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -21,9 +19,9 @@ import com.cityant.main.activity.HomeDetailsActivity;
 import com.cityant.main.activity.SearchActivity;
 import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.cityant.main.bean.HomeBean;
+import com.cityant.main.global.MYTaskID;
 import com.cityant.main.widget.RoundTransform;
 import com.hyphenate.easeui.global.MYAppconfig;
-import com.cityant.main.global.MYTaskID;
 import com.iloomo.base.FragmentSupport;
 import com.iloomo.global.MApplication;
 import com.iloomo.net.AsyncHttpPost;
@@ -31,7 +29,6 @@ import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.DialogUtil;
 import com.iloomo.utils.ToastUtil;
 import com.iloomo.widget.imgscroll.MyImgScroll;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -106,9 +103,9 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         city_text.setOnClickListener(this);
         friends_text.setOnClickListener(this);
 
+        adapter = new FragmentHomeAdapter(context, needLists);
         listView.addHeaderView(head_view);
         listView.addHeaderView(head_view_top);
-        adapter = new FragmentHomeAdapter(context, needLists);
         listView.setAdapter(adapter);
         listView.setOnScrollListener(this);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -278,7 +275,8 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         View view = LayoutInflater.from(getContext()).inflate(R.layout.home_add_view_layout,null);
         ImageView imageView = (ImageView) view.findViewById(R.id.recommend_image);
         Glide.with(view.getContext())
-                .load(adList.ad_image)
+//                .load(adList.ad_image)
+                .load("http://img5.imgtn.bdimg.com/it/u=2740404051,535662338&fm=23&gp=0.jpg")
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .bitmapTransform(new RoundTransform(view.getContext(), 64))
                 .into(imageView);
@@ -308,8 +306,8 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
                     ToastUtil.show(getContext(),"点击图片",ToastUtil.SHOW_TOAST);
                 }
             });
-            Glide.with(context).load(banner_list.get(i).getAd_image()).into(imageView);
-//            setImage(imageView, lista.get(i).getCover(), context);
+            Glide.with(context).load("http://img5.imgtn.bdimg.com/it/u=2740404051,535662338&fm=23&gp=0.jpg").into(imageView);
+//            Glide.with(context).load(banner_list.get(i).getAd_image()).into(imageView);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             listViews.add(imageView);
         }

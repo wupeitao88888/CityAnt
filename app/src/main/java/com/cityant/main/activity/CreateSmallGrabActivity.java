@@ -16,8 +16,10 @@ import com.iloomo.utils.PImageLoaderUtils;
 import com.iloomo.utils.StrUtil;
 
 /**
- * Created by lvfl on 2016/8/18.
- */
+* 创建抢页面
+* @author Lvfl
+* created at 2016/11/28 18:07
+*/
 public class CreateSmallGrabActivity extends ActivitySupport implements View.OnClickListener {
 
     public static void startActivity(Context context) {

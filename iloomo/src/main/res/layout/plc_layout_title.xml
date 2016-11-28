@@ -68,6 +68,13 @@
                     android:visibility="gone" />
 
                 <ImageView
+                    android:id="@+id/lc_right_image"
+                    android:layout_width="21dp"
+                    android:layout_height="19dp"
+                    android:layout_centerVertical="true"
+                    android:visibility="gone" />
+
+                <ImageView
                     android:id="@+id/frist_menu"
                     android:layout_width="21dp"
                     android:layout_height="22dp"

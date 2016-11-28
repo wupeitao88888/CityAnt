@@ -66,7 +66,7 @@ public class CreateSmallGrabTypeChooseActivity extends ActivitySupport implement
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createsmallgrabtypechoose);
         setCtenterTitle(mString(R.string.choose));
-        type=getIntent().getStringExtra("type");
+        type = getIntent().getStringExtra("type");
         initView();
     }
 

@@ -10,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+
 import com.cityant.main.R;
-import com.cityant.main.adapter.FragmentHomeAdapter;
+import com.cityant.main.activity.CreateSmallGrabActivity;
+import com.cityant.main.activity.knock.RelatedMeActivity;
 import com.cityant.main.adapter.ViewPagerAdapter;
 import com.cityant.main.fragment.konck.DoublePeopleFragment;
 import com.cityant.main.fragment.konck.FivePeopleFragment;
@@ -21,9 +24,11 @@ import com.cityant.main.fragment.konck.TenPeopleFragment;
 import com.cityant.main.utlis.ConfigurationFragmentCallbacks;
 import com.cityant.main.widget.TabsLayout;
 import com.iloomo.base.FragmentSupport;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import ru.noties.scrollable.CanScrollVerticallyDelegate;
 import ru.noties.scrollable.OnFlingOverListener;
 import ru.noties.scrollable.OnScrollChangedListener;
@@ -37,6 +42,8 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
     private ArrayList<Fragment> fragmentList;
     private static final String ARG_LAST_SCROLL_Y = "arg.LastScrollY";
     private LinearLayout rob_linear_ll;
+    private RelativeLayout launch_rl;
+    private RelativeLayout relevant_rl;
 
     private ScrollableLayout mScrollableLayout;
 
@@ -50,14 +57,14 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
     public View initView() {
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_knock, null);
         setTitle("小额抢");
-//        setRightTitleRes(R.drawable.qiang_ding);
-//        setRightTitleImageListener(v -> {
-//            if(rob_linear_ll.getVisibility() == View.VISIBLE){
-//                rob_linear_ll.setVisibility(View.GONE);
-//            }else{
-//                rob_linear_ll.setVisibility(View.VISIBLE);
-//            }
-//        });
+        setRightTitleRes(R.drawable.qiang_ding);
+        setRightTitleImageListener(v -> {
+            if(rob_linear_ll.getVisibility() == View.VISIBLE){
+                rob_linear_ll.setVisibility(View.GONE);
+            }else{
+                rob_linear_ll.setVisibility(View.VISIBLE);
+            }
+        });
         final View header = view.findViewById(R.id.header);
         final LinearLayout brand_array_ll = (LinearLayout) view.findViewById(R.id.brand_array_ll);
         final TabsLayout tabs = (TabsLayout) view.findViewById(R.id.tabs);
@@ -66,6 +73,9 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
 
         mScrollableLayout = (ScrollableLayout) view.findViewById(R.id.scrollable_layout);
         mScrollableLayout.setDraggableView(tabs);
+
+        launch_rl = (RelativeLayout) view.findViewById(R.id.launch_rl);
+        relevant_rl = (RelativeLayout) view.findViewById(R.id.relevant_rl);
 
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
         final com.cityant.main.adapter.ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager(), getResources(), getFragments());
@@ -114,6 +124,12 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
 //                }
 //            });
 //        }
+        launch_rl.setOnClickListener(v -> {
+            CreateSmallGrabActivity.startActivity(getContext());
+        });
+        relevant_rl.setOnClickListener(v -> {
+            RelatedMeActivity.startActivity(getContext());
+        });
         return view;
     }
 
