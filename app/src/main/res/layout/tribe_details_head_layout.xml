@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/divider_line"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="172dp"
+        android:orientation="vertical"
+        android:background="@drawable/beij">
+
+        <RelativeLayout
+            android:id="@+id/top_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+            
+            <ImageView
+                android:id="@+id/tribe_head_image"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:background="@drawable/txqunzu"
+                android:layout_centerInParent="true"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/tribe_head_image">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="关注"
+                    android:textColor="@color/black_3"/>
+
+                <TextView
+                    android:id="@+id/follow_num_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="5768人"
+                    android:textColor="@color/black_3"
+                    android:layout_marginTop="5dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tribe_head_image">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="本期当前活跃人数"
+                    android:textColor="@color/black_3"/>
+
+                <TextView
+                    android:id="@+id/hot_num_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="240"
+                    android:textColor="@color/black_3"
+                    android:layout_marginTop="5dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tribe_single_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="17dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="15sp"
+            android:text="本期当前活跃人数"
+            android:gravity="center"
+            android:layout_below="@+id/top_rl"
+            android:textColor="@color/black_3"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:background="#80000000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/follow_btn_rl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="97dp"
+                    android:layout_height="27dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:background="@drawable/btn_wirth_stark_shape">
+
+                    <ImageView
+                        android:id="@+id/follow_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/guanzhu_jia"/>
+
+                    <TextView
+                        android:id="@+id/follow_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="关注"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/follow_icon"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/money_rl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="97dp"
+                    android:layout_height="27dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:background="@drawable/btn_wirth_stark_shape">
+
+                    <ImageView
+                        android:id="@+id/money_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/gongzi"/>
+
+                    <TextView
+                        android:id="@+id/money_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="领工资"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/money_icon"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/chat_rl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="97dp"
+                    android:layout_height="27dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:background="@drawable/btn_wirth_stark_shape">
+
+                    <TextView
+                        android:id="@+id/chat_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="进去群聊"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="5dp" />
+
+                    <ImageView
+                        android:id="@+id/chat_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/chat_text"
+                        android:background="@drawable/qunliao"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/all_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_3"
+            android:textSize="14sp"
+            android:text="所有关注"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"/>
+
+        <RelativeLayout
+            android:id="@+id/more_follow_rl"
+            android:layout_width="47dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_alignParentRight="true">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/divider_line"
+                android:layout_alignParentLeft="true"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/suoyou"/>
+
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/all_follow"
+            android:layout_toLeftOf="@+id/more_follow_rl"
+            android:scrollbars="none"
+            android:layout_centerVertical="true">
+
+            <LinearLayout
+                android:id="@+id/follow_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"></LinearLayout>
+
+        </HorizontalScrollView>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:layout_marginTop="3dp"
+        android:text="更多品牌推荐"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:textSize="14sp"
+        android:textColor="@color/black_3"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginTop="1dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/brand_array_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+    </HorizontalScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/white"
+        android:layout_marginTop="3dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black_3"
+            android:textSize="14sp"
+            android:text="站内抢"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/post_knock"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:text="发起抢购"
+            android:textSize="13sp"
+            android:textColor="@color/black_3"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:background="#f6cb44"/>
+
+        <TextView
+            android:id="@+id/konck_record"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:text="抢购记录"
+            android:textSize="13sp"
+            android:textColor="@color/black_3"
+            android:layout_toLeftOf="@+id/post_knock"
+            android:layout_marginRight="1dp"
+            android:gravity="center"
+            android:background="#D6D3c7"/>
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

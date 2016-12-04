@@ -1,4 +1,4 @@
-package com.cityant.main.adapter;
+package com.cityant.main.adapter.konck;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,18 +7,19 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.cityant.main.R;
-import com.cityant.main.activity.knock.KonckDetailsActivity;
 
 import java.util.List;
 
 /**
- * Created by lvfl on 2016/9/3.
- */
-public class RobAdapter extends BaseAdapter {
+* 品牌部落adapter
+* @author lvfl
+* @time 2016/11/28 22:44
+*/
+public class TribeDetailsAdapter extends BaseAdapter {
 
     private Context context;
     private List<String> list;
-    public RobAdapter(Context context,List<String> list){
+    public TribeDetailsAdapter(Context context, List<String> list){
         this.context = context;
         this.list = list;
     }
@@ -40,11 +41,8 @@ public class RobAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if(null == view){
-            view = LayoutInflater.from(context).inflate(R.layout.rob_item_layout,null);
+            view = LayoutInflater.from(context).inflate(R.layout.tribe_details_item_layout,null);
         }
-        view.setOnClickListener(v -> {
-            KonckDetailsActivity.startActivity(context);
-        });
         return view;
     }
 }

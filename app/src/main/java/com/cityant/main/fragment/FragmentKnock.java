@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import com.cityant.main.R;
 import com.cityant.main.activity.CreateSmallGrabActivity;
 import com.cityant.main.activity.knock.RelatedMeActivity;
+import com.cityant.main.activity.knock.TribeDetailsActivity;
 import com.cityant.main.adapter.ViewPagerAdapter;
 import com.cityant.main.fragment.konck.DoublePeopleFragment;
 import com.cityant.main.fragment.konck.FivePeopleFragment;
@@ -134,11 +135,15 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
     }
 
     private View addView() {
-        View view = null;
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
         LayoutInflater inflater3 = LayoutInflater.from(getActivity());
-        view = inflater3.inflate(R.layout.brand_item_layout, null);
+        View view = inflater3.inflate(R.layout.brand_item_layout, null);
+
+        view.setOnClickListener(v -> {
+            TribeDetailsActivity.startActivity(getContext(),"屈臣氏");
+        });
+
         return view;
     }
 
