@@ -100,6 +100,7 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
             @Override
             public void onScrollChanged(int y, int oldY, int maxY) {
 
+                rob_linear_ll.setVisibility(View.GONE);
                 final float tabsTranslationY;
                 if (y < maxY) {
                     tabsTranslationY = .0F;
@@ -158,12 +159,6 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
 
         final FragmentManager manager = getFragmentManager();
         final List<BaseFragment> list = new ArrayList<>();
-
-//        ConfigurationFragment configurationFragment
-//                = (ConfigurationFragment) manager.findFragmentByTag(ConfigurationFragment.TAG);
-//        if (configurationFragment == null) {
-//            configurationFragment = ConfigurationFragment.newInstance(colorRandomizer.next());
-//        }
 
         ListViewFragment listViewFragment
                 = (ListViewFragment) manager.findFragmentByTag(ListViewFragment.TAG);

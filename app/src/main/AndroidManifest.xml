@@ -53,7 +53,7 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         tools:replace="name"
-        >
+        android:theme="@style/AppTheme">
         <!-- 欢迎页面 -->
         <activity
             android:name=".activity.WelcomeActivity"
@@ -829,6 +829,7 @@
         <activity
             android:name=".activity.knock.KonckDetailsActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
         <!--扫描二维码-->
         <activity

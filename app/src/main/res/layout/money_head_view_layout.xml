@@ -12,10 +12,17 @@
 
         <ImageView
             android:id="@+id/start_image"
-            android:layout_width="100dp"
+            android:layout_width="82dp"
             android:layout_height="80dp"
-            android:background="@drawable/huoyue"
+            android:background="@drawable/huoyue_da"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="23dp"
+            android:background="@drawable/huoyue_xiao"
+            android:layout_toRightOf="@+id/start_image"
             android:layout_marginTop="15dp"/>
 
         <TextView
