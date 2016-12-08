@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion '24.0.0'
 
     defaultConfig {
         applicationId "com.cityant.main"
@@ -9,11 +10,19 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
-        jackOptions {
-            enabled true
-        }
+//        jackOptions {
+//            enabled true
+//        }
         multiDexEnabled true
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -23,6 +32,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    retrolambda {
+        javaVersion JavaVersion.VERSION_1_6
     }
     sourceSets {
         main {
@@ -61,7 +74,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:+'
     //    compile files('libs/android-support-multidex.jar')
     compile files('libs/libammsdk.jar')
+    compile 'com.android.support:appcompat-v7:+'
+    compile 'com.android.support:design:+'
     //    compile files('libs/android-support-multidex.jar')
     //    compile files('libs/android-support-multidex.jar')
-//    compile 'org.jacoco:org.jacoco.agent:0.7.7.201606060606'
+    compile files('libs/zxing-1.6.jar')
 }
