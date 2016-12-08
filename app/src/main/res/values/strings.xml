@@ -157,4 +157,9 @@
     <string name="disconnectioned">会话服务器已断开，正在尝试链接...</string>
     <string name="network_disconnectioned">当前网络不可用，请检查网络设置</string>
     <string name="pay_string">支付</string>
+
+    <!-- zxing-->
+    <string name="scan_tip">将取景框对准二维码,\n即可自动扫描。</string>
+    <string name="removeItem">删除</string>
+    <string name="scan_login">二维码扫描</string>
 </resources>

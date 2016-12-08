@@ -1,6 +1,7 @@
 package com.cityant.main.fragment;
 
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.cityant.main.adapter.FragmentHomeAdapter;
 import com.cityant.main.bean.HomeBean;
 import com.cityant.main.global.MYTaskID;
 import com.cityant.main.widget.RoundTransform;
+import com.cityant.main.zxing.MipcaActivityCapture;
 import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.base.FragmentSupport;
 import com.iloomo.global.MApplication;
@@ -60,6 +62,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
     private FragmentHomeAdapter adapter;
     private LinearLayout linear_layout;
     private String types = "0";
+    private ImageView scan_image;
 
     @Override
     public View setTitleBar(View view) {
@@ -81,6 +84,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         View head_view = LayoutInflater.from(context).inflate(R.layout.fragment_home_head_layout, null);
         banner_scroll = (MyImgScroll) head_view.findViewById(R.id.banner_scroll);
         vb = (LinearLayout) head_view.findViewById(R.id.vb);
+        scan_image = (ImageView) head_view.findViewById(R.id.scan_image);
         position_text = (TextView) head_view.findViewById(R.id.position_text);
         search_edit = (RelativeLayout) head_view.findViewById(R.id.search_edit);
         linear_layout = (LinearLayout) head_view.findViewById(R.id.linear_layout);
@@ -102,6 +106,7 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
         nearby_text.setOnClickListener(this);
         city_text.setOnClickListener(this);
         friends_text.setOnClickListener(this);
+        scan_image.setOnClickListener(this);
 
         adapter = new FragmentHomeAdapter(context, needLists);
         listView.addHeaderView(head_view);
@@ -219,6 +224,10 @@ public class FragmentHome extends FragmentSupport implements AbsListView.OnScrol
                 friends_text.setSelected(true);
                 types = "3";
                 sendInternet();
+                break;
+            case R.id.scan_image:
+                Intent intent = new Intent(getContext(),MipcaActivityCapture.class);
+                startActivity(intent);
                 break;
         }
     }

@@ -31,4 +31,11 @@
     <color name="create_bg">#f4f4f4</color>
     <color name="create_sec_color">#999999</color>
     <color name="create_title">#333333</color>
+
+    <!-- start zxing -->
+    <color name="viewfinder_frame">#2477ab</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="result_view">#b0000000</color>
+    <color name="white">#ffffff</color>
 </resources>

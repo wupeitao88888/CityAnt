@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <SurfaceView
+            android:id="@+id/preview_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center" />
+
+        <com.cityant.main.zxing.view.ViewfinderView
+            android:id="@+id/viewfinder_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+        <RelativeLayout
+	        android:id="@+id/start_bar"
+	        android:layout_width="fill_parent"
+	        android:layout_height="@dimen/start_bar_height"
+	        android:background="@color/viewfinder_mask"
+	        android:visibility="visible" >
+	
+	        <LinearLayout
+	            android:id="@+id/cancel_ll"
+	            android:layout_width="60dp"
+	            android:layout_height="match_parent"
+	            android:gravity="center"
+	            android:orientation="horizontal" >
+				<!--android:background="@drawable/back_selecter"-->
+	
+	            <ImageView
+	                android:id="@+id/cancel"
+	                android:layout_width="10dp"
+	                android:layout_height="20dp"
+	                 />
+				<!--android:background="@drawable/btn_title_back_write"-->
+			</LinearLayout>
+	
+	        <TextView
+	            android:id="@+id/boldtextview"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_centerHorizontal="true"
+	            android:layout_centerVertical="true"
+	            android:text="扫一扫"
+	            android:textColor="@color/white"
+	            android:textSize="@dimen/title_text_size" />
+    	</RelativeLayout>
+</FrameLayout>
