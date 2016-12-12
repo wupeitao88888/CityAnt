@@ -6,11 +6,14 @@
     android:orientation="vertical"
     android:background="@color/white">
 
-    <com.cityant.main.widget.TabsLayout
+    <android.support.design.widget.TabLayout
         android:id="@+id/pagerStrip"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/white"/>
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/app_theme"
+        app:tabSelectedTextColor="@color/app_theme"/>
 
     <View
         android:layout_width="match_parent"

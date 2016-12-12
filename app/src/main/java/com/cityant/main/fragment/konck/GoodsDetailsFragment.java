@@ -17,20 +17,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* 参与人员
+* 商品详情
 * @author lvfl
 * @time 2016/11/20 20:11
 */
-public class ParticipantFragment extends Fragment {
+public class GoodsDetailsFragment extends Fragment {
 
 
     private List<String> list = new ArrayList<>();
     private CommonAdapter adapter;
 
-    public static ParticipantFragment newInstance(int color) {
+    public static GoodsDetailsFragment newInstance(int color) {
         final Bundle bundle = new Bundle();
 
-        final ParticipantFragment fragment = new ParticipantFragment();
+        final GoodsDetailsFragment fragment = new GoodsDetailsFragment();
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -45,11 +45,11 @@ public class ParticipantFragment extends Fragment {
             list.add(i+"");
         }
         mListView = (ListView) view.findViewById(R.id.list_view);
-        adapter = new CommonAdapter(getContext(),R.layout.rob_item_layout,list){
+        adapter = new CommonAdapter(getContext(),R.layout.goods_details_item_layout,list){
 
             @Override
             protected void convert(ViewHolder viewHolder, Object item, int position) {
-
+                viewHolder.setImageUrl(R.id.goods_image,"http://pic.58pic.com/58pic/12/74/39/20b58PICcVh.jpg");
             }
         };
         mListView.setAdapter(adapter);

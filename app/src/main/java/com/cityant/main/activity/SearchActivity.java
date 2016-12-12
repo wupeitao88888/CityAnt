@@ -30,8 +30,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by lvfl on 2016/8/11.
- */
+* 搜索页面
+* @author Lvfl
+* created at 2016/12/12 14:16
+*/
 public class SearchActivity extends ActivitySupport implements ThreadCallBack {
 
     private GridView search_gridView;
