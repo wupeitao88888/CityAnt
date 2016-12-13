@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,19 +10,27 @@
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="5dp"
-        android:drawableLeft="@drawable/camera_library"
+        android:drawableLeft="@drawable/home_search"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:imeOptions="actionSearch"
         android:background="@drawable/title_bar"
         android:layout_toRightOf="@+id/position_text"/>
 
-    <GridView
-        android:id="@+id/search_gridView"
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:id="@+id/rg_trainer_field"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_edit"/>
+
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:listSelector="@android:color/transparent"
-        android:numColumns="5"/>
+        android:background="@color/white"
+        android:visibility="gone"
+        android:layout_below="@+id/search_edit"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
 
-</LinearLayout>
+</RelativeLayout>
