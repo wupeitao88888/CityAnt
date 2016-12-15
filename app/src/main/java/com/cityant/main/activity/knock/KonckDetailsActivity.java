@@ -33,12 +33,6 @@ public class KonckDetailsActivity extends BaseToolbarActivity {
         Intent intent = new Intent(context,KonckDetailsActivity.class);
         context.startActivity(intent);
     }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_konck_details_layout);
-        initFragmentPager(viewpager,pagerStrip);
-    }
 
     @Override
     protected int getLayoutId() {
@@ -48,6 +42,7 @@ public class KonckDetailsActivity extends BaseToolbarActivity {
     @Override
     protected void initViews(Bundle savedInstanceState) {
         initToolbar();
+        initFragmentPager(viewpager,pagerStrip);
     }
 
     private void initToolbar() {

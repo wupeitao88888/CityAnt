@@ -2,16 +2,17 @@ package com.cityant.main.fragment.konck;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cityant.main.R;
-import com.cityant.main.adapter.base.CommonAdapter;
-import com.cityant.main.adapter.base.ViewHolder;
+import com.cityant.main.adapter.recycleview.CommonAdapter;
+import com.cityant.main.adapter.recycleview.MultiItemTypeAdapter;
+import com.cityant.main.adapter.recycleview.base.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,31 +36,36 @@ public class ParticipantFragment extends Fragment {
         return fragment;
     }
 
-    private ListView mListView;
+    private RecyclerView recyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle sis) {
 
-        final View view = inflater.inflate(R.layout.fragment_list_view, parent, false);
+        final View view = inflater.inflate(R.layout.fragment_recyclerview_layout, parent, false);
         for(int i = 0;i < 10 ; i++){
             list.add(i+"");
         }
-        mListView = (ListView) view.findViewById(R.id.list_view);
-        adapter = new CommonAdapter(getContext(),R.layout.rob_item_layout,list){
-
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        adapter = new CommonAdapter(getContext(),R.layout.participant_item_layout,list){
             @Override
-            protected void convert(ViewHolder viewHolder, Object item, int position) {
+            protected void convert(ViewHolder holder, Object o, int position) {
 
             }
         };
-        mListView.setAdapter(adapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                 Toast.makeText(getActivity(), "Click: " + position, Toast.LENGTH_SHORT).show();
             }
-        });
 
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
+            }
+        });
+        recyclerView.setAdapter(adapter);
         return view;
     }
 }

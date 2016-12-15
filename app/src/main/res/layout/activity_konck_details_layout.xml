@@ -169,12 +169,11 @@
                 <TextView
                     android:id="@+id/toolbar_title"
                     android:textColor="@color/title_text"
-                    android:textSize="16dp"
-                    android:layout_width="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
                     android:text="详情"
-                    android:layout_gravity="center"
+                    android:singleLine="true"
                     android:gravity="center"/>
 
                 <TextView
@@ -207,7 +206,9 @@
             android:layout_alignParentBottom="true"
             android:background="@color/white"
             app:tabIndicatorColor="@color/app_theme"
-            app:tabSelectedTextColor="@color/app_theme"/>
+            app:tabSelectedTextColor="@color/app_theme"
+            app:tabTextAppearance="@style/tab_appearance"
+            app:tabTextColor="@color/black_6"/>
 
         <View
             android:layout_width="match_parent"
