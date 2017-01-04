@@ -52,7 +52,7 @@ public class GoodsDetailsFragment extends Fragment {
 
             @Override
             protected void convert(ViewHolder holder, Object o, int position) {
-                holder.setImageUrl(R.id.goods_image,"http://pic.58pic.com/58pic/12/74/39/20b58PICcVh.jpg");
+//                holder.setImageUrl(R.id.goods_image,"http://pic.58pic.com/58pic/12/74/39/20b58PICcVh.jpg");
             }
         };
         adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {

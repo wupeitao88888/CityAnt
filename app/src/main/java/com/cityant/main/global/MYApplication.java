@@ -8,10 +8,9 @@ import android.os.Message;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
-import com.hyphenate.easeui.bean.LoginUserInfoData;
-
 import com.cityant.main.utlis.FaceConversionUtil;
 import com.hyphenate.chatuidemo.DemoApplication;
+import com.hyphenate.easeui.bean.LoginUserInfoData;
 import com.hyphenate.easeui.db.DBControl;
 import com.hyphenate.easeui.db.DbHelper;
 import com.hyphenate.easeui.global.MYAppconfig;
@@ -50,6 +49,7 @@ public class MYApplication extends DemoApplication {
         super.onCreate();
         checkDb();
         initDate();
+//        SDKInitializer.initialize(getApplicationContext());
 //        EMOptions options = new EMOptions();
         // 默认添加好友时，是不需要验证的，改成需要验证
 //        options.setAcceptInvitationAlways(false);

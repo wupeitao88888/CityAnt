@@ -2,10 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cityant.main">
 
-
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
     <!-- 统计所用到的权限 start -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
-
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <!-- 环信用到的权限start-->
@@ -830,6 +830,12 @@
             android:name=".activity.knock.KonckDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <!--抢详情-->
+        <activity
+            android:name=".activity.demand.LocationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
         <!--扫描二维码-->
         <activity

@@ -23,6 +23,7 @@ import com.bigkoo.pickerview.TimePickerView;
 import com.bumptech.glide.Glide;
 import com.cityant.main.R;
 
+import com.cityant.main.activity.demand.LocationActivity;
 import com.cityant.main.bean.TagList;
 import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.global.MYApplication;
@@ -48,6 +49,7 @@ import java.util.Map;
  */
 public class CreateDemandActivity extends ActivitySupport implements ThreadCallBack,View.OnClickListener {
 
+    private static final int GO_FOR_BAIDU_MAP = 1;
     private Button commit_btn;
     private TimePickerView birthPicker;
     private List<TagList.Data.Tag_List>  tag_lists = new ArrayList<>();
@@ -59,7 +61,7 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
     private TextView ry_text;
     private TextView online_text;
     private TextView line_text;
-    private EditText address_text;
+    private TextView address_text;
     private EditText address_details_edit;
     private TextView one_day_text;
     private TextView two_day_text;
@@ -103,7 +105,7 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
         online_text = (TextView) findViewById(R.id.online_text);
         line_text = (TextView) findViewById(R.id.line_text);
 
-        address_text = (EditText) findViewById(R.id.address_text);
+        address_text = (TextView) findViewById(R.id.address_text);
         address_details_edit = (EditText) findViewById(R.id.address_details_edit);
 
         one_day_text = (TextView) findViewById(R.id.one_day_text);
@@ -315,6 +317,10 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
             case R.id.demand_details_image:
                 popWindow.showAsDropDown(view, 0, 15);
                 break;
+            case R.id.address_text:
+                Intent intent = new Intent(this, LocationActivity.class);
+                startActivityForResult(intent, GO_FOR_BAIDU_MAP);
+                break;
         }
     }
 
@@ -446,5 +452,15 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
 
     class ViewHolder{
         ImageView demand_item_image;
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == GO_FOR_BAIDU_MAP
+                && data != null && data.getExtras() != null) {
+            address_text.setText("详细地址："+data.getStringExtra("DetailedAddress"));
+        }
     }
 }
