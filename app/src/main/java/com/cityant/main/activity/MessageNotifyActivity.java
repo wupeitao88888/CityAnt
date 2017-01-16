@@ -13,6 +13,7 @@ public class MessageNotifyActivity extends ActivitySupport {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Color1SwitchStyle);
         setContentView(R.layout.activity_messagenotify);
         setCtenterTitle(R.string.message);
         initView();

@@ -62,21 +62,19 @@
     </LinearLayout>
 
 
-
-
-
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="43dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/white"
-        android:drawableRight="@drawable/drawableright"
         android:drawableLeft="@drawable/wallet_icon"
         android:drawablePadding="15dp"
+        android:drawableRight="@drawable/drawableright"
         android:gravity="center_vertical"
+        android:onClick="onTopUpClick"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:onClick="onTopUpClick"
         android:text="@string/topup"
         android:textColor="@color/black"
         android:textSize="15dp" />
@@ -86,32 +84,46 @@
         android:layout_height="43dp"
         android:layout_marginTop="1dp"
         android:background="@drawable/white"
-        android:drawableRight="@drawable/drawableright"
-        android:drawableLeft="@drawable/wallet_icon"
+        android:drawableLeft="@mipmap/tixian"
         android:drawablePadding="15dp"
+        android:drawableRight="@drawable/drawableright"
         android:gravity="center_vertical"
+        android:onClick="onWithdrawcashClick"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:onClick="onWithdrawcashClick"
         android:text="@string/withdrawcash"
         android:textColor="@color/black"
         android:textSize="15dp" />
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="43dp"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/white"
-        android:drawableRight="@drawable/drawableright"
-        android:drawableLeft="@drawable/wallet_icon"
-        android:drawablePadding="15dp"
-        android:gravity="center_vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:onClick="onBundleClick"
-        android:text="@string/bundleingzhifubao"
-        android:textColor="@color/black"
-        android:textSize="15dp" />
+        android:paddingLeft="10dp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/zhifubao" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_toRightOf="@+id/icon"
+            android:drawablePadding="15dp"
+            android:drawableRight="@drawable/drawableright"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:text="@string/bundleingzhifubao"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+    </RelativeLayout>
 
 </LinearLayout>

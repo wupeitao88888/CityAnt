@@ -1,17 +1,25 @@
 package com.cityant.main.activity;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.cityant.main.R;
 
-import com.hyphenate.easeui.global.MYAppconfig;
+
+import com.cityant.main.model.OnPermissionsMsg;
+import com.cityant.main.utlis.PermissionsUtils;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.threadpool.MyThreadPool;
+import com.iloomo.utils.L;
 import com.iloomo.widget.StartPic;
 import com.nineoldandroids.animation.Animator;
+import com.tbruyelle.rxpermissions.RxPermissions;
 
 
 /**
@@ -30,6 +38,29 @@ public class WelcomeActivity extends ActivitySupport {
         setRemoveTitle();
 
         welcome = (StartPic) findViewById(R.id.welcome);
+        PermissionsUtils.getPermissionsUtils(context).setOnPermissionsMsg(new OnPermissionsMsg() {
+            @Override
+            public void onWRITE_EXTERNAL_STORAGE(boolean bool) {
+                L.e(bool+"1");
+                if (bool)
+                    showPic();
+                else
+                    PermissionsUtils.getPermissionsUtils(context).getPermissions();
+            }
+        });
+        PermissionsUtils.getPermissionsUtils(context).getPermissions();
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+
+    private void showPic() {
         welcome.setStartPicImage(R.drawable.white);
         welcome.setAnimationListener(new Animator.AnimatorListener() {
             @Override
@@ -43,7 +74,7 @@ public class WelcomeActivity extends ActivitySupport {
 
                 MyThreadPool.getInstance().submit(new Runnable() {
                     public void run() {
-                        if(MYAppconfig.loginUserInfoData==null){
+                        if (MYAppconfig.loginUserInfoData == null) {
                             EMClient.getInstance().logout(true, new EMCallBack() {
 
                                 @Override
@@ -56,7 +87,6 @@ public class WelcomeActivity extends ActivitySupport {
                                 @Override
                                 public void onProgress(int progress, String status) {
                                     // TODO Auto-generated method stub
-
                                 }
 
                                 @Override
@@ -65,7 +95,7 @@ public class WelcomeActivity extends ActivitySupport {
 
                                 }
                             });
-                        }else{
+                        } else {
                             if (EMClient.getInstance().isLoggedInBefore()) {
                                 // auto login mode, make sure all group and conversation is loaed before enter the main screen
                                 long start = System.currentTimeMillis();
@@ -105,14 +135,6 @@ public class WelcomeActivity extends ActivitySupport {
 
             }
         });
-
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
     }
 
 

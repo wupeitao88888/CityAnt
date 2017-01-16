@@ -138,44 +138,51 @@ public class DBControl extends DBbase {
     }
 
     public synchronized LoginUserInfoData selectLoginInfo(String token) {
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery(
-                "select * from logininfo where token=?",
-                new String[]{enCode(token)});
         LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
-        while (cursor.moveToNext()) {
-            loginUserInfoData.setToken(deCode(cursor.getString(cursor.getColumnIndex("token"))));
-            loginUserInfoData.setMobile(deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
-            loginUserInfoData.setUser_name(deCode(cursor.getString(cursor.getColumnIndex("user_name"))));
-            loginUserInfoData.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex("user_avar"))));
-            loginUserInfoData.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
+        try {
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery(
+                    "select * from logininfo where token=?",
+                    new String[]{enCode(token)});
+
+            while (cursor.moveToNext()) {
+                loginUserInfoData.setToken(deCode(cursor.getString(cursor.getColumnIndex("token"))));
+                loginUserInfoData.setMobile(deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
+                loginUserInfoData.setUser_name(deCode(cursor.getString(cursor.getColumnIndex("user_name"))));
+                loginUserInfoData.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex("user_avar"))));
+                loginUserInfoData.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
+            }
+            cursor.close();
+            DatabaseManager.getInstance().closeDatabase();
+
+        } catch (Exception e) {
         }
-
-
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
         return loginUserInfoData;
     }
 
     public synchronized LoginUserInfoData selectLoginInfo() {
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery(
-                "select * from logininfo",
-                new String[]{});
         LoginUserInfoData loginUserInfoData = new LoginUserInfoData();
-        while (cursor.moveToNext()) {
-            loginUserInfoData.setToken(deCode(cursor.getString(cursor.getColumnIndex("token"))));
-            loginUserInfoData.setMobile(deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
-            loginUserInfoData.setUser_name(deCode(cursor.getString(cursor.getColumnIndex("user_name"))));
-            loginUserInfoData.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex("user_avar"))));
-            loginUserInfoData.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
-        }
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
-        if (TextUtils.isEmpty(loginUserInfoData.getToken())) {
-            loginUserInfoData = null;
+        try {
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery(
+                    "select * from logininfo",
+                    new String[]{});
+            while (cursor.moveToNext()) {
+                loginUserInfoData.setToken(deCode(cursor.getString(cursor.getColumnIndex("token"))));
+                loginUserInfoData.setMobile(deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
+                loginUserInfoData.setUser_name(deCode(cursor.getString(cursor.getColumnIndex("user_name"))));
+                loginUserInfoData.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex("user_avar"))));
+                loginUserInfoData.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
+            }
+            cursor.close();
+            DatabaseManager.getInstance().closeDatabase();
+            if (TextUtils.isEmpty(loginUserInfoData.getToken())) {
+                loginUserInfoData = null;
+            }
+        } catch (Exception e) {
+
         }
         return loginUserInfoData;
     }
@@ -241,17 +248,22 @@ public class DBControl extends DBbase {
     }
 
     public synchronized Bundle selectLastUser() {
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery("select * from lastuser", new String[]{});
-        Bundle bundle = new Bundle();
-        while (cursor.moveToNext()) {
-            bundle.putString("mobile", deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
-            bundle.putString("password", deCode(cursor.getString(cursor.getColumnIndex("password"))));
+        try {
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery("select * from lastuser", new String[]{});
+            Bundle bundle = new Bundle();
+            while (cursor.moveToNext()) {
+                bundle.putString("mobile", deCode(cursor.getString(cursor.getColumnIndex("mobile"))));
+                bundle.putString("password", deCode(cursor.getString(cursor.getColumnIndex("password"))));
+            }
+            cursor.close();
+            DatabaseManager.getInstance().closeDatabase();
+            return bundle;
+        } catch (Exception e) {
+            Bundle bundle = new Bundle();
+            return bundle;
         }
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
-        return bundle;
     }
 
     /************
@@ -264,20 +276,22 @@ public class DBControl extends DBbase {
      * @param myFrends 好友列表
      */
     public synchronized void insertFrends(MyFrends myFrends) {
-
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery(
-                "select * from " + DbHelper.MYFREDNS_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.USER_ID + "=?",
-                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(myFrends.getFriend_id())});
         String token = "";
-        while (cursor.moveToNext()) {
-            token = deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID)));
+        try {
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery(
+                    "select * from " + DbHelper.MYFREDNS_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.USER_ID + "=?",
+                    new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(myFrends.getFriend_id())});
+
+            while (cursor.moveToNext()) {
+                token = deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID)));
+            }
+
+            cursor.close();
+            DatabaseManager.getInstance().closeDatabase();
+        } catch (Exception e) {
         }
-
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
-
         if (TextUtils.isEmpty(token)) {
             try {
                 SQLiteDatabase writableDatabase = DatabaseManager.getInstance()
@@ -311,39 +325,48 @@ public class DBControl extends DBbase {
     }
 
     public synchronized MyFrends selectMyFrends(String userid) {
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery(
-                "select * from " + DbHelper.MYFREDNS_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.USER_ID + "=?",
-                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(userid)});
         MyFrends messageLists = new MyFrends();
-        while (cursor.moveToNext()) {
+        try {
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery(
+                    "select * from " + DbHelper.MYFREDNS_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.USER_ID + "=?",
+                    new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(userid)});
 
-            messageLists.setFriend_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
-            messageLists.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
-            messageLists.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
+            while (cursor.moveToNext()) {
+
+                messageLists.setFriend_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
+                messageLists.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
+                messageLists.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
+            }
+            cursor.close();
+            DatabaseManager.getInstance().closeDatabase();
+
+        } catch (Exception e) {
         }
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
         return messageLists;
     }
 
     public synchronized List<MyFrends> selectMyFrends() {
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery(
-                "select * from " + DbHelper.MYFREDNS_NAME + " where " + DbHelper.M_USER_TOKEN + "=?",
-                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken())});
         List<MyFrends> messageLists = new ArrayList<>();
-        while (cursor.moveToNext()) {
-            MyFrends messageList = new MyFrends();
-            messageList.setFriend_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
-            messageList.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
-            messageList.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
-            messageLists.add(messageList);
+        try {
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery(
+                    "select * from " + DbHelper.MYFREDNS_NAME + " where " + DbHelper.M_USER_TOKEN + "=?",
+                    new String[]{enCode(MYAppconfig.loginUserInfoData.getToken())});
+
+            while (cursor.moveToNext()) {
+                MyFrends messageList = new MyFrends();
+                messageList.setFriend_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
+                messageList.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
+                messageList.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
+                messageLists.add(messageList);
+            }
+            cursor.close();
+            DatabaseManager.getInstance().closeDatabase();
+        } catch (Exception e) {
         }
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
         return messageLists;
     }
 
@@ -434,28 +457,33 @@ public class DBControl extends DBbase {
      * @return
      */
     public synchronized List<MessageList> selectConversationlist() {
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery(
-                "select * from " + DbHelper.CONVERSATIONLIST_NAME + " where " + DbHelper.M_USER_TOKEN + "=? Order By " + DbHelper.LAST_MSG_TIME + " Desc",
-                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken())});
         List<MessageList> messageLists = new ArrayList<>();
-        while (cursor.moveToNext()) {
-            MessageList messageList = new MessageList();
-            messageList.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
-            messageList.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
-            messageList.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
-            messageList.setLastmsg(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LAST_MSG))));
-            messageList.setTime(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LAST_MSG_TIME))));
-            messageList.setCount(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.UNREAD_MSG_COUNT))));
-            messageList.setChat_type(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.CHAT_TYPE))));
-            messageList.setMsgid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LAST_MSG_ID))));
-            messageLists.add(messageList);
+        try {
+
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery(
+                    "select * from " + DbHelper.CONVERSATIONLIST_NAME + " where " + DbHelper.M_USER_TOKEN + "=? Order By " + DbHelper.LAST_MSG_TIME + " Desc",
+                    new String[]{enCode(MYAppconfig.loginUserInfoData.getToken())});
+
+            while (cursor.moveToNext()) {
+                MessageList messageList = new MessageList();
+                messageList.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
+                messageList.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
+                messageList.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
+                messageList.setLastmsg(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LAST_MSG))));
+                messageList.setTime(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LAST_MSG_TIME))));
+                messageList.setCount(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.UNREAD_MSG_COUNT))));
+                messageList.setChat_type(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.CHAT_TYPE))));
+                messageList.setMsgid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LAST_MSG_ID))));
+                messageLists.add(messageList);
+            }
+
+
+            cursor.close();
+            DatabaseManager.getInstance().closeDatabase();
+        } catch (Exception e) {
         }
-
-
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
         return messageLists;
     }
 
@@ -593,48 +621,55 @@ public class DBControl extends DBbase {
      * @return
      */
     public synchronized List<ChatMsgEntity> getChat(String userid, int pager) {
-        pager = pager * 20;
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery(
-                "select * from " + DbHelper.CHAT_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.GROUPID + "=?  Order By " + DbHelper.TIME + " DESC limit 20 offset ?",
-                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(userid + "_" + MYAppconfig.loginUserInfoData.getUser_id()), pager + ""});
         List<ChatMsgEntity> chatMsgEntities = new ArrayList<>();
-        while (cursor.moveToNext()) {
-            ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
-            chatMsgEntity.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
-            chatMsgEntity.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
-            chatMsgEntity.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
-            chatMsgEntity.setMobile(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MOBILE))));
-            chatMsgEntity.setMessage(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGE))));
-            chatMsgEntity.setMessageid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGEID))));
-            try {
-                chatMsgEntity.setType(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TYPE)))));
-            } catch (Exception e) {
+        try {
+
+            pager = pager * 20;
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery(
+                    "select * from " + DbHelper.CHAT_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.GROUPID + "=?  Order By " + DbHelper.TIME + " DESC limit 20 offset ?",
+                    new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(userid + "_" + MYAppconfig.loginUserInfoData.getUser_id()), pager + ""});
+
+            while (cursor.moveToNext()) {
+                ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
+                chatMsgEntity.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
+                chatMsgEntity.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
+                chatMsgEntity.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
+                chatMsgEntity.setMobile(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MOBILE))));
+                chatMsgEntity.setMessage(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGE))));
+                chatMsgEntity.setMessageid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGEID))));
+                try {
+                    chatMsgEntity.setType(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TYPE)))));
+                } catch (Exception e) {
+                }
+                chatMsgEntity.setTime(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TIME))));
+                chatMsgEntity.setStreet(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STREET))));
+                chatMsgEntity.setLongitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LONGITUDE))));
+                chatMsgEntity.setLatitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LATITUDE))));
+                chatMsgEntity.setDuration(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.DURATION))));
+                chatMsgEntity.setImgurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.IMGURL))));
+                try {
+                    chatMsgEntity.setStatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STATUS)))));
+                } catch (Exception e) {
+                }
+                chatMsgEntity.setVoicestatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICESTATUS)))));
+                chatMsgEntity.setVoiceurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEURL))));
+                chatMsgEntity.setVoicelenth(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICELENTH))));
+                try {
+                    chatMsgEntity.setVoiceplay(Boolean.parseBoolean(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEPLAY)))));
+                } catch (Exception e) {
+                }
+                chatMsgEntity.setGroupid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.GROUPID))));
+                chatMsgEntity.setChat_type(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.CHAT_TYPE))));
+                chatMsgEntities.add(chatMsgEntity);
             }
-            chatMsgEntity.setTime(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TIME))));
-            chatMsgEntity.setStreet(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STREET))));
-            chatMsgEntity.setLongitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LONGITUDE))));
-            chatMsgEntity.setLatitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LATITUDE))));
-            chatMsgEntity.setDuration(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.DURATION))));
-            chatMsgEntity.setImgurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.IMGURL))));
-            try {
-                chatMsgEntity.setStatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STATUS)))));
-            } catch (Exception e) {
-            }
-            chatMsgEntity.setVoicestatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICESTATUS)))));
-            chatMsgEntity.setVoiceurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEURL))));
-            chatMsgEntity.setVoicelenth(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICELENTH))));
-            try {
-                chatMsgEntity.setVoiceplay(Boolean.parseBoolean(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEPLAY)))));
-            } catch (Exception e) {
-            }
-            chatMsgEntity.setGroupid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.GROUPID))));
-            chatMsgEntity.setChat_type(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.CHAT_TYPE))));
-            chatMsgEntities.add(chatMsgEntity);
+            cursor.close();
+            DatabaseManager.getInstance().closeDatabase();
+
+        } catch (Exception e) {
+
         }
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
         return chatMsgEntities;
     }
 
@@ -645,49 +680,54 @@ public class DBControl extends DBbase {
      * @return
      */
     public synchronized List<ChatMsgEntity> getChatGroup(String groupid, int pager) {
-        pager = pager * 20;
-        SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
-                .readDatabase();
-        Cursor cursor = readableDatabase.rawQuery(
-                "select * from " + DbHelper.CHAT_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.GROUPID + "=?  Order By " + DbHelper.TIME + " ASC limit 20 offset ?",
-                new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(groupid), pager + ""});
         List<ChatMsgEntity> chatMsgEntities = new ArrayList<>();
-        while (cursor.moveToNext()) {
-            ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
-            chatMsgEntity.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
-            chatMsgEntity.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
-            chatMsgEntity.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
-            chatMsgEntity.setMobile(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MOBILE))));
-            chatMsgEntity.setMessage(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGE))));
-            chatMsgEntity.setMessageid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGEID))));
-            try {
-                chatMsgEntity.setType(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TYPE)))));
-            } catch (Exception e) {
+        try {
+            pager = pager * 20;
+            SQLiteDatabase readableDatabase = DatabaseManager.getInstance()
+                    .readDatabase();
+            Cursor cursor = readableDatabase.rawQuery(
+                    "select * from " + DbHelper.CHAT_NAME + " where " + DbHelper.M_USER_TOKEN + "=? and " + DbHelper.GROUPID + "=?  Order By " + DbHelper.TIME + " ASC limit 20 offset ?",
+                    new String[]{enCode(MYAppconfig.loginUserInfoData.getToken()), enCode(groupid), pager + ""});
+
+            while (cursor.moveToNext()) {
+                ChatMsgEntity chatMsgEntity = new ChatMsgEntity();
+                chatMsgEntity.setUser_id(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_ID))));
+                chatMsgEntity.setUser_name(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_NAME))));
+                chatMsgEntity.setUser_avar(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.USER_AVAR))));
+                chatMsgEntity.setMobile(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MOBILE))));
+                chatMsgEntity.setMessage(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGE))));
+                chatMsgEntity.setMessageid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.MESSAGEID))));
+                try {
+                    chatMsgEntity.setType(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TYPE)))));
+                } catch (Exception e) {
+                }
+                chatMsgEntity.setTime(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TIME))));
+                chatMsgEntity.setStreet(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STREET))));
+                chatMsgEntity.setLongitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LONGITUDE))));
+                chatMsgEntity.setLatitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LASTUSER))));
+                chatMsgEntity.setDuration(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.DURATION))));
+                chatMsgEntity.setImgurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.IMGURL))));
+                try {
+                    chatMsgEntity.setStatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STATUS)))));
+                } catch (Exception e) {
+                }
+                chatMsgEntity.setVoicestatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICESTATUS)))));
+                chatMsgEntity.setVoiceurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEURL))));
+                chatMsgEntity.setVoicelenth(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICELENTH))));
+                try {
+                    chatMsgEntity.setVoiceplay(Boolean.parseBoolean(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEPLAY)))));
+                } catch (Exception e) {
+                }
+                chatMsgEntity.setGroupid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.GROUPID))));
+                chatMsgEntity.setChat_type(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.CHAT_TYPE))));
+                chatMsgEntities.add(chatMsgEntity);
             }
-            chatMsgEntity.setTime(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.TIME))));
-            chatMsgEntity.setStreet(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STREET))));
-            chatMsgEntity.setLongitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LONGITUDE))));
-            chatMsgEntity.setLatitude(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.LASTUSER))));
-            chatMsgEntity.setDuration(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.DURATION))));
-            chatMsgEntity.setImgurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.IMGURL))));
-            try {
-                chatMsgEntity.setStatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.STATUS)))));
-            } catch (Exception e) {
-            }
-            chatMsgEntity.setVoicestatus(Integer.parseInt(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICESTATUS)))));
-            chatMsgEntity.setVoiceurl(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEURL))));
-            chatMsgEntity.setVoicelenth(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICELENTH))));
-            try {
-                chatMsgEntity.setVoiceplay(Boolean.parseBoolean(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.VOICEPLAY)))));
-            } catch (Exception e) {
-            }
-            chatMsgEntity.setGroupid(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.GROUPID))));
-            chatMsgEntity.setChat_type(deCode(cursor.getString(cursor.getColumnIndex(DbHelper.CHAT_TYPE))));
-            chatMsgEntities.add(chatMsgEntity);
+            cursor.close();
+            DatabaseManager.getInstance().closeDatabase();
+            L.e("list_________size:" + chatMsgEntities.size());
+        } catch (Exception e) {
+
         }
-        cursor.close();
-        DatabaseManager.getInstance().closeDatabase();
-        L.e("list_________size:" + chatMsgEntities.size());
         return chatMsgEntities;
     }
 

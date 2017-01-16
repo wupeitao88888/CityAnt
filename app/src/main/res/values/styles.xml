@@ -1,5 +1,29 @@
 <resources>
 
+    <style name="Color1SwitchStyle">
+        <item name="colorControlActivated">@color/yellow</item>
+        <!-- 关闭时的拇指按钮的颜色 -->
+        <item name="colorSwitchThumbNormal">@color/gray</item>
+        <!-- witch关闭时的轨迹的颜色  30%这个颜色 -->
+        <item name="android:colorForeground">@color/gray</item>
+    </style>
+    <style name="p_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        //Dialog的windowFrame框为无
+        <item name="android:windowIsFloating">true</item>
+        //是否浮现在activity之上
+        <item name="android:windowIsTranslucent">true</item>
+        //是否半透明
+        <item name="android:windowNoTitle">true</item>
+        //是否显示title
+        <item name="android:background">@android:color/transparent</item>
+        //设置dialog的背景
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        //就是用来控制灰度的值，当为1时，界面除了我们的dialog内容是高亮显示的，dialog以外的区域是黑色的，完全看不到其他内容，系统的默认值是0.5
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
         <item name="colorPrimary">@color/yellow</item>
@@ -13,7 +37,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="icon_re">
 
@@ -301,6 +325,7 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">13dp</item>
     </style>
+
     <style name="right_img_style">
         <item name="android:layout_width">13dp</item>
         <item name="android:layout_height">17dp</item>
@@ -314,5 +339,5 @@
         <item name="android:textSize">15sp</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 </resources>

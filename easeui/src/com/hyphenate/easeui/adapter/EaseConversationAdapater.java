@@ -90,6 +90,7 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
             holder = new ViewHolder();
             holder.name = (TextView) convertView.findViewById(R.id.name);
             holder.unreadLabel = (TextView) convertView.findViewById(R.id.unread_msg_number);
+            holder.unread_msg = (ImageView) convertView.findViewById(R.id.unread_msg);
             holder.message = (TextView) convertView.findViewById(R.id.message);
             holder.time = (TextView) convertView.findViewById(R.id.time);
             holder.avatar = (ImageView) convertView.findViewById(R.id.avatar);
@@ -135,10 +136,12 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
 
         if (conversation.getUnreadMsgCount() > 0) {
             // show unread message count
-            holder.unreadLabel.setText(String.valueOf(conversation.getUnreadMsgCount()));
-            holder.unreadLabel.setVisibility(View.VISIBLE);
+//            holder.unreadLabel.setText(String.valueOf(conversation.getUnreadMsgCount()));
+//            holder.unreadLabel.setVisibility(View.VISIBLE);
+            holder.unread_msg.setVisibility(View.VISIBLE);
         } else {
-            holder.unreadLabel.setVisibility(View.INVISIBLE);
+//            holder.unreadLabel.setVisibility(View.INVISIBLE);
+            holder.unread_msg.setVisibility(View.INVISIBLE);
         }
 
         if (conversation.getAllMsgCount() != 0) {
@@ -162,15 +165,15 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
         }
 
         //set property
-        holder.name.setTextColor(primaryColor);
-        holder.message.setTextColor(secondaryColor);
-        holder.time.setTextColor(timeColor);
-        if (primarySize != 0)
-            holder.name.setTextSize(TypedValue.COMPLEX_UNIT_PX, primarySize);
-        if (secondarySize != 0)
-            holder.message.setTextSize(TypedValue.COMPLEX_UNIT_PX, secondarySize);
-        if (timeSize != 0)
-            holder.time.setTextSize(TypedValue.COMPLEX_UNIT_PX, timeSize);
+//        holder.name.setTextColor(primaryColor);
+//        holder.message.setTextColor(secondaryColor);
+//        holder.time.setTextColor(timeColor);
+//        if (primarySize != 0)
+//            holder.name.setTextSize(TypedValue.COMPLEX_UNIT_PX, primarySize);
+//        if (secondarySize != 0)
+//            holder.message.setTextSize(TypedValue.COMPLEX_UNIT_PX, secondarySize);
+//        if (timeSize != 0)
+//            holder.time.setTextSize(TypedValue.COMPLEX_UNIT_PX, timeSize);
 
         return convertView;
     }
@@ -350,6 +353,7 @@ public class EaseConversationAdapater extends ArrayAdapter<EMConversation> {
          */
         RelativeLayout list_itease_layout;
         TextView motioned;
+        ImageView unread_msg;
     }
 }
 
