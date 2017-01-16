@@ -27,6 +27,7 @@ public class TitleBar extends FrameLayout {
     private ImageView lc_left_back, lc_right_image;
     private ImageView frist_menu;
     private ImageView second_menu;
+    private ImageView lc_left_back_other;
 
     private RelativeLayout lc_left_back_all, lc_center_all, lc_right_all, ll_title, ll_title_content;
     private OnClickListener backListenetForUser;
@@ -59,6 +60,7 @@ public class TitleBar extends FrameLayout {
         lc_left_menu = (TextView) inflate.findViewById(R.id.lc_left_menu);
         lc_center_menu = (TextView) inflate.findViewById(R.id.title);
         lc_left_back = (ImageView) inflate.findViewById(R.id.lc_left_back);
+        lc_left_back_other= (ImageView) inflate.findViewById(R.id.lc_left_back_other);
         lc_left_back_all = (RelativeLayout) inflate
                 .findViewById(R.id.lc_left_back_all);
         lc_center_all = (RelativeLayout) inflate
@@ -124,8 +126,10 @@ public class TitleBar extends FrameLayout {
      * 设置左边的图片
      */
     public void setLeftImage(int draw) {
-        lc_left_back.setBackgroundResource(draw);
+        lc_left_back.setVisibility(INVISIBLE);
+        lc_left_back_other.setBackgroundResource(draw);
     }
+
 
 //    /**
 //     * 旋转-90度

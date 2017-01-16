@@ -29,7 +29,7 @@ public class StartPic extends FrameLayout {
 	private ImageView start_pic_image;
 	private Context context;
 	private AnimatorSet set;
-	private int Duration=5000;
+	private int Duration=2000;
 	public StartPic(Context context) {
 		super(context);
 		init(context);

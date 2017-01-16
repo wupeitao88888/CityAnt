@@ -5,13 +5,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.cityant.main.R;
-import com.cityant.main.model.OnPermissionsMsg;
 import com.iloomo.utils.L;
-import com.tbruyelle.rxpermissions.Permission;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
 import rx.functions.Action0;
@@ -120,9 +116,9 @@ public class PermissionsUtils {
         normalDialog.show();
     }
 
-    public OnPermissionsMsg onPermissionsMsg;
+    public com.cityant.main.model.onPermissionsMsg onPermissionsMsg;
 
-    public void setOnPermissionsMsg(OnPermissionsMsg onPermissionsMsg) {
+    public void setOnPermissionsMsg(com.cityant.main.model.onPermissionsMsg onPermissionsMsg) {
         this.onPermissionsMsg = onPermissionsMsg;
     }
 }

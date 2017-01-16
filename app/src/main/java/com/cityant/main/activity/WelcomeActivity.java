@@ -1,15 +1,12 @@
 package com.cityant.main.activity;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.cityant.main.R;
 
 
-import com.cityant.main.model.OnPermissionsMsg;
+import com.cityant.main.model.onPermissionsMsg;
 import com.cityant.main.utlis.PermissionsUtils;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
@@ -19,7 +16,6 @@ import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.L;
 import com.iloomo.widget.StartPic;
 import com.nineoldandroids.animation.Animator;
-import com.tbruyelle.rxpermissions.RxPermissions;
 
 
 /**
@@ -38,7 +34,7 @@ public class WelcomeActivity extends ActivitySupport {
         setRemoveTitle();
 
         welcome = (StartPic) findViewById(R.id.welcome);
-        PermissionsUtils.getPermissionsUtils(context).setOnPermissionsMsg(new OnPermissionsMsg() {
+        PermissionsUtils.getPermissionsUtils(context).setOnPermissionsMsg(new onPermissionsMsg() {
             @Override
             public void onWRITE_EXTERNAL_STORAGE(boolean bool) {
                 L.e(bool+"1");

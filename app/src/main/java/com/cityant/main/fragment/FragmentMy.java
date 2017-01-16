@@ -1,10 +1,14 @@
 package com.cityant.main.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,6 +20,7 @@ import com.cityant.main.activity.GuessActivity;
 import com.cityant.main.activity.IdeaActivity;
 import com.cityant.main.activity.JudgeActivity;
 import com.cityant.main.activity.MYBeanActivity;
+import com.cityant.main.activity.MyFrendActivity;
 import com.cityant.main.activity.RankActivity;
 import com.cityant.main.activity.SettingActivity;
 import com.cityant.main.activity.ShoppingActivity;
@@ -66,7 +71,7 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
     private RelativeLayout setting;
     private CostomRatingBar rating_bar_five;
     private RelativeLayout income_re;
-
+    private PopupWindow popupWindow;
     @Override
     public View initView() {
         setTitle("我");
@@ -124,19 +129,21 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
 
     @Override
     public View setTitleBar(View view) {
-        isLeftVisibility(false);
+//        isLeftVisibility(false);
         titleBar.setFristMenuimgIsVisbility(View.VISIBLE);
-        titleBar.setSecondMenuimgIsVisbility(View.VISIBLE);
+        titleBar.setLeftImage(R.mipmap.tongxunl);
         titleBar.setRightFristMenuimgListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                getPopupWindow();
+                // 这里是位置显示方式,在屏幕的左侧
+                popupWindow.showAsDropDown(view,0,25);
             }
         });
-        titleBar.setRightSecondMenuimgListener(new View.OnClickListener() {
+        titleBar.setOnclickBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                context.startActivity(new Intent(context,MyFrendActivity.class));
             }
         });
         return super.setTitleBar(view);
@@ -259,4 +266,42 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
                 break;
         }
     }
+
+    /**
+     * 创建PopupWindow
+     */
+    protected void initPopuptWindow() {
+        // TODO Auto-generated method stub
+        // 获取自定义布局文件activity_popupwindow_left.xml的视图
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popupWindow_view = layoutInflater.inflate(R.layout.layout_menuright, null);
+        // 创建PopupWindow实例,200,LayoutParams.MATCH_PARENT分别是宽度和高度
+        popupWindow = new PopupWindow(popupWindow_view, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT, true);
+        // 设置动画效果
+//        popupWindow.setAnimationStyle(R.style.AnimationFade);
+        // 点击其他地方消失
+        popupWindow_view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                if (popupWindow != null && popupWindow.isShowing()) {
+                    popupWindow.dismiss();
+                    popupWindow = null;
+                }
+                return false;
+            }
+        });
+    }
+    /***
+     * 获取PopupWindow实例
+     */
+    private void getPopupWindow() {
+        if (null != popupWindow) {
+            popupWindow.dismiss();
+            return;
+        } else {
+            initPopuptWindow();
+        }
+    }
+
 }

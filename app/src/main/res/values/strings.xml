@@ -162,4 +162,8 @@
     <string name="scan_tip">将取景框对准二维码,\n即可自动扫描。</string>
     <string name="removeItem">删除</string>
     <string name="scan_login">二维码扫描</string>
+    <string name="add_friends">添加好友</string>
+    <string name="qun_start">群发起</string>
+    <string name="Brand_Blogging">品牌部落</string>
+    <string name="shaoyishao">扫一扫</string>
 </resources>

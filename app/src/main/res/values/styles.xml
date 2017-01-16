@@ -7,6 +7,7 @@
         <!-- witch关闭时的轨迹的颜色  30%这个颜色 -->
         <item name="android:colorForeground">@color/gray</item>
     </style>
+
     <style name="p_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         //Dialog的windowFrame框为无
@@ -340,4 +341,36 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+
+    <style name="addfrend_menu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+    </style>
+
+    <style name="addfrend_menu_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/title_text</item>
+        <item name="android:layout_marginLeft">25dp</item>
+    </style>
+
+    <style name="addfrend_menu_line">
+        <!--<item name="android:layout_width">match_parent</item>-->
+        <!--<item name="android:layout_height">1dp</item>-->
+        <!--<item name="android:layout_alignParentBottom">true</item>-->
+        <!--<item name="android:background">@color/white</item>-->
+    </style>
+
+    <style name="addfrend_menu_icon">
+        <item name="android:layout_width">15dp</item>
+        <item name="android:layout_height">15dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">5dp</item>
+    </style>
+
 </resources>

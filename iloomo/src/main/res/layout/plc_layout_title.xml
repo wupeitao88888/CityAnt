@@ -32,6 +32,14 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="7.6dp"
                     android:background="@drawable/pc_back" />
+
+                <ImageView
+                    android:id="@+id/lc_left_back_other"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="7.6dp"
+                    />
             </RelativeLayout>
 
             <RelativeLayout

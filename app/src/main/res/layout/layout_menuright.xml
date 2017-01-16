@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="127dp"
+        android:layout_height="160dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:background="@color/yellow">
+
+        <RelativeLayout style="@style/addfrend_menu">
+
+            <ImageView
+                style="@style/addfrend_menu_icon"
+                android:src="@drawable/jiahaoyou" />
+
+            <TextView
+                style="@style/addfrend_menu_text"
+                android:text="@string/add_friends" />
+
+            <!--<view style="@style/addfrend_menu_line" />-->
+        </RelativeLayout>
+        <!--<RelativeLayout style="@style/addfrend_menu">-->
+
+            <!--<ImageView-->
+                <!--style="@style/addfrend_menu_icon"-->
+                <!--android:src="@drawable/jiahaoyou" />-->
+
+            <!--<TextView-->
+                <!--style="@style/addfrend_menu_text"-->
+                <!--android:text="@string/qun_start" />-->
+
+            <!--<view style="@style/addfrend_menu_line" />-->
+        <!--</RelativeLayout>-->
+        <!--<RelativeLayout style="@style/addfrend_menu">-->
+
+            <!--<ImageView-->
+                <!--style="@style/addfrend_menu_icon"-->
+                <!--android:src="@drawable/jiahaoyou" />-->
+
+            <!--<TextView-->
+                <!--style="@style/addfrend_menu_text"-->
+                <!--android:text="@string/Brand_Blogging" />-->
+
+            <!--<view style="@style/addfrend_menu_line" />-->
+        <!--</RelativeLayout>-->
+        <!--<RelativeLayout style="@style/addfrend_menu">-->
+
+            <!--<ImageView-->
+                <!--style="@style/addfrend_menu_icon"-->
+                <!--android:src="@drawable/jiahaoyou" />-->
+
+            <!--<TextView-->
+                <!--style="@style/addfrend_menu_text"-->
+                <!--android:text="@string/shaoyishao" />-->
+
+        <!--</RelativeLayout>-->
+    </LinearLayout>
+
+</RelativeLayout>
