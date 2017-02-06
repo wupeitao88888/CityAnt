@@ -1,21 +1,43 @@
 package com.hyphenate.chatuidemo.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cityant.main.activity.AddFrendsActivity;
+import com.cityant.main.activity.CertifyCenterActivity;
+import com.cityant.main.activity.CreateActivity;
+import com.cityant.main.activity.FinishedActivity;
+import com.cityant.main.activity.GuessActivity;
+import com.cityant.main.activity.IdeaActivity;
+import com.cityant.main.activity.JudgeActivity;
+import com.cityant.main.activity.MYBeanActivity;
 import com.cityant.main.activity.MyFrendActivity;
+import com.cityant.main.activity.RankActivity;
+import com.cityant.main.activity.SettingActivity;
+import com.cityant.main.activity.ShoppingActivity;
+import com.cityant.main.activity.SingupActivity;
+import com.cityant.main.activity.SportsActivity;
+import com.cityant.main.activity.StorehouseActivity;
+import com.cityant.main.activity.TodayReseiveActivity;
+import com.cityant.main.activity.UserinfoActivity;
+import com.cityant.main.activity.WalletActivity;
 import com.cityant.main.bean.BusEventFragmentMessage;
 import com.cityant.main.utlis.AppBus;
+import com.cityant.main.zxing.MipcaActivityCapture;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMConversation.EMConversationType;
@@ -31,34 +53,35 @@ import com.cityant.main.R;
 import com.iloomo.utils.L;
 import com.squareup.otto.Subscribe;
 
-public class ConversationListFragment extends EaseConversationListFragment{
+public class ConversationListFragment extends EaseConversationListFragment implements View.OnClickListener {
 
     private TextView errorText;
+    private PopupWindow popupWindow;
 
     @Override
     protected void initView() {
         super.initView();
-        View errorView = (LinearLayout) View.inflate(getActivity(),R.layout.em_chat_neterror_item, null);
+        View errorView = (LinearLayout) View.inflate(getActivity(), R.layout.em_chat_neterror_item, null);
         titleBar.setFristMenuimgIsVisbility(View.VISIBLE);
-        titleBar.setSecondMenuimgIsVisbility(View.VISIBLE);
-        titleBar.setRightSecondMenuimg(R.drawable.jiahaoyou);
+        titleBar.setRightFristMenuimg(R.drawable.add_menu);
+        titleBar.setLeftImage(R.drawable.tongxunl);
         titleBar.setRightFristMenuimgListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().startActivity(new Intent(getActivity(), MyFrendActivity.class));
+                getPopupWindow();
+                popupWindow.showAsDropDown(view, 0, 25);
             }
         });
-        titleBar.setRightSecondMenuimgListener(new View.OnClickListener() {
+        titleBar.setOnclickBackListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-                getActivity().startActivity(new Intent(getActivity(), AddFrendsActivity.class));
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getActivity(), MyFrendActivity.class));
             }
         });
         errorItemContainer.addView(errorView);
         errorText = (TextView) errorView.findViewById(R.id.tv_connect_errormsg);
     }
-    
+
     @Override
     protected void setUpView() {
         super.setUpView();
@@ -75,14 +98,14 @@ public class ConversationListFragment extends EaseConversationListFragment{
                 else {
                     // start chat acitivity
                     Intent intent = new Intent(getActivity(), ChatActivity.class);
-                    if(conversation.isGroup()){
-                        if(conversation.getType() == EMConversationType.ChatRoom){
+                    if (conversation.isGroup()) {
+                        if (conversation.getType() == EMConversationType.ChatRoom) {
                             // it's group chat
                             intent.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_CHATROOM);
-                        }else{
+                        } else {
                             intent.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_GROUP);
                         }
-                        
+
                     }
                     // it's single chat
                     intent.putExtra(Constant.EXTRA_USER_ID, username);
@@ -119,17 +142,17 @@ public class ConversationListFragment extends EaseConversationListFragment{
     @Override
     protected void onConnectionDisconnected() {
         super.onConnectionDisconnected();
-        if (NetUtils.hasNetwork(getActivity())){
-         errorText.setText(R.string.can_not_connect_chat_server_connection);
+        if (NetUtils.hasNetwork(getActivity())) {
+            errorText.setText(R.string.can_not_connect_chat_server_connection);
         } else {
-          errorText.setText(R.string.the_current_network);
+            errorText.setText(R.string.the_current_network);
         }
     }
-    
-    
+
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-        getActivity().getMenuInflater().inflate(R.menu.em_delete_message, menu); 
+        getActivity().getMenuInflater().inflate(R.menu.em_delete_message, menu);
     }
 
     @Override
@@ -140,11 +163,11 @@ public class ConversationListFragment extends EaseConversationListFragment{
         } else if (item.getItemId() == R.id.delete_conversation) {
             deleteMessage = false;
         }
-    	EMConversation tobeDeleteCons = conversationListView.getItem(((AdapterContextMenuInfo) item.getMenuInfo()).position);
-    	if (tobeDeleteCons == null) {
-    	    return true;
-    	}
-        if(tobeDeleteCons.getType() == EMConversationType.GroupChat){
+        EMConversation tobeDeleteCons = conversationListView.getItem(((AdapterContextMenuInfo) item.getMenuInfo()).position);
+        if (tobeDeleteCons == null) {
+            return true;
+        }
+        if (tobeDeleteCons.getType() == EMConversationType.GroupChat) {
             EaseAtMessageHelper.get().removeAtMeGroup(tobeDeleteCons.getUserName());
         }
         try {
@@ -161,7 +184,6 @@ public class ConversationListFragment extends EaseConversationListFragment{
         ((MainActivity) getActivity()).updateUnreadLabel();
         return true;
     }
-
 
 
     @Override
@@ -186,7 +208,7 @@ public class ConversationListFragment extends EaseConversationListFragment{
         switch (data.getContent()) {
             case 1://刷新列表
                 L.e("有新消息啦");
-               refresh();
+                refresh();
                 break;
             case 2://是连接不到聊天服务器
 //                fl_error_item.setVisibility(View.VISIBLE);
@@ -205,5 +227,70 @@ public class ConversationListFragment extends EaseConversationListFragment{
     @Subscribe
     public void onDataChange(String sss) {
         System.out.println("====" + sss);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.shaoshao://扫一扫
+                Intent intent = new Intent(getContext(), MipcaActivityCapture.class);
+                startActivity(intent);
+                break;
+            case R.id.addfiend://添加好友
+                startActivity(new Intent(getContext(), AddFrendsActivity.class));
+                break;
+            case R.id.g_start://群发起
+                break;
+            case R.id.pinpaibuluo://品牌部落
+                break;
+        }
+    }
+
+    /**
+     * 创建PopupWindow
+     */
+    protected void initPopuptWindow() {
+        // TODO Auto-generated method stub
+        // 获取自定义布局文件activity_popupwindow_left.xml的视图
+        LayoutInflater layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popupWindow_view = layoutInflater.inflate(R.layout.layout_menuright, null);
+
+        RelativeLayout addfiend = (RelativeLayout) popupWindow_view.findViewById(R.id.addfiend);
+        RelativeLayout g_start = (RelativeLayout) popupWindow_view.findViewById(R.id.g_start);
+        RelativeLayout pinpaibuluo = (RelativeLayout) popupWindow_view.findViewById(R.id.pinpaibuluo);
+        RelativeLayout shaoshao = (RelativeLayout) popupWindow_view.findViewById(R.id.shaoshao);
+        addfiend.setOnClickListener(this);
+        g_start.setOnClickListener(this);
+        pinpaibuluo.setOnClickListener(this);
+        shaoshao.setOnClickListener(this);
+
+        // 创建PopupWindow实例,200,LayoutParams.MATCH_PARENT分别是宽度和高度
+        popupWindow = new PopupWindow(popupWindow_view, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT, true);
+        // 设置动画效果
+//        popupWindow.setAnimationStyle(R.style.AnimationFade);
+        // 点击其他地方消失
+        popupWindow_view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                if (popupWindow != null && popupWindow.isShowing()) {
+                    popupWindow.dismiss();
+                    popupWindow = null;
+                }
+                return false;
+            }
+        });
+    }
+
+    /***
+     * 获取PopupWindow实例
+     */
+    private void getPopupWindow() {
+        if (null != popupWindow) {
+            popupWindow.dismiss();
+            return;
+        } else {
+            initPopuptWindow();
+        }
     }
 }

@@ -13,7 +13,7 @@
     <ImageView
         android:layout_width="263dp"
         android:layout_height="97dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="66dp"
         android:layout_centerHorizontal="true"
         android:background="@mipmap/icon_te" />
 

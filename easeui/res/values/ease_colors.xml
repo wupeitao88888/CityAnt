@@ -29,7 +29,7 @@
     <color name="btn_blue_pressed">#0066FF</color>
     <color name="orange">#FFA500</color>
     <color name="gray_pressed">#b5b5b6</color>
-    <color name="gray_normal">#666667</color>
+    <color name="gray_normal">#D0D0D0</color>
     <color name="grid_state_pressed">#1Affffff</color>
     <color name="grid_state_focused">#80000000</color>
     <color name="voip_interface_text_color">#bababa</color>

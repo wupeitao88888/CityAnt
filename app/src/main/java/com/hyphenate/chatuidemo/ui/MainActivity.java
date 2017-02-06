@@ -15,6 +15,9 @@ package com.hyphenate.chatuidemo.ui;
 
 import java.util.List;
 import java.util.List;
+
+import com.easemob.redpacketui.RedPacketConstant;
+import com.easemob.redpacketui.utils.RedPacketUtil;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.EMContactListener;
 import com.hyphenate.EMMessageListener;
@@ -226,9 +229,9 @@ public class MainActivity extends BaseActivity {
 			for (EMMessage message : messages) {
 				EMCmdMessageBody cmdMsgBody = (EMCmdMessageBody) message.getBody();
 				final String action = cmdMsgBody.action();//获取自定义action
-//				if (action.equals(RedPacketConstant.REFRESH_GROUP_RED_PACKET_ACTION)) {
-//					RedPacketUtil.receiveRedPacketAckMessage(message);
-//				}
+				if (action.equals(RedPacketConstant.REFRESH_GROUP_RED_PACKET_ACTION)) {
+					RedPacketUtil.receiveRedPacketAckMessage(message);
+				}
 			}
 			//end of red packet code
 			refreshUIWithMessage();

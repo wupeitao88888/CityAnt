@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cityant.main.R;
+import com.cityant.main.activity.AddFrendsActivity;
 import com.cityant.main.activity.CertifyCenterActivity;
 import com.cityant.main.activity.CreateActivity;
 import com.cityant.main.activity.FinishedActivity;
@@ -34,6 +35,7 @@ import com.cityant.main.bean.EvaluateListModel;
 import com.cityant.main.bean.LoginUserInfo;
 import com.cityant.main.bean.TodayIncomeModel;
 import com.cityant.main.global.MYTaskID;
+import com.cityant.main.zxing.MipcaActivityCapture;
 import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.base.FragmentSupport;
 import com.iloomo.net.AsyncHttpPost;
@@ -72,6 +74,7 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
     private CostomRatingBar rating_bar_five;
     private RelativeLayout income_re;
     private PopupWindow popupWindow;
+
     @Override
     public View initView() {
         setTitle("我");
@@ -96,7 +99,7 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
         service = (RelativeLayout) findViewById(inflate, R.id.service);
         setting = (RelativeLayout) findViewById(inflate, R.id.setting);
         rating_bar_five = (CostomRatingBar) findViewById(inflate, R.id.rating_bar_five);
-        income_re= (RelativeLayout) findViewById(inflate, R.id.income_re);
+        income_re = (RelativeLayout) findViewById(inflate, R.id.income_re);
 
         reseive_re.setOnClickListener(this);
         income_re.setOnClickListener(this);
@@ -131,19 +134,20 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
     public View setTitleBar(View view) {
 //        isLeftVisibility(false);
         titleBar.setFristMenuimgIsVisbility(View.VISIBLE);
-        titleBar.setLeftImage(R.mipmap.tongxunl);
+        titleBar.setLeftImage(R.drawable.tongxunl);
+        titleBar.setRightFristMenuimg(R.drawable.add_menu);
         titleBar.setRightFristMenuimgListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getPopupWindow();
                 // 这里是位置显示方式,在屏幕的左侧
-                popupWindow.showAsDropDown(view,0,25);
+                popupWindow.showAsDropDown(view, 0, 25);
             }
         });
         titleBar.setOnclickBackListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context,MyFrendActivity.class));
+                context.startActivity(new Intent(context, MyFrendActivity.class));
             }
         });
         return super.setTitleBar(view);
@@ -203,7 +207,17 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
             case R.id.setting://设置
                 context.startActivity(new Intent(context, SettingActivity.class));
                 break;
-//
+            case R.id.shaoshao://扫一扫
+                Intent intent = new Intent(getContext(),MipcaActivityCapture.class);
+                startActivity(intent);
+                break;
+            case R.id.addfiend://添加好友
+                startActivity(new Intent(getContext(),AddFrendsActivity.class));
+                break;
+            case R.id.g_start://群发起
+                break;
+            case R.id.pinpaibuluo://品牌部落
+                break;
         }
     }
 
@@ -275,6 +289,16 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
         // 获取自定义布局文件activity_popupwindow_left.xml的视图
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popupWindow_view = layoutInflater.inflate(R.layout.layout_menuright, null);
+
+        RelativeLayout addfiend = (RelativeLayout) popupWindow_view.findViewById(R.id.addfiend);
+        RelativeLayout g_start = (RelativeLayout) popupWindow_view.findViewById(R.id.g_start);
+        RelativeLayout pinpaibuluo = (RelativeLayout) popupWindow_view.findViewById(R.id.pinpaibuluo);
+        RelativeLayout shaoshao = (RelativeLayout) popupWindow_view.findViewById(R.id.shaoshao);
+        addfiend.setOnClickListener(this);
+        g_start.setOnClickListener(this);
+        pinpaibuluo.setOnClickListener(this);
+        shaoshao.setOnClickListener(this);
+
         // 创建PopupWindow实例,200,LayoutParams.MATCH_PARENT分别是宽度和高度
         popupWindow = new PopupWindow(popupWindow_view, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT, true);
         // 设置动画效果
@@ -292,6 +316,7 @@ public class FragmentMy extends FragmentSupport implements View.OnClickListener,
             }
         });
     }
+
     /***
      * 获取PopupWindow实例
      */

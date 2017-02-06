@@ -359,11 +359,11 @@
         <item name="android:layout_marginLeft">25dp</item>
     </style>
 
-    <style name="addfrend_menu_line">
-        <!--<item name="android:layout_width">match_parent</item>-->
-        <!--<item name="android:layout_height">1dp</item>-->
-        <!--<item name="android:layout_alignParentBottom">true</item>-->
-        <!--<item name="android:background">@color/white</item>-->
+    <style name="addfr_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="addfrend_menu_icon">

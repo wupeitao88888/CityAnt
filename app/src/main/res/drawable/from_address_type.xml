@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <shape>
+            <corners android:radius="1dp" />
+
+            <solid android:color="#f1f1f1" />
+            <!-- 填充的颜色 -->
+        </shape>
+    </item>
+
+    <!-- 没有焦点时的背景图片 -->
+    <item android:state_enabled="false">
+        <shape>
+            <corners android:radius="1dp" />
+
+            <stroke android:width="0.5dp" android:dashGap="0dp" android:color="#f1f1f1" />
+
+            <solid android:color="#f1f1f1" />
+        </shape>
+    </item>
+    <item android:state_enabled="true" android:state_pressed="false">
+        <shape>
+            <corners android:radius="1dp" />
+
+            <stroke android:width="0.5dp" android:color="#f1f1f1" android:dashGap="0dp" />
+
+            <solid android:color="#f1f1f1" />
+        </shape>
+    </item>
+</selector>

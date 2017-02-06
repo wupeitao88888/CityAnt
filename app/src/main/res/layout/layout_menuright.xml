@@ -11,10 +11,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:orientation="vertical"
-        android:background="@color/yellow">
+        android:background="@color/yellow"
+        android:orientation="vertical">
 
-        <RelativeLayout style="@style/addfrend_menu">
+        <RelativeLayout android:id="@+id/addfiend" style="@style/addfrend_menu">
 
             <ImageView
                 style="@style/addfrend_menu_icon"
@@ -24,43 +24,55 @@
                 style="@style/addfrend_menu_text"
                 android:text="@string/add_friends" />
 
-            <!--<view style="@style/addfrend_menu_line" />-->
+            <View
+                style="@style/addfr_line" />
         </RelativeLayout>
-        <!--<RelativeLayout style="@style/addfrend_menu">-->
+        <RelativeLayout
+            android:id="@+id/g_start"
+            style="@style/addfrend_menu">
 
-            <!--<ImageView-->
-                <!--style="@style/addfrend_menu_icon"-->
-                <!--android:src="@drawable/jiahaoyou" />-->
+            <ImageView
+                style="@style/addfrend_menu_icon"
+                android:src="@drawable/jiahaoyou" />
 
-            <!--<TextView-->
-                <!--style="@style/addfrend_menu_text"-->
-                <!--android:text="@string/qun_start" />-->
+            <TextView
+                style="@style/addfrend_menu_text"
+                android:text="@string/qun_start" />
 
-            <!--<view style="@style/addfrend_menu_line" />-->
-        <!--</RelativeLayout>-->
-        <!--<RelativeLayout style="@style/addfrend_menu">-->
 
-            <!--<ImageView-->
-                <!--style="@style/addfrend_menu_icon"-->
-                <!--android:src="@drawable/jiahaoyou" />-->
+            <View
+                style="@style/addfr_line" />
+        </RelativeLayout>
 
-            <!--<TextView-->
-                <!--style="@style/addfrend_menu_text"-->
-                <!--android:text="@string/Brand_Blogging" />-->
+        <RelativeLayout
+            android:id="@+id/pinpaibuluo"
+            style="@style/addfrend_menu">
 
-            <!--<view style="@style/addfrend_menu_line" />-->
-        <!--</RelativeLayout>-->
-        <!--<RelativeLayout style="@style/addfrend_menu">-->
+            <ImageView
+                style="@style/addfrend_menu_icon"
+                android:src="@drawable/jiahaoyou" />
 
-            <!--<ImageView-->
-                <!--style="@style/addfrend_menu_icon"-->
-                <!--android:src="@drawable/jiahaoyou" />-->
+            <TextView
+                style="@style/addfrend_menu_text"
+                android:text="@string/Brand_Blogging" />
 
-            <!--<TextView-->
-                <!--style="@style/addfrend_menu_text"-->
-                <!--android:text="@string/shaoyishao" />-->
+            <View
+                style="@style/addfr_line" />
+        </RelativeLayout>
 
-        <!--</RelativeLayout>-->
+        <RelativeLayout
+            android:id="@+id/shaoshao"
+            style="@style/addfrend_menu">
+
+            <ImageView
+                style="@style/addfrend_menu_icon"
+                android:src="@drawable/jiahaoyou" />
+
+            <TextView
+                style="@style/addfrend_menu_text"
+                android:text="@string/shaoyishao" />
+
+        </RelativeLayout>
     </LinearLayout>
 
 </RelativeLayout>

@@ -9,6 +9,7 @@ import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
 import com.cityant.main.utlis.FaceConversionUtil;
+import com.easemob.redpacketsdk.RedPacket;
 import com.hyphenate.chatuidemo.DemoApplication;
 import com.hyphenate.easeui.bean.LoginUserInfoData;
 import com.hyphenate.easeui.db.DBControl;
@@ -47,6 +48,9 @@ public class MYApplication extends DemoApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        RedPacket.getInstance().initContext(applicationContext);
+        //打开Log开关 正式发布时请关闭
+        RedPacket.getInstance().setDebugMode(true);
         checkDb();
         initDate();
 //        SDKInitializer.initialize(getApplicationContext());

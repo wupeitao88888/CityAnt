@@ -81,8 +81,9 @@ public class EaseConversationListFragment extends EaseBaseFragment {
         // button to clear content in search bar
         clearSearch = (ImageButton) getView().findViewById(R.id.search_clear);
         errorItemContainer = (FrameLayout) getView().findViewById(R.id.fl_error_item);
-        titleBar.isLeftVisibility(false);
+//        titleBar.isLeftVisibility(false);
         titleBar.setCenterTitle("会话");
+//        titleBar.setSecondMenuimgIsVisbility(View.GONE);
 
     }
 

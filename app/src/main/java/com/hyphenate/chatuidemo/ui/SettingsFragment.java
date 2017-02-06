@@ -14,6 +14,7 @@
 package com.hyphenate.chatuidemo.ui;
 
 
+import com.easemob.redpacketui.utils.RedPacketUtil;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
@@ -226,7 +227,7 @@ public class SettingsFragment extends Fragment implements OnClickListener {
 		switch (v.getId()) {
 		//red packet code : 进入零钱页面
 		case R.id.ll_change:
-//			RedPacketUtil.startChangeActivity(getActivity());
+			RedPacketUtil.startChangeActivity(getActivity());
 			break;
 		//end of red packet code
 		case R.id.rl_switch_notification:
