@@ -22,18 +22,16 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.TimePickerView;
 import com.bumptech.glide.Glide;
 import com.cityant.main.R;
-
 import com.cityant.main.activity.demand.LocationActivity;
 import com.cityant.main.bean.TagList;
-import com.hyphenate.easeui.global.MYAppconfig;
 import com.cityant.main.global.MYApplication;
 import com.cityant.main.global.MYTaskID;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.base.ActivitySupport;
 import com.iloomo.bean.BaseModel;
 import com.iloomo.net.AsyncHttpPost;
-
 import com.iloomo.net.ThreadCallBack;
-
+import com.iloomo.utils.DateUtil;
 import com.iloomo.utils.DialogUtil;
 import com.iloomo.utils.ToastUtil;
 
@@ -135,7 +133,7 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
 
 
         birthPicker.setOnTimeSelectListener(data -> {
-            time_edit.setText(data.getYear()+data.getMonth()+data.getDay()+data.getHours()+data.getMinutes());
+            time_edit.setText(DateUtil.date2yyyyMMdd(data));
         });
         commit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,11 +191,11 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
                 parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
                 parameter.put("latitude", MYApplication.getInstance().latitude+"");
                 parameter.put("longitude", MYApplication.getInstance().longitude+"");
-                parameter.put("city_id", "10");
+                parameter.put("city_name", "北京");
                 parameter.put("pay_type", "0");
                 parameter.put("need_way", need_way);
                 parameter.put("need_title", demand_title_edit.getText().toString());
-                parameter.put("tag_id", tag_id);
+                parameter.put("tag_name", tag_id);
                 parameter.put("need_content", demand_details_edit.getText().toString());
                 parameter.put("need_sex", sex_id);
                 parameter.put("address", address_text.getText().toString()+address_details_edit.getText().toString());
@@ -244,7 +242,14 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
             tag_lists.addAll(tagList.getData().getTag_list());
             initPopupWindow();
         } else if(MYTaskID.CREATE_NEED == resultCode){
+            BaseModel baseModel = (BaseModel) modelClass;
             DialogUtil.stopDialogLoading(context);
+            if ("200".equals(baseModel.getCode())){
+                ToastUtil.show(this,"创建成功",ToastUtil.SHOW_TOAST);
+                this.finish();
+            } else {
+                ToastUtil.show(this,"创建失败",ToastUtil.SHOW_TOAST);
+            }
         }
         Log.e("-----chen gong -------",resultJson);
     }
@@ -257,6 +262,10 @@ public class CreateDemandActivity extends ActivitySupport implements ThreadCallB
     @Override
     public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
         Log.e("-----shi bai -------",resultJson);
+        if(MYTaskID.CREATE_NEED == resultCode){
+            DialogUtil.stopDialogLoading(context);
+            ToastUtil.show(this,"创建失败",ToastUtil.SHOW_TOAST);
+        }
     }
 
     @Override

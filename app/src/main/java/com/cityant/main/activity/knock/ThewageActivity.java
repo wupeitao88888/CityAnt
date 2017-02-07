@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.cityant.main.R;
@@ -16,11 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* 领工资
-* @author lvfl
-* @time 2016/12/4 15:49
-*/
- class TheWageActivity extends ActivitySupport {
+ * 领工资
+ * @author lvfl
+ * @time 2016/12/4 15:49
+ */
+public class TheWageActivity extends ActivitySupport {
 
     private ListView money_listView;
     private TheWageAdapter adapter;

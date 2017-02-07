@@ -187,6 +187,10 @@ public class DateUtil {
 		return strDate;
 	}
 
+	public static String date2yyyyMMdd(Date date) {
+		return new SimpleDateFormat(dateFormatYMDHM_line).format(date);
+	}
+
 	/**
 	 * 描述：获取指定日期时间的字符串,用于导出想要的格式.
 	 *

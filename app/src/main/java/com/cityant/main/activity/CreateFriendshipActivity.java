@@ -20,5 +20,6 @@ public class CreateFriendshipActivity extends ActivitySupport {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_friendship_layout);
+        setCtenterTitle("发起友情购");
     }
 }

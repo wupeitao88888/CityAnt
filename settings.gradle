@@ -1,1 +1,1 @@
-include ':app', ':iloomo',':okhttputils',':okhttp3-persistent-cookiejar',':easeui'
+include ':app', ':iloomo', ':okhttputils', ':okhttp3-persistent-cookiejar', ':easeui', ':redpacketlibrary'

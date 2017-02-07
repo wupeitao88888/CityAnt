@@ -118,7 +118,7 @@ public class PermissionsUtils {
 
     public com.cityant.main.model.onPermissionsMsg onPermissionsMsg;
 
-    public void setOnPermissionsMsg(com.cityant.main.model.onPermissionsMsg onPermissionsMsg) {
+        public void setOnPermissionsMsg(com.cityant.main.model.onPermissionsMsg onPermissionsMsg) {
         this.onPermissionsMsg = onPermissionsMsg;
     }
 }
