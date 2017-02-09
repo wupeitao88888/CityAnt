@@ -10,13 +10,22 @@ import android.widget.RelativeLayout;
 
 import com.cityant.main.R;
 import com.cityant.main.adapter.GuessAdapter;
+import com.cityant.main.bean.GuessIndexList;
+import com.cityant.main.bean.GuessIndexModel;
+import com.cityant.main.bean.NewFrendsModel;
+import com.cityant.main.global.MYTaskID;
 import com.cityant.main.utlis.StringHelper;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.base.ActivitySupport;
+import com.iloomo.net.AsyncHttpPost;
+import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.L;
 import com.iloomo.widget.NoScrollListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
@@ -30,9 +39,10 @@ public class GuessActivity extends ActivitySupport implements View.OnClickListen
     private GuessAdapter guessAdapter;
     private PtrClassicFrameLayout mPtrFrame;
     private ListView newfrendslist;
-    private List<String> listS = new ArrayList<>();
+    private List<GuessIndexList> listS = new ArrayList<>();
     private View handview;
     private RelativeLayout newInfo;
+    private int page = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +63,14 @@ public class GuessActivity extends ActivitySupport implements View.OnClickListen
 
             @Override
             public void onLoadMoreBegin(PtrFrameLayout frame) {
-                updateData();
+                L.e("上拉加载");
+                updateData(true);
             }
 
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-                updateData();
+                L.e("下拉刷新");
+                updateData(false);
             }
 
             @Override
@@ -80,17 +92,12 @@ public class GuessActivity extends ActivitySupport implements View.OnClickListen
 
         // default is true
         mPtrFrame.setKeepHeaderWhenRefresh(true);
-        updateData();
+        updateData(false);
     }
 
 
-    private void updateData() {
-
-        for (int i = 0; i < 5; i++) {
-            listS.add(i + "");
-        }
-        guessAdapter.notifyDataSetChanged();
-        mPtrFrame.refreshComplete();
+    private void updateData(boolean isLoad) {
+        netHttp(isLoad);
     }
 
     private void intent() {
@@ -104,5 +111,50 @@ public class GuessActivity extends ActivitySupport implements View.OnClickListen
                 intent();
                 break;
         }
+    }
+
+    public void netHttp(boolean isLoad) {
+        if (isLoad) {
+            page++;
+        } else {
+            page = 1;
+        }
+        Map<String, Object> parameter = new HashMap<>();
+        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
+        parameter.put("page", page + "");
+        parameter.put("page_size", 20 + "");
+
+        new AsyncHttpPost(new ThreadCallBack() {
+            @Override
+            public void onCallbackFromThread(String resultJson, Object modelClass) {
+
+            }
+
+            @Override
+            public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+                GuessIndexModel guessIndexModel = (GuessIndexModel) modelClass;
+                if (isLoad) {
+                    if (guessIndexModel.getData().getGuess_list().size() == 0) {
+                        page--;
+                    }
+                    listS.addAll(guessIndexModel.getData().getGuess_list());
+                } else {
+                    listS.clear();
+                    listS.addAll(guessIndexModel.getData().getGuess_list());
+                }
+                guessAdapter.notifyDataSetChanged();
+                mPtrFrame.refreshComplete();
+            }
+
+            @Override
+            public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+
+            }
+
+            @Override
+            public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+                mPtrFrame.refreshComplete();
+            }
+        }, MYAppconfig.GUESS_INDEX, parameter, MYTaskID.GUESS_INDEX, GuessIndexModel.class, context);
     }
 }

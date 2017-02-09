@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -17,7 +18,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingBottom="10dp">
 
                 <RelativeLayout
                     android:layout_width="60dp"
@@ -27,9 +29,8 @@
                         android:id="@+id/ant_image"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:layout_marginTop="11dp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/ic_launcher"/>
+                        android:layout_marginTop="11dp" />
 
                 </RelativeLayout>
 
@@ -42,10 +43,10 @@
                         android:id="@+id/ant_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="题干"
-                        android:textSize="14sp"
                         android:layout_marginTop="13sp"
-                        android:textColor="#333333"/>
+                        android:text="题干"
+                        android:textColor="#333333"
+                        android:textSize="14sp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -55,27 +56,30 @@
                             android:id="@+id/ant_details_edit"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:minLines="5"
+                            android:layout_marginTop="10dp"
                             android:background="@color/white"
                             android:gravity="top"
-                            android:textSize="14sp"
+                            android:hint="输入题干详情"
+                            android:maxLength="200"
+                            android:minLines="5"
                             android:textColor="#999999"
-                            android:layout_marginTop="10dp"
-                            android:hint="输入题干详情"/>
+                            android:textSize="14sp" />
+
                         <TextView
+                            android:id="@+id/ant_details_edit_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignBottom="@+id/ant_details_edit"
-                            android:text="0/200"
-                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
                             android:layout_marginBottom="3dp"
-                            android:layout_alignParentRight="true"/>
+                            android:layout_marginRight="10dp"
+                            android:text="0/200" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_alignParentBottom="true"
-                            android:background="@color/divider_line"/>
+                            android:background="@color/divider_line" />
 
 
                     </RelativeLayout>
@@ -84,76 +88,82 @@
                         android:id="@+id/option_ll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:textColor="#333333"
                             android:layout_gravity="center_vertical"
-                            android:text="选项"/>
+                            android:text="选项"
+                            android:textColor="#333333"
+                            android:textSize="14sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
+                            android:orientation="horizontal"
                             android:paddingLeft="18dp"
-                            android:paddingRight="18dp"
-                            android:orientation="horizontal">
+                            android:paddingRight="18dp">
 
                             <TextView
+                                android:id="@+id/double_select"
                                 android:layout_width="0dp"
                                 android:layout_height="30dp"
+                                android:layout_marginRight="6dp"
                                 android:layout_weight="1"
-                                android:textColor="#333333"
-                                android:textSize="14sp"
+                                android:background="@drawable/in_jion_select"
+                                android:gravity="center"
                                 android:text="双选"
-                                android:layout_marginRight="6dp"
-                                android:gravity="center"
-                                android:background="@drawable/sex_btn_bg"/>
+                                android:textColor="#333333"
+                                android:textSize="14sp" />
+
                             <TextView
+                                android:id="@+id/three_select"
                                 android:layout_width="0dp"
                                 android:layout_height="30dp"
+                                android:layout_marginRight="6dp"
                                 android:layout_weight="1"
-                                android:textColor="#333333"
-                                android:textSize="14sp"
+                                android:background="@drawable/in_jion_select"
+                                android:gravity="center"
                                 android:text="三选"
-                                android:gravity="center"
-                                android:layout_marginRight="6dp"
-                                android:background="@drawable/sex_btn_bg"/>
+                                android:textColor="#333333"
+                                android:textSize="14sp" />
+
                             <TextView
+                                android:id="@+id/four_select"
                                 android:layout_width="0dp"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
-                                android:textColor="#333333"
-                                android:textSize="14sp"
-                                android:text="四选"
+                                android:background="@drawable/in_jion_select"
                                 android:gravity="center"
-                                android:background="@drawable/sex_btn_bg"/>
+                                android:text="四选"
+                                android:textColor="#333333"
+                                android:textSize="14sp" />
                         </LinearLayout>
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/divider_line"/>
+                        android:background="@color/divider_line" />
 
                     <LinearLayout
                         android:id="@+id/option_a_ll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_alignLeft="@+id/ant_details_edit"
+                        android:layout_below="@+id/option_ll"
                         android:layout_marginTop="5dp"
-                        android:layout_below="@+id/option_ll">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="A"
                             android:textColor="#333333"
-                            android:textSize="14sp"
-                            android:text="A"/>
+                            android:textSize="14sp" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -163,46 +173,52 @@
                             android:paddingLeft="15dp">
 
                             <EditText
+                                android:id="@+id/antwer_a"
                                 android:layout_width="match_parent"
                                 android:layout_height="29dp"
                                 android:background="@color/white"
-                                android:textSize="14sp"
+                                android:hint="输入选项A"
+                                android:lines="1"
+                                android:maxLength="20"
                                 android:textColor="#333333"
                                 android:textColorHint="#999999"
-                                android:hint="输入答案"/>
+                                android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/antwer_a_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
-                                android:textColor="#999999"
                                 android:layout_centerVertical="true"
-                                android:textSize="14sp"
-                                android:text="0/20"/>
+                                android:text="0/20"
+                                android:textColor="#999999"
+                                android:textSize="14sp" />
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/divider_line"
-                                android:layout_alignParentBottom="true"/>
+                                android:layout_alignParentBottom="true"
+                                android:background="@color/divider_line" />
 
                         </RelativeLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/option_b_ll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_alignLeft="@+id/ant_details_edit"
+                        android:layout_below="@+id/option_a_ll"
                         android:layout_marginTop="5dp"
-                        android:layout_below="@+id/option_a_ll">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="B"
                             android:textColor="#333333"
-                            android:textSize="14sp"
-                            android:text="A"/>
+                            android:textSize="14sp" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -212,47 +228,53 @@
                             android:paddingLeft="15dp">
 
                             <EditText
+                                android:id="@+id/antwer_b"
                                 android:layout_width="match_parent"
                                 android:layout_height="29dp"
                                 android:background="@color/white"
-                                android:textSize="14sp"
+                                android:hint="输入选项B"
+                                android:lines="1"
+                                android:maxLength="20"
                                 android:textColor="#333333"
                                 android:textColorHint="#999999"
-                                android:hint="输入答案"/>
+                                android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/antwer_b_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
-                                android:textColor="#999999"
                                 android:layout_centerVertical="true"
-                                android:textSize="14sp"
-                                android:text="0/20"/>
+                                android:text="0/20"
+                                android:textColor="#999999"
+                                android:textSize="14sp" />
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/divider_line"
-                                android:layout_alignParentBottom="true"/>
+                                android:layout_alignParentBottom="true"
+                                android:background="@color/divider_line" />
 
                         </RelativeLayout>
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/option_c_ll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_alignLeft="@+id/ant_details_edit"
+                        android:layout_below="@+id/option_b_ll"
                         android:layout_marginTop="5dp"
-                        android:layout_below="@+id/option_b_ll">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="C"
                             android:textColor="#333333"
-                            android:textSize="14sp"
-                            android:text="A"/>
+                            android:textSize="14sp" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -262,47 +284,57 @@
                             android:paddingLeft="15dp">
 
                             <EditText
+                                android:id="@+id/antwer_c"
                                 android:layout_width="match_parent"
                                 android:layout_height="29dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
                                 android:background="@color/white"
-                                android:textSize="14sp"
+                                android:hint="输入选项C"
+                                android:lines="1"
+                                android:maxLength="20"
                                 android:textColor="#333333"
                                 android:textColorHint="#999999"
-                                android:hint="输入答案"/>
+                                android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/antwer_c_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
-                                android:textColor="#999999"
                                 android:layout_centerVertical="true"
-                                android:textSize="14sp"
-                                android:text="0/20"/>
+                                android:text="0/20"
+                                android:textColor="#999999"
+                                android:textSize="14sp" />
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/divider_line"
-                                android:layout_alignParentBottom="true"/>
+                                android:layout_alignParentBottom="true"
+                                android:background="@color/divider_line" />
+
 
                         </RelativeLayout>
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/option_d_ll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_alignLeft="@+id/ant_details_edit"
+                        android:layout_below="@+id/option_c_ll"
                         android:layout_marginTop="5dp"
-                        android:layout_below="@+id/option_c_ll">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="D"
                             android:textColor="#333333"
-                            android:textSize="14sp"
-                            android:text="A"/>
+                            android:textSize="14sp" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -312,28 +344,32 @@
                             android:paddingLeft="15dp">
 
                             <EditText
+                                android:id="@+id/antwer_d"
                                 android:layout_width="match_parent"
                                 android:layout_height="29dp"
                                 android:background="@color/white"
-                                android:textSize="14sp"
+                                android:hint="输入选项D"
                                 android:textColor="#333333"
+                                android:lines="1"
+                                android:maxLength="20"
                                 android:textColorHint="#999999"
-                                android:hint="输入答案"/>
+                                android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/antwer_d_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
-                                android:textColor="#999999"
                                 android:layout_centerVertical="true"
-                                android:textSize="14sp"
-                                android:text="0/20"/>
+                                android:text="0/20"
+                                android:textColor="#999999"
+                                android:textSize="14sp" />
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/divider_line"
-                                android:layout_alignParentBottom="true"/>
+                                android:layout_alignParentBottom="true"
+                                android:background="@color/divider_line" />
 
                         </RelativeLayout>
 
@@ -343,18 +379,19 @@
                         android:id="@+id/answer_ll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_alignLeft="@+id/ant_details_edit"
+                        android:layout_below="@+id/option_d_ll"
                         android:layout_marginTop="5dp"
-                        android:layout_below="@+id/option_d_ll">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="#333333"
-                            android:textSize="14sp"
                             android:layout_gravity="center_vertical"
-                            android:text="确定正确答案"/>
+                            android:text="确定正确答案"
+                            android:textColor="#333333"
+                            android:textSize="14sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -362,73 +399,78 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/true_a"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="15dp"
+                                android:background="@drawable/option_text_selector"
+                                android:gravity="center"
                                 android:text="A"
-                                android:textSize="14sp"
+                                android:textColor="@color/whith_blick_text_color"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/true_b"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="15dp"
                                 android:background="@drawable/option_text_selector"
-                                android:textColor="@color/whith_blick_text_color"
-                                android:gravity="center"/>
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
+                                android:gravity="center"
                                 android:text="B"
-                                android:textSize="14sp"
+                                android:textColor="@color/whith_blick_text_color"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/true_c"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="15dp"
                                 android:background="@drawable/option_text_selector"
-                                android:textColor="@color/whith_blick_text_color"
-                                android:gravity="center"/>
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
+                                android:gravity="center"
                                 android:text="C"
-                                android:textSize="14sp"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginRight="15dp"
-                                android:background="@drawable/option_text_selector"
                                 android:textColor="@color/whith_blick_text_color"
-                                android:gravity="center"/>
+                                android:textSize="14sp" />
+
                             <TextView
+                                android:id="@+id/true_d"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:text="D"
-                                android:textSize="14sp"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="15dp"
                                 android:background="@drawable/option_text_selector"
+                                android:gravity="center"
+                                android:text="D"
                                 android:textColor="@color/whith_blick_text_color"
-                                android:gravity="center"/>
+                                android:textSize="14sp" />
                         </LinearLayout>
                     </LinearLayout>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/divider_line"/>
+
+
                 </LinearLayout>
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="7dp"
-                android:background="@color/divider_line"/>
+                android:background="@color/divider_line" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="#333333"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:text="形式"/>
+                android:text="谁可参与"
+                android:textColor="#333333"
+                android:textSize="14sp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/divider_line"/>
+                android:background="@color/divider_line" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -437,107 +479,121 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/all_pople"
                     android:layout_width="106dp"
                     android:layout_height="30dp"
-                    android:textColor="#333333"
-                    android:textSize="14sp"
-                    android:text="线上"
                     android:layout_marginRight="25dp"
+                    android:background="@drawable/in_jion_select"
                     android:gravity="center"
-                    android:background="@drawable/sex_btn_bg"/>
+                    android:text="所有人"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/frends_pople"
                     android:layout_width="106dp"
                     android:layout_height="30dp"
-                    android:textColor="#333333"
-                    android:textSize="14sp"
-                    android:text="线下"
+                    android:background="@drawable/in_jion_select"
                     android:gravity="center"
-                    android:background="@drawable/sex_btn_bg"/>
+                    android:text="限好友"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/divider_line"/>
+                android:background="@color/divider_line" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone">
+                android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:textColor="#333333"
-                    android:layout_marginLeft="8dp"
                     android:layout_centerVertical="true"
-                    android:text="答对奖励参与者"/>
+                    android:layout_marginLeft="8dp"
+                    android:text="答对奖励参与者"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/ant_d_edit"
+                    android:id="@+id/ant_true_edit"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:hint="输入蚂蚁豆"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="5dp"
                     android:background="@color/white"
-                    android:textColorHint="#999999"
-                    android:textSize="14sp"
                     android:gravity="right|center_vertical"
-                    android:textColor="#333333"/>
+                    android:hint="输入蚂蚁豆"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:textSize="14sp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@drawable/mayidou"
-                    android:layout_marginRight="20dp"
                     android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/ant_d_edit"/>
+                    android:layout_marginRight="20dp"
+                    android:layout_toLeftOf="@+id/ant_true_edit"
+                    android:background="@drawable/mayidou" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/divider_line"/>
+                android:background="@color/divider_line" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:visibility="gone">
+                android:layout_height="50dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:textColor="#333333"
-                    android:layout_marginLeft="8dp"
                     android:layout_centerVertical="true"
-                    android:text="答错收入"/>
+                    android:layout_marginLeft="8dp"
+                    android:text="答错收入"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/ant_filed_edit"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/white"
+                    android:gravity="right|center_vertical"
+                    android:hint="输入蚂蚁豆"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:textSize="14sp" />
 
             </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:text="提示：每题仅限答一次，参与者回答正确系统自动从剩余蚂蚁豆中扣除相应的奖励。"
                 android:background="@color/divider_line"
                 android:gravity="center_vertical"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:textSize="10sp"
-                android:textColor="#999999"/>
+                android:text="提示：每题仅限答一次，参与者回答正确系统自动从剩余蚂蚁豆中扣除相应的奖励。"
+                android:textColor="#999999"
+                android:textSize="10sp" />
 
             <Button
                 android:id="@+id/commit_btn"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
                 android:layout_margin="20dp"
                 android:background="@drawable/button_login"
+                android:text="确认创建"
                 android:textColor="#333333"
-                android:textSize="15sp"
-                android:layout_centerHorizontal="true"
-                android:text="确认创建"/>
+                android:textSize="15sp" />
 
         </LinearLayout>
     </ScrollView>
