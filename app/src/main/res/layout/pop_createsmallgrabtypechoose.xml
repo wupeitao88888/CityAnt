@@ -6,21 +6,22 @@
 
 
     <LinearLayout
+        android:id="@+id/popall"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#66C1C1C1"
         android:orientation="horizontal">
 
         <ScrollView
             android:id="@+id/tools_scrlllview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_width="86dp"
+            android:layout_height="303dp"
             android:background="@color/white"
             android:fadingEdge="none">
 
             <LinearLayout
                 android:id="@+id/tools"
-                android:layout_width="match_parent"
+                android:layout_width="86dp"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
                 android:orientation="vertical" />
@@ -28,13 +29,14 @@
 
         <ScrollView
             android:id="@+id/shop_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="86dp"
+            android:layout_height="303dp"
+            android:layout_marginLeft="2dp"
+            android:background="@color/white">
 
             <LinearLayout
                 android:id="@+id/contents"
-                android:layout_width="match_parent"
+                android:layout_width="86dp"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
                 android:orientation="vertical" />

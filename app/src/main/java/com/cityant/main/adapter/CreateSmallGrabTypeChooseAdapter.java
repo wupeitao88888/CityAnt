@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.cityant.main.R;
 import com.cityant.main.bean.CreateSmallGreabType;
+import com.cityant.main.bean.GoodsList;
 import com.cityant.main.bean.MGoods;
 import com.iloomo.base.CommonAdapter;
 import com.iloomo.utils.StrUtil;
@@ -28,7 +29,7 @@ public class CreateSmallGrabTypeChooseAdapter extends CommonAdapter {
 
     @Override
     public View getView(int i, View convertView, ViewGroup viewGroup) {
-        MGoods meCrows = (MGoods) mDatas.get(i);
+        GoodsList meCrows = (GoodsList) mDatas.get(i);
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.adapter_createsmallgrabtypechoose, null);
         }

@@ -22,6 +22,7 @@ import com.iloomo.base.ActivitySupport;
 import com.iloomo.global.AppConfig;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
+import com.iloomo.utils.DialogUtil;
 import com.iloomo.utils.L;
 import com.iloomo.utils.PImageLoaderUtils;
 
@@ -338,12 +339,19 @@ public class CreateAntGuessActivity extends ActivitySupport implements View.OnCl
                     return;
                 }
                 if (TextUtils.isEmpty(antwer_c.getText().toString())) {
-                    showToast("答案C不能为空");
-                    return;
+                    if (type == 1) {
+                        showToast("答案C不能为空");
+                        return;
+                    } else if (type == 2) {
+                        showToast("答案C不能为空");
+                        return;
+                    }
                 }
                 if (TextUtils.isEmpty(antwer_d.getText().toString())) {
-                    showToast("答案D不能为空");
-                    return;
+                    if (type == 2) {
+                        showToast("答案C不能为空");
+                        return;
+                    }
                 }
                 if (qtrue == -1) {
                     showToast("正确不能为空");
@@ -367,11 +375,12 @@ public class CreateAntGuessActivity extends ActivitySupport implements View.OnCl
                 parameter.put("key2", antwer_b.getText().toString());
                 parameter.put("key3", antwer_c.getText().toString());
                 parameter.put("key4", antwer_d.getText().toString());
-                parameter.put("type", type+"");
-                parameter.put("is_friend", is_friend+"");
-                parameter.put("true", qtrue+"");
+                parameter.put("type", type + "");
+                parameter.put("is_friend", is_friend + "");
+                parameter.put("true", qtrue + "");
                 parameter.put("bean", ant_true_edit.getText().toString());
 
+                DialogUtil.startDialogLoading(context);
                 new AsyncHttpPost(new ThreadCallBack() {
                     @Override
                     public void onCallbackFromThread(String resultJson, Object modelClass) {
@@ -380,8 +389,13 @@ public class CreateAntGuessActivity extends ActivitySupport implements View.OnCl
 
                     @Override
                     public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+                        DialogUtil.stopDialogLoading(context);
                         GuessCreateModel guessCreateModel = (GuessCreateModel) modelClass;
                         if (guessCreateModel.getCode().equals("200")) {
+                            double_select.setEnabled(true);
+                            three_select.setEnabled(true);
+                            four_select.setEnabled(true);
+
                             ant_details_edit.setText("");
 
                             true_a.setVisibility(View.GONE);
@@ -425,6 +439,7 @@ public class CreateAntGuessActivity extends ActivitySupport implements View.OnCl
 
                     @Override
                     public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+                        DialogUtil.stopDialogLoading(context);
                         GuessCreateModel guessCreateModel = (GuessCreateModel) modelClass;
                         showToast(guessCreateModel.getData().getCode_message());
                     }

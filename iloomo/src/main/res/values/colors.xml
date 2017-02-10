@@ -12,6 +12,9 @@
     <color name="transparent_black">#40000000</color>
     <color name="background">#F0F0F0</color>
 
+    <color name="textcolorx">#999999</color>
+    <color name="textl">#c1c1c1</color>
+
     <drawable name="title_bar">#f4cc08</drawable>
     <color name="title_text">#333333</color>
     <drawable name="gray">#c1c1c1</drawable>

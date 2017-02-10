@@ -36,5 +36,7 @@ public class MYAppconfig extends AppConfig {
     public static final String INCOME =BASEURL + API +  "userPrice/todayIncome";
     public static final String GUESS_INDEX = BASEURL + API + "guess/index";
     public static final String GUESS_CREATE = BASEURL + API + "guess/create";
+    public static final String ROB_BRANDLIST = BASEURL + API + "rob/brandList";
+
 
 }

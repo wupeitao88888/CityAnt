@@ -28,6 +28,7 @@ import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
 import com.iloomo.bean.BaseModel;
+import com.iloomo.utils.DialogUtil;
 import com.iloomo.utils.L;
 import com.iloomo.utils.UnicodeUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -47,8 +48,9 @@ import okhttp3.MediaType;
  */
 public class AsyncHttpPost<T> {
     public AsyncHttpPost(final ThreadCallBack callBack, String url,
-                         Map<String, String> parameter, final int resultCode, final Class<T> modelClass, Context context) {
+                         Map<String, String> parameter, final int resultCode, final Class<T> modelClass, final Context context) {
         L.e("请求：" + url + "?" + sort(parameter));
+        DialogUtil.startDialogLoading(context);
         OkHttpUtils
                 .post()
                 .url(url)
@@ -59,6 +61,7 @@ public class AsyncHttpPost<T> {
 
                     @Override
                     public void onError(Call call, Exception e, int id) {
+                        DialogUtil.stopDialogLoading(context);
                         String response = ErrorUtil.errorJson("404", "网络连接失败，请检查网络");
                         Object model = JSON.parseObject(response, modelClass);
                         callBack.onCallbackFromThreadError(response, model);
@@ -67,6 +70,7 @@ public class AsyncHttpPost<T> {
 
                     @Override
                     public void onResponse(String response, int id) {
+                        DialogUtil.stopDialogLoading(context);
                         response = UnicodeUtils.decodeUnicode(response);
                         L.e("返回值：" + response);
                         Object model = JSON.parseObject(response, modelClass);

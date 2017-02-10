@@ -58,9 +58,9 @@ public class TabFragmentActivity extends FragmentActivity {
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            exit();
-        }
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            exit();
+//    }
         return false;
     }
 

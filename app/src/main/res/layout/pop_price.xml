@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="从低到高"
-            android:textColor="@color/black"
+            android:textColor="#999999"
             android:textSize="15dp" />
 
     </RelativeLayout>
@@ -26,7 +26,7 @@
         android:id="@+id/line"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="@color/black"
+        android:background="#c1c1c1"
         android:contentDescription="@null"
         android:visibility="visible" />
 
@@ -41,14 +41,14 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="从高到低"
-            android:textColor="@color/black"
+            android:textColor="#999999"
             android:textSize="15dp" />
 
     </RelativeLayout>
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="@color/black"
+        android:background="#c1c1c1"
         android:contentDescription="@null"
         android:visibility="visible" />
 </LinearLayout>
