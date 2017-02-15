@@ -31,4 +31,5 @@ public class MYTaskID {
     public static final int USERINFO = 2008;
     public static final int UPDATEUSERNAME = 2009;
     public static final int UPDATEUSERBOTHDAY = 2010;
+    public static final int TRIBE_BRAND_INDEX_ID = 2011;
 }
