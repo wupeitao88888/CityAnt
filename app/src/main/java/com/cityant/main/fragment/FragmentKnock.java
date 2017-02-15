@@ -11,9 +11,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.cityant.main.R;
 import com.cityant.main.activity.CreateSmallGrabActivity;
+import com.cityant.main.activity.knock.MoreTribeActivity;
 import com.cityant.main.activity.knock.RelatedMeActivity;
 import com.cityant.main.activity.knock.TribeDetailsActivity;
 import com.cityant.main.adapter.ViewPagerAdapter;
@@ -45,6 +47,7 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
     private LinearLayout rob_linear_ll;
     private RelativeLayout launch_rl;
     private RelativeLayout relevant_rl;
+    private TextView brand_more;
 
     private ScrollableLayout mScrollableLayout;
 
@@ -77,6 +80,8 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
 
         launch_rl = (RelativeLayout) view.findViewById(R.id.launch_rl);
         relevant_rl = (RelativeLayout) view.findViewById(R.id.relevant_rl);
+
+        brand_more = (TextView) view.findViewById(R.id.brand_more);
 
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
         final com.cityant.main.adapter.ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager(), getResources(), getFragments());
@@ -131,6 +136,9 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
         });
         relevant_rl.setOnClickListener(v -> {
             RelatedMeActivity.startActivity(getContext());
+        });
+        brand_more.setOnClickListener(v -> {
+            MoreTribeActivity.startActivity(getContext());
         });
         return view;
     }

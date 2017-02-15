@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <include layout="@layout/activity_titlebar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/app_theme">
+
+        <ImageView
+            android:id="@+id/back_image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/pc_back"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/search_tribe"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:text="搜索"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:textColor="@color/black_3"
+            android:textSize="16sp"/>
+
+        <RelativeLayout
+            android:id="@+id/search_edit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/back_image"
+            android:layout_toLeftOf="@+id/search_tribe"
+            android:background="@drawable/home_search_bg"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/serch_image"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/home_search"
+                android:layout_marginLeft="10dp"/>
+
+            <EditText
+                android:id="@+id/tribe_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"
+                android:text="输入你想要的品牌"
+                android:textColor="#909090"
+                android:layout_toRightOf="@+id/serch_image"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="5dp"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:id="@+id/more_listView" />
+
+</LinearLayout>
