@@ -21,6 +21,8 @@ public class MYTaskID {
     public static final int GUESS_INDEX=1013;
     public static final int GUESS_CREATE=1014;
     public static final int ROB_BRANDLIST=1015;
+    public static final int ROB_CREATE=1016;
+
     public static final int CLASSLIST = 2001;
     public static final int GOODSLIST = 2002;
     public static final int UPLOADINGVOICEFILE = 2003;

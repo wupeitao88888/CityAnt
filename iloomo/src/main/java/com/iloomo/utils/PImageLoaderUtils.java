@@ -69,4 +69,10 @@ public class PImageLoaderUtils {
                 .error(R.drawable.gray).crossFade().into(imageView);
     }
 
+    public void displayIMG(String uri, ImageView imageView, Context context) {
+        Glide.with(context)
+                .load(uri)
+                .placeholder(R.drawable.gray)
+                .error(R.drawable.gray).crossFade().into(imageView);
+    }
 }
