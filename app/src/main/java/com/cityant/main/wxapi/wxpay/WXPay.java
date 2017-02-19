@@ -20,10 +20,8 @@ import java.util.Random;
 * @author Lvfl
 * created at 2016/9/7 11:12
 */
-public class WXPay implements ThreadCallBack {
+public class WXPay  {
 
-    private String http_url;
-    private Map<String, String> parameter;
     //支付请求类
     private PayReq req;
     //IWXAPI对象
@@ -32,21 +30,21 @@ public class WXPay implements ThreadCallBack {
     // 上下文
     private Context context;
 
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            if (msg.what == 1) {
-                UserOrder userOrder = (UserOrder) msg.obj;
-                genPayReq(userOrder);
-            }
-        }
-    };
+//    private Handler handler = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            if (msg.what == 1) {
+//                UserOrder userOrder = (UserOrder) msg.obj;
+//                genPayReq(userOrder);
+//            }
+//        }
+//    };
 
 
     public WXPay(Context context, Map<String, String> parameter,String http_url) {
         this.context = context;
-        this.parameter = parameter;
-        this.http_url = http_url;
+//        this.parameter = parameter;
+//        this.http_url = http_url;
         //创建PayReq对象
         req = new PayReq();
         //创建IWXAPI对象
@@ -54,7 +52,7 @@ public class WXPay implements ThreadCallBack {
         //使用app_id注册app
         msgApi.registerApp(WXPayConfig.APP_ID);
 
-        getUserOrderFromServer();
+//        getUserOrderFromServer();
     }
 
     /**
@@ -128,29 +126,29 @@ public class WXPay implements ThreadCallBack {
         return System.currentTimeMillis() / 1000;
     }
 
-    @Override
-    public void onCallbackFromThread(String resultJson, Object modelClass) {
-
-    }
-
-    @Override
-    public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
-        UserOrder userOrder = (UserOrder) modelClass;
-        if("1".equals(userOrder.getResultCode())){
-            Message msg = new Message();
-            msg.what = 1;
-            msg.obj = userOrder;
-            handler.sendMessage(msg);
-        }
-    }
-
-    @Override
-    public void onCallbackFromThreadError(String resultJson, Object modelClass) {
-
-    }
-
-    @Override
-    public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
-
-    }
+//    @Override
+//    public void onCallbackFromThread(String resultJson, Object modelClass) {
+//
+//    }
+//
+//    @Override
+//    public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+//        UserOrder userOrder = (UserOrder) modelClass;
+//        if("1".equals(userOrder.getResultCode())){
+//            Message msg = new Message();
+//            msg.what = 1;
+//            msg.obj = userOrder;
+//            handler.sendMessage(msg);
+//        }
+//    }
+//
+//    @Override
+//    public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+//
+//    }
+//
+//    @Override
+//    public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+//
+//    }
 }

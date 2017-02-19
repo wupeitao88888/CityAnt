@@ -258,7 +258,7 @@
             </RelativeLayout>
 
             <Button
-                android:id="@+id/confirm"
+                android:id="@+id/confirm_create"
                 android:layout_width="fill_parent"
                 android:layout_height="43dp"
                 android:layout_marginLeft="27dp"

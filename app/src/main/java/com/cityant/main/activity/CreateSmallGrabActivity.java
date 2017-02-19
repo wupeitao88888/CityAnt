@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cityant.main.R;
+import com.cityant.main.bean.CreateSamllGrabPay;
 import com.cityant.main.bean.CreatedModel;
 import com.cityant.main.bean.GoodsList;
 import com.cityant.main.global.MYTaskID;
@@ -39,7 +40,7 @@ public class CreateSmallGrabActivity extends ActivitySupport implements View.OnC
         context.startActivity(intent);
     }
 
-    private Button confirm;
+    private Button confirm_create;
     private ImageView userhead;
     private TextView username;
     private RelativeLayout choose_create_type;
@@ -68,11 +69,11 @@ public class CreateSmallGrabActivity extends ActivitySupport implements View.OnC
         CreateSmallGrabTypeChooseActivity.aList.add(this);
         setCtenterTitle(mString(R.string.mecreatek));
         initView();
-        showInfoDialog();
+
     }
 
     private void initView() {
-        confirm = (Button) findViewById(R.id.confirm);
+        confirm_create = (Button) findViewById(R.id.confirm_create);
         userhead = (ImageView) findViewById(R.id.userhead);
         username = (TextView) findViewById(R.id.username);
         choose_create_type = (RelativeLayout) findViewById(R.id.choose_create_type);
@@ -98,6 +99,8 @@ public class CreateSmallGrabActivity extends ActivitySupport implements View.OnC
         five_day.setOnClickListener(this);
         ten_day.setOnClickListener(this);
         unlimited_day.setOnClickListener(this);
+
+        confirm_create.setOnClickListener(this);
 
         permissions_all.setEnabled(false);
         permissions_frends.setEnabled(true);
@@ -125,7 +128,7 @@ public class CreateSmallGrabActivity extends ActivitySupport implements View.OnC
             goods_info.setVisibility(View.GONE);
             goods_price.setVisibility(View.GONE);
             goods_all_pople.setVisibility(View.GONE);
-            confirm.setEnabled(false);
+            confirm_create.setEnabled(false);
         } else {
             PImageLoaderUtils.getInstance().displayIMG(goodsList.getGoods_img(), type_img, context);
 
@@ -137,7 +140,7 @@ public class CreateSmallGrabActivity extends ActivitySupport implements View.OnC
             goods_info.setVisibility(View.VISIBLE);
             goods_price.setVisibility(View.VISIBLE);
             goods_all_pople.setVisibility(View.VISIBLE);
-            confirm.setEnabled(true);
+            confirm_create.setEnabled(true);
         }
     }
 
@@ -199,6 +202,18 @@ public class CreateSmallGrabActivity extends ActivitySupport implements View.OnC
             case R.id.affirm:
                 mIntent(context, CreateSmallGrabTypeActivity.class);
                 break;
+            case R.id.confirm_create:
+                if (goodsList == null) {
+                    showInfoDialog();
+                    return;
+                }
+                CreateSamllGrabPay createSamllGrabPay=new CreateSamllGrabPay();
+                createSamllGrabPay.setGoods_id(goodsList.getGoods_id());
+                createSamllGrabPay.setIs_friend(is_friend+"");
+                createSamllGrabPay.setEnd_time(end_time+"");
+                createSamllGrabPay.setType("0");
+                startActivity(new Intent(context, PayActivity.class).putExtra("CreateSamllGrabPay",createSamllGrabPay));
+                break;
         }
     }
 
@@ -209,37 +224,7 @@ public class CreateSmallGrabActivity extends ActivitySupport implements View.OnC
     }
 
 
-    private void createSmallGrab() {
-        Map<String, Object> parameter = new HashMap<>();
-        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
-        parameter.put("is_friend", is_friend + "");
-        parameter.put("end_time", end_time + "");
-        parameter.put("goods_id", goodsList.getGoods_id());
-        parameter.put("pay_type", "");//支付方式(0:支付宝,1:微信,2:余额)
-        parameter.put("type", "0");//发起类型(0:普通,1:聊天
-        new AsyncHttpPost(new ThreadCallBack() {
-            @Override
-            public void onCallbackFromThread(String resultJson, Object modelClass) {
 
-            }
-
-            @Override
-            public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
-
-            }
-
-            @Override
-            public void onCallbackFromThreadError(String resultJson, Object modelClass) {
-
-            }
-
-            @Override
-            public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
-
-            }
-        }, MYAppconfig.ROB_CREATE, parameter, MYTaskID.ROB_CREATE,
-                CreatedModel.class, context);
-    }
 
 
     private void showInfoDialog() {
