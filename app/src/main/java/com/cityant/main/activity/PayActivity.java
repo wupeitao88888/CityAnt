@@ -15,7 +15,7 @@ public class PayActivity extends ActivitySupport {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_list_view);
+        setContentView(R.layout.activity_pay_layout);
         setCtenterTitle(R.string.pay_string);
     }
 }
