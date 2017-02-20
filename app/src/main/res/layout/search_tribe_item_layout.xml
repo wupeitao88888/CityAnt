@@ -15,7 +15,6 @@
             android:id="@+id/tribe_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/ic_launcher"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="15dp"
             android:scaleType="centerCrop"/>
@@ -27,8 +26,7 @@
             android:textSize="18sp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
-            android:textColor="@color/black_6"
-            android:text="屈臣氏"/>
+            android:textColor="@color/black_6" />
 
     </LinearLayout>
     

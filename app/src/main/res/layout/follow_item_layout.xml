@@ -13,18 +13,20 @@
         android:background="@color/white">
 
         <ImageView
+            android:id="@+id/user_image"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="11dp"
             android:background="@drawable/txqunzu"/>
 
         <TextView
+            android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black_3"
             android:textSize="14sp"
             android:text="马晓丽"
-            android:layout_marginLeft="55dp"/>
+            android:layout_marginLeft="40dp"/>
     </LinearLayout>
 
     <View

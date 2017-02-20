@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -73,11 +75,18 @@ public class MoreTribeActivity extends BaseToolbarActivity implements ThreadCall
 
             @Override
             protected void convert(ViewHolder viewHolder, Object item, int position) {
-
+                viewHolder.setCircleImageUrl(R.id.tribe_image,tribe_list.get(position).getBrand_img());
+                viewHolder.setText(R.id.tribe_name,tribe_list.get(position).getBrand_name());
             }
         };
 
         more_listView.setAdapter(adapter);
+        more_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TribeDetailsActivity.startActivity(MoreTribeActivity.this,"屈臣氏",tribe_list.get(position).getBrand_id());
+            }
+        });
     }
 
     @Override
@@ -93,7 +102,7 @@ public class MoreTribeActivity extends BaseToolbarActivity implements ThreadCall
                     SearchTribeBean.class, this);
         });
         back_image.setOnClickListener(v -> {
-
+            this.finish();
         });
     }
 

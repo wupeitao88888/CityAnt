@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.cityant.main.R;
+import com.cityant.main.bean.konck.TribeDetailsBean;
 
 import java.util.List;
 
@@ -18,8 +19,8 @@ import java.util.List;
 public class TribeDetailsAdapter extends BaseAdapter {
 
     private Context context;
-    private List<String> list;
-    public TribeDetailsAdapter(Context context, List<String> list){
+    private List<TribeDetailsBean.Data.GoodsList> list;
+    public TribeDetailsAdapter(Context context, List<TribeDetailsBean.Data.GoodsList> goods_list){
         this.context = context;
         this.list = list;
     }

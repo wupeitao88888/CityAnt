@@ -84,6 +84,7 @@
             android:text="￥3.00"/>
 
         <TextView
+            android:id="@+id/goods_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="屈臣氏经典组合套装，日用夜用，不刺激，最懂我的好朋友"

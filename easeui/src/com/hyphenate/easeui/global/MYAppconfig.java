@@ -40,5 +40,9 @@ public class MYAppconfig extends AppConfig {
     public static final String TRIBE_BRAND_INDEX = BASEURL + API + "brand/index";
 
     public static final String ROB_CREATE = BASEURL + API + "rob/create";
+    public static final String BRAND_INFO = BASEURL + API + "brand/info";// 品牌部落详情
+    public static final String BRAND_ACTIVITY_LIST = BASEURL + API + "brand/activeList";// 品牌部落关注列表
+    public static final String GROUP_ADD = BASEURL + API + "group/add";// 添加群聊
+    public static final String GROUP_REMOVE = BASEURL + API + "group/remove";// 移除群聊
 
 }

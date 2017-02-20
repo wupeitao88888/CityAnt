@@ -150,7 +150,7 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
         View view = inflater3.inflate(R.layout.brand_item_layout, null);
 
         view.setOnClickListener(v -> {
-            TribeDetailsActivity.startActivity(getContext(),"屈臣氏");
+            TribeDetailsActivity.startActivity(getContext(),"屈臣氏","");
         });
 
         return view;
