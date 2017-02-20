@@ -5,7 +5,7 @@ package com.cityant.main.wxapi.wxpay;
  */
 public class WXPayConfig {
 
-    public static final String APP_ID = "wx0d97ee8f6c85374a";
+    public static final String APP_ID = "wxe9aec5826b86c050";
     // 商户号
     public static final String MCH_ID = "";
     // API密钥，在商户平台设置

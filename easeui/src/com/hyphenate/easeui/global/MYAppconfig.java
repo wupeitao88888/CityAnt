@@ -39,5 +39,6 @@ public class MYAppconfig extends AppConfig {
     public static final String ROB_BRANDLIST = BASEURL + API + "rob/brandList";
     public static final String TRIBE_BRAND_INDEX = BASEURL + API + "brand/index";
 
+    public static final String ROB_CREATE = BASEURL + API + "rob/create";
 
 }

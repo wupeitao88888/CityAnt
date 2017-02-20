@@ -1,6 +1,7 @@
 package com.cityant.main.activity;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.LevelListDrawable;
 import android.os.Build;
@@ -82,12 +83,16 @@ public class CreateSmallGrabTypeChooseActivity extends ActivitySupport implement
     private int page = 1;
     private List<GoodsList> goods_list = new ArrayList<>();
 
+    public static List<Activity> aList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createsmallgrabtypechoose);
         setCtenterTitle(mString(R.string.choose));
+        CreateSmallGrabTypeChooseActivity.aList.add(this);
         type = getIntent().getStringExtra("type");
+
         initView();
     }
 
@@ -612,4 +617,9 @@ public class CreateSmallGrabTypeChooseActivity extends ActivitySupport implement
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
 }

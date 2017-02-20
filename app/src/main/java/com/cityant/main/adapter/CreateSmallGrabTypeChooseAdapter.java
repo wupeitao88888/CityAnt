@@ -1,6 +1,7 @@
 package com.cityant.main.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cityant.main.R;
+import com.cityant.main.activity.CreateSmallGrabActivity;
+import com.cityant.main.activity.CreateSmallGrabTypeChooseActivity;
 import com.cityant.main.bean.CreateSmallGreabType;
 import com.cityant.main.bean.GoodsList;
 import com.cityant.main.bean.MGoods;
@@ -60,7 +63,10 @@ public class CreateSmallGrabTypeChooseAdapter extends CommonAdapter {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                for (int i = 0; i < CreateSmallGrabTypeChooseActivity.aList.size(); i++) {
+                    CreateSmallGrabTypeChooseActivity.aList.get(i).finish();
+                }
+                context.startActivity(new Intent(context,CreateSmallGrabActivity.class).putExtra("GoodsList",meCrows));
             }
         });
         return convertView;

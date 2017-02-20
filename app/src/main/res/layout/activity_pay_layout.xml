@@ -2,111 +2,127 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
 
-    <RelativeLayout
+    >
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="8dp"
-        android:layout_height="52dp">
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/prreace"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:text="小计："
+                android:textColor="@color/black_3"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24dp"
+                android:text="￥ 3.00"
+                android:textColor="@color/black_3"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="小计："
-            android:textSize="16sp"
-            android:layout_marginLeft="22dp"
-            android:textColor="@color/black_3"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="￥ 3.00"
-            android:layout_alignParentRight="true"
+            android:layout_height="32dp"
+            android:layout_marginLeft="12dp"
+            android:gravity="center_vertical"
+            android:text="支付方式"
             android:textColor="@color/black_3"
-            android:textSize="16sp"
-            android:layout_marginRight="24dp"
-            android:layout_centerVertical="true"/>
+            android:textSize="16sp" />
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white"
+            android:onClick="onYuEPay">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/black_3"
-        android:layout_marginLeft="12dp"
-        android:text="支付方式"
-        android:textSize="16sp"
-        />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:background="@drawable/ye" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="68dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="余额支付"
+                android:textColor="@color/black_3"
+                android:textSize="16sp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ye"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="22dp"/>
+        </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="余额支付"
-            android:textColor="@color/black_3"
-            android:textSize="16sp"
-            android:layout_centerHorizontal="true"/>
-        
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="7dp"
-        android:layout_height="68dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="7dp"
+            android:background="@color/white"
+            android:onClick="onALiPay">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/zfb"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="22dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:background="@drawable/zfb" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="支付宝"
-            android:textColor="@color/black_3"
-            android:textSize="16sp"
-            android:layout_centerHorizontal="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="支付宝"
+                android:textColor="@color/black_3"
+                android:textSize="16sp" />
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="7dp"
-        android:layout_height="68dp">
+        </RelativeLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/wx"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="22dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="7dp"
+            android:background="@color/white"
+            android:onClick="onWXPay">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="@string/weixin"
-            android:textColor="@color/black_3"
-            android:textSize="16sp"
-            android:layout_centerHorizontal="true"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:background="@drawable/wx" />
 
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/weixin"
+                android:textColor="@color/black_3"
+                android:textSize="16sp" />
 
+        </RelativeLayout>
 
+    </LinearLayout>
 
 </LinearLayout>

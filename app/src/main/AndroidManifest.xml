@@ -55,7 +55,7 @@
     <application
         android:name="com.cityant.main.global.MYApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/myapp_icon"
         android:label="@string/thisapp_name"
         android:largeHeap="true"
         android:supportsRtl="true"
@@ -852,7 +852,11 @@
             android:name=".activity.GuessJionInInfoActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
+        <!--支付界面-->
+        <activity
+            android:name=".activity.PayActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
     </application>
 

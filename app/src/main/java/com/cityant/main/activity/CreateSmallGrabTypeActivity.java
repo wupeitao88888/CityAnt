@@ -23,6 +23,7 @@ public class CreateSmallGrabTypeActivity extends ActivitySupport {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createsmallgrabtype);
         setCtenterTitle(mString(R.string.mecreatek));
+        CreateSmallGrabTypeChooseActivity.aList.add(this);
         initView();
     }
 
@@ -51,5 +52,6 @@ public class CreateSmallGrabTypeActivity extends ActivitySupport {
         list.add(debule);
         createSmallGrabTypeAdapter=new CreateSmallGrabTypeAdapter(context,list);
         type.setAdapter(createSmallGrabTypeAdapter);
+
     }
 }
