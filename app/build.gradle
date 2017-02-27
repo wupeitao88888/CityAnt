@@ -2,9 +2,16 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 //apply plugin: 'com.neenbedankt.android-apt'
 android {
+    signingConfigs {
+        sign {
+            keyAlias 'cityant'
+            keyPassword 'cityant'
+            storeFile file('/Users/wupeitao/Desktop/androidworkspase/cityant/cityant_keystore.jks')
+            storePassword 'cityant'
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion '23.0.3'
-
     defaultConfig {
         applicationId "com.cityant.main"
         minSdkVersion 15
@@ -16,16 +23,17 @@ android {
 //        }
         multiDexEnabled true
     }
-
     lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,
         // but continue the build even when errors are found:
         abortOnError false
     }
-
     buildTypes {
         release {
+            debug {
+                signingConfig signingConfigs.sign
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -34,7 +42,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     retrolambda {
         javaVersion JavaVersion.VERSION_1_6
     }

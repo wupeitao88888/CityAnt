@@ -49,8 +49,7 @@
     <uses-sdk
         android:minSdkVersion="9"
         android:targetSdkVersion="19"
-        tools:overrideLibrary="com.easemob.redpacketui"
-        />
+        tools:overrideLibrary="com.easemob.redpacketui" />
 
     <application
         android:name="com.cityant.main.global.MYApplication"
@@ -71,6 +70,11 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="wxe9aec5826b86c050" />
             </intent-filter>
         </activity>
         <!-- umeng  start -->
@@ -857,6 +861,19 @@
             android:name=".activity.PayActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"/>
+
+        <receiver
+            android:name="wxapi.wxpay.AppRegister">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+
 
     </application>
 

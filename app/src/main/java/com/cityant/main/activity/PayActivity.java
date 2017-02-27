@@ -20,6 +20,10 @@ import com.cityant.main.bean.CreateSamllGrabPay;
 import com.cityant.main.bean.CreatedModel;
 import com.cityant.main.bean.CreatedSmallGrabModel;
 import com.cityant.main.global.MYTaskID;
+import com.cityant.main.wxapi.WXPayEntryActivity;
+import com.cityant.main.wxapi.wxpay.UserOrder;
+import com.cityant.main.wxapi.wxpay.WXPay;
+import com.cityant.main.wxapi.wxpay.WXPayConfig;
 import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.alipay.AliPay;
 import com.iloomo.alipay.AlipayBean;
@@ -60,12 +64,13 @@ public class PayActivity extends ActivitySupport {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_layout);
         setCtenterTitle(R.string.pay_string);
+        CreateSmallGrabTypeChooseActivity.aList.add(this);
         prreace = (RelativeLayout) findViewById(R.id.prreace);
         price = (TextView) findViewById(R.id.price);
 
         Intent intent = getIntent();
         createSamllGrabPay = (CreateSamllGrabPay) intent.getSerializableExtra("CreateSamllGrabPay");
-        if (createSamllGrabPay == null) {
+        if (createSamllGrabPay != null) {
             prreace.setVisibility(View.GONE);
         }
     }
@@ -122,17 +127,28 @@ public class PayActivity extends ActivitySupport {
                     AliPay.getAliPay(context).setOnAliPayCallBack(new OnAliPayCallBack() {
                         @Override
                         public void onSUCCESS() {
-                            finish();
+                            for (int i = 0; i < CreateSmallGrabTypeChooseActivity.aList.size(); i++) {
+                                CreateSmallGrabTypeChooseActivity.aList.get(i).finish();
+                            }
+                            context.startActivity(new Intent(context, CreateSmallGrabActivity.class));
+                            ToastUtil.showShort(context, "支付成功");
                         }
 
                         @Override
                         public void onFAILE() {
-//                            finish();
+                            ToastUtil.showShort(context, "支付失败");
                         }
                     });
                     AliPay.getAliPay(context).payV2(alipayBean);
                 } else if ("1".equals(ptype)) {
-
+                    UserOrder userOrder = new UserOrder();
+                    userOrder.setAppid(createdSmallGrabModel.getData().getAppid());
+                    userOrder.setMch_id(createdSmallGrabModel.getData().getPartnerid());
+                    userOrder.setPrepayId(createdSmallGrabModel.getData().getPrepayid());
+                    userOrder.setNonce_str(createdSmallGrabModel.getData().getNoncestr());
+                    userOrder.setTimeStamp(createdSmallGrabModel.getData().getTimestamp());
+                    userOrder.setSign(createdSmallGrabModel.getData().getSign());
+                    WXPay.getWxPay(context).genPayReq(userOrder);
 
                 } else if ("2".equals(ptype)) {
 
