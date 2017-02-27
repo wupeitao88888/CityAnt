@@ -15,12 +15,16 @@ import com.hyphenate.easeui.bean.LoginUserInfoData;
 import com.hyphenate.easeui.db.DBControl;
 import com.hyphenate.easeui.db.DbHelper;
 import com.hyphenate.easeui.global.MYAppconfig;
+import com.iloomo.global.AppConfig;
 import com.iloomo.threadpool.MyThreadPool;
 import com.iloomo.utils.L;
 import com.iloomo.utils.LCSharedPreferencesHelper;
 
 import java.util.Iterator;
 import java.util.List;
+
+import me.shaohui.shareutil.ShareConfig;
+import me.shaohui.shareutil.ShareManager;
 
 
 /**
@@ -95,7 +99,15 @@ public class MYApplication extends DemoApplication {
 
             }
         });
-
+        // init
+        ShareConfig config = ShareConfig.instance()
+                .qqId(AppConfig.QQ_ID)
+                .wxId(AppConfig.WX_ID)
+                .weiboId(AppConfig.WEIBO_ID)
+                // 下面两个，如果不需要登录功能，可不填写
+                .weiboRedirectUrl(AppConfig.REDIRECT_URL)
+                .wxSecret(AppConfig.WX_ID);
+        ShareManager.init(config);
 
     }
 

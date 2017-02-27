@@ -126,3 +126,13 @@ public static final int *;
 -keep public class com.iwater.R$*{
 public static final int *;
 }
+
+-keep class com.tencent.mm.opensdk.** {
+   *;
+}
+-keep class com.tencent.wxop.** {
+   *;
+}
+-keep class com.tencent.mm.sdk.** {
+   *;
+}

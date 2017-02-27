@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cityant.main.R;
 import com.cityant.main.bean.LoginUserInfo;
@@ -35,6 +36,13 @@ import com.iloomo.utils.ToastUtil;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import me.shaohui.shareutil.LoginUtil;
+import me.shaohui.shareutil.login.LoginListener;
+import me.shaohui.shareutil.login.LoginPlatform;
+import me.shaohui.shareutil.login.LoginResult;
+import me.shaohui.shareutil.login.result.QQToken;
+import me.shaohui.shareutil.login.result.QQUser;
 
 /**
  * Created by wupeitao on 16/8/8.
@@ -126,13 +134,54 @@ public class LoginActivity extends ActivitySupport implements ThreadCallBack {
                 , MYTaskID.USERLOGIN);
 
     }
+    final LoginListener listener = new LoginListener() {
+        @Override
+        public void loginSuccess(LoginResult result) {
+            //登录成功， 如果你选择了获取用户信息，可以通过
+            Toast.makeText(LoginActivity.this,
+                    result.getUserInfo() != null ? result.getUserInfo().getNickname()
+                            : "" + "登录成功", Toast.LENGTH_SHORT).show();
+
+            // 处理result
+            switch (result.getPlatform()) {
+                case LoginPlatform.QQ:
+                    QQUser user = (QQUser) result.getUserInfo();
+                    QQToken token = (QQToken) result.getToken();
+                    break;
+                case LoginPlatform.WEIBO:
+                    // 处理信息
+                    break;
+                case LoginPlatform.WX:
+
+                    break;
+            }
+        }
+
+        @Override
+        public void loginFailure(Exception e) {
+            Log.i("TAG", "登录失败");
+        }
+
+        @Override
+        public void loginCancel() {
+            Log.i("TAG", "登录取消");
+        }
+    };
 
     public void onQQLoginClick(View view) {
-        mIntent(context, BindingActivity.class);
+        LoginUtil.login(this, LoginPlatform.QQ, listener);
+//        mIntent(context, BindingActivity.class);
     }
 
     public void onWeiXinLoginClick(View view) {
-        mIntent(context, BindingActivity.class);
+
+//        mIntent(context, BindingActivity.class);
+        // LoginPlatform.WEIBO  微博登录
+        // LoginPlatform.WX     微信登录
+        // LoginPlatform.QQ     QQ登录
+
+        LoginUtil.login(this, LoginPlatform.WX, listener);
+
     }
 
     public void onWeboLoginClick(View view) {

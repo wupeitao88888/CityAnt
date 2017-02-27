@@ -82,4 +82,10 @@ public class AppConfig {
      */
     public static String TEXT_NULL = "Text为空";
 
+
+    public static String QQ_ID="1105797451";
+    public static String WX_ID="wxe9aec5826b86c050";
+    public static String WEIBO_ID="3466780591";
+    public static String REDIRECT_URL="http://";
+
 }
