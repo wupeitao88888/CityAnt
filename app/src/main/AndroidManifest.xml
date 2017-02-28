@@ -862,13 +862,14 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
+        <!--****************第三方登陆和分享start*******************-->
+
         <activity
             android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop" />
 
-        <receiver
-            android:name=".wxapi.wxpay.AppRegister">
+        <receiver android:name=".wxapi.wxpay.AppRegister">
             <intent-filter>
                 <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
             </intent-filter>
@@ -878,31 +879,30 @@
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"
-            >
-        </activity>
+            android:windowSoftInputMode="adjustResize"></activity>
 
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:taskAffinity="me.shaohui.shareutil"
             android:screenOrientation="behind"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            >
-        </activity>
+            android:taskAffinity="me.shaohui.shareutil"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
 
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="tencent${qq_id}" />
             </intent-filter>
         </activity>
 
-        <activity android:name="me.shaohui.shareutil._ShareActivity"
+        <activity
+            android:name="me.shaohui.shareutil._ShareActivity"
             android:launchMode="singleTask"
             android:taskAffinity="me.shaohui.shareutil"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
@@ -911,10 +911,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity-alias
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
-            android:targetActivity="me.shaohui.shareutil._ShareActivity"/>
+            android:targetActivity="me.shaohui.shareutil._ShareActivity" />
+        <!--****************************end************************-->
+
+        <!--好友详情-->
+        <activity
+            android:name=".activity.FriendInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+
     </application>
 
 </manifest>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!-- 没有焦点时的背景图片 -->
+    <item >
+        <shape>
+            <corners android:radius="60dp" />
+
+            <stroke android:width="0.5dp" android:color="#F0BF0D" android:dashGap="0dp" />
+
+            <solid android:color="#F0BF0D" />
+        </shape>
+    </item>
+    <!--<item android:state_enabled="true" android:state_pressed="false">-->
+        <!--<shape>-->
+            <!--<corners android:radius="6dp" />-->
+
+            <!--<stroke android:width="0.5dp" android:color="#F7E46F" android:dashGap="0dp" />-->
+
+            <!--<solid android:color="#F7E46F" />-->
+        <!--</shape>-->
+    <!--</item>-->
+</selector>

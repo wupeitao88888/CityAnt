@@ -7,24 +7,85 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray"
+        android:background="@color/bg"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/userid"
+        <RelativeLayout
+            android:id="@+id/ll_title_content"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/white"
-            android:hint="请输入用户id"
-            android:textColor="@color/black"
-            android:textSize="13dp" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/title_bar"
+            android:paddingTop="20dp">
 
-        <Button
-            android:id="@+id/addFrend"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:onClick="onAddFrends"
-            android:text="添加" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/lc_left_back_all"
+                    android:layout_width="80dp"
+                    android:layout_height="48dp"
+                    android:layout_centerVertical="true"
+                    android:onClick="onMyBack"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/lc_left_back"
+                        android:layout_width="12dp"
+                        android:layout_height="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="7.6dp"
+                        android:background="@drawable/pc_back" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lc_center_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="53dp"
+                    android:paddingRight="53dp">
+
+                    <EditText
+                        android:id="@+id/userid"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:background="@drawable/search_edit_bg"
+                        android:hint="请输入昵称或者手机号"
+                        android:textColorHint="#CEBA5F"
+                        android:lines="1"
+                        android:paddingLeft="10dp"
+                        android:textColor="#333333"
+                        android:textSize="13dp"
+
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lc_right_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="onAddFrends"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:id="@+id/addFrend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="搜索"
+                        android:textColor="@color/title_text"
+                        android:textSize="14dp" />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
 
         <RelativeLayout
             style="@style/addfrend"
@@ -33,8 +94,7 @@
             <ImageView
                 android:id="@+id/icon"
                 style="@style/addfrend_icon"
-
-                />
+                android:background="@drawable/jiafujin" />
 
             <TextView
                 style="@style/addfrend_text"
@@ -45,13 +105,15 @@
 
         <RelativeLayout
             style="@style/addfrend"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="0.5dp"
             android:onClick="onScan"
-            >
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/sao"
-                style="@style/addfrend_icon" />
+                style="@style/addfrend_icon"
+                android:background="@drawable/jiasaoyisao"
+                />
 
             <TextView
                 style="@style/addfrend_text"
@@ -62,13 +124,14 @@
 
         <RelativeLayout
             style="@style/addfrend"
-            android:layout_marginTop="1dp"
-            android:onClick="onAddressBookContact"
-            >
+            android:layout_marginTop="0.5dp"
+            android:onClick="onAddressBookContact">
 
             <ImageView
                 android:id="@+id/con"
-                style="@style/addfrend_icon" />
+                style="@style/addfrend_icon"
+                android:background="@drawable/jiatongxunlu"
+                />
 
             <TextView
                 style="@style/addfrend_text"
@@ -76,5 +139,8 @@
                 android:text="通讯录匹配" />
 
         </RelativeLayout>
+
     </LinearLayout>
+
+
 </LinearLayout>
