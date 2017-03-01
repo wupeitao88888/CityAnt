@@ -44,5 +44,6 @@ public class MYAppconfig extends AppConfig {
     public static final String BRAND_ACTIVITY_LIST = BASEURL + API + "brand/activeList";// 品牌部落关注列表
     public static final String GROUP_ADD = BASEURL + API + "group/add";// 添加群聊
     public static final String GROUP_REMOVE = BASEURL + API + "group/remove";// 移除群聊
+    public static final String ROB_MYROB = BASEURL + API + "rob/myRob";// 与我相关
 
 }

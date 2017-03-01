@@ -6,7 +6,7 @@ android {
         sign {
             keyAlias 'cityant'
             keyPassword 'cityant'
-            storeFile file('/Users/wupeitao/Desktop/androidworkspase/cityant/cityant_keystore.jks')
+            storeFile file('../cityant_keystore.jks')
             storePassword 'cityant'
         }
     }
@@ -88,8 +88,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.0'
     compile 'com.zhy:flowlayout-lib:1.0.3'
     compile 'com.android.support.constraint:constraint-layout:+'
-    compile 'io.reactivex:rxjava:1.1.10'
-    compile 'io.reactivex:rxandroid:1.2.1'
+//    compile 'io.reactivex:rxjava:1.1.10'
+//    compile 'io.reactivex:rxandroid:1.2.1'
     compile(name: 'rxpermissions-release', ext: 'aar')
     compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
     compile project(':redpacketlibrary')

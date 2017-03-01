@@ -47,9 +47,9 @@ public class RelatedMeActivity extends ActivitySupport {
         titleList.add("未中奖");
         titleList.add("已中奖");
         titleList.add("已退款");
-        for (int i = 0; i < titleList.size(); i++) {
-            fragmentList.add(RelatedMeFragment.newInstance(i));
-        }
+        fragmentList.add(RelatedMeFragment.newInstance(0));
+        fragmentList.add(RelatedMeFragment.newInstance(1));
+        fragmentList.add(RelatedMeFragment.newInstance(2));
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), fragmentList, titleList));
         pagerSlidingTabStrip.setupWithViewPager(viewPager);
         viewPager.setCurrentItem(0);

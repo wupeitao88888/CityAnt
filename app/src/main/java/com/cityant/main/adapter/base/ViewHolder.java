@@ -16,6 +16,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
@@ -117,6 +118,19 @@ public class ViewHolder {
     public ViewHolder setText(int viewId, String text) {
         TextView tv = getView(viewId);
         tv.setText(text);
+        return this;
+    }
+
+    /**
+     * 设置TextView的值
+     *
+     * @param viewId
+     * @param text
+     * @return
+     */
+    public ViewHolder setHtmlText(int viewId, String text) {
+        TextView tv = getView(viewId);
+        tv.setText(Html.fromHtml(text));
         return this;
     }
 

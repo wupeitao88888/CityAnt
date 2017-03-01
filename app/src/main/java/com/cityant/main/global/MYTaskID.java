@@ -26,6 +26,7 @@ public class MYTaskID {
     public static final int BRAND_ACTIVITY_LIST_ID=1018;
     public static final int GROUP_ADD_ID=1019;
     public static final int GROUP_REMOVE_ID=1020;
+    public static final int ROB_MYROB_ID=1021;
 
     public static final int CLASSLIST = 2001;
     public static final int GOODSLIST = 2002;
