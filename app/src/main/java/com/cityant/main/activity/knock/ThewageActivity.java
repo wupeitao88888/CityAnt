@@ -19,7 +19,7 @@ import java.util.List;
  * @author lvfl
  * @time 2016/12/4 15:49
  */
- class TheWageActivity extends ActivitySupport {
+public class TheWageActivity extends ActivitySupport {
 
     private ListView money_listView;
     private TheWageAdapter adapter;

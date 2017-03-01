@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.cityant.main.R;
+import com.cityant.main.activity.knock.KonckDetailsActivity;
 import com.cityant.main.adapter.base.CommonAdapter;
 import com.cityant.main.adapter.base.ViewHolder;
 import com.cityant.main.bean.konck.AndMyRob;
@@ -101,7 +101,7 @@ public class RelatedMeFragment extends BaseFragment implements ThreadCallBack{
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), "Click: " + position, Toast.LENGTH_SHORT).show();
+                KonckDetailsActivity.startActivity(getContext(),rob_list.get(position).getRob_id());
             }
         });
 

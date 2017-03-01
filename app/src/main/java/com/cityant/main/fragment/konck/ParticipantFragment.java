@@ -13,9 +13,9 @@ import com.cityant.main.R;
 import com.cityant.main.adapter.recycleview.CommonAdapter;
 import com.cityant.main.adapter.recycleview.MultiItemTypeAdapter;
 import com.cityant.main.adapter.recycleview.base.ViewHolder;
+import com.cityant.main.bean.konck.RobDetails;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
 * 参与人员
@@ -25,12 +25,12 @@ import java.util.List;
 public class ParticipantFragment extends Fragment {
 
 
-    private List<String> list = new ArrayList<>();
+    private ArrayList<RobDetails.Data.userList> par_list = new ArrayList<>();
     private CommonAdapter adapter;
 
-    public static ParticipantFragment newInstance(int color) {
+    public static ParticipantFragment newInstance(ArrayList<RobDetails.Data.userList> par_list) {
         final Bundle bundle = new Bundle();
-
+        bundle.putSerializable("par_list",par_list);
         final ParticipantFragment fragment = new ParticipantFragment();
         fragment.setArguments(bundle);
         return fragment;
@@ -40,18 +40,18 @@ public class ParticipantFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle sis) {
-
+        par_list = (ArrayList<RobDetails.Data.userList>) getArguments().getSerializable("par_list");
         final View view = inflater.inflate(R.layout.fragment_recyclerview_layout, parent, false);
-        for(int i = 0;i < 10 ; i++){
-            list.add(i+"");
-        }
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        adapter = new CommonAdapter(getContext(),R.layout.participant_item_layout,list){
+        adapter = new CommonAdapter(getContext(),R.layout.participant_item_layout,par_list){
             @Override
             protected void convert(ViewHolder holder, Object o, int position) {
-
+                holder.setCircleImageUrl(R.id.user_image,par_list.get(position).getUser_avar());
+                holder.setText(R.id.user_name,par_list.get(position).getUser_name());
+                holder.setVisible(R.id.promoter_text,"0".equals(par_list.get(position).getIs_own()) ? false : true);
+                holder.setVisible(R.id.winning_image,"0".equals(par_list.get(position).getIs_own()) ? false : true);
             }
         };
         adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {

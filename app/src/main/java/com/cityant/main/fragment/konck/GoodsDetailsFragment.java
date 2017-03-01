@@ -15,7 +15,6 @@ import com.cityant.main.adapter.recycleview.MultiItemTypeAdapter;
 import com.cityant.main.adapter.recycleview.base.ViewHolder;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
 * 商品详情
@@ -25,12 +24,12 @@ import java.util.List;
 public class GoodsDetailsFragment extends Fragment {
 
 
-    private List<String> list = new ArrayList<>();
+    private ArrayList<String> goods_list = new ArrayList<>();
     private CommonAdapter adapter;
 
-    public static GoodsDetailsFragment newInstance(int color) {
+    public static GoodsDetailsFragment newInstance(ArrayList<String> goods_list) {
         final Bundle bundle = new Bundle();
-
+        bundle.putSerializable("goods_list",goods_list);
         final GoodsDetailsFragment fragment = new GoodsDetailsFragment();
         fragment.setArguments(bundle);
         return fragment;
@@ -40,19 +39,16 @@ public class GoodsDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle sis) {
-
+        goods_list = (ArrayList<String>) getArguments().getSerializable("goods_list");
         final View view = inflater.inflate(R.layout.fragment_recyclerview_layout, parent, false);
-        for(int i = 0;i < 10 ; i++){
-            list.add(i+"");
-        }
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        adapter = new CommonAdapter(getContext(),R.layout.goods_details_item_layout,list){
+        adapter = new CommonAdapter(getContext(),R.layout.goods_details_item_layout,goods_list){
 
             @Override
             protected void convert(ViewHolder holder, Object o, int position) {
-//                holder.setImageUrl(R.id.goods_image,"http://pic.58pic.com/58pic/12/74/39/20b58PICcVh.jpg");
+                holder.setImageUrl(R.id.goods_image,goods_list.get(position));
             }
         };
         adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {

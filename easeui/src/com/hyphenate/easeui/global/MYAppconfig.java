@@ -45,5 +45,7 @@ public class MYAppconfig extends AppConfig {
     public static final String GROUP_ADD = BASEURL + API + "group/add";// 添加群聊
     public static final String GROUP_REMOVE = BASEURL + API + "group/remove";// 移除群聊
     public static final String ROB_MYROB = BASEURL + API + "rob/myRob";// 与我相关
+    public static final String ROB_DETAILS_INFO = BASEURL + API + "rob/info";// 抢详情
+    public static final String ROB_INDEX = BASEURL + API + "rob/index";// 抢首页
 
 }

@@ -19,18 +19,25 @@ import com.cityant.main.activity.knock.MoreTribeActivity;
 import com.cityant.main.activity.knock.RelatedMeActivity;
 import com.cityant.main.activity.knock.TribeDetailsActivity;
 import com.cityant.main.adapter.ViewPagerAdapter;
+import com.cityant.main.bean.konck.RobDetails;
 import com.cityant.main.fragment.konck.DoublePeopleFragment;
 import com.cityant.main.fragment.konck.FivePeopleFragment;
 import com.cityant.main.fragment.konck.HundredPeopleFragment;
 import com.cityant.main.fragment.konck.ManyPeopleFragment;
 import com.cityant.main.fragment.konck.TenPeopleFragment;
+import com.cityant.main.global.MYTaskID;
 import com.cityant.main.utlis.ConfigurationFragmentCallbacks;
 import com.cityant.main.widget.TabsLayout;
+import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.base.FragmentSupport;
+import com.iloomo.net.AsyncHttpPost;
+import com.iloomo.net.ThreadCallBack;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import ru.noties.scrollable.CanScrollVerticallyDelegate;
 import ru.noties.scrollable.OnFlingOverListener;
@@ -38,7 +45,7 @@ import ru.noties.scrollable.OnScrollChangedListener;
 import ru.noties.scrollable.ScrollableLayout;
 
 
-public class FragmentKnock extends FragmentSupport implements ConfigurationFragmentCallbacks {
+public class FragmentKnock extends FragmentSupport implements ConfigurationFragmentCallbacks,ThreadCallBack {
 
     private ListView mlist;
     private ViewPager viewPager;
@@ -156,6 +163,13 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
         return view;
     }
 
+    private void initData() {
+        Map<String, Object> parameter = new HashMap<>();
+        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
+        new AsyncHttpPost(FragmentKnock.this, MYAppconfig.ROB_DETAILS_INFO, parameter, MYTaskID.ROB_DETAILS_INFO_ID,
+                RobDetails.class, getContext());
+    }
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -220,4 +234,23 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
     }
 
 
+    @Override
+    public void onCallbackFromThread(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+
+    }
+
+    @Override
+    public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+
+    }
 }
