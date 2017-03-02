@@ -7,6 +7,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.PImageLoaderUtils;
+import com.iloomo.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -129,23 +131,29 @@ public class KonckDetailsActivity extends BaseToolbarActivity implements ThreadC
                         PImageLoaderUtils.getInstance().displayIMG(robDetails.data.getGoods_img(),goods_image,this);
                         money_goods_text.setText(robDetails.data.getRob_price());
                         konck_title_text.setText(robDetails.data.getGoods_title());
-    //                goods_name.setText(robDetails.data.get());
-    //                fired_text.setText(robDetails.data.get());
+                        goods_name.setText(robDetails.data.getSize());
+                        fired_text.setVisibility("0".equals(robDetails.data.getIs_friend()) ? View.GONE : View.VISIBLE);
                         need_people.setText("总需人数："+ robDetails.data.getGoods_title());
                         poor_people.setText(Html.fromHtml("<font color = #666666 >还需人数：</font><font color=#f4cc08>"+robDetails.data.getPoor_man()+"</font>"));
                         switch (robDetails.data.getState()){
                             case "1":
-                                over_time_text.setText("进行中");
+                                over_time_text.setText("截止日期："+ robDetails.data.getEnd_time());
                                 break;
                             case "2":
-                                over_time_text.setText("已完结");
+                                over_time_text.setText("已结束 截止日期：" + robDetails.data.getEnd_time());
                                 break;
                             case "3":
-                                over_time_text.setText("已过期");
+                                over_time_text.setText("截止日期："+ robDetails.data.getEnd_time());
                                 break;
                         }
                         par_list.addAll(robDetails.data.user_list);
                         goods_list.addAll(robDetails.data.getGoods_imgs());
+                    }
+                } else {
+                    if (null != robDetails.data){
+                        ToastUtil.show(this,robDetails.data.getCode_message()+"",ToastUtil.SHOW_TOAST);
+                    }else{
+                        ToastUtil.show(this,"暂无数据",ToastUtil.SHOW_TOAST);
                     }
                 }
             } catch (Exception e) {

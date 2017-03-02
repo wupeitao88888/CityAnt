@@ -32,7 +32,34 @@ public class RobDetails extends BaseModel {
         private String rob_price;
         private String need_man;
         private String poor_man;
+        private String size;
+        private String is_friend;
+        private String end_time;
         public List<userList> user_list;
+
+        public String getSize() {
+            return size;
+        }
+
+        public void setSize(String size) {
+            this.size = size;
+        }
+
+        public String getIs_friend() {
+            return is_friend;
+        }
+
+        public void setIs_friend(String is_friend) {
+            this.is_friend = is_friend;
+        }
+
+        public String getEnd_time() {
+            return end_time;
+        }
+
+        public void setEnd_time(String end_time) {
+            this.end_time = end_time;
+        }
 
         public String getCode_message() {
             return code_message;

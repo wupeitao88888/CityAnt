@@ -28,6 +28,7 @@ public class MYTaskID {
     public static final int GROUP_REMOVE_ID=1020;
     public static final int ROB_MYROB_ID=1021;
     public static final int ROB_DETAILS_INFO_ID=1022;
+    public static final int ROB_INDEX_ID=1023;
 
     public static final int CLASSLIST = 2001;
     public static final int GOODSLIST = 2002;

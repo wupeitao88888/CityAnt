@@ -19,7 +19,7 @@ import com.cityant.main.activity.knock.MoreTribeActivity;
 import com.cityant.main.activity.knock.RelatedMeActivity;
 import com.cityant.main.activity.knock.TribeDetailsActivity;
 import com.cityant.main.adapter.ViewPagerAdapter;
-import com.cityant.main.bean.konck.RobDetails;
+import com.cityant.main.bean.konck.RobIndex;
 import com.cityant.main.fragment.konck.DoublePeopleFragment;
 import com.cityant.main.fragment.konck.FivePeopleFragment;
 import com.cityant.main.fragment.konck.HundredPeopleFragment;
@@ -166,8 +166,8 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
     private void initData() {
         Map<String, Object> parameter = new HashMap<>();
         parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
-        new AsyncHttpPost(FragmentKnock.this, MYAppconfig.ROB_DETAILS_INFO, parameter, MYTaskID.ROB_DETAILS_INFO_ID,
-                RobDetails.class, getContext());
+        new AsyncHttpPost(FragmentKnock.this, MYAppconfig.ROB_INDEX, parameter, MYTaskID.ROB_INDEX_ID,
+                RobIndex.class, getContext());
     }
 
 
