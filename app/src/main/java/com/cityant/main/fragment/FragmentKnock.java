@@ -55,6 +55,7 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
     private RelativeLayout launch_rl;
     private RelativeLayout relevant_rl;
     private TextView brand_more;
+    private TextView screen_text;
 
     private ScrollableLayout mScrollableLayout;
 
@@ -89,6 +90,7 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
         relevant_rl = (RelativeLayout) view.findViewById(R.id.relevant_rl);
 
         brand_more = (TextView) view.findViewById(R.id.brand_more);
+        screen_text = (TextView) view.findViewById(R.id.screen_text);
 
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
         final com.cityant.main.adapter.ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager(), getResources(), getFragments());
@@ -146,6 +148,9 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
         });
         brand_more.setOnClickListener(v -> {
             MoreTribeActivity.startActivity(getContext());
+        });
+        screen_text.setOnClickListener(v -> {
+            //TODO 显示筛选页面
         });
         return view;
     }
