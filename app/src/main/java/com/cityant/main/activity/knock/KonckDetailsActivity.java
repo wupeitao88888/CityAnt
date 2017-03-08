@@ -62,9 +62,9 @@ public class KonckDetailsActivity extends BaseToolbarActivity implements ThreadC
     private ArrayList<RobDetails.Data.userList> par_list;
     private ArrayList<String> goods_list;
 
-    public static void startActivity(Context context,String rob_id){
+    public static void startActivity(Context context){
         Intent intent = new Intent(context,KonckDetailsActivity.class);
-        intent.putExtra("rob_id",rob_id);
+//        intent.putExtra("rob_id",rob_id);
         context.startActivity(intent);
     }
 

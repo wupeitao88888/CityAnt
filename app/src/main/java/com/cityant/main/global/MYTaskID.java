@@ -18,17 +18,20 @@ public class MYTaskID {
     public static final int TAG_LIST = 1011;
     public static final int NEED_NEEDINFO_ID = 1012;
     public static final int GUESS_INDE = 1012;
-    public static final int GUESS_INDEX=1013;
-    public static final int GUESS_CREATE=1014;
-    public static final int ROB_BRANDLIST=1015;
-    public static final int ROB_CREATE=1016;
-    public static final int BRAND_INFO_ID=1017;
-    public static final int BRAND_ACTIVITY_LIST_ID=1018;
-    public static final int GROUP_ADD_ID=1019;
-    public static final int GROUP_REMOVE_ID=1020;
-    public static final int ROB_MYROB_ID=1021;
-    public static final int ROB_DETAILS_INFO_ID=1022;
-    public static final int ROB_INDEX_ID=1023;
+
+    public static final int GUESS_INDEX = 1013;
+    public static final int GUESS_CREATE = 1014;
+    public static final int ROB_BRANDLIST = 1015;
+    public static final int ROB_CREATE = 1016;
+    public static final int BRAND_INFO_ID = 1017;
+    public static final int BRAND_ACTIVITY_LIST_ID = 1018;
+    public static final int GROUP_ADD_ID = 1019;
+    public static final int GROUP_REMOVE_ID = 1020;
+    public static final int ROB_MYROB_ID = 1021;
+    public static final int ROB_DETAILS_INFO_ID = 1022;
+    public static final int ROB_INDEX_ID = 1023;
+    public static final int ADDRESS_INDEX = 1024;
+
 
     public static final int CLASSLIST = 2001;
     public static final int GOODSLIST = 2002;
@@ -41,4 +44,12 @@ public class MYTaskID {
     public static final int UPDATEUSERNAME = 2009;
     public static final int UPDATEUSERBOTHDAY = 2010;
     public static final int TRIBE_BRAND_INDEX_ID = 2011;
+    public static final int ADDRESS_AREA = 2012;
+    public static final int ADDRESS_ADD = 2013;
+    public static final int ADDRESS_UPDATE = 2014;
+    public static final int ADDRESS_DELETE = 2015;
+    public static final int ADDRESS_DEFAULT = 2016;
+    public static final int ADDRESS_SETDEFAULT = 2017;
+    public static final int USERINFO_AREA = 2018;
+    public static final int USERPRICE_PAYPRICE = 2019;
 }

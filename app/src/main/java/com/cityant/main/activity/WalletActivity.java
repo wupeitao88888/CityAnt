@@ -1,5 +1,6 @@
 package com.cityant.main.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -30,16 +31,16 @@ public class WalletActivity extends ActivitySupport implements ThreadCallBack {
         setContentView(R.layout.activity_wallet);
         setCtenterTitle(R.string.wallet);
         balance = (TextView) findViewById(R.id.balance);
-//        getIncome();
+        getIncome();
     }
 
-//    public void getIncome() {
-//        Map<String, Object> parameter = new HashMap<>();
-//        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
-//        AsyncHttpPost httpRequest;
-//        httpRequest = new AsyncHttpPost(this, MYAppconfig.TODAYINCOME, parameter, MYTaskID.TODAYINCOME,
-//                TodayIncomeModel.class, context);
-//    }
+    public void getIncome() {
+        Map<String, Object> parameter = new HashMap<>();
+        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
+        AsyncHttpPost httpRequest;
+        httpRequest = new AsyncHttpPost(this, MYAppconfig.TODAYINCOME, parameter, MYTaskID.TODAYINCOME,
+                TodayIncomeModel.class, context);
+    }
 
     /***
      * 绑定支付宝
@@ -63,8 +64,7 @@ public class WalletActivity extends ActivitySupport implements ThreadCallBack {
      * 充值
      */
     public void onTopUpClick(View view) {
-
-
+        mIntent(context, RechargeActivity.class);
     }
 
     /***

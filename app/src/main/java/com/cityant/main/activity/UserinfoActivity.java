@@ -29,6 +29,7 @@ import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.TimePickerView;
 import com.cityant.main.R;
 import com.cityant.main.bean.EvaluateListModel;
+import com.cityant.main.bean.UniversallyModel;
 import com.cityant.main.bean.UpdateUserInfoModel;
 import com.cityant.main.bean.UserInfoData;
 import com.cityant.main.bean.UserInfoModel;
@@ -79,7 +80,7 @@ import okhttp3.Response;
  * Created by wupeitao on 16/8/13.
  */
 public class UserinfoActivity extends ActivitySupport implements ThreadCallBack {
-
+    public final static int request = 0;
     private TextView nickname;
     private ImageView userhead_img;
     private TimePickerView birthPicker;
@@ -179,11 +180,21 @@ public class UserinfoActivity extends ActivitySupport implements ThreadCallBack 
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
-
             case TAILOR:// 裁剪后
                 cropPictureResult(requestCode, resultCode, data);
                 break;
+            case AddAddressActivity.request:
+                if (data != null) {
+                    Bundle bg = data.getBundleExtra("addressdata");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(bg.getString("province") + " ");
+                    sb.append(bg.getString("city") + " ");
+                    sb.append(bg.getString("district") + " ");
+                    sb.append(bg.getString("street") + " ");
+                    setArea(sb.toString(), bg);
+                }
 
+                break;
         }
 
     }
@@ -463,7 +474,9 @@ public class UserinfoActivity extends ActivitySupport implements ThreadCallBack 
      * @param view
      */
     public void onAdressClick(View view) {
-
+        Intent mIntent = new Intent();
+        mIntent.setClass(context, AddressAllActivity.class);
+        startActivityForResult(mIntent, request);
     }
 
     @Override
@@ -734,5 +747,59 @@ public class UserinfoActivity extends ActivitySupport implements ThreadCallBack 
                     }
                 });
     }
+
+    public void setArea(String area, Bundle bg) {
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
+        parameter.put("area", area);
+        DialogUtil.startDialogLoading(context);
+        new AsyncHttpPost(new ThreadCallBack() {
+            @Override
+            public void onCallbackFromThread(String resultJson, Object modelClass) {
+
+            }
+
+            @Override
+            public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
+                DialogUtil.stopDialogLoading(context);
+                switch (resultCode) {
+                    case MYTaskID.USERINFO_AREA:
+//                        UniversallyModel addressModel = (UniversallyModel) modelClass;
+                        adress.setText("");
+                        adress.append(bg.getString("province") + " ");
+                        adress.append(bg.getString("city") + " ");
+                        adress.append(bg.getString("district") + " ");
+                        adress.append(bg.getString("street") + " ");
+
+                        MyThreadPool.getInstance().submit(new Runnable() {
+                            @Override
+                            public void run() {
+                                DBControlApp.getInstance(context).updateUserInfoArwa(area);
+                            }
+                        });
+                        break;
+                }
+            }
+
+            @Override
+            public void onCallbackFromThreadError(String resultJson, Object modelClass) {
+
+            }
+
+            @Override
+            public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+                DialogUtil.stopDialogLoading(context);
+                switch (resultCode) {
+                    case MYTaskID.USERINFO_AREA:
+                        UniversallyModel addressModel = (UniversallyModel) modelClass;
+                        ToastUtil.showShort(context, addressModel.getData().getCode_message());
+                        break;
+                }
+            }
+        }, MYAppconfig.USERUPDATE, parameter, MYTaskID.USERINFO_AREA,
+                UniversallyModel.class, context);
+    }
+
 
 }
