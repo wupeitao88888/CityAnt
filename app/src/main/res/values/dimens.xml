@@ -3,6 +3,8 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="login_edittext_height">48dp</dimen>
     <dimen name="textsize13">11.5dp</dimen>
+    <dimen name="textsize13_13">13dp</dimen>
+    <dimen name="textsize14">14dp</dimen>
     <dimen name="textsize15">15dp</dimen>
     <!--<dimen name="height_row_weixin">59dp</dimen>-->
     <!--<dimen name="size_avatar">48dp</dimen>-->

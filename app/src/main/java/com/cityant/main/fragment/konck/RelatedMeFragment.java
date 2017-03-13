@@ -101,7 +101,7 @@ public class RelatedMeFragment extends BaseFragment implements ThreadCallBack{
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                KonckDetailsActivity.startActivity(getContext(),rob_list.get(position).getRob_id());
+//                KonckDetailsActivity.startActivity(getContext(),rob_list.get(position).getRob_id());
             }
         });
 

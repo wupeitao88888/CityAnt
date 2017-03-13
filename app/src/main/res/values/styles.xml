@@ -65,8 +65,28 @@
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">@dimen/login_edittext_height</item>
 
+
     </style>
 
+    <style name="edittext_style">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textColor">@color/black_3</item>
+        <!--<item name="android:textColorHint">#d2d2d2</item>-->
+        <item name="android:textSize">14dp</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/login_edittext_height</item>
+
+
+    </style>
+
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/indigo</item>
+        <item name="colorControlActivated">@color/pink</item>
+    </style>
     <style name="fast_login_re">
         <item name="android:layout_height">fill_parent</item>
         <item name="android:layout_width">fill_parent</item>

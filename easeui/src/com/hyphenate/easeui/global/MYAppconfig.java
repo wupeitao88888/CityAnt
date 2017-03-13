@@ -33,7 +33,7 @@ public class MYAppconfig extends AppConfig {
     public static final String SALE = BASEURL + API + "bank/sale";
     public static final String beanList = BASEURL + API + "bean/beanList";
     public static final String BEANSALE = BASEURL + API + "bean/sale";
-    public static final String INCOME =BASEURL + API +  "userPrice/todayIncome";
+    public static final String INCOME = BASEURL + API + "userPrice/todayIncome";
     public static final String GUESS_INDEX = BASEURL + API + "guess/index";
     public static final String GUESS_CREATE = BASEURL + API + "guess/create";
     public static final String ROB_BRANDLIST = BASEURL + API + "rob/brandList";
@@ -47,5 +47,14 @@ public class MYAppconfig extends AppConfig {
     public static final String ROB_MYROB = BASEURL + API + "rob/myRob";// 与我相关
     public static final String ROB_DETAILS_INFO = BASEURL + API + "rob/info";// 抢详情
     public static final String ROB_INDEX = BASEURL + API + "rob/index";// 抢首页
+
+    public static final String ADDRESS_INDEX = BASEURL + API + "address/index";//地址列表
+    public static final String ADDRESS_AREA = BASEURL + API + "address/areaList";//地址列表
+    public static final String ADDRESS_ADD = BASEURL + API + "address/add";//地址添加
+    public static final String ADDRESS_UPDATE = BASEURL + API + "address/update";//地址添加
+    public static final String ADDRESS_DELETE = BASEURL + API + "address/delete";//地址删除
+    public static final String ADDRESS_DEFAULT = BASEURL + API + "address/defaultInfo";//我的默认地址
+    public static final String ADDRESS_SETDEFAULT = BASEURL + API + "address/setDefault";//设置默认地址
+    public static final String USERPRICE_PAYPRICE= BASEURL + API + "userPrice/payPrice";//充值余额
 
 }

@@ -11,13 +11,14 @@ import android.widget.TextView;
 
 import com.cityant.main.R;
 import com.cityant.main.adapter.AddressAdapter;
-import com.cityant.main.adapter.UserAddressAdapter;
 import com.cityant.main.bean.Address;
 import com.cityant.main.bean.AddressModel;
+import com.cityant.main.bean.GoodsListModel;
 import com.cityant.main.bean.UniversallyModel;
 import com.cityant.main.global.MYTaskID;
 import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.base.ActivitySupport;
+import com.iloomo.global.AppConfig;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
 import com.iloomo.utils.ToastUtil;
@@ -27,13 +28,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrDefaultHandler2;
+import in.srain.cube.views.ptr.PtrFrameLayout;
+
 /**
- * Created by wupeitao on 2016/10/20.
+ * Created by wupeitao on 2017/3/3.
  */
 
-public class UserAddressInfo extends ActivitySupport {
+public class AddressActivity extends ActivitySupport implements View.OnClickListener {
     private ListView listtype;
-    private UserAddressAdapter addressAdapter;
+    private AddressAdapter addressAdapter;
     public final static int RESULT = 1;
     private LCDialog lcDialog;
     private List<Address> mlist;
@@ -41,11 +46,10 @@ public class UserAddressInfo extends ActivitySupport {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_useraddressinfo);
-        setCtenterTitle("我的收货地址");
+        setContentView(R.layout.activity_address);
+        setCtenterTitle("地址");
         initView();
     }
-
 
     /***
      * 添加地址
@@ -78,7 +82,7 @@ public class UserAddressInfo extends ActivitySupport {
                     case MYTaskID.ADDRESS_INDEX:
                         AddressModel addressModel = (AddressModel) modelClass;
                         mlist = addressModel.getData().getAddress_list();
-                        addressAdapter = new UserAddressAdapter(context, mlist);
+                        addressAdapter = new AddressAdapter(context, mlist);
                         listtype.setAdapter(addressAdapter);
                         listtype.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
@@ -89,7 +93,7 @@ public class UserAddressInfo extends ActivitySupport {
                         listtype.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                             @Override
                             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                                showInfoDialog(addressModel.getData().getAddress_list().get(position).getAddress_id(), position);
+                                showInfoDialog(addressModel.getData().getAddress_list().get(position).getAddress_id(),position);
                                 return true;
                             }
                         });
@@ -129,13 +133,18 @@ public class UserAddressInfo extends ActivitySupport {
 
 
     private void showInfoDialog(String address_id, int position) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.layout_dialogaddress, null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.layout_dialogcreategrab, null);
         lcDialog = new LCDialog(context, com.iloomo.paysdk.R.style.PgDialog, inflate);
         lcDialog.show();
-        RelativeLayout default_add = (RelativeLayout) inflate.findViewById(R.id.default_add);
-        RelativeLayout delete = (RelativeLayout) inflate.findViewById(R.id.delete);
+        RelativeLayout my_close = (RelativeLayout) inflate.findViewById(R.id.my_close);
+        TextView cancel = (TextView) inflate.findViewById(R.id.cancel);
+        TextView affirm = (TextView) inflate.findViewById(R.id.affirm);
+        TextView content = (TextView) inflate.findViewById(R.id.content);
 
-        delete.setOnClickListener(new View.OnClickListener() {
+        content.setText("是否删除？");
+        my_close.setOnClickListener(this);
+        cancel.setOnClickListener(this);
+        affirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (lcDialog.isShowing()) {
@@ -144,17 +153,24 @@ public class UserAddressInfo extends ActivitySupport {
                 deleteAddress(address_id, position);
             }
         });
-        default_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.cancel:
                 if (lcDialog.isShowing()) {
                     lcDialog.dismiss();
                 }
-                setDefault(address_id);
-            }
-        });
+                break;
+            case R.id.my_close:
+                if (lcDialog.isShowing()) {
+                    lcDialog.dismiss();
+                }
+                break;
+        }
     }
-
 
     private void deleteAddress(String address_id, int position) {
         Map<String, Object> parameter = new HashMap<>();
@@ -171,6 +187,9 @@ public class UserAddressInfo extends ActivitySupport {
             public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
                 switch (resultCode) {
                     case MYTaskID.ADDRESS_DELETE:
+
+//                        UniversallyModel addressModel = (UniversallyModel) modelClass;
+//                        ToastUtil.showShort(context, addressModel.getData().getCode_message());
                         mlist.remove(position);
                         addressAdapter.notifyDataSetChanged();
                         break;
@@ -194,44 +213,5 @@ public class UserAddressInfo extends ActivitySupport {
         }, MYAppconfig.ADDRESS_DELETE, parameter, MYTaskID.ADDRESS_DELETE,
                 UniversallyModel.class, context);
     }
-
-    private void setDefault(String address_id) {
-        Map<String, Object> parameter = new HashMap<>();
-        parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
-        parameter.put("address_id", address_id);
-
-        new AsyncHttpPost(new ThreadCallBack() {
-            @Override
-            public void onCallbackFromThread(String resultJson, Object modelClass) {
-
-            }
-
-            @Override
-            public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
-                switch (resultCode) {
-                    case MYTaskID.ADDRESS_SETDEFAULT:
-                        getAddressList();
-                        break;
-                }
-            }
-
-            @Override
-            public void onCallbackFromThreadError(String resultJson, Object modelClass) {
-
-            }
-
-            @Override
-            public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
-                switch (resultCode) {
-                    case MYTaskID.ADDRESS_SETDEFAULT:
-                        UniversallyModel addressModel = (UniversallyModel) modelClass;
-                        ToastUtil.showShort(context, addressModel.getData().getCode_message());
-                        break;
-                }
-            }
-        }, MYAppconfig.ADDRESS_SETDEFAULT, parameter, MYTaskID.ADDRESS_SETDEFAULT,
-                UniversallyModel.class, context);
-    }
-
 
 }
