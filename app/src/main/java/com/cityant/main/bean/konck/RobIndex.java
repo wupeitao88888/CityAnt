@@ -24,6 +24,15 @@ public class RobIndex extends BaseModel {
     public class Data{
         private String code_message;
         public List<robList> rob_list;
+        public List<brandList> brand_list;
+
+        public List<brandList> getBrand_list() {
+            return brand_list;
+        }
+
+        public void setBrand_list(List<brandList> brand_list) {
+            this.brand_list = brand_list;
+        }
 
         public String getCode_message() {
             return code_message;
@@ -41,6 +50,35 @@ public class RobIndex extends BaseModel {
             this.rob_list = rob_list;
         }
 
+        public class brandList{
+            private String brand_id;
+            private String brand_img;
+            private String brand_name;
+
+            public String getBrand_id() {
+                return brand_id;
+            }
+
+            public void setBrand_id(String brand_id) {
+                this.brand_id = brand_id;
+            }
+
+            public String getBrand_img() {
+                return brand_img;
+            }
+
+            public void setBrand_img(String brand_img) {
+                this.brand_img = brand_img;
+            }
+
+            public String getBrand_name() {
+                return brand_name;
+            }
+
+            public void setBrand_name(String brand_name) {
+                this.brand_name = brand_name;
+            }
+        }
         public class robList{
             private String rob_id;
             private String goods_title;
@@ -50,6 +88,15 @@ public class RobIndex extends BaseModel {
             private String poor_man;
             private String user_avar;
             private String user_name;
+            private String is_friend;
+
+            public String getIs_friend() {
+                return is_friend;
+            }
+
+            public void setIs_friend(String is_friend) {
+                this.is_friend = is_friend;
+            }
 
             public String getRob_id() {
                 return rob_id;

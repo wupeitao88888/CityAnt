@@ -315,6 +315,7 @@
                 android:layout_width="match_parent"
                 android:background="@color/white"
                 android:layout_toLeftOf="@+id/line1"
+                android:scrollbars="none"
                 android:layout_height="40dp" />
 
         </RelativeLayout>
@@ -329,6 +330,5 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
 </ru.noties.scrollable.ScrollableLayout>

@@ -8,11 +8,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.cityant.main.R;
 import com.cityant.main.activity.CreateSmallGrabActivity;
 import com.cityant.main.activity.knock.MoreTribeActivity;
@@ -32,6 +33,7 @@ import com.hyphenate.easeui.global.MYAppconfig;
 import com.iloomo.base.FragmentSupport;
 import com.iloomo.net.AsyncHttpPost;
 import com.iloomo.net.ThreadCallBack;
+import com.iloomo.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,7 +49,6 @@ import ru.noties.scrollable.ScrollableLayout;
 
 public class FragmentKnock extends FragmentSupport implements ConfigurationFragmentCallbacks,ThreadCallBack {
 
-    private ListView mlist;
     private ViewPager viewPager;
     private ArrayList<Fragment> fragmentList;
     private static final String ARG_LAST_SCROLL_Y = "arg.LastScrollY";
@@ -58,6 +59,7 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
     private TextView screen_text;
 
     private ScrollableLayout mScrollableLayout;
+    private LinearLayout brand_array_ll;
 
     @Override
     public View setTitleBar(View view) {
@@ -78,7 +80,7 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
             }
         });
         final View header = view.findViewById(R.id.header);
-        final LinearLayout brand_array_ll = (LinearLayout) view.findViewById(R.id.brand_array_ll);
+        brand_array_ll = (LinearLayout) view.findViewById(R.id.brand_array_ll);
         final TabsLayout tabs = (TabsLayout) view.findViewById(R.id.tabs);
 
         rob_linear_ll = (LinearLayout) view.findViewById(R.id.rob_linear_ll);
@@ -128,9 +130,6 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
             }
         });
 
-        for( int i = 0; i < 10 ; i++ ){
-            brand_array_ll.addView(addView());
-        }
 //        if (savedInstanceState != null) {
 //            final int y = savedInstanceState.getInt(ARG_LAST_SCROLL_Y);
 //            mScrollableLayout.post(new Runnable() {
@@ -152,25 +151,31 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
         screen_text.setOnClickListener(v -> {
             //TODO 显示筛选页面
         });
+        initData();
         return view;
     }
 
-    private View addView() {
+    private View addView(RobIndex.Data.brandList brandList) {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
         LayoutInflater inflater3 = LayoutInflater.from(getActivity());
         View view = inflater3.inflate(R.layout.brand_item_layout, null);
-
+        ImageView brand_image = (ImageView) view.findViewById(R.id.brand_image);
+        TextView brand_name = (TextView) view.findViewById(R.id.brand_name);
+        Glide.with(getContext()).load(brandList.getBrand_img()).centerCrop().into(brand_image);
+        brand_name.setText(brandList.getBrand_name());
         view.setOnClickListener(v -> {
-            TribeDetailsActivity.startActivity(getContext(),"屈臣氏","");
+            TribeDetailsActivity.startActivity(getContext(),brandList.getBrand_name()+"",brandList.getBrand_id()+"");
         });
 
         return view;
     }
 
+    //抢首页接口
     private void initData() {
         Map<String, Object> parameter = new HashMap<>();
         parameter.put("token", MYAppconfig.loginUserInfoData.getToken());
+        parameter.put("rob_type", "2");
         new AsyncHttpPost(FragmentKnock.this, MYAppconfig.ROB_INDEX, parameter, MYTaskID.ROB_INDEX_ID,
                 RobIndex.class, getContext());
     }
@@ -246,16 +251,32 @@ public class FragmentKnock extends FragmentSupport implements ConfigurationFragm
 
     @Override
     public void onCallBackFromThread(String resultJson, int resultCode, Object modelClass) {
-
+        if (resultCode == MYTaskID.ROB_INDEX_ID){
+            RobIndex robIndex = (RobIndex) modelClass;
+            if ("200".equals(robIndex.getCode()) && null != robIndex.data.brand_list && robIndex.data.brand_list.size() > 0){
+                brand_array_ll.removeAllViews();
+                for( int i = 0; i < robIndex.data.brand_list.size() ; i++ ){
+                    brand_array_ll.addView(addView(robIndex.data.brand_list.get(i)));
+                }
+            } else {
+                if (null != robIndex.data){
+                    ToastUtil.show(getContext(),robIndex.data.getCode_message()+"",ToastUtil.SHOW_TOAST);
+                    return;
+                }
+                ToastUtil.show(getContext(),"暂无数据",ToastUtil.SHOW_TOAST);
+            }
+        }
     }
 
     @Override
     public void onCallbackFromThreadError(String resultJson, Object modelClass) {
-
     }
 
     @Override
     public void onCallBackFromThreadError(String resultJson, int resultCode, Object modelClass) {
+        if (resultCode == MYTaskID.ROB_INDEX_ID){
+            ToastUtil.show(getContext(),"暂无数据",ToastUtil.SHOW_TOAST);
+        }
 
     }
 }
