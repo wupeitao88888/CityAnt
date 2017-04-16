@@ -85,6 +85,106 @@
                 </RelativeLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white" >
+
+                <LinearLayout
+                    android:id="@+id/lottery_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:background="@drawable/ic_launcher"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:text="待开奖"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="7dp"
+                        android:textColor="@color/black_3"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/winning_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:background="@drawable/ic_launcher"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:text="已中奖"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="7dp"
+                        android:textColor="@color/black_3"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/not_winning_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:background="@drawable/ic_launcher"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:text="未中奖"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="7dp"
+                        android:textColor="@color/black_3"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/expired_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:background="@drawable/ic_launcher"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:text="过期已退款"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="7dp"
+                        android:textColor="@color/black_3"/>
+                </LinearLayout>
+            </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="6dp"
@@ -106,24 +206,14 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="12dp"
-                    android:layout_toRightOf="@+id/brand_text"
-                    android:text="好商品，不容错过！"
-                    android:textColor="#f46608"
-                    android:textSize="12sp" />
-
-                <TextView
                     android:id="@+id/brand_more"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:text="更多》"
-                    android:textColor="@color/black_6"
+                    android:text="更多>"
+                    android:textColor="#f46608"
                     android:textSize="11sp" />
             </RelativeLayout>
 

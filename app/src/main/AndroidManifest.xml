@@ -825,7 +825,7 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <!--发工资-->
         <activity
-            android:name=".activity.knock.TheWageActivity"
+            android:name=".activity.knock.ThewageActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <!--抢详情-->

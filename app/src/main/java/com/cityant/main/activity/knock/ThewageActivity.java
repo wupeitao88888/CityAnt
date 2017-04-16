@@ -19,13 +19,13 @@ import java.util.List;
  * @author lvfl
  * @time 2016/12/4 15:49
  */
-public class TheWageActivity extends ActivitySupport {
+public class ThewageActivity extends ActivitySupport {
 
     private ListView money_listView;
     private TheWageAdapter adapter;
 
     public static void startActivity(Context context){
-        Intent intent = new Intent(context,TheWageActivity.class);
+        Intent intent = new Intent(context,ThewageActivity.class);
         context.startActivity(intent);
     }
 

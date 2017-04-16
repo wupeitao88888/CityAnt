@@ -118,7 +118,7 @@ public class TribeDetailsActivity extends ActivitySupport implements ThreadCallB
             TribeFollowActivity.startActivity(this,brand_id);
         });
         money_rl.setOnClickListener(v -> {
-            TheWageActivity.startActivity(this);
+            ThewageActivity.startActivity(this);
         });
 
         getTribeDetailsData();
